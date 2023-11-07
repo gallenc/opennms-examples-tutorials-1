@@ -5,8 +5,20 @@ volumes:
   data-postgres: {}
   data-opennms: {}
   data-opennms-cfg: {}
+  data-grafana: {}
 
 services:
+
+  nginx:
+    image: nginx:1.23-alpine
+    container_name: nginx
+    hostname: nginx
+    restart: unless-stopped
+    volumes:
+      - ./container-fs/nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+
   database:
     image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-13}
     container_name: database
@@ -51,6 +63,27 @@ services:
       interval: 1m
       timeout: 5s
       retries: 3
+      
+  grafana:
+    image: ${DOCKER_REGISTRY:-docker.io}/grafana/grafana:${GRAFANA_VERSION:-latest}
+    container_name: grafana
+    hostname: grafana
+    environment:
+      TZ: ${TIMEZONE:-America/New_York}
+      GF_SECURITY_ADMIN_PASSWORD: mypass
+      GF_INSTALL_PLUGINS: opennms-opennms-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
+      GF_SERVER_HTTP_PORT: 3000
+      GF_SERVER_PROTOCOL: http
+      GF_SERVER_DOMAIN: localhost:80
+      GF_SERVER_ROOT_URL: http://localhost:80/grafana/
+      GF_SERVER_SERVER_FROM_SUB_PATH: true
+
+    volumes:
+      - data-grafana:/var/lib/grafana
+      - ./container-fs/grafana/provisioning:/etc/grafana/provisioning/
+      - ./container-fs/grafana/conf/conf.ini:/conf/conf.ini
+    ports:
+      - "3000:3000/tcp"
 
   minion:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-minion}:${ONMS_VERSION:-bleeding}
