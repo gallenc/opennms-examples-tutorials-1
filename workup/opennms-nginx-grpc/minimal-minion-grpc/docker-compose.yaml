@@ -63,6 +63,11 @@ services:
       interval: 1m
       timeout: 5s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
       
   grafana:
     image: ${DOCKER_REGISTRY:-docker.io}/grafana/grafana:${GRAFANA_VERSION:-latest}
@@ -84,6 +89,11 @@ services:
       - ./container-fs/grafana/conf/conf.ini:/conf/conf.ini
     ports:
       - "3000:3000/tcp"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 100M
 
   minion1:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-minion}:${ONMS_VERSION:-bleeding}
@@ -94,7 +104,7 @@ services:
     environment:
       TZ: ${TIMEZONE:-America/New_York}
       JAVA_MIN_MEM: 512M
-      JAVA_MAX_MEM: 2048M
+      JAVA_MAX_MEM: 2560M
     volumes:
       - './container-fs/minion1/opt/minion/minion-config.yaml:/opt/minion/minion-config.yaml'
     command: ["-f"]
@@ -107,6 +117,11 @@ services:
       - "8201:8201/tcp"
       - "1162:1162/udp"
       - "1514:1514/udp"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 2G
       
   minion2:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-minion}:${ONMS_VERSION:-bleeding}
@@ -130,3 +145,8 @@ services:
       - "8301:8201/tcp"
       - "1262:1162/udp"
       - "1614:1514/udp"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 2G
