@@ -10,8 +10,8 @@ karaf:
 
 ipc:
   grpc:
-    host: "horizon"
-    port: "8990"
+    host: "nginx"
+    port: "80"
 
 netmgt:
   syslog:
