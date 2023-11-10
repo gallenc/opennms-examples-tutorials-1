@@ -1,7 +1,7 @@
 ---
-http-url: "http://horizon:8980/opennms"
+http-url: "https://horizon:8980/opennms"
 id: "minion-02"
-location: "minion-location"
+location: "minion2-location"
 
 karaf:
   shell:
@@ -11,7 +11,7 @@ karaf:
 ipc:
   grpc:
     host: "nginx"
-    port: "80"
+    port: "443"
 
 netmgt:
   syslog:
