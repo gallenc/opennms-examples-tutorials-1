@@ -1,10 +1,25 @@
-# public and private keys
+## NGINX reverse proxy
+
+If you want to run a simple reverse proxy on nginx port 80, place the `opennms-no-ssl.conf` file in `container-fs/nginx/conf.d` and remove `jetty-https.properties` from `opennms.properties.d`
+
+If you want to use https/TLS, replace `opennms-no-ssl.conf` with `opennms-witn-ssl.conf` in `container-fs/nginx/conf.d`
+
+you must also tell OpenNMS to serve https by placing `jetty-https.properties` in `opennms.properties.d`
+
+`jetty-https.properties` should contain
+
+```
+opennms.web.base-url = https://%x%c/
+```
+(see https://opennms.discourse.group/t/how-to-use-nginx-as-ssl-proxy-with-opennms-horizon/208)
+
+## public and private keys
 
 A self signed certificate is provided here with a life of 5 years. 
 
 You can regenerate these certifictes using the following instructions
 
-## regenerating self signed certificate
+### regenerating self signed certificate
 
 see tutorial at https://www.humankode.com/ssl/create-a-selfsigned-certificate-for-nginx-in-5-minutes/
 
@@ -55,7 +70,9 @@ Then create public and private keys, in this case for 5 years validity
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt -config localhost.conf
 ```
 
-copy `localhost.key` and  `localhost.crt` to this directory.
+copy 
+ `localhost.key` to `container-fs/private`
+ `localhost.crt` to `container-fs/certs`
 
 
 

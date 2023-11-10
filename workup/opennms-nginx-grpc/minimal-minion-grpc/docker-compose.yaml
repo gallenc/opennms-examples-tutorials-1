@@ -16,8 +16,11 @@ services:
     restart: unless-stopped
     volumes:
       - ./container-fs/nginx/conf.d:/etc/nginx/conf.d
+      - ./container-fs/nginx/certs:/etc/ssl/certs
+      - ./container-fs/nginx/private:/etc/ssl/private
     ports:
       - "80:80"
+      - "443:443"
 
   database:
     image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-13}
