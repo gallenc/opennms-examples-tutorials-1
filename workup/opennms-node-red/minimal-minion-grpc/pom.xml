@@ -67,7 +67,7 @@
             <configuration>
               <filesets>
                 <fileset>
-                  <directory>${project.basedir}/container-fs/opt/opennms/deploy/</directory>
+                  <directory>${project.basedir}/container-fs/horizon/opt/opennms/deploy/</directory>
                   <followSymlinks>false</followSymlinks>
                   <excludes>
                     <exclude>**/README.md</exclude>
