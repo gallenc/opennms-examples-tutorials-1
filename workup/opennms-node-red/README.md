@@ -92,6 +92,10 @@ Resulting  Event in OpenNMS
 
 ## other details
 
+https://nodered.org/docs/getting-started/docker Node red docker tutorial
+
+https://github.com/hivemq/hivemq-mqtt-web-client Hive MQ web client
+
 setting up firewall for external access to virtualbox
 
 ```
