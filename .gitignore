@@ -37,6 +37,7 @@ nb-configuration.xml
 *.war
 *.ear
 *.zip
+*.kar
 
 <<<<<<< HEAD
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml

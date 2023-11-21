@@ -61,7 +61,7 @@
         "id": "b1fc7dce134037c7",
         "type": "mqtt-broker",
         "name": "mqtt-in-PowerAmp",
-        "broker": "192.168.127.50",
+        "broker": "mqtt-broker",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -89,7 +89,7 @@
     {
         "id": "fc4d2aa2a8ccc1e5",
         "type": "influxdb",
-        "hostname": "127.0.0.1",
+        "hostname": "influxdb",
         "port": "8086",
         "protocol": "http",
         "database": "NOC-FEED",
@@ -97,14 +97,14 @@
         "usetls": false,
         "tls": "",
         "influxdbVersion": "2.0",
-        "url": "http://localhost:8086",
+        "url": "http://influxdb:8086",
         "rejectUnauthorized": true
     },
     {
         "id": "5b9fe36bdb74690d",
         "type": "Stackhero-InfluxDB-v2-Server",
         "name": "NOC-GROUNDSTATION",
-        "host": "localhost",
+        "host": "influxdb",
         "port": "8086",
         "tls": false
     },
@@ -262,7 +262,7 @@
         "id": "10d21d689810e980",
         "type": "mqtt-broker",
         "name": "fast-api/write/powerAmpDecrease",
-        "broker": "192.168.127.50",
+        "broker": "mqtt-broker",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
