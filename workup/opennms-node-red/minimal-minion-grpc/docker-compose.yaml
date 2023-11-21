@@ -58,7 +58,7 @@ services:
      image: vergissberlin/hivemq-mqtt-web-client
      restart: always
      ports:
-        - 80:80
+        - 8081:80
 
 
   database:
