@@ -31,8 +31,11 @@ Make sure the version of openNMS specified in the MQTT plugin build matches the 
 
 Once the plugin is built, you can place it in the docker compose specified deploy directory by running the simple maven build within this project
 
+A mqtt-interface-config.xml file is injected into trhe OpenNMS etc directory.
+This defines connecting to the broker and registering for events
+
 Having downloaded and placed the plugin, you can start the whole project using `docker compose up -d'
-to shutdown use `docker compose down' or `docker compose down -v' to remove any data.
+to shutdown use `docker compose down` or `docker compose down -v` to remove any data.
 
 ##  Ports
 
@@ -65,6 +68,26 @@ eclipse mosquitto
 1883 default mqtt port
 
 9001 default mqtt port for websockets
+
+## images of running dashboard
+
+Example set up of the Hive web IOT client
+
+![alt text](../opennms-node-red/images/HiveWebExample1.png "Figure HiveWebExample1.png")
+
+Example flows view in Node-Red
+
+![alt text](../opennms-node-red/images/NodeRedFlows.png "Figure NodeRedFlows.png")
+
+Example Dashboard in Node-Red
+
+![alt text](../opennms-node-red/images/NodeRedDash.png "Figure NodeRedDash.png")
+
+Resulting  Event in OpenNMS
+
+![alt text](../opennms-node-red/images/IotEventOpenNMS.png "Figure IotEventOpenNMS.png")
+
+
 
 
 ## other details
