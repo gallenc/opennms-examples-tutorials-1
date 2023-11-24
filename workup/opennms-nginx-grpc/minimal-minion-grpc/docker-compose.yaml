@@ -1,6 +1,16 @@
 ---
 version: '3'
 
+# using fixed ip addresses so opennms provisoning config works
+# to see all network use docker network ls
+# to see config use docker network inspect minimal-minion-grpc_frontend
+# note gateway is 172.20.0.1 
+networks:
+  frontend:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
 volumes:
   data-postgres: {}
   data-opennms: {}
@@ -21,6 +31,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.5
 
   database:
     image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-13}
@@ -39,6 +52,9 @@ services:
       interval: 10s
       timeout: 30s
       retries: 3
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.10
 
   horizon:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${HORIZON_OCI:-horizon}:${ONMS_VERSION:-bleeding}
@@ -71,6 +87,9 @@ services:
         limits:
           cpus: "2"
           memory: 4G
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.15
       
   grafana:
     image: ${DOCKER_REGISTRY:-docker.io}/grafana/grafana:${GRAFANA_VERSION:-latest}
@@ -97,6 +116,9 @@ services:
         limits:
           cpus: "0.5"
           memory: 100M
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.20
 
   minion1:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-minion}:${ONMS_VERSION:-bleeding}
@@ -125,6 +147,9 @@ services:
         limits:
           cpus: "0.5"
           memory: 2560M
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.25
 
   # minion with ssl
 #  minion2:
@@ -154,4 +179,6 @@ services:
 #        limits:
 #          cpus: "0.5"
 #          memory: 2560M
-#          
+#    networks:
+#      frontend:
+#        ipv4_address: 172.20.0.30    

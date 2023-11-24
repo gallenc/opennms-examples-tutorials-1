@@ -86,4 +86,9 @@ protouf definition [ipc.proto}(https://github.com/OpenNMS/opennms/blob/develop/c
 
 https://docs.opennms.com/meridian/2023/deployment/minion/install.html
 
+## monitoring nginx
 
+https://www.tecmint.com/enable-nginx-status-page/
+
+https://sourceforge.net/p/opennms/mailman/opennms-discuss/thread/1491528003843-7595317.post%40n2.nabble.com/#msg35775352
+nginx monitor opennms
