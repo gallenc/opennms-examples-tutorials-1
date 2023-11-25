@@ -36,10 +36,12 @@
      <rra>RRA:MAX:0.5:12:8784</rra>
    </rrd>
    <uris>
+
      <uri name="apache">
        <url path="/server-status/" query="auto"
             user-agent="Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/412 (KHTML, like Gecko) Safari/412"
-            matches="(?s).*?Total\sAccesses:\s([0-9]+).*?Total\skBytes:\s([0-9]+).*?CPULoad:\s([0-9\.]+).*?Uptime:\s([0-9]+).*?ReqPerSec:\s([0-9\.]+).*?BytesPerSec:\s([0-9\.]+).*?BytesPerReq:\s([0-9\.]+).*?BusyWorkers:\s([0-9]+).*?IdleWorkers:\s([0-9]+).*" response-range="100-399" >
+            matches="(?s).*?Total\sAccesses:\s([0-9]+).*?Total\skBytes:\s([0-9]+).*?CPULoad:\s([0-9\.]+).*?Uptime:\s([0-9]+).*?ReqPerSec:\s([0-9\.]+).*?BytesPerSec:\s([0-9\.]+).*?BytesPerReq:\s([0-9\.]+).*?BusyWorkers:\s([0-9]+).*?IdleWorkers:\s([0-9]+).*" 
+            response-range="100-399"  >
        </url>
        <attributes>
          <attrib alias="TotalAccesses" match-group="1" type="counter32"/>
@@ -69,10 +71,13 @@
       <rra>RRA:MAX:0.5:12:8784</rra>
     </rrd>
     <uris>
+         <!-- note escaped matches="(?s)Active connections:\s([0-9]+)\nserver accepts handled requests\n\s([0-9]+)\s([0-9]+)\s([0-9]+)\nReading:\s([0-9]+)\sWriting:\s([0-9]+)\sWaiting:\s([0-9]+)" -->
+         <!-- matches="(?s)Active connections:\\s([0-9]+)\\nserver accepts handled requests\\n\\s([0-9]+)\\s([0-9]+)\\s([0-9]+)\\nReading:\\s([0-9]+)\\sWriting:\\s([0-9]+)\\sWaiting:\\s([0-9]+)"
+          -->
          <uri name="nginx_stats">
-            <url path="/nginx_status/" query="auto"
+            <url path="/nginx_status/"
                  user-agent="Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/412 (KHTML, like Gecko) Safari/412"
-                 matches="(?s).*Active connections:\s([0-9]+)\s\nserver accepts handled requests\n\s([0-9]+)\s([0-9]+)\s([0-9]+)\s\n.*Reading:\s([0-9]+).*Writing:\s([0-9]+).*Waiting:\s([0-9]+)"
+                 matches="(?s)Active connections:\s*?([0-9]+)\s*?\nserver accepts handled requests\s*?\n\s*?([0-9]+)\s*?([0-9]+)\s*?([0-9]+)\s*?\n\s*?Reading:\s*?([0-9]+)\s*?Writing:\s*?([0-9]+)\s*?Waiting:\s*?([0-9]+).*"
                  response-range="100-300"
             >
             </url>
