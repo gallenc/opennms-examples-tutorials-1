@@ -50,4 +50,4 @@ karaf cli cheatsheet https://opennms.discourse.group/t/karaf-cli-cheat-sheet/149
 
 opennms:collect org.opennms.netmgt.collectd.HttpCollector nginx collection=nginx_stats port=80
 
-
+https://www.freeformatter.com/java-regex-tester.html#before-output
