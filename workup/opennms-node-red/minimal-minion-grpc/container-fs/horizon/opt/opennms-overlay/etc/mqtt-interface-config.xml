@@ -17,7 +17,7 @@
   <!-- message data parsers define how data messages are converted into metrics to be stored in RRD's or Cassandra by OpenNMS -->
   <!-- subscriptionTopics defines which topic messages will be passed to this parser. -->
   <!-- many messageDataParsers can be defined but only one per topic although events can also be driven off the same topic) -->
-<!--   <messageDataParsers> -->
+  <messageDataParsers>
     <!-- payloadType determines how the payload is parsed; JSON, XML, PROTOBUF ot TEXT. Note only JSON is supported in present release -->
     <!-- foreignSource defines the foreign source to be used when referencing or creating a new node -->
     <!-- compression determines the processing of compressed messages GZIP, UNCOMPRESSED, AUTOMATIC_GZIP -->
@@ -57,7 +57,7 @@
     <!-- *********************************** -->
     <!-- message data parser for laurawan probes -->
     <!-- *********************************** -->
-<!--   </messageDataParsers> -->
+ </messageDataParsers> 
 
   <!-- message event parsers follow the same pattern as message data parsers. -->
   <!-- however the Xpath defines which name value pairs are saved as params in the resulting opennms events -->
