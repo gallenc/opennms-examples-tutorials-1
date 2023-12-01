@@ -63,14 +63,28 @@
   <!-- however the Xpath defines which name value pairs are saved as params in the resulting opennms events -->
 
   <messageEventParsers>
+<!--     <messageEventParser foreignSource="mqtt" payloadType="TEXT_CSV" compression="UNCOMPRESSED"> -->
+<!--       <subscriptionTopics> -->
+<!--         <topic>ioThinx_4510/write/45MR-2404-0Relay-02/relayStatus_final</topic> -->
+<!--       </subscriptionTopics> -->
+<!--       <xml-groups> -->
+<!--         <ns2:xml-group name="sniffy" resource-type="sniffy" resource-xpath="/" key-xpath="$topicLevels[1]" > -->
+<!--           <ns2:xml-object name="receivedString" type="string" xpath=".[1]" /> -->
+        
+<!--         </ns2:xml-group> -->
+<!--       </xml-groups> -->
+<!--     </messageEventParser> -->
+
+    <!-- see https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/ -->
     <messageEventParser foreignSource="mqtt" payloadType="TEXT_CSV" compression="UNCOMPRESSED">
       <subscriptionTopics>
-        <topic>ioThinx_4510/write/45MR-2404-0Relay-02/relayStatus_final</topic>
+        <topic>ioThinx_4510/write/+/#</topic>
       </subscriptionTopics>
+      <ueiRoot>uei.opennms.org/mqttplugin/message/event</ueiRoot>
       <xml-groups>
         <ns2:xml-group name="sniffy" resource-type="sniffy" resource-xpath="/" key-xpath="$topicLevels[1]" >
           <ns2:xml-object name="receivedString" type="string" xpath=".[1]" />
-        
+         <ns2:xml-object name="relay" type="string" xpath="$topicLevels[3]" /> <!-- should match relay e.g. 45MR-2404-0Relay-02 -->
         </ns2:xml-group>
       </xml-groups>
     </messageEventParser>
