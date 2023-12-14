@@ -31,8 +31,8 @@
         "nodes": [
             "4630d477e8831f03"
         ],
-        "x": 14,
-        "y": 2559,
+        "x": 34,
+        "y": 2899,
         "w": 312,
         "h": 82
     },
@@ -53,14 +53,14 @@
             "fb3db1f1d7c28983"
         ],
         "x": 14,
-        "y": 2739,
+        "y": 3059,
         "w": 312,
         "h": 82
     },
     {
         "id": "b1fc7dce134037c7",
         "type": "mqtt-broker",
-        "name": "mqtt-in-PowerAmp",
+        "name": "mqtt-in-controls",
         "broker": "mqtt-broker",
         "port": "1883",
         "clientid": "",
@@ -670,8 +670,8 @@
         "height": 0,
         "passthru": true,
         "decouple": "false",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-00/relayStatus",
-        "topicType": "str",
+        "topic": "topic",
+        "topicType": "msg",
         "style": "",
         "onvalue": "On",
         "onvalueType": "str",
@@ -683,15 +683,16 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 230,
-        "y": 180,
+        "x": 210,
+        "y": 220,
         "wires": [
             [
                 "1f4e222185e1ddce",
                 "c067787e96144817",
+                "06fe85aea905be6e",
                 "4de8e1f33ad71627",
                 "fc7d19205f16b92e",
-                "06fe85aea905be6e"
+                "52c6ad987c2397fb"
             ]
         ]
     },
@@ -708,7 +709,7 @@
         "height": 0,
         "passthru": true,
         "decouple": "false",
-        "topic": "GroundStation/Room/LightSwitch",
+        "topic": "topic",
         "topicType": "msg",
         "style": "",
         "onvalue": "Open",
@@ -721,15 +722,15 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 230,
-        "y": 300,
+        "x": 70,
+        "y": 700,
         "wires": [
             [
                 "140fed0772dca7d2",
                 "c6c928d76346b363",
-                "10a3250b04bd3df5",
                 "72b57ad38f76e726",
-                "8c07c70b4b38a393"
+                "8c07c70b4b38a393",
+                "10a3250b04bd3df5"
             ]
         ]
     },
@@ -751,7 +752,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 530,
-        "y": 180,
+        "y": 140,
         "wires": []
     },
     {
@@ -771,8 +772,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 510,
-        "y": 260,
+        "x": 330,
+        "y": 800,
         "wires": []
     },
     {
@@ -807,8 +808,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 1170,
-        "y": 180,
+        "x": 610,
+        "y": 580,
         "wires": []
     },
     {
@@ -825,8 +826,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 1030,
-        "y": 260,
+        "x": 790,
+        "y": 1080,
         "wires": []
     },
     {
@@ -853,8 +854,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 700,
-        "y": 440,
+        "x": 1040,
+        "y": 1180,
         "wires": []
     },
     {
@@ -875,8 +876,8 @@
         "maxValue": 30,
         "diameter": 400,
         "numTicks": 200,
-        "x": 230,
-        "y": 360,
+        "x": 70,
+        "y": 1100,
         "wires": [
             [
                 "722f8c0802339737",
@@ -894,8 +895,8 @@
         "high": "20",
         "inte": "true",
         "property": "payload",
-        "x": 260,
-        "y": 440,
+        "x": 100,
+        "y": 1220,
         "wires": [
             [
                 "25d7bfceafa6b1ad",
@@ -918,8 +919,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 690,
-        "y": 360,
+        "x": 410,
+        "y": 1140,
         "wires": []
     },
     {
@@ -936,8 +937,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 770,
-        "y": 500,
+        "x": 1250,
+        "y": 1220,
         "wires": []
     },
     {
@@ -966,35 +967,16 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 250,
-        "y": 560,
+        "x": 90,
+        "y": 1320,
         "wires": [
             [
-                "2c979048db9b71a8",
                 "a249386ce6cc1306",
                 "5da77f5fe66f106a",
                 "d291b56a0b11897b",
                 "d37089b70b0e8661"
             ]
         ]
-    },
-    {
-        "id": "2c979048db9b71a8",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/QbandPowerAmp",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 590,
-        "y": 620,
-        "wires": []
     },
     {
         "id": "4de8e1f33ad71627",
@@ -1010,8 +992,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1530,
-        "y": 140,
+        "x": 1630,
+        "y": 180,
         "wires": []
     },
     {
@@ -1028,8 +1010,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1530,
-        "y": 220,
+        "x": 990,
+        "y": 1120,
         "wires": []
     },
     {
@@ -1046,8 +1028,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1500,
-        "y": 280,
+        "x": 1320,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1064,8 +1046,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1130,
-        "y": 540,
+        "x": 1170,
+        "y": 1280,
         "wires": []
     },
     {
@@ -1085,8 +1067,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 460,
-        "y": 540,
+        "x": 440,
+        "y": 1260,
         "wires": []
     },
     {
@@ -1103,8 +1085,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1530,
-        "y": 180,
+        "x": 1230,
+        "y": 700,
         "wires": []
     },
     {
@@ -1112,7 +1094,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-00/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@MainsPowerStatus/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1120,8 +1102,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 800,
+        "x": 200,
+        "y": 1620,
         "wires": [
             [
                 "fcb3ddfa9e33690b",
@@ -1144,8 +1126,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1580,
-        "y": 620,
+        "x": 700,
+        "y": 1580,
         "wires": []
     },
     {
@@ -1153,7 +1135,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-01/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@QBandPSU/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1161,8 +1143,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 880,
+        "x": 180,
+        "y": 1740,
         "wires": [
             [
                 "4b1a5b71ad1996fa",
@@ -1176,7 +1158,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-02/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@QBandPAStatus/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1184,8 +1166,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 960,
+        "x": 190,
+        "y": 1840,
         "wires": [
             [
                 "273dfff5b5bacd95",
@@ -1199,7 +1181,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-04/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@QBandOverCurrent/diStatus",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1207,8 +1189,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1220,
+        "x": 200,
+        "y": 2060,
         "wires": [
             [
                 "990c84a0486d7203",
@@ -1231,8 +1213,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1580,
-        "y": 900,
+        "x": 1060,
+        "y": 1840,
         "wires": []
     },
     {
@@ -1249,8 +1231,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1610,
-        "y": 760,
+        "x": 1030,
+        "y": 1780,
         "wires": []
     },
     {
@@ -1267,8 +1249,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1600,
-        "y": 980,
+        "x": 1060,
+        "y": 1940,
         "wires": []
     },
     {
@@ -1285,8 +1267,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1640,
-        "y": 1240,
+        "x": 1060,
+        "y": 2060,
         "wires": []
     },
     {
@@ -1294,7 +1276,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-05/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@QBandOverTempera/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1302,8 +1284,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1340,
+        "x": 210,
+        "y": 2140,
         "wires": [
             [
                 "df36875495ee7653",
@@ -1326,8 +1308,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1690,
-        "y": 1440,
+        "x": 1410,
+        "y": 2180,
         "wires": []
     },
     {
@@ -1335,7 +1317,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-06/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@VSWRHigh/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1343,13 +1325,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1460,
+        "x": 180,
+        "y": 2260,
         "wires": [
             [
-                "21f7fc5463a12985",
                 "4c7188c62d63e65b",
-                "caea565358cf1e5d"
+                "caea565358cf1e5d",
+                "f7d0ed5d2f63ed6e"
             ]
         ]
     },
@@ -1359,7 +1341,7 @@
         "z": "09bd1492e672c578",
         "influxdb": "fc4d2aa2a8ccc1e5",
         "name": "",
-        "measurement": "PositionerControllerFail",
+        "measurement": "VSWRHigh",
         "precision": "",
         "retentionPolicy": "",
         "database": "database",
@@ -1367,8 +1349,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1690,
-        "y": 1500,
+        "x": 890,
+        "y": 2280,
         "wires": []
     },
     {
@@ -1376,7 +1358,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-07/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@PositionerLANFai/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1384,13 +1366,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1560,
+        "x": 220,
+        "y": 2320,
         "wires": [
             [
-                "0d56e669c4d72590",
                 "b0fcbdb2d15d7b6a",
-                "729c61736bceaede"
+                "729c61736bceaede",
+                "f2d7bfedc6e57d6f"
             ]
         ]
     },
@@ -1411,8 +1393,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1170,
-        "y": 760,
+        "x": 1090,
+        "y": 1660,
         "wires": []
     },
     {
@@ -1432,8 +1414,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 810,
-        "y": 880,
+        "x": 830,
+        "y": 1700,
         "wires": []
     },
     {
@@ -1453,8 +1435,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1190,
-        "y": 960,
+        "x": 670,
+        "y": 1880,
         "wires": []
     },
     {
@@ -1474,8 +1456,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1280,
-        "y": 1060,
+        "x": 560,
+        "y": 2020,
         "wires": []
     },
     {
@@ -1495,8 +1477,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1590,
-        "y": 1180,
+        "x": 630,
+        "y": 2100,
         "wires": []
     },
     {
@@ -1516,8 +1498,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1490,
-        "y": 1380,
+        "x": 1390,
+        "y": 2140,
         "wires": []
     },
     {
@@ -1547,8 +1529,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1490,
-        "y": 680,
+        "x": 470,
+        "y": 1680,
         "wires": []
     },
     {
@@ -1578,8 +1560,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1410,
-        "y": 800,
+        "x": 510,
+        "y": 1800,
         "wires": []
     },
     {
@@ -1609,8 +1591,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1230,
-        "y": 880,
+        "x": 790,
+        "y": 1820,
         "wires": []
     },
     {
@@ -1640,8 +1622,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1330,
-        "y": 1020,
+        "x": 710,
+        "y": 1980,
         "wires": []
     },
     {
@@ -1671,8 +1653,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1310,
-        "y": 1160,
+        "x": 810,
+        "y": 2080,
         "wires": []
     },
     {
@@ -1702,39 +1684,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 1290,
-        "y": 1340,
-        "wires": []
-    },
-    {
-        "id": "21f7fc5463a12985",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1430,
-        "y": 1520,
+        "x": 930,
+        "y": 2120,
         "wires": []
     },
     {
@@ -1754,8 +1705,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1090,
-        "y": 1460,
+        "x": 1250,
+        "y": 2260,
         "wires": []
     },
     {
@@ -1775,8 +1726,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1230,
-        "y": 1540,
+        "x": 1030,
+        "y": 2340,
         "wires": []
     },
     {
@@ -1796,8 +1747,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1290,
-        "y": 1740,
+        "x": 590,
+        "y": 2160,
         "wires": []
     },
     {
@@ -1817,8 +1768,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1420,
-        "y": 1800,
+        "x": 760,
+        "y": 2500,
         "wires": []
     },
     {
@@ -1838,8 +1789,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1390,
-        "y": 1960,
+        "x": 770,
+        "y": 2600,
         "wires": []
     },
     {
@@ -1859,8 +1810,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1530,
-        "y": 2100,
+        "x": 1410,
+        "y": 2660,
         "wires": []
     },
     {
@@ -1880,8 +1831,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1300,
-        "y": 2360,
+        "x": 580,
+        "y": 2780,
         "wires": []
     },
     {
@@ -1901,8 +1852,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1290,
-        "y": 2420,
+        "x": 1350,
+        "y": 2820,
         "wires": []
     },
     {
@@ -1910,7 +1861,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-08/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@PositionerCtFail/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1918,13 +1869,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1660,
+        "x": 190,
+        "y": 2200,
         "wires": [
             [
-                "7d21778de5f40ad6",
                 "482ad0445128f687",
-                "5b923cd9cc835110"
+                "5b923cd9cc835110",
+                "4d1487742cb77f54"
             ]
         ]
     },
@@ -1933,7 +1884,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-09/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@Bay1DoorStatus/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1941,13 +1892,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1780,
+        "x": 190,
+        "y": 2480,
         "wires": [
             [
-                "5c8224c378c5e22e",
                 "36061b35150a883f",
-                "54311085db469818"
+                "54311085db469818",
+                "4bd2928e7e22425b"
             ]
         ]
     },
@@ -1956,7 +1907,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-10/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@Q-BandRSSI/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1964,13 +1915,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1920,
+        "x": 180,
+        "y": 2560,
         "wires": [
             [
-                "035f67b25d38f21a",
                 "e1c39f4df09c7c81",
-                "60cfac46fa0e6028"
+                "60cfac46fa0e6028",
+                "a82a7a95a6079fb5"
             ]
         ]
     },
@@ -1979,7 +1930,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-11/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@PositionerMisali/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -1987,13 +1938,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 2040,
+        "x": 190,
+        "y": 2660,
         "wires": [
             [
-                "aabba8263a1b7f22",
                 "6856acb54d7a5ed7",
-                "dedcd6835f36a866"
+                "dedcd6835f36a866",
+                "f848b5c87a6e28df"
             ]
         ]
     },
@@ -2002,7 +1953,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-12/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@SiteTemperature/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -2010,13 +1961,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 2160,
+        "x": 200,
+        "y": 2740,
         "wires": [
             [
-                "a293c78de0e224bd",
                 "2a198aaa8c76b944",
-                "b1924be2de61c559"
+                "b1924be2de61c559",
+                "85e6087c74fc99df"
             ]
         ]
     },
@@ -2025,7 +1976,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-13/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@QBandRxSignalStr/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -2033,239 +1984,22 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 2280,
+        "x": 220,
+        "y": 2820,
         "wires": [
             [
-                "0d787975970744d1",
                 "e9d26f4f62c8a59d",
-                "f77dcf20ccf50ac9"
+                "f77dcf20ccf50ac9",
+                "7c9c51bc69734dc1"
             ]
         ]
-    },
-    {
-        "id": "7d21778de5f40ad6",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1450,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "0d56e669c4d72590",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1470,
-        "y": 1580,
-        "wires": []
-    },
-    {
-        "id": "5c8224c378c5e22e",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1430,
-        "y": 1860,
-        "wires": []
-    },
-    {
-        "id": "035f67b25d38f21a",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1410,
-        "y": 2020,
-        "wires": []
-    },
-    {
-        "id": "aabba8263a1b7f22",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1370,
-        "y": 2180,
-        "wires": []
-    },
-    {
-        "id": "a293c78de0e224bd",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1350,
-        "y": 2280,
-        "wires": []
-    },
-    {
-        "id": "0d787975970744d1",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1150,
-        "y": 2580,
-        "wires": []
     },
     {
         "id": "0715514aaea17fee",
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0/DI-03/diStatus",
+        "topic": "FNBR/read/45MR-1601-0@RFInputOverLimit/diStatus",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -2273,8 +2007,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
-        "y": 1080,
+        "x": 200,
+        "y": 1940,
         "wires": [
             [
                 "c6c1a6b2f8f33be0",
@@ -2310,8 +2044,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 550,
-        "y": 120,
+        "x": 530,
+        "y": 280,
         "wires": []
     },
     {
@@ -2327,7 +2061,7 @@
                 "from": "On",
                 "fromt": "str",
                 "to": "{\"value\":1}",
-                "tot": "json"
+                "tot": "str"
             },
             {
                 "t": "change",
@@ -2336,7 +2070,7 @@
                 "from": "Off",
                 "fromt": "str",
                 "to": "{\"value\":0}",
-                "tot": "json"
+                "tot": "str"
             }
         ],
         "action": "",
@@ -2357,7 +2091,7 @@
         "type": "mqtt out",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-00/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabLightControl/relayStatus",
         "qos": "1",
         "retain": "true",
         "respTopic": "",
@@ -2375,7 +2109,7 @@
         "type": "mqtt out",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-01/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabDoorControl/relayStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -2384,8 +2118,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 1110,
-        "y": 140,
+        "x": 1210,
+        "y": 640,
         "wires": []
     },
     {
@@ -2418,8 +2152,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
-        "y": 240,
+        "x": 580,
+        "y": 640,
         "wires": [
             [
                 "ba03b75c61d34ea3"
@@ -2453,8 +2187,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 610,
-        "y": 220,
+        "x": 390,
+        "y": 740,
         "wires": []
     },
     {
@@ -2487,8 +2221,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 240,
-        "y": 500,
+        "x": 420,
+        "y": 1320,
         "wires": [
             [
                 "27946bc5aab77958"
@@ -2500,7 +2234,7 @@
         "type": "mqtt out",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-02/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabPAmpCtrl/relayStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -2509,8 +2243,8 @@
         "correl": "",
         "expiry": "",
         "broker": "b1fc7dce134037c7",
-        "x": 1070,
-        "y": 440,
+        "x": 1250,
+        "y": 1320,
         "wires": []
     },
     {
@@ -2540,8 +2274,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 550,
-        "y": 500,
+        "x": 570,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2561,8 +2295,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 580,
-        "y": 80,
+        "x": 640,
+        "y": 520,
         "wires": []
     },
     {
@@ -2570,20 +2304,19 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-02/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabPAmpCtrl/relayStatus",
         "qos": "2",
-        "datatype": "utf8",
+        "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 210,
-        "y": 700,
+        "x": 200,
+        "y": 1420,
         "wires": [
             [
-                "680cb7936adb6a3e",
-                "7da06df312a10d25"
+                "680cb7936adb6a3e"
             ]
         ]
     },
@@ -2604,8 +2337,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1000,
-        "y": 600,
+        "x": 820,
+        "y": 1240,
         "wires": []
     },
     {
@@ -2613,7 +2346,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-00/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabLightControl/relayStatus",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -2621,7 +2354,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1070,
+        "x": 1010,
         "y": 20,
         "wires": [
             [
@@ -2634,7 +2367,7 @@
         "type": "mqtt in",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0/Relay-01/relayStatus",
+        "topic": "FNBR/write/45MR-2404-0@GCabDoorControl/relayStatus",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b1fc7dce134037c7",
@@ -2642,8 +2375,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 250,
-        "y": 80,
+        "x": 210,
+        "y": 520,
         "wires": [
             [
                 "64e241fbde03231c"
@@ -2677,24 +2410,6 @@
         "z": "09bd1492e672c578",
         "influxdb": "fc4d2aa2a8ccc1e5",
         "name": "",
-        "measurement": "VSWRHigh",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1690,
-        "y": 1620,
-        "wires": []
-    },
-    {
-        "id": "5b923cd9cc835110",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
         "measurement": "PositionerLANFail",
         "precision": "",
         "retentionPolicy": "",
@@ -2703,8 +2418,26 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1690,
-        "y": 1680,
+        "x": 1130,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "5b923cd9cc835110",
+        "type": "influxdb out",
+        "z": "09bd1492e672c578",
+        "influxdb": "fc4d2aa2a8ccc1e5",
+        "name": "",
+        "measurement": "PositionerControllerFail",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "AALTO",
+        "bucket": "ioThinx_4510",
+        "x": 890,
+        "y": 2200,
         "wires": []
     },
     {
@@ -2721,8 +2454,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1670,
-        "y": 1840,
+        "x": 830,
+        "y": 2560,
         "wires": []
     },
     {
@@ -2739,8 +2472,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1640,
-        "y": 1920,
+        "x": 880,
+        "y": 2640,
         "wires": []
     },
     {
@@ -2757,8 +2490,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1690,
-        "y": 2160,
+        "x": 1490,
+        "y": 2700,
         "wires": []
     },
     {
@@ -2775,8 +2508,8 @@
         "retentionPolicyV18Flux": "",
         "org": "AALTO",
         "bucket": "ioThinx_4510",
-        "x": 1630,
-        "y": 2340,
+        "x": 850,
+        "y": 2760,
         "wires": []
     },
     {
@@ -2794,7 +2527,7 @@
         "org": "AALTO",
         "bucket": "ioThinx_4510",
         "x": 1390,
-        "y": 2500,
+        "y": 2860,
         "wires": []
     },
     {
@@ -2810,8 +2543,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 210,
-        "y": 2680,
+        "x": 190,
+        "y": 3020,
         "wires": [
             [
                 "8b5b3b2f5e1e303e"
@@ -2835,8 +2568,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 580,
-        "y": 2680,
+        "x": 560,
+        "y": 3020,
         "wires": []
     },
     {
@@ -2858,8 +2591,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 170,
-        "y": 2600,
+        "x": 190,
+        "y": 2940,
         "wires": [
             [
                 "d2eb5e7cbb7e57ae"
@@ -2880,8 +2613,8 @@
         "correl": "",
         "expiry": "",
         "broker": "10d21d689810e980",
-        "x": 460,
-        "y": 2600,
+        "x": 480,
+        "y": 2940,
         "wires": []
     },
     {
@@ -2897,8 +2630,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 2860,
+        "x": 170,
+        "y": 3200,
         "wires": [
             [
                 "e52f2fbad4645b1b"
@@ -2922,8 +2655,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 590,
-        "y": 2860,
+        "x": 570,
+        "y": 3200,
         "wires": []
     },
     {
@@ -2941,7 +2674,7 @@
         "expiry": "",
         "broker": "10d21d689810e980",
         "x": 560,
-        "y": 2780,
+        "y": 3100,
         "wires": []
     },
     {
@@ -2964,7 +2697,7 @@
         "className": "",
         "topicType": "msg",
         "x": 170,
-        "y": 2780,
+        "y": 3100,
         "wires": [
             [
                 "e9df4f27deb61a28"
@@ -2985,7 +2718,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 2960,
+        "y": 3280,
         "wires": [
             [
                 "b2d7b6d2967d0d76",
@@ -3011,7 +2744,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 550,
-        "y": 2960,
+        "y": 3280,
         "wires": []
     },
     {
@@ -3042,7 +2775,7 @@
         "showGlow": true,
         "name": "",
         "x": 530,
-        "y": 3020,
+        "y": 3340,
         "wires": []
     },
     {
@@ -3067,15 +2800,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 550,
-        "y": 720,
+        "x": 570,
+        "y": 1420,
         "wires": [
-            [
-                "6fe5d2fca9c4dcaa"
-            ],
-            [
-                "ccd68fce8d2a9745"
-            ]
+            [],
+            []
         ]
     },
     {
@@ -3097,12 +2826,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 660,
+        "x": 800,
+        "y": 1340,
         "wires": [
-            [
-                "f7aa6ca7d1a0fe21"
-            ]
+            []
         ]
     },
     {
@@ -3124,30 +2851,485 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 752.5078125,
-        "y": 717.0234375,
+        "x": 800,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57b24c4db8bf9fd8",
+        "type": "snmp set",
+        "z": "09bd1492e672c578",
+        "host": "horizon:10162",
+        "version": "2c",
+        "timeout": 5,
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "authprot": "MD5",
+        "privprot": "DES",
+        "oids": "",
+        "varbinds": "[{\"oid\":\"1.3.6.1.2.1.1.5.0\",\"type\":\"OctelString\",\"value\":\"opennms01\"},\n{\"oid\":\"1.3.6.1.2.1.1.6.0\",\"type\":\"OctelString\",\"value\":\"LightSwitchOn\"}]",
+        "name": "",
+        "x": 850,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "52c6ad987c2397fb",
+        "type": "switch",
+        "z": "09bd1492e672c578",
+        "name": "SNMP Switch Feed",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "On",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 80,
         "wires": [
             [
-                "f7aa6ca7d1a0fe21"
+                "57b24c4db8bf9fd8"
+            ],
+            [
+                "c00c1fe42c5f9dde"
             ]
         ]
     },
     {
-        "id": "f7aa6ca7d1a0fe21",
-        "type": "mqtt out",
+        "id": "c00c1fe42c5f9dde",
+        "type": "snmp set",
+        "z": "09bd1492e672c578",
+        "host": "horizon:10162",
+        "version": "2c",
+        "timeout": 5,
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "authprot": "MD5",
+        "privprot": "DES",
+        "oids": "",
+        "varbinds": "[{\"oid\":\"1.3.6.1.2.1.1.5.0\",\"type\":\"OctelString\",\"value\":\"opennms01\"},\n{\"oid\":\"1.3.6.1.2.1.1.6.0\",\"type\":\"OctelString\",\"value\":\"LightSwitchOff\"}]",
+        "name": "",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1afb02c90f839d04",
+        "type": "change",
         "z": "09bd1492e672c578",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0Relay-02/relayStatus_final",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1120,
-        "y": 660,
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "GSDoorsClosed",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "422788fe452b5ed8",
+        "type": "change",
+        "z": "09bd1492e672c578",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "GSDoorOpen",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b38ea6c74b8293d",
+        "type": "switch",
+        "z": "09bd1492e672c578",
+        "name": "DoorControls",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "{\"value\":0}",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "{\"value\":1}",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 900,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c2991947d30c9b9e",
+        "type": "change",
+        "z": "09bd1492e672c578",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "LightsOff",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "920aa023dd8352a9",
+        "type": "change",
+        "z": "09bd1492e672c578",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "LightsOn",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e90efacbab2ba63f",
+        "type": "switch",
+        "z": "09bd1492e672c578",
+        "name": "Lights",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "{\"value\":0}",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "{\"value\":1}",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4d1487742cb77f54",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 610,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "f7d0ed5d2f63ed6e",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 570,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "f2d7bfedc6e57d6f",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 530,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "4bd2928e7e22425b",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 510,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "a82a7a95a6079fb5",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 490,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "f848b5c87a6e28df",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 570,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "85e6087c74fc99df",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 690,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "7c9c51bc69734dc1",
+        "type": "ui_led",
+        "z": "09bd1492e672c578",
+        "order": 7,
+        "group": "2e1c4ab3e17670bf",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 570,
+        "y": 2860,
         "wires": []
     }
 ]

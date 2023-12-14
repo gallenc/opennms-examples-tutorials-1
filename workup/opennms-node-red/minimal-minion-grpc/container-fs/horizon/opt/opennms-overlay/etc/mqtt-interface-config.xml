@@ -78,7 +78,7 @@
     <!-- see https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/ -->
     <messageEventParser foreignSource="mqtt" payloadType="TEXT_CSV" compression="UNCOMPRESSED">
       <subscriptionTopics>
-        <topic>ioThinx_4510/write/+/#</topic>
+        <topic>+/write/+/#</topic>
       </subscriptionTopics>
       <ueiRoot>uei.opennms.org/mqttplugin/message/event</ueiRoot>
       <xml-groups>
@@ -106,7 +106,7 @@
       <connectionRetryInterval>3000</connectionRetryInterval>
       <clientConnectionMaxWait>20000</clientConnectionMaxWait>
       <topicList>
-        <topic qos="0" topic="ioThinx_4510/write/#" />
+        <topic qos="0" topic="+/write/#" />
         <topic qos="0" topic="mqtt-data" />
       </topicList>
       <userName>mqtt-user</userName>
