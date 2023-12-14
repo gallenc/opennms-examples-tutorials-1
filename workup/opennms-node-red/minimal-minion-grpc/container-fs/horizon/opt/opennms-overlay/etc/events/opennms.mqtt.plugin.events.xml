@@ -9,7 +9,7 @@
       <severity>Indeterminate</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/message/event/alarmraise</uei>
+      <uei>uei.opennms.org/mqttplugin/message/event/1</uei>
       <event-label>OpenNMS mqtt plugin received alarm raise message from topic %parm[message-topic]</event-label>
       <descr>OpenNMS mqtt plugin received alarm raise message from topic %parm[message-topic] message parameters: %parm[all]%</descr>
       <logmsg dest="logndisplay">
@@ -19,14 +19,14 @@
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%" alarm-type="1" auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/message/event/alarmclear</uei>
-      <event-label>OpenNMS mqtt plugin received alarm raise message from topic %parm[message-topic]</event-label>
-      <descr>OpenNMS mqtt plugin received alarm raise message from topic %parm[message-topic] message parameters: %parm[all]%</descr>
+      <uei>uei.opennms.org/mqttplugin/message/event/0</uei>
+      <event-label>OpenNMS mqtt plugin received alarm clear message from topic %parm[message-topic]</event-label>
+      <descr>OpenNMS mqtt plugin received alarm clear message from topic %parm[message-topic] message parameters: %parm[all]%</descr>
       <logmsg dest="logndisplay">
             OpenNMS mqtt plugin received alarm raise message from topic %parm[message-topic] message parameters: %parm[all]%
       </logmsg>
       <severity>Normal</severity>
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"  alarm-type="2" 
-      clear-key="uei.opennms.org/mqttplugin/message/event/alarmraise:%dpname%:%nodeid%:%parm[message-topic]%" auto-clean="false" />
+      clear-key="uei.opennms.org/mqttplugin/message/event/1:%dpname%:%nodeid%:%parm[message-topic]%" auto-clean="false" />
    </event>
 </events>
