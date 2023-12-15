@@ -27,12 +27,9 @@
         
         /* used to select which events will cause messages */
         if (
-           (event.uei.equals("uei.opennms.org/internal/alarms/NotificationAlarm"))
-        || (event.uei.equals("uei.opennms.org/internal/alarms/AlarmCleared"))
-        || (event.uei.equals("uei.opennms.org/internal/alarms/AlarmRaised"))
-        
-        || (event.uei.equals("uei.opennms.org/nodes/nodeDown"))
-        || (event.uei.equals("uei.opennms.org/nodes/nodeUp"))
+           (event.uei.equals("uei.opennms.org/mqttplugin/message/event/1"))
+        || (event.uei.equals("uei.opennms.org/mqttplugin/message/event/0"))
+
            )
         {
         
