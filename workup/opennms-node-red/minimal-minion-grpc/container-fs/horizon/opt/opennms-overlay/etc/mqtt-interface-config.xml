@@ -80,7 +80,21 @@
       <subscriptionTopics>
         <topic>+/write/+/#</topic>
       </subscriptionTopics>
-      <ueiRoot>uei.opennms.org/mqttplugin/message/event</ueiRoot>
+      <ueiRoot>uei.opennms.org/mqttplugin/message/event/read</ueiRoot>
+      <xml-groups>
+        <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
+          <ns2:xml-object name="UEI_SUFFIX" type="string" xpath="@value" />
+          <ns2:xml-object name="value" type="GAUGE" xpath="@value" />
+          <ns2:xml-object name="relay" type="string" xpath="$topicLevels[3]" /> <!-- should match relay e.g. 45MR-2404-0Relay-02 -->
+        </ns2:xml-group>
+      </xml-groups>
+    </messageEventParser>
+    
+    <messageEventParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
+      <subscriptionTopics>
+        <topic>+/read/+/#</topic>
+      </subscriptionTopics>
+      <ueiRoot>uei.opennms.org/mqttplugin/message/event/write</ueiRoot>
       <xml-groups>
         <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
           <ns2:xml-object name="UEI_SUFFIX" type="string" xpath="@value" />
@@ -102,12 +116,14 @@
   <!-- Note that the subscribed topic can also be a filter e.g. topic="/+/foo/# -->
   <mqttClients>
     <client clientInstanceId="client1">
-      <brokerUrl>tcp://mqtt-broker:1883</brokerUrl>
+<!--       <brokerUrl>tcp://mqtt-broker:1883</brokerUrl> -->
+      <brokerUrl>tcp://192.168.127.50:1883</brokerUrl>
       <clientId>opennms</clientId>
       <connectionRetryInterval>3000</connectionRetryInterval>
       <clientConnectionMaxWait>20000</clientConnectionMaxWait>
       <topicList>
         <topic qos="0" topic="+/write/#" />
+        <topic qos="0" topic="+/read/#" />
         <topic qos="0" topic="mqtt-data" />
       </topicList>
       <userName>mqtt-user</userName>
