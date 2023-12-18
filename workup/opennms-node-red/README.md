@@ -18,7 +18,22 @@ An OpenNMS horizon container hosts OpenNMS and there are also postgres, grafana 
 
 The Node-Red simulation and OpenNMS will run using `docker compose up -d'
 
-However you will need to build and install the mqtt client before trying to use OpenNMS to connect to MQTT
+However you will need to install the mqtt client before trying to use OpenNMS to connect to MQTT
+
+A simple maven file is provided with profiles to either use the plugi from the local maven repo or download the plugin from github releases.
+The default is to download from releases which avoids having to compile the plugin locally
+
+before using this docker compose example run 
+```
+mvn clean install
+```
+
+to use local repo use with locally built plugin
+
+```
+mvn clean install -Plocal-maven 
+```
+You must first build the plugin.
 
 In order to build the MQTT plugin for openNMS, you must first check out and compile the OpenNMS code in order to get the build dependencies into the local maven repository.
 Unfortunately these dependencies are not stored in maven central
@@ -31,7 +46,7 @@ Make sure the version of openNMS specified in the MQTT plugin build matches the 
 
 Once the plugin is built, you can place it in the docker compose specified deploy directory by running the simple maven build within this project
 
-A mqtt-interface-config.xml file is injected into trhe OpenNMS etc directory.
+A mqtt-interface-config.xml file is injected into the OpenNMS etc directory.
 This defines connecting to the broker and registering for events
 
 Having downloaded and placed the plugin, you can start the whole project using `docker compose up -d'
