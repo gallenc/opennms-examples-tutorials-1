@@ -1,4 +1,5 @@
 # node red mqtt example
+Works with OpenNMS 32.0.5 / Mqtt plugin 0.0.8
 
 ## introduction
 This docker compose project provides a complete simulation of a remote site controller which communicates using mqtt.
@@ -16,27 +17,29 @@ An OpenNMS horizon container hosts OpenNMS and there are also postgres, grafana 
 
 ## Running the example
 
-The Node-Red simulation and OpenNMS will run using `docker compose up -d'
+The Node-Red simulation and OpenNMS will run using `docker compose up -d`
 
-However you will need to install the mqtt client before trying to use OpenNMS to connect to MQTT
+However you will need to install the mqtt client before trying to use OpenNMS to connect to MQTT.
+The plugin is installed in the opennms deploy directory.
 
-A simple maven file is provided with profiles to either use the plugi from the local maven repo or download the plugin from github releases.
+To make this easier, a simple maven pom.xml file is provided with profiles to either use the mqtt plugin from the local maven repo or to download the plugin from github releases.
 The default is to download from releases which avoids having to compile the plugin locally
 
-before using this docker compose example run 
+before running the docker compose example run 
 ```
 mvn clean install
 ```
+This will download and install the mqtt plugin
 
-to use local repo use with locally built plugin
+If you want to build the plugin and use a local .m2 repo use the profile
 
 ```
 mvn clean install -Plocal-maven 
 ```
-You must first build the plugin.
+To do this, you must first build the plugin.
 
-In order to build the MQTT plugin for openNMS, you must first check out and compile the OpenNMS code in order to get the build dependencies into the local maven repository.
-Unfortunately these dependencies are not stored in maven central
+In order to build the MQTT plugin for OpenNMS, you must first check out and compile the OpenNMS code in order to get the build dependencies into the local maven repository.
+Unfortunately these dependencies are not stored in maven central.
 
 After that you can build the MQTT plugin.
 see [opennms-mqtt-plugin](https://github.com/opennms-forge/opennms-mqtt-plugin)
@@ -45,6 +48,8 @@ Make sure the version of openNMS specified in the MQTT plugin build matches the 
 (note this example is known to work  with horizon 32.0.5)
 
 Once the plugin is built, you can place it in the docker compose specified deploy directory by running the simple maven build within this project
+
+## configuration
 
 A mqtt-interface-config.xml file is injected into the OpenNMS etc directory.
 This defines connecting to the broker and registering for events
