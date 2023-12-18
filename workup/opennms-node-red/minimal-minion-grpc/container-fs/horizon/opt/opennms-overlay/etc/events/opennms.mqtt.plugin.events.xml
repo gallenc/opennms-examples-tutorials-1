@@ -49,6 +49,6 @@
       </logmsg>
       <severity>Normal</severity>
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"  alarm-type="2" 
-      clear-key="uei.opennms.org/mqttplugin/message/write/event/1:%dpname%:%nodeid%:%parm[message-topic]%" auto-clean="false" />
+      clear-key="uei.opennms.org/mqttplugin/message/event/write/1:%dpname%:%nodeid%:%parm[message-topic]%" auto-clean="false" />
    </event>
 </events>
