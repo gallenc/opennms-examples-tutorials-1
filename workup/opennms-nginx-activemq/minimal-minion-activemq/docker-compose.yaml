@@ -3,7 +3,7 @@ version: '3'
 
 # using fixed ip addresses so opennms provisoning config works
 # to see all network use docker network ls
-# to see config use docker network inspect minimal-minion-grpc_frontend
+# to see config use docker network inspect minimal-minion-activemq_frontend
 # note gateway is 172.20.0.1 
 networks:
   frontend:
