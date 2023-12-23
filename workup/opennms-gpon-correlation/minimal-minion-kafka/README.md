@@ -1,6 +1,6 @@
 # Setting up opennms-kafka-producer test environment
 
-Provides a running OpenNMS with a kafka kafka-broker and a minion.
+Provides a running OpenNMS with a kafka kafka and a minion.
 
 (Instructions for testing the chubb-rules are found in [RulesTests.md](../RulesTests.md)  )
 
@@ -49,7 +49,7 @@ docker-compose exec horizon bash
 Two simple containers are provided from the integrationexample1 project.
 These containers need to be built before they can be used.
 
-Both containers expect the kafka kafka-broker address to be injected to
+Both containers expect the kafka kafka address to be injected to
 
 ```
  /tmp/kafkaclient.properties
@@ -81,12 +81,12 @@ http://[::1]:8081
 Based on https://docs.opennms.com/horizon/29/operation/kafka-producer/kafka-producer.html
 (see also https://rmoff.net/2018/08/02/kafka-listeners-explained/)
 
-Please note that the kafka kafka-broker in docker-compose is running on port 29092  not 9092 as described in the docs.
+Please note that the kafka kafka in docker-compose is running on port 29092  not 9092 as described in the docs.
 
 You need to get access to the OpenNMS Karaf shell. 
 There is an SSH client installed on the minion image but not the horizon image - so we ssh into the horizon opennms from the minion
 
-note that docker-compose sets up the service names kafka-broker, horizon, database as dns names so ssh etc can reference these
+note that docker-compose sets up the service names kafka, horizon, database as dns names so ssh etc can reference these
 
 To manually set up the alarm forwarder following the documentation
 
@@ -97,7 +97,7 @@ ssh -p 8101 admin@horizon
 (ssh -p 8101  -o UserKnownHostsFile=/dev/null  admin@localhost can be used from the docker host while avoiding host signature checking)
 
 admin@opennms()> config:edit org.opennms.features.kafka.producer.client
-admin@opennms()> config:property-set bootstrap.servers kafka-broker:29092
+admin@opennms()> config:property-set bootstrap.servers kafka:29092
 admin@opennms()> config:update
 admin@opennms()> feature:install opennms-kafka-producer
 
@@ -110,7 +110,7 @@ However we can provide this configuration permanently to OpenNMS by adding the f
 create the file org.opennms.features.kafka.producer.client.cfg and add contents
 
 ```
-bootstrap.servers = kafka-broker:29092
+bootstrap.servers = kafka:29092
 ```
 
 This file is put in the docker-compose project
