@@ -171,3 +171,52 @@ services:
     networks:
       frontend:
         ipv4_address: 172.20.0.100
+
+  netsnmp2:
+    image: polinux/snmpd
+    container_name: netsnmp2
+    hostname: netsnmp2
+    volumes:
+      - ./container-fs/snmp/snmpd.conf:/etc/snmp/snmpd.conf
+    ports:
+      - "11261:161/udp"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.101
+
+  netsnmp3:
+    image: polinux/snmpd
+    container_name: netsnmp3
+    hostname: netsnmp3
+    volumes:
+      - ./container-fs/snmp/snmpd.conf:/etc/snmp/snmpd.conf
+    ports:
+      - "11361:161/udp"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.102
+        
+  netsnmp4:
+    image: polinux/snmpd
+    container_name: netsnmp4
+    hostname: netsnmp4
+    volumes:
+      - ./container-fs/snmp/snmpd.conf:/etc/snmp/snmpd.conf
+    ports:
+      - "11461:161/udp"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.103
+        
+  netsnmp5:
+    image: polinux/snmpd
+    container_name: netsnmp5
+    hostname: netsnmp5
+    volumes:
+      - ./container-fs/snmp/snmpd.conf:/etc/snmp/snmpd.conf
+    ports:
+      - "11561:161/udp"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.104
+
