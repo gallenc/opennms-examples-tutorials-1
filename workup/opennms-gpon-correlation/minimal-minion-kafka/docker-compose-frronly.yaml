@@ -1,0 +1,80 @@
+---
+version: '3'
+
+# note to run only network use docker compose up -d
+# note to run with opennms use docmer compose --profile opennms up -d
+
+# using fixed ip addresses so opennms provisoning config works
+# to see all network use docker network ls
+# to see config use docker network inspect minimal-minion-kafka_frontend
+# note gateway is 172.20.0.1 
+networks:
+  frontend:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  N0:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.2.0/24
+  N1:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.3.0/24
+
+  N2:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.4.0/24
+
+
+volumes:
+  data-postgres: {}
+  data-opennms: {}
+  data-opennms-cfg: {}
+
+services:
+ 
+        
+# parent frr routers
+  router1:
+    image: frrouting/frr:v7.5.1
+    container_name: router1
+    hostname: router1
+    privileged: true
+    tty: true
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - ./container-fs/network/router1/frr.conf:/etc/frr/frr.conf
+      - ./container-fs/network/router1/daemons:/etc/frr/daemons
+
+    networks:
+      frontend:
+        priority: 1000 # eth0
+        ipv4_address: 172.20.0.61
+      N0:
+        priority: 900 # eth1
+        ipv4_address: 192.168.2.2
+      N1:
+        priority: 800 # eth2
+        ipv4_address: 192.168.3.2
+      N2:
+        priority: 700 # eth3
+        ipv4_address: 192.168.4.2
+
+ 
