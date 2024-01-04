@@ -1,0 +1,18 @@
+ip route add 172.40.0.0/16 via 172.20.0.61
+   19  ip route add 172.40.0.0/16 via 172.20.0.61 eth0
+   20  ip route add 172.40.0.0/16 via 172.20.0.61 eth0@if436
+   21  ip addr
+   22  ip route
+   23  ip route add 172.40.0.0/16 via 172.20.0.61 dev eth0
+   24  sudo ip route add 172.40.0.0/16 via 172.20.0.61 dev eth0
+   25  sudo ip route add 172.40.0.0/16 via 172.20.0.61  eth0
+   26  ip route
+   27  sudo ip route add default via 172.20.0.61  eth0
+   28  ip  route add default via 172.20.0.61  eth0
+   29  ip  route add default via 172.20.0.61 
+   
+   apt update
+   apt install iproute2
+   
+   ip route add 172.40.0.0/16 via 172.20.0.61 
+

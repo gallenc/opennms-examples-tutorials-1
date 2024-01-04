@@ -9,36 +9,36 @@ version: '3'
 # to see config use docker network inspect minimal-minion-kafka_frontend
 # note gateway is 172.20.0.1 
 networks:
-  frontend:
+  N000:
     ipam:
       config:
         - subnet: 172.20.0.0/24
-  N0:
+  N100:
     driver: bridge
     driver_opts:
       com.docker.network.bridge.enable_ip_masquerade: 'false'
     ipam:
       driver: default
       config:
-        - subnet: 192.168.2.0/24
-  N1:
-    driver: bridge
-    driver_opts:
-      com.docker.network.bridge.enable_ip_masquerade: 'false'
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.3.0/24
+        - subnet: 172.40.2.0/24
 
-  N2:
+  N200:
     driver: bridge
     driver_opts:
       com.docker.network.bridge.enable_ip_masquerade: 'false'
     ipam:
       driver: default
       config:
-        - subnet: 192.168.4.0/24
+        - subnet: 172.40.3.0/24
 
+  N300:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.40.4.0/24
 
 volumes:
   data-postgres: {}
@@ -66,12 +66,14 @@ services:
       timeout: 30s
       retries: 3
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.10
 
   kafka:
     image: ${DOCKER_REGISTRY:-docker.io}/confluentinc/cp-kafka:${KAFKA_VERSION:-latest}
     profiles: ["opennms"]
+    container_name: kafka
+    hostname: kafka
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
@@ -90,7 +92,7 @@ services:
       - "29092:29092/tcp"
       - "9092:9092/tcp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.20
 
   kafka-ui:
@@ -109,7 +111,7 @@ services:
     ports:
       - "8080:8080/tcp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.25
 
   horizon:
@@ -143,13 +145,15 @@ services:
       timeout: 5s
       retries: 3
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.30
 
   minion1:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-minion}:${ONMS_VERSION:-bleeding}
     container_name: minion1
     hostname: minion1
+    cap_add:
+      - NET_ADMIN
     profiles: ["opennms"]
     sysctls:
       net.ipv4.ping_group_range: "0 429496729"
@@ -170,9 +174,10 @@ services:
       - "1162:1162/udp"
       - "1514:1514/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.55
-        
+
+
   pris:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${MINION_OCI:-pris}:${PRIS_VERSION:-latest}
     container_name: pris
@@ -192,7 +197,7 @@ services:
     ports:
       - "8000:8000"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.35
         
 # parent frr routers
@@ -207,18 +212,14 @@ services:
       - ./container-fs/network/router1/daemons:/etc/frr/daemons:ro
 
     networks:
-      frontend:
-        priority: 1000 # eth0
+      N000: # eth0
         ipv4_address: 172.20.0.61
-      N0:
-        priority: 900 # eth1
-        ipv4_address: 192.168.2.2
-      N1:
-        priority: 800 # eth2
-        ipv4_address: 192.168.3.2
-      N2:
-        priority: 700 # eth3
-        ipv4_address: 192.168.4.2
+      N100: # eth1
+        ipv4_address: 172.40.2.2
+      N200: # eth2
+        ipv4_address: 172.40.3.2
+      N300: # eth3
+        ipv4_address: 172.40.4.2
 
  # first snmp container network
   netsnmp1-1:
@@ -230,7 +231,7 @@ services:
     ports:
       - "11161:161/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.100
 
   netsnmp1-2:
@@ -242,7 +243,7 @@ services:
     ports:
       - "11261:161/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.101
 
   netsnmp1-3:
@@ -254,7 +255,7 @@ services:
     ports:
       - "11361:161/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.102
         
   netsnmp1-4:
@@ -266,7 +267,7 @@ services:
     ports:
       - "11461:161/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.103
         
   netsnmp1-5:
@@ -278,7 +279,7 @@ services:
     ports:
       - "11561:161/udp"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.104
 
  # second snmp container network
@@ -291,8 +292,8 @@ services:
 #    ports:
 #      - "11161:161/udp"
     networks:
-      N0:
-        ipv4_address: 192.168.2.100
+      N100:
+        ipv4_address: 172.40.2.100
 
   netsnmp2-2:
     image: polinux/snmpd
@@ -303,8 +304,8 @@ services:
 #    ports:
 #      - "11261:161/udp"
     networks:
-      N0:
-        ipv4_address: 192.168.2.101
+      N100:
+        ipv4_address: 172.40.2.101
 
   netsnmp2-3:
     image: polinux/snmpd
@@ -315,8 +316,8 @@ services:
 #    ports:
 #      - "11361:161/udp"
     networks:
-      N0:
-        ipv4_address: 192.168.2.102
+      N100:
+        ipv4_address: 172.40.2.102
         
   netsnmp2-4:
     image: polinux/snmpd
@@ -327,8 +328,8 @@ services:
 #    ports:
 #      - "11461:161/udp"
     networks:
-      N0:
-        ipv4_address: 192.168.2.103
+      N100:
+        ipv4_address: 172.40.2.103
         
   netsnmp2-5:
     image: polinux/snmpd
@@ -339,6 +340,6 @@ services:
 #    ports:
 #      - "11561:161/udp"
     networks:
-      N0:
-        ipv4_address: 192.168.2.104
+      N100:
+        ipv4_address: 172.40.2.104
 
