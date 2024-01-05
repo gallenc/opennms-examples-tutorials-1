@@ -2,6 +2,10 @@
 
 This example doesn't use frr router and simply shows splices as downstream nodes
 
+using [RESTer plugin For Chrome](https://chromewebstore.google.com/detail/rester/eejfoncpjfgmeleakejdcanedmefagga)
+[RESTer plugin For Firefox](https://addons.mozilla.org/en-GB/firefox/addon/rester/)
+
+
 PRIS is used as source of data
 
 to import from pris use the following event ( change address as neccessary)

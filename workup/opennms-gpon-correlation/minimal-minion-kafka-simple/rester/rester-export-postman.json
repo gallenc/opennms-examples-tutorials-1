@@ -1,0 +1,120 @@
+{
+    "info": {
+        "name": "RESTer",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "OpenNMS-API",
+            "item": [
+                {
+                    "request": {
+                        "url": "http://localhost:8980/opennms/rest/alarms/",
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Basic YWRtaW46YWRtaW4="
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml"
+                            }
+                        ]
+                    },
+                    "id": "rester-2",
+                    "name": "getAlarms"
+                },
+                {
+                    "request": {
+                        "url": "http://localhost:8980/opennms/rest/events/",
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Basic YWRtaW46YWRtaW4="
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml"
+                            }
+                        ]
+                    },
+                    "id": "rester-1",
+                    "name": "getEvents"
+                },
+                {
+                    "request": {
+                        "url": "http://localhost:8980/opennms/rest/requisitions",
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Basic YWRtaW46YWRtaW4="
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml"
+                            }
+                        ]
+                    },
+                    "id": "rester-3",
+                    "name": "getRequisitions"
+                }
+            ]
+        },
+        {
+            "name": "OpenNMS-pris",
+            "item": [
+                {
+                    "request": {
+                        "url": "http://localhost:8000/requisitions/gpon1",
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            }
+                        ]
+                    },
+                    "id": "rester-4",
+                    "name": "getPrisGponRequisition"
+                },
+                {
+                    "request": {
+                        "url": "http://localhost:8980/opennms/rest/events",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<event>\n    <uei>uei.opennms.org/internal/importer/reloadImport</uei>\n    <parms>\n        <parm>\n            <parmName>url</parmName>\n            <value>http://pris:8000/requisitions/gpon1</value>\n        </parm>\n    </parms>\n</event>"
+                        }
+                    },
+                    "id": "rester-6",
+                    "name": "onmsImportGponRequisitionEvent"
+                }
+            ]
+        }
+    ]
+}

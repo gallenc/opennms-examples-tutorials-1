@@ -6,6 +6,10 @@ docker compose --profile opennms up
 
 ## to import requisition from pris
 
+using [RESTer plugin For Chrome](https://chromewebstore.google.com/detail/rester/eejfoncpjfgmeleakejdcanedmefagga)
+[RESTer plugin For Firefox](https://addons.mozilla.org/en-GB/firefox/addon/rester/)
+
+
 import instructions:
 
 https://docs.opennms.com/pris/2.0.0/provision-to-opennms.html
