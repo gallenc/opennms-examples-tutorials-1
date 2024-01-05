@@ -4,8 +4,8 @@ This simple proof of concept shows how OpenNMS parent child relationships can be
 
 LOOK AT THIS EXAMPLE
 
-[minimal-minion-kafka-simple](../opennms-gpon-correlation/minimal-minion-kafka-simple] is a simple example using netsnmp docker containers to represent end points. 
+[minimal-minion-kafka-simple](../opennms-gpon-correlation/minimal-minion-kafka-simple) is a simple example using netsnmp docker containers to represent end points. 
 
 NOT COMPLETE 
 
-[minimal-minion-kafka](../opennms-gpon-correlation/minimal-minion-kafka] is work in progress using frrouter. 
+[minimal-minion-kafka](../opennms-gpon-correlation/minimal-minion-kafka) is work in progress using frrouter. 
