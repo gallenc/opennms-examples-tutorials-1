@@ -38,6 +38,17 @@ Some example events are provided in the rester-export-postman.json file which ca
 
 ### Importing Requisition from PRIS
 
+If you manually edited the requisition, in the OpenNMS gui it will look like the following images
+
+![Alt text](../minimal-minion-kafka-simple/images/gponRequisition.png)
+
+![Alt text](../minimal-minion-kafka-simple/images/gponNodeParentRequisition.png)
+
+An example xml version of the requisition which is imported is provieded here [gpon1.xml(../minimal-minion-kafka-simple/images/gpon1.xml)
+
+This is generated from the following excel spreadsheet by pris
+![Alt text](../minimal-minion-kafka-simple/images/gpon1-xls.png)
+
 An event can be sent to OpenNMS to request that it imports a requisition from an external URL.
 
 See [OpenNMS import provisioning to OpenNMS](https://docs.opennms.com/pris/2.0.0/provision-to-opennms.html)
@@ -63,4 +74,8 @@ Accept Application/xml
      </parm></parms> 
 </event>
 ```
+
+Example events are provided in the rester file.
+
+
 
