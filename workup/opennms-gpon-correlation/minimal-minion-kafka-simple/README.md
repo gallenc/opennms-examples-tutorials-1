@@ -10,6 +10,8 @@ The splice points are represented using un-managed nodes in OpenNMS but the acti
 
 The provisioning requisition allows nodes to be defined with their parent nodes and this gives rise to the topology tree. 
 
+![Alt text](../minimal-minion-kafka-simple/images/gpontopologyMap.png)
+
 OpenNMS can use this configuration to suppress down stream outages when a parent has an outage but in this case we do not want to suppress alarms but help users see the relationship between nodes which have alarms in a passive optical network which could not be discovered using LLDP.
 
 The next step will be to design drools rules which use this topology to create alarms which indicate the location of a possible fibre cut. 
