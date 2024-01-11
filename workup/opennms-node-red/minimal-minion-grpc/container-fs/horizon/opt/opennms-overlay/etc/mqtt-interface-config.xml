@@ -97,7 +97,7 @@
       <ueiRoot>uei.opennms.org/mqttplugin/message/event/write</ueiRoot>
       <xml-groups>
         <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
-          <ns2:xml-object name="UEI_SUFFIX" type="string" xpath="@value" />
+          <ns2:xml-object name="UEI_SUFFIX" type="string" xpath="concat($topicLevels[3],@value)" />
           <ns2:xml-object name="value" type="GAUGE" xpath="@value" />
           <ns2:xml-object name="relay" type="string" xpath="$topicLevels[3]" /> <!-- should match relay e.g. 45MR-2404-0Relay-02 -->
         </ns2:xml-group>
