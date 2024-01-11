@@ -1,6 +1,6 @@
 [
     {
-        "id": "a4d2300a763387cc",
+        "id": "eea27d898b35bf2a",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "09bd1492e672c578",
+        "id": "3b4c253f9e2ac7aa",
         "type": "tab",
         "label": "DashBoard UI",
         "disabled": false,
@@ -16,9 +16,9 @@
         "env": []
     },
     {
-        "id": "6c72b2e4ce001e57",
+        "id": "6d4a1b5296908965",
         "type": "group",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "style": {
             "stroke": "#999999",
             "stroke-opacity": "1",
@@ -29,36 +29,36 @@
             "color": "#a4a4a4"
         },
         "nodes": [
-            "4630d477e8831f03"
-        ],
-        "x": 34,
-        "y": 2899,
-        "w": 312,
-        "h": 82
-    },
-    {
-        "id": "2f31d5da993bc23d",
-        "type": "group",
-        "z": "09bd1492e672c578",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "fb3db1f1d7c28983"
+            "ea452e02385dc759"
         ],
         "x": 14,
-        "y": 3059,
+        "y": 3939,
         "w": 312,
         "h": 82
     },
     {
-        "id": "b1fc7dce134037c7",
+        "id": "314457532018a5d9",
+        "type": "group",
+        "z": "3b4c253f9e2ac7aa",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d0490217fe2aac06"
+        ],
+        "x": -6,
+        "y": 4099,
+        "w": 312,
+        "h": 82
+    },
+    {
+        "id": "e61649106aaedaf2",
         "type": "mqtt-broker",
         "name": "mqtt-in-controls",
         "broker": "mqtt-broker",
@@ -87,7 +87,7 @@
         "sessionExpiry": ""
     },
     {
-        "id": "fc4d2aa2a8ccc1e5",
+        "id": "3ce345c324d38796",
         "type": "influxdb",
         "hostname": "influxdb",
         "port": "8086",
@@ -101,7 +101,7 @@
         "rejectUnauthorized": true
     },
     {
-        "id": "5b9fe36bdb74690d",
+        "id": "9c7e1dcdc4310c09",
         "type": "Stackhero-InfluxDB-v2-Server",
         "name": "NOC-GROUNDSTATION",
         "host": "influxdb",
@@ -109,7 +109,7 @@
         "tls": false
     },
     {
-        "id": "539eb1ad2a4d3996",
+        "id": "a88ff04bef792fd7",
         "type": "ui_tab",
         "name": "Noc",
         "icon": "dashboard",
@@ -117,7 +117,7 @@
         "hidden": false
     },
     {
-        "id": "6b41fd5d00829828",
+        "id": "6cc1056cf038e593",
         "type": "ui_base",
         "theme": {
             "name": "theme-dark",
@@ -215,10 +215,10 @@
         }
     },
     {
-        "id": "a82a0d58974dce4c",
+        "id": "25e17717e6e6c6b1",
         "type": "ui_group",
         "name": "Control Panel",
-        "tab": "539eb1ad2a4d3996",
+        "tab": "a88ff04bef792fd7",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -226,10 +226,10 @@
         "className": ""
     },
     {
-        "id": "d6effcdb66e85603",
+        "id": "f408f1d4bf1e7187",
         "type": "ui_group",
         "name": "Ground Station ",
-        "tab": "539eb1ad2a4d3996",
+        "tab": "a88ff04bef792fd7",
         "order": 2,
         "disp": true,
         "width": "6",
@@ -237,10 +237,10 @@
         "className": ""
     },
     {
-        "id": "4d1871c977269616",
+        "id": "cc4a1a717a1b5d90",
         "type": "ui_group",
         "name": "Site Physical Security",
-        "tab": "539eb1ad2a4d3996",
+        "tab": "a88ff04bef792fd7",
         "order": 3,
         "disp": true,
         "width": "6",
@@ -248,10 +248,10 @@
         "className": ""
     },
     {
-        "id": "2e1c4ab3e17670bf",
+        "id": "c90c090c62675a65",
         "type": "ui_group",
         "name": "Status",
-        "tab": "539eb1ad2a4d3996",
+        "tab": "a88ff04bef792fd7",
         "order": 4,
         "disp": true,
         "width": "6",
@@ -259,7 +259,7 @@
         "className": ""
     },
     {
-        "id": "10d21d689810e980",
+        "id": "3b9703bed74b1a00",
         "type": "mqtt-broker",
         "name": "fast-api/write/powerAmpDecrease",
         "broker": "mqtt-broker",
@@ -290,10 +290,10 @@
         "sessionExpiry": ""
     },
     {
-        "id": "6e8bb50b1eb3ac3a",
+        "id": "aebba40b657022dc",
         "type": "ui_group",
         "name": "Driver",
-        "tab": "539eb1ad2a4d3996",
+        "tab": "a88ff04bef792fd7",
         "order": 5,
         "disp": true,
         "width": "6",
@@ -301,9 +301,9 @@
         "className": ""
     },
     {
-        "id": "102740046162cf10",
+        "id": "0aec56286d291ba9",
         "type": "inject",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "props": [
             {
@@ -325,19 +325,19 @@
         "y": 80,
         "wires": [
             [
-                "2f4ce2475e0d7bfe"
+                "540c7086d543dc52"
             ]
         ]
     },
     {
-        "id": "3c1e9226adfd2c03",
+        "id": "0e2c1a7633c0bcb8",
         "type": "mqtt in",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "topic": "GroundStation/Timer",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -346,14 +346,14 @@
         "y": 80,
         "wires": [
             [
-                "e52a125fcc71d556"
+                "d74f103857ec315b"
             ]
         ]
     },
     {
-        "id": "e52a125fcc71d556",
+        "id": "d74f103857ec315b",
         "type": "debug",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -368,9 +368,9 @@
         "wires": []
     },
     {
-        "id": "2f4ce2475e0d7bfe",
+        "id": "540c7086d543dc52",
         "type": "mqtt out",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "topic": "GroundStation/Timer",
         "qos": "1",
@@ -380,15 +380,15 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "x": 300,
         "y": 160,
         "wires": []
     },
     {
-        "id": "4168c1f4c1f76104",
+        "id": "b4a87db3aaebc28b",
         "type": "inject",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "number 10",
         "props": [
             {
@@ -410,14 +410,14 @@
         "y": 140,
         "wires": [
             [
-                "2f4ce2475e0d7bfe"
+                "540c7086d543dc52"
             ]
         ]
     },
     {
-        "id": "c36529c32ec6bdf0",
+        "id": "aff9906dea0b9330",
         "type": "inject",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "hello",
         "props": [
             {
@@ -435,19 +435,19 @@
         "y": 200,
         "wires": [
             [
-                "2f4ce2475e0d7bfe"
+                "540c7086d543dc52"
             ]
         ]
     },
     {
-        "id": "b545163bf5dc7272",
+        "id": "8698e33948732023",
         "type": "mqtt in",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "topic": "GroundStation1/Door1",
         "qos": "1",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -456,15 +456,15 @@
         "y": 360,
         "wires": [
             [
-                "5051fc9764ba1093",
-                "242e5b7b06d946dc"
+                "cbf4d825a8312e48",
+                "988d59dc331a43a7"
             ]
         ]
     },
     {
-        "id": "5bb8476be8fcff92",
+        "id": "c5780240ac6f25a5",
         "type": "mqtt out",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "topic": "GroundStation1/Door1",
         "qos": "0",
@@ -474,15 +474,15 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "x": 340,
         "y": 320,
         "wires": []
     },
     {
-        "id": "4ddc1cd5bb4c8050",
+        "id": "c7a91e42c259b9a8",
         "type": "debug",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -497,9 +497,9 @@
         "wires": []
     },
     {
-        "id": "bddd3c202acb829c",
+        "id": "f2a81305bb2bc543",
         "type": "inject",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "Closed",
         "props": [
             {
@@ -517,14 +517,14 @@
         "y": 360,
         "wires": [
             [
-                "5bb8476be8fcff92"
+                "c5780240ac6f25a5"
             ]
         ]
     },
     {
-        "id": "a061ab8d99a278d2",
+        "id": "fc9708b7a7ac5482",
         "type": "inject",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "Open",
         "props": [
             {
@@ -542,14 +542,14 @@
         "y": 300,
         "wires": [
             [
-                "5bb8476be8fcff92"
+                "c5780240ac6f25a5"
             ]
         ]
     },
     {
-        "id": "5051fc9764ba1093",
+        "id": "cbf4d825a8312e48",
         "type": "switch",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -572,17 +572,17 @@
         "y": 360,
         "wires": [
             [
-                "7abd863f451e9b29"
+                "0fed463592fcffe7"
             ],
             [
-                "9561f9b5fbccc417"
+                "67286e3b427a91e8"
             ]
         ]
     },
     {
-        "id": "7abd863f451e9b29",
+        "id": "0fed463592fcffe7",
         "type": "change",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "rules": [
             {
@@ -602,14 +602,14 @@
         "y": 320,
         "wires": [
             [
-                "4ddc1cd5bb4c8050"
+                "c7a91e42c259b9a8"
             ]
         ]
     },
     {
-        "id": "9561f9b5fbccc417",
+        "id": "67286e3b427a91e8",
         "type": "change",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "",
         "rules": [
             {
@@ -629,14 +629,14 @@
         "y": 420,
         "wires": [
             [
-                "4ddc1cd5bb4c8050"
+                "c7a91e42c259b9a8"
             ]
         ]
     },
     {
-        "id": "04f6149a52b69961",
+        "id": "504a5291ad08df9b",
         "type": "debug",
-        "z": "a4d2300a763387cc",
+        "z": "eea27d898b35bf2a",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -651,10 +651,10 @@
         "wires": []
     },
     {
-        "id": "242e5b7b06d946dc",
+        "id": "988d59dc331a43a7",
         "type": "influxdb out",
-        "z": "a4d2300a763387cc",
-        "influxdb": "fc4d2aa2a8ccc1e5",
+        "z": "eea27d898b35bf2a",
+        "influxdb": "3ce345c324d38796",
         "name": "",
         "measurement": "Door",
         "precision": "",
@@ -669,13 +669,13 @@
         "wires": []
     },
     {
-        "id": "3bba2f9943676c7e",
+        "id": "f0c559f8b2c64daf",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "Light switch",
+        "label": "QBandRFDisconnect",
         "tooltip": "",
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -694,27 +694,25 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 210,
+        "x": 240,
         "y": 220,
         "wires": [
             [
-                "1f4e222185e1ddce",
-                "c067787e96144817",
-                "06fe85aea905be6e",
-                "4de8e1f33ad71627",
-                "fc7d19205f16b92e",
-                "52c6ad987c2397fb"
+                "f67263c2cc0f4334",
+                "f3f2649d28b146b0",
+                "24d4ce9fb89725d0",
+                "9d302b19b39bc9cd"
             ]
         ]
     },
     {
-        "id": "ba1f3ba71919e54c",
+        "id": "fc4ba9b02cba19a6",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "DoorControl",
+        "label": "PowerAmpReset",
         "tooltip": "",
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -733,28 +731,26 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 70,
+        "x": 90,
         "y": 700,
         "wires": [
             [
-                "140fed0772dca7d2",
-                "c6c928d76346b363",
-                "72b57ad38f76e726",
-                "8c07c70b4b38a393",
-                "10a3250b04bd3df5"
+                "4b57d5f595fa40c0",
+                "187b7433c72519b3",
+                "621fb90e54dd9b63"
             ]
         ]
     },
     {
-        "id": "1f4e222185e1ddce",
+        "id": "f67263c2cc0f4334",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "LightsStatus",
+        "label": "QBandPAReset",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -762,20 +758,20 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 530,
+        "x": 540,
         "y": 140,
         "wires": []
     },
     {
-        "id": "140fed0772dca7d2",
+        "id": "4b57d5f595fa40c0",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "DoorStatus",
+        "label": "PowerAmpReset",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -783,183 +779,18 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 330,
+        "x": 350,
         "y": 800,
         "wires": []
     },
     {
-        "id": "c067787e96144817",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/Lights",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1410,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "c6c928d76346b363",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/Door",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 610,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "722f8c0802339737",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/RoomTemperature",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 790,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "25d7bfceafa6b1ad",
-        "type": "ui_gauge",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "group": "d6effcdb66e85603",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "CabinetTemperature",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 1040,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "e880441af92a13a4",
-        "type": "ui_thermostat",
-        "z": "09bd1492e672c578",
-        "group": "d6effcdb66e85603",
-        "name": "ThermoStat",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "ambientTemperature": 0,
-        "targetTemperature": 0,
-        "hvacState": "off",
-        "hasLeaf": false,
-        "away": false,
-        "minValue": 10,
-        "maxValue": 30,
-        "diameter": 400,
-        "numTicks": 200,
-        "x": 70,
-        "y": 1100,
-        "wires": [
-            [
-                "722f8c0802339737",
-                "bbaf1c5bb5201583",
-                "ac11103628e50d05"
-            ]
-        ]
-    },
-    {
-        "id": "4fbbacbf9b4d88c3",
-        "type": "random",
-        "z": "09bd1492e672c578",
-        "name": "CabinetTemperature",
-        "low": "15",
-        "high": "20",
-        "inte": "true",
-        "property": "payload",
-        "x": 100,
-        "y": 1220,
-        "wires": [
-            [
-                "25d7bfceafa6b1ad",
-                "9a0e79130cf44db2",
-                "c575f311cd479a52"
-            ]
-        ]
-    },
-    {
-        "id": "bbaf1c5bb5201583",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/ThermoStat",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 410,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "9a0e79130cf44db2",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "GroundStation/GS/RoomTemperature",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1250,
-        "y": 1220,
-        "wires": []
-    },
-    {
-        "id": "0078f0ed3ddb7a3e",
+        "id": "03e181b09a45b05b",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QbandPowerAmp",
+        "label": "RemoteSiteDoor",
         "tooltip": "",
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -982,95 +813,22 @@
         "y": 1320,
         "wires": [
             [
-                "a249386ce6cc1306",
-                "5da77f5fe66f106a",
-                "d291b56a0b11897b",
-                "d37089b70b0e8661"
+                "421ad0ddcfafe49c",
+                "9472f2922f8c7db8",
+                "f6d49363adc4d518"
             ]
         ]
     },
     {
-        "id": "4de8e1f33ad71627",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "LightStatus",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1630,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "ac11103628e50d05",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "ThermoStat",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 990,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "c575f311cd479a52",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "CabinetTemperature",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1320,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "a249386ce6cc1306",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "QbandPowerAmp",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1170,
-        "y": 1280,
-        "wires": []
-    },
-    {
-        "id": "5da77f5fe66f106a",
+        "id": "421ad0ddcfafe49c",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 10,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "QbPower",
+        "label": "RemoteSiteDoor",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -1078,320 +836,169 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 440,
+        "x": 470,
         "y": 1260,
         "wires": []
     },
     {
-        "id": "10a3250b04bd3df5",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "DoorStatus",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1230,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "13cec347cfb51a97",
+        "id": "f82e062013104f44",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-00/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI00-GSMains/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 1620,
-        "wires": [
-            [
-                "fcb3ddfa9e33690b",
-                "7c02ba33e3bc9acf",
-                "430e8bbb28cdfd1d"
-            ]
-        ]
-    },
-    {
-        "id": "fcb3ddfa9e33690b",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "MainsPowerStatus",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 700,
-        "y": 1580,
-        "wires": []
-    },
-    {
-        "id": "777fca3a24666ab3",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-01/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 1740,
-        "wires": [
-            [
-                "4b1a5b71ad1996fa",
-                "de5e5e9ef4789187",
-                "d20d802f9b487060"
-            ]
-        ]
-    },
-    {
-        "id": "3dccd6b29fb684b9",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-02/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 1840,
-        "wires": [
-            [
-                "273dfff5b5bacd95",
-                "05b0b36be679e6b4",
-                "fc1e5bd4fdb422dd"
-            ]
-        ]
-    },
-    {
-        "id": "299e24ff8e36b3e3",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-04/diStatus",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 2060,
-        "wires": [
-            [
-                "990c84a0486d7203",
-                "87d2819610b06cb8",
-                "da1eb024764a8549"
-            ]
-        ]
-    },
-    {
-        "id": "273dfff5b5bacd95",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "Q_band_PA_Status",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1060,
-        "y": 1840,
-        "wires": []
-    },
-    {
-        "id": "4b1a5b71ad1996fa",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "QBandPSU",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1030,
-        "y": 1780,
-        "wires": []
-    },
-    {
-        "id": "61aa40c1dce0fea5",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "RF_input_over_ limit",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1060,
-        "y": 1940,
-        "wires": []
-    },
-    {
-        "id": "da1eb024764a8549",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "QBandOverCurrent",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1060,
-        "y": 2060,
-        "wires": []
-    },
-    {
-        "id": "086662d448b34733",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-05/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 2140,
-        "wires": [
-            [
-                "df36875495ee7653",
-                "1a265aee3f26ebfb",
-                "c362252acfa12aba"
-            ]
-        ]
-    },
-    {
-        "id": "c362252acfa12aba",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "QBandOverTemperature",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1410,
-        "y": 2180,
-        "wires": []
-    },
-    {
-        "id": "7fb52b0743b049f4",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-07/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 2260,
-        "wires": [
-            [
-                "4c7188c62d63e65b",
-                "caea565358cf1e5d",
-                "f7d0ed5d2f63ed6e"
-            ]
-        ]
-    },
-    {
-        "id": "caea565358cf1e5d",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "VSWRHigh",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 890,
-        "y": 2280,
-        "wires": []
-    },
-    {
-        "id": "7586287ac40fecda",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-08/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 2320,
+        "y": 1620,
         "wires": [
             [
-                "b0fcbdb2d15d7b6a",
-                "729c61736bceaede",
-                "f2d7bfedc6e57d6f"
+                "fb61385425d8e59a",
+                "82a3b1b11aeff207"
             ]
         ]
     },
     {
-        "id": "7c02ba33e3bc9acf",
+        "id": "239d90aa0626d383",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI01-UPS/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 1740,
+        "wires": [
+            [
+                "242ff0e4e71c774d",
+                "a76a5f2df77d6967"
+            ]
+        ]
+    },
+    {
+        "id": "0974e416305f1887",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI02-QBandPSU/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 1840,
+        "wires": [
+            [
+                "c6943e63c0dd8b40",
+                "200dc11180c756a3"
+            ]
+        ]
+    },
+    {
+        "id": "13435c97a1c10349",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI04-QBandRFOvrL/diStatus",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 2060,
+        "wires": [
+            [
+                "a4fd45206b7d4ebf",
+                "48a29259dce15e17"
+            ]
+        ]
+    },
+    {
+        "id": "52660f6dc340b7e6",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI05-QBandOverCu/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 2140,
+        "wires": [
+            [
+                "95c4d0174ac45de0",
+                "136eb8e730302886"
+            ]
+        ]
+    },
+    {
+        "id": "177ba69a72d5ed67",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI07-PosCtrlFail/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 2260,
+        "wires": [
+            [
+                "1fcd7e19290d32ee",
+                "8f60eac6d1568deb"
+            ]
+        ]
+    },
+    {
+        "id": "2919336f29f08a73",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI08-VSWHigh/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 2320,
+        "wires": [
+            [
+                "5e133000c50e2d4c",
+                "6e6afb6d978b0656"
+            ]
+        ]
+    },
+    {
+        "id": "fb61385425d8e59a",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1409,10 +1016,31 @@
         "wires": []
     },
     {
-        "id": "de5e5e9ef4789187",
+        "id": "242ff0e4e71c774d",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "UPS",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 810,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "200dc11180c756a3",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1425,41 +1053,20 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 830,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "fc1e5bd4fdb422dd",
-        "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Q_band_PA_Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 670,
+        "x": 650,
         "y": 1880,
         "wires": []
     },
     {
-        "id": "c6c1a6b2f8f33be0",
+        "id": "d8ce9db648ff6223",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "RF_input_over_ limit",
+        "label": "QBandPA",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -1467,15 +1074,15 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 560,
+        "x": 520,
         "y": 2020,
         "wires": []
     },
     {
-        "id": "87d2819610b06cb8",
+        "id": "48a29259dce15e17",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1493,10 +1100,10 @@
         "wires": []
     },
     {
-        "id": "df36875495ee7653",
+        "id": "95c4d0174ac45de0",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1514,11 +1121,11 @@
         "wires": []
     },
     {
-        "id": "430e8bbb28cdfd1d",
+        "id": "82a3b1b11aeff207",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1545,11 +1152,11 @@
         "wires": []
     },
     {
-        "id": "d20d802f9b487060",
+        "id": "a76a5f2df77d6967",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1576,11 +1183,11 @@
         "wires": []
     },
     {
-        "id": "05b0b36be679e6b4",
+        "id": "c6943e63c0dd8b40",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1607,11 +1214,11 @@
         "wires": []
     },
     {
-        "id": "df8fc95c3b5555a7",
+        "id": "fc9c3de93bfcca0c",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1638,11 +1245,11 @@
         "wires": []
     },
     {
-        "id": "990c84a0486d7203",
+        "id": "a4fd45206b7d4ebf",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1669,11 +1276,11 @@
         "wires": []
     },
     {
-        "id": "1a265aee3f26ebfb",
+        "id": "136eb8e730302886",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -1700,10 +1307,10 @@
         "wires": []
     },
     {
-        "id": "4c7188c62d63e65b",
+        "id": "1fcd7e19290d32ee",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1721,10 +1328,10 @@
         "wires": []
     },
     {
-        "id": "b0fcbdb2d15d7b6a",
+        "id": "5e133000c50e2d4c",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1742,15 +1349,15 @@
         "wires": []
     },
     {
-        "id": "482ad0445128f687",
+        "id": "6223dc66ce9c1fe8",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "PositionerLANFail",
+        "label": "QBandOverTemp",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -1763,10 +1370,10 @@
         "wires": []
     },
     {
-        "id": "36061b35150a883f",
+        "id": "5d644d76d453c8fc",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -1784,15 +1391,15 @@
         "wires": []
     },
     {
-        "id": "e1c39f4df09c7c81",
+        "id": "6ea350bbfe9056c8",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Q-BandRSSI",
+        "label": "AntennaPSU",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -1800,20 +1407,20 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 770,
-        "y": 2600,
+        "x": 690,
+        "y": 2640,
         "wires": []
     },
     {
-        "id": "6856acb54d7a5ed7",
+        "id": "0849d7ee07562de7",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "PositionerMisalignment",
+        "label": "HighCabinetTemp",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -1821,219 +1428,126 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1410,
-        "y": 2660,
+        "x": 950,
+        "y": 2680,
         "wires": []
     },
     {
-        "id": "2a198aaa8c76b944",
-        "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "SiteTemperature",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 580,
-        "y": 2780,
-        "wires": []
-    },
-    {
-        "id": "e9d26f4f62c8a59d",
-        "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "4d1871c977269616",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "QBandRxSignalStrength",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1350,
-        "y": 2820,
-        "wires": []
-    },
-    {
-        "id": "442f3c96dbbca044",
+        "id": "bf28c368ae7c3657",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-06/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI06-QBandOverTm/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
+        "x": 220,
         "y": 2200,
         "wires": [
             [
-                "482ad0445128f687",
-                "5b923cd9cc835110",
-                "4d1487742cb77f54"
+                "6223dc66ce9c1fe8",
+                "cc94b1ce04f85f22"
             ]
         ]
     },
     {
-        "id": "8229a9dd7f4a45e8",
+        "id": "218818b86577bd65",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-09/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI09-BayDoorStat/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
+        "x": 210,
         "y": 2480,
         "wires": [
             [
-                "36061b35150a883f",
-                "54311085db469818",
-                "4bd2928e7e22425b"
+                "5d644d76d453c8fc",
+                "b5760f6796558981"
             ]
         ]
     },
     {
-        "id": "a6f54a3e2957853e",
+        "id": "a003e3af0e7e77b0",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-10/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI10-AntennaPSU/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
+        "x": 210,
         "y": 2560,
         "wires": [
             [
-                "e1c39f4df09c7c81",
-                "60cfac46fa0e6028",
-                "a82a7a95a6079fb5"
+                "6ea350bbfe9056c8",
+                "f523233e9b0faef2"
             ]
         ]
     },
     {
-        "id": "836183ce24ef3c56",
+        "id": "9b8b5d3d35ee6995",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-11/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI11-HighCapTemp/diStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
+        "x": 220,
         "y": 2660,
         "wires": [
             [
-                "6856acb54d7a5ed7",
-                "dedcd6835f36a866",
-                "f848b5c87a6e28df"
+                "0849d7ee07562de7",
+                "f0fe891d336bbbff"
             ]
         ]
     },
     {
-        "id": "c0c3c6a4e0961394",
+        "id": "684c576a28c2d47f",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-12/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 2740,
-        "wires": [
-            [
-                "2a198aaa8c76b944",
-                "b1924be2de61c559",
-                "85e6087c74fc99df"
-            ]
-        ]
-    },
-    {
-        "id": "bc363bac1a0c18c7",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-13/diStatus",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 200,
-        "y": 2820,
-        "wires": [
-            [
-                "e9d26f4f62c8a59d",
-                "f77dcf20ccf50ac9",
-                "7c9c51bc69734dc1"
-            ]
-        ]
-    },
-    {
-        "id": "0715514aaea17fee",
-        "type": "mqtt in",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-03/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI03-QBandPA_Off/diStatus",
         "qos": "1",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
+        "x": 220,
         "y": 1940,
         "wires": [
             [
-                "c6c1a6b2f8f33be0",
-                "df8fc95c3b5555a7",
-                "61aa40c1dce0fea5"
+                "d8ce9db648ff6223",
+                "fc9c3de93bfcca0c"
             ]
         ]
     },
     {
-        "id": "fc7d19205f16b92e",
+        "id": "24d4ce9fb89725d0",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 3,
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "width": 0,
         "height": 0,
         "label": "",
@@ -2060,9 +1574,9 @@
         "wires": []
     },
     {
-        "id": "06fe85aea905be6e",
+        "id": "f3f2649d28b146b0",
         "type": "change",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "rules": [
             {
@@ -2093,16 +1607,16 @@
         "y": 120,
         "wires": [
             [
-                "7bca577922da58a0"
+                "4e67857d51bf5f79"
             ]
         ]
     },
     {
-        "id": "7bca577922da58a0",
+        "id": "4e67857d51bf5f79",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-00/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@QBandPARF_Discon/relayStatus",
         "qos": "1",
         "retain": "true",
         "respTopic": "",
@@ -2110,17 +1624,17 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 510,
+        "broker": "e61649106aaedaf2",
+        "x": 530,
         "y": 20,
         "wires": []
     },
     {
-        "id": "ba03b75c61d34ea3",
+        "id": "7599e4128d5e98f4",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-01/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@QBandPAReset/relayStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -2128,15 +1642,15 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1210,
+        "broker": "e61649106aaedaf2",
+        "x": 1220,
         "y": 640,
         "wires": []
     },
     {
-        "id": "72b57ad38f76e726",
+        "id": "187b7433c72519b3",
         "type": "change",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "rules": [
             {
@@ -2167,16 +1681,16 @@
         "y": 640,
         "wires": [
             [
-                "ba03b75c61d34ea3"
+                "7599e4128d5e98f4"
             ]
         ]
     },
     {
-        "id": "8c07c70b4b38a393",
+        "id": "621fb90e54dd9b63",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "width": 0,
         "height": 0,
         "label": "",
@@ -2203,9 +1717,9 @@
         "wires": []
     },
     {
-        "id": "d291b56a0b11897b",
+        "id": "9472f2922f8c7db8",
         "type": "change",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "rules": [
             {
@@ -2236,16 +1750,16 @@
         "y": 1320,
         "wires": [
             [
-                "27946bc5aab77958"
+                "4ad44d4a93c342b7"
             ]
         ]
     },
     {
-        "id": "27946bc5aab77958",
+        "id": "4ad44d4a93c342b7",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-03/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@Door/relayStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -2253,17 +1767,17 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1250,
+        "broker": "e61649106aaedaf2",
+        "x": 1220,
         "y": 1320,
         "wires": []
     },
     {
-        "id": "d37089b70b0e8661",
+        "id": "f6d49363adc4d518",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 11,
-        "group": "a82a0d58974dce4c",
+        "group": "25e17717e6e6c6b1",
         "width": 0,
         "height": 0,
         "label": "",
@@ -2290,15 +1804,15 @@
         "wires": []
     },
     {
-        "id": "64e241fbde03231c",
+        "id": "f5848747fa7cd86f",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 8,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Door_Relay01_Status",
+        "label": "PowerAmpReset",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -2306,41 +1820,41 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 640,
+        "x": 630,
         "y": 520,
         "wires": []
     },
     {
-        "id": "d29f3510667ae3a9",
+        "id": "8883b721636074aa",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-03/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@Door/relayStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 210,
+        "x": 180,
         "y": 1420,
         "wires": [
             [
-                "680cb7936adb6a3e"
+                "840e455e896eff16"
             ]
         ]
     },
     {
-        "id": "680cb7936adb6a3e",
+        "id": "840e455e896eff16",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 12,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "PowerAmp_Relay02_Status",
+        "label": "RemoteSiteDoor",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -2348,40 +1862,40 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 820,
+        "x": 790,
         "y": 1240,
         "wires": []
     },
     {
-        "id": "1e1b6c96be69d9e3",
+        "id": "8e881b1e7f3e8eb8",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-00/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@QBandPARF_Discon/relayStatus",
         "qos": "1",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1010,
+        "x": 1030,
         "y": 20,
         "wires": [
             [
-                "98f26737b9fdb41c"
+                "eb1b2746d385c636"
             ]
         ]
     },
     {
-        "id": "de23cd316528475f",
+        "id": "b7867df555c5f34a",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/write/45MR-2404-0@Relay-01/relayStatus",
+        "topic": "YAKU001/write/45MR-2404-0@QBandPAReset/relayStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -2390,20 +1904,20 @@
         "y": 520,
         "wires": [
             [
-                "64e241fbde03231c"
+                "f5848747fa7cd86f"
             ]
         ]
     },
     {
-        "id": "98f26737b9fdb41c",
+        "id": "eb1b2746d385c636",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "a82a0d58974dce4c",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
         "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Light_Relay00_Status",
+        "label": "QBandPARF_Disconnect",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -2411,162 +1925,36 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1480,
+        "x": 1490,
         "y": 20,
         "wires": []
     },
     {
-        "id": "729c61736bceaede",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "PositionerLANFail",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1130,
-        "y": 2400,
-        "wires": []
-    },
-    {
-        "id": "5b923cd9cc835110",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "PositionerControllerFail",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 890,
-        "y": 2200,
-        "wires": []
-    },
-    {
-        "id": "54311085db469818",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "Bay1DoorStatus",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 830,
-        "y": 2560,
-        "wires": []
-    },
-    {
-        "id": "60cfac46fa0e6028",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "Q_BandRSSI",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 880,
-        "y": 2640,
-        "wires": []
-    },
-    {
-        "id": "dedcd6835f36a866",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "PositionerMisalignment",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1490,
-        "y": 2700,
-        "wires": []
-    },
-    {
-        "id": "b1924be2de61c559",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "SiteTemperature",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 850,
-        "y": 2760,
-        "wires": []
-    },
-    {
-        "id": "f77dcf20ccf50ac9",
-        "type": "influxdb out",
-        "z": "09bd1492e672c578",
-        "influxdb": "fc4d2aa2a8ccc1e5",
-        "name": "",
-        "measurement": "QBandRxSignalStrength",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "AALTO",
-        "bucket": "ioThinx_4510",
-        "x": 1390,
-        "y": 2860,
-        "wires": []
-    },
-    {
-        "id": "6b7aaa8bdf9da128",
+        "id": "78c72492775ea778",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "topic": "fast-api/write/powerAmpIncrease",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 3020,
+        "x": 170,
+        "y": 4060,
         "wires": [
             [
-                "8b5b3b2f5e1e303e"
+                "1f371d2f8ed7ddbb"
             ]
         ]
     },
     {
-        "id": "8b5b3b2f5e1e303e",
+        "id": "1f371d2f8ed7ddbb",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "d6effcdb66e85603",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "f408f1d4bf1e7187",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -2579,19 +1967,19 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 560,
-        "y": 3020,
+        "x": 540,
+        "y": 4060,
         "wires": []
     },
     {
-        "id": "4630d477e8831f03",
+        "id": "ea452e02385dc759",
         "type": "ui_text_input",
-        "z": "09bd1492e672c578",
-        "g": "6c72b2e4ce001e57",
+        "z": "3b4c253f9e2ac7aa",
+        "g": "6d4a1b5296908965",
         "name": "",
         "label": "Test Input Power Amp Increase",
         "tooltip": "",
-        "group": "d6effcdb66e85603",
+        "group": "f408f1d4bf1e7187",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -2602,18 +1990,18 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 190,
-        "y": 2940,
+        "x": 170,
+        "y": 3980,
         "wires": [
             [
-                "d2eb5e7cbb7e57ae"
+                "6044f16b8d90d60f"
             ]
         ]
     },
     {
-        "id": "d2eb5e7cbb7e57ae",
+        "id": "6044f16b8d90d60f",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "topic": "fast-api/write/powerAmpIncrease",
         "qos": "",
@@ -2623,37 +2011,37 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "10d21d689810e980",
-        "x": 480,
-        "y": 2940,
+        "broker": "3b9703bed74b1a00",
+        "x": 460,
+        "y": 3980,
         "wires": []
     },
     {
-        "id": "19e81cdb12698881",
+        "id": "99877e6c32aab3d4",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "topic": "fast-api/write/powerAmpDecrease",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 170,
-        "y": 3200,
+        "x": 150,
+        "y": 4240,
         "wires": [
             [
-                "e52f2fbad4645b1b"
+                "22aba05833032e40"
             ]
         ]
     },
     {
-        "id": "e52f2fbad4645b1b",
+        "id": "22aba05833032e40",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "d6effcdb66e85603",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "f408f1d4bf1e7187",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -2666,14 +2054,14 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 570,
-        "y": 3200,
+        "x": 550,
+        "y": 4240,
         "wires": []
     },
     {
-        "id": "e9df4f27deb61a28",
+        "id": "39f652023fbc215f",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "topic": "fast-api/write/powerAmpDecrease",
         "qos": "",
@@ -2683,20 +2071,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "10d21d689810e980",
-        "x": 560,
-        "y": 3100,
+        "broker": "3b9703bed74b1a00",
+        "x": 540,
+        "y": 4140,
         "wires": []
     },
     {
-        "id": "fb3db1f1d7c28983",
+        "id": "d0490217fe2aac06",
         "type": "ui_text_input",
-        "z": "09bd1492e672c578",
-        "g": "2f31d5da993bc23d",
+        "z": "3b4c253f9e2ac7aa",
+        "g": "314457532018a5d9",
         "name": "",
         "label": "Test Input Power Amp Decrease",
         "tooltip": "",
-        "group": "d6effcdb66e85603",
+        "group": "f408f1d4bf1e7187",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -2707,41 +2095,41 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 170,
-        "y": 3100,
+        "x": 150,
+        "y": 4140,
         "wires": [
             [
-                "e9df4f27deb61a28"
+                "39f652023fbc215f"
             ]
         ]
     },
     {
-        "id": "566ba28494d49b9a",
+        "id": "d3cee88b0321e2ca",
         "type": "mqtt in",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "topic": "fast-api/write/CabinDoorStatus",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 160,
-        "y": 3280,
+        "x": 140,
+        "y": 4320,
         "wires": [
             [
-                "b2d7b6d2967d0d76",
-                "5c407e5a7832d3e8"
+                "b2a2235eb9add4f5",
+                "be547eb66a39e5d4"
             ]
         ]
     },
     {
-        "id": "b2d7b6d2967d0d76",
+        "id": "b2a2235eb9add4f5",
         "type": "ui_text",
-        "z": "09bd1492e672c578",
-        "group": "d6effcdb66e85603",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "f408f1d4bf1e7187",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -2754,16 +2142,16 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 550,
-        "y": 3280,
+        "x": 530,
+        "y": 4320,
         "wires": []
     },
     {
-        "id": "5c407e5a7832d3e8",
+        "id": "be547eb66a39e5d4",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 8,
-        "group": "d6effcdb66e85603",
+        "group": "f408f1d4bf1e7187",
         "width": 0,
         "height": 0,
         "label": "CabinDoorStatus",
@@ -2785,111 +2173,14 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 530,
-        "y": 3340,
+        "x": 510,
+        "y": 4380,
         "wires": []
     },
     {
-        "id": "7da06df312a10d25",
+        "id": "9d302b19b39bc9cd",
         "type": "switch",
-        "z": "09bd1492e672c578",
-        "name": "PowerAmp_MsgTx",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "{\"value\":0}",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "{\"value\":1}",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 570,
-        "y": 1420,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "6fe5d2fca9c4dcaa",
-        "type": "change",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "PowerAmpOff",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 800,
-        "y": 1340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ccd68fce8d2a9745",
-        "type": "change",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "PowerAmpON",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 800,
-        "y": 1420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "57b24c4db8bf9fd8",
-        "type": "snmp set",
-        "z": "09bd1492e672c578",
-        "host": "horizon:10162",
-        "version": "2c",
-        "timeout": 5,
-        "community": "public",
-        "auth": "noAuthNoPriv",
-        "authprot": "MD5",
-        "privprot": "DES",
-        "oids": "",
-        "varbinds": "[{\"oid\":\"1.3.6.1.2.1.1.5.0\",\"type\":\"OctelString\",\"value\":\"opennms01\"},\n{\"oid\":\"1.3.6.1.2.1.1.6.0\",\"type\":\"OctelString\",\"value\":\"LightSwitchOn\"}]",
-        "name": "",
-        "x": 850,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "52c6ad987c2397fb",
-        "type": "switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "SNMP Switch Feed",
         "property": "payload",
         "propertyType": "msg",
@@ -2911,115 +2202,14 @@
         "x": 550,
         "y": 80,
         "wires": [
-            [
-                "57b24c4db8bf9fd8"
-            ],
-            [
-                "c00c1fe42c5f9dde"
-            ]
-        ]
-    },
-    {
-        "id": "c00c1fe42c5f9dde",
-        "type": "snmp set",
-        "z": "09bd1492e672c578",
-        "host": "horizon:10162",
-        "version": "2c",
-        "timeout": 5,
-        "community": "public",
-        "auth": "noAuthNoPriv",
-        "authprot": "MD5",
-        "privprot": "DES",
-        "oids": "",
-        "varbinds": "[{\"oid\":\"1.3.6.1.2.1.1.5.0\",\"type\":\"OctelString\",\"value\":\"opennms01\"},\n{\"oid\":\"1.3.6.1.2.1.1.6.0\",\"type\":\"OctelString\",\"value\":\"LightSwitchOff\"}]",
-        "name": "",
-        "x": 850,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "1afb02c90f839d04",
-        "type": "change",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "GSDoorsClosed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "422788fe452b5ed8",
-        "type": "change",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "GSDoorOpen",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2b38ea6c74b8293d",
-        "type": "switch",
-        "z": "09bd1492e672c578",
-        "name": "DoorControls",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "{\"value\":0}",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "{\"value\":1}",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 390,
-        "y": 900,
-        "wires": [
             [],
             []
         ]
     },
     {
-        "id": "c2991947d30c9b9e",
+        "id": "cb72215b1439da83",
         "type": "change",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "rules": [
             {
@@ -3042,9 +2232,9 @@
         ]
     },
     {
-        "id": "920aa023dd8352a9",
+        "id": "3939d389dfd00aa3",
         "type": "change",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "rules": [
             {
@@ -3067,9 +2257,9 @@
         ]
     },
     {
-        "id": "e90efacbab2ba63f",
+        "id": "628313f62487fbd6",
         "type": "switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "Lights",
         "property": "payload",
         "propertyType": "msg",
@@ -3096,42 +2286,11 @@
         ]
     },
     {
-        "id": "4d1487742cb77f54",
+        "id": "8f60eac6d1568deb",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 610,
-        "y": 2220,
-        "wires": []
-    },
-    {
-        "id": "f7d0ed5d2f63ed6e",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -3154,15 +2313,46 @@
         "showGlow": true,
         "name": "",
         "x": 570,
-        "y": 2280,
+        "y": 2300,
         "wires": []
     },
     {
-        "id": "f2d7bfedc6e57d6f",
+        "id": "6e6afb6d978b0656",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "cc94b1ce04f85f22",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -3189,11 +2379,11 @@
         "wires": []
     },
     {
-        "id": "4bd2928e7e22425b",
+        "id": "b5760f6796558981",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -3220,11 +2410,11 @@
         "wires": []
     },
     {
-        "id": "a82a7a95a6079fb5",
+        "id": "f523233e9b0faef2",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -3246,16 +2436,16 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 490,
-        "y": 2620,
+        "x": 630,
+        "y": 2580,
         "wires": []
     },
     {
-        "id": "f848b5c87a6e28df",
+        "id": "f0fe891d336bbbff",
         "type": "ui_led",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "order": 7,
-        "group": "2e1c4ab3e17670bf",
+        "group": "c90c090c62675a65",
         "width": 0,
         "height": 0,
         "label": "",
@@ -3277,78 +2467,16 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 570,
-        "y": 2700,
+        "x": 550,
+        "y": 2740,
         "wires": []
     },
     {
-        "id": "85e6087c74fc99df",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 690,
-        "y": 2720,
-        "wires": []
-    },
-    {
-        "id": "7c9c51bc69734dc1",
-        "type": "ui_led",
-        "z": "09bd1492e672c578",
-        "order": 7,
-        "group": "2e1c4ab3e17670bf",
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"value\": 1}",
-                "valueType": "json"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"value\": 0}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 570,
-        "y": 2860,
-        "wires": []
-    },
-    {
-        "id": "3283b78c959c0b03",
+        "id": "60860b7a62002bd1",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-00/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI00-GSMains/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3356,20 +2484,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1470,
+        "broker": "e61649106aaedaf2",
+        "x": 1480,
         "y": 1580,
         "wires": []
     },
     {
-        "id": "0614307ab47170d1",
+        "id": "a2f68f319ab22e8b",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "label": "MainsPowerStatus",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3391,16 +2519,16 @@
         "y": 1580,
         "wires": [
             [
-                "3283b78c959c0b03"
+                "60860b7a62002bd1"
             ]
         ]
     },
     {
-        "id": "46096dd29940cae1",
+        "id": "a978415eb1bc9b0a",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-01/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI01-UPS/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3408,20 +2536,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
+        "broker": "e61649106aaedaf2",
         "x": 1650,
         "y": 1660,
         "wires": []
     },
     {
-        "id": "8f65a4b4870eabc3",
+        "id": "c3a7baff5c493b2f",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QBandPSU",
+        "label": "UPS",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3439,20 +2567,20 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1310,
+        "x": 1290,
         "y": 1660,
         "wires": [
             [
-                "46096dd29940cae1"
+                "a978415eb1bc9b0a"
             ]
         ]
     },
     {
-        "id": "c87bf13ce7d69656",
+        "id": "a8774fa18de9becf",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-02/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI02-QBandPSU/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3460,20 +2588,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1710,
+        "broker": "e61649106aaedaf2",
+        "x": 1730,
         "y": 1760,
         "wires": []
     },
     {
-        "id": "74dcd997bb3b62a1",
+        "id": "963347a92277a6d5",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QBandPAStatus",
+        "label": "QBandPSU",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3491,20 +2619,20 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1380,
+        "x": 1370,
         "y": 1760,
         "wires": [
             [
-                "c87bf13ce7d69656"
+                "a8774fa18de9becf"
             ]
         ]
     },
     {
-        "id": "aa9972b03794bcbc",
+        "id": "a04255e25d9068db",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-03/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI03-QBandPA_Off/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3512,19 +2640,71 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1710,
+        "broker": "e61649106aaedaf2",
+        "x": 1740,
         "y": 1880,
         "wires": []
     },
     {
-        "id": "b66d1bdd11ad10db",
+        "id": "3ef29cacea5f9a08",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "RF_input_over_limit",
+        "label": "QBandPA",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
+        "group": "aebba40b657022dc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1360,
+        "y": 1880,
+        "wires": [
+            [
+                "a04255e25d9068db"
+            ]
+        ]
+    },
+    {
+        "id": "0fc0b4cf528d999b",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI04-QBandRFOvrL/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1760,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "c516cdfbd49d7337",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "QBandRFOvrL",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -3544,19 +2724,19 @@
         "animate": false,
         "className": "",
         "x": 1400,
-        "y": 1880,
+        "y": 1960,
         "wires": [
             [
-                "aa9972b03794bcbc"
+                "0fc0b4cf528d999b"
             ]
         ]
     },
     {
-        "id": "3fb5d58b840b935e",
+        "id": "74e9bfc699694948",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-04/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI05-QBandOverCu/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3564,20 +2744,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1730,
-        "y": 1960,
+        "broker": "e61649106aaedaf2",
+        "x": 1820,
+        "y": 2040,
         "wires": []
     },
     {
-        "id": "18f308b9637ecdf6",
+        "id": "811f88fe04980aa3",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "label": "QBandOverCurrent",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3595,75 +2775,23 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1410,
-        "y": 1960,
+        "x": 1390,
+        "y": 2040,
         "wires": [
             [
-                "3fb5d58b840b935e"
+                "74e9bfc699694948"
             ]
         ]
     },
     {
-        "id": "7037939c598ebe4a",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-05/diStatus",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1790,
-        "y": 2040,
-        "wires": []
-    },
-    {
-        "id": "9d371d5089afc43d",
+        "id": "fa3c71abeb696d52",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QBandOverTemperature",
+        "label": "QBandOverTemp",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "{\"value\":1}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"value\":0}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 1410,
-        "y": 2040,
-        "wires": [
-            [
-                "7037939c598ebe4a"
-            ]
-        ]
-    },
-    {
-        "id": "aa49676f9b44079a",
-        "type": "ui_switch",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "label": "PositionerLANFail",
-        "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3685,16 +2813,16 @@
         "y": 2100,
         "wires": [
             [
-                "cb2bba5e5aeeb33f"
+                "495589c37a14fca1"
             ]
         ]
     },
     {
-        "id": "cb2bba5e5aeeb33f",
+        "id": "495589c37a14fca1",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-06/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI06-QBandOverTm/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3702,20 +2830,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1810,
+        "broker": "e61649106aaedaf2",
+        "x": 1840,
         "y": 2100,
         "wires": []
     },
     {
-        "id": "6e0966044c044341",
+        "id": "e3243e9872e0ae12",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "label": "PositionerControllerFailure",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3737,16 +2865,16 @@
         "y": 2320,
         "wires": [
             [
-                "03cfde683f832e82"
+                "979472a5ebc9c027"
             ]
         ]
     },
     {
-        "id": "03cfde683f832e82",
+        "id": "979472a5ebc9c027",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-07/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI07-PosCtrlFail/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3754,20 +2882,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1690,
+        "broker": "e61649106aaedaf2",
+        "x": 1710,
         "y": 2320,
         "wires": []
     },
     {
-        "id": "b6d13f4228800314",
+        "id": "e4d47171fc90201d",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "label": "VSWRHigh",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3789,16 +2917,16 @@
         "y": 2460,
         "wires": [
             [
-                "c9117e91db74b314"
+                "b771cd59b107f129"
             ]
         ]
     },
     {
-        "id": "c9117e91db74b314",
+        "id": "b771cd59b107f129",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-08/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI08-VSWHigh/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3806,20 +2934,20 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1610,
+        "broker": "e61649106aaedaf2",
+        "x": 1630,
         "y": 2460,
         "wires": []
     },
     {
-        "id": "162cbd056aa295e3",
+        "id": "a4d0ca9e627090bd",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
         "label": "BayDoorStatus",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 10,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3841,16 +2969,16 @@
         "y": 2520,
         "wires": [
             [
-                "fbee2358a3f61c3a"
+                "6a56090e85a31bc6"
             ]
         ]
     },
     {
-        "id": "fbee2358a3f61c3a",
+        "id": "6a56090e85a31bc6",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-09/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI09-BayDoorStat/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3858,20 +2986,38 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1610,
+        "broker": "e61649106aaedaf2",
+        "x": 1640,
         "y": 2520,
         "wires": []
     },
     {
-        "id": "ab2c88d0e3782e04",
-        "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "id": "407bda4f75e301fe",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QBandRSSI",
+        "topic": "YAKU001/read/45MR-1601-0@DI10-AntennaPSU/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1680,
+        "y": 2560,
+        "wires": []
+    },
+    {
+        "id": "3f75bc5e4dc2cdab",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "AntennaPSU",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 13,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3889,93 +3035,23 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1190,
-        "y": 2580,
+        "x": 1170,
+        "y": 2560,
         "wires": [
             [
-                "ad296159a1f8dd34"
+                "407bda4f75e301fe"
             ]
         ]
     },
     {
-        "id": "ad296159a1f8dd34",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-10/diStatus",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1630,
-        "y": 2580,
-        "wires": []
-    },
-    {
-        "id": "5a38c251571f49d1",
-        "type": "mqtt out",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-12/diStatus",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1650,
-        "y": 2760,
-        "wires": []
-    },
-    {
-        "id": "e52e1a376698b6e5",
+        "id": "82e2038c32d81768",
         "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "SiteTemperature",
+        "label": "HighCabinetTemp",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "{\"value\":1}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"value\":0}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 1220,
-        "y": 2760,
-        "wires": [
-            [
-                "5a38c251571f49d1"
-            ]
-        ]
-    },
-    {
-        "id": "a26f3e97499d47b4",
-        "type": "ui_switch",
-        "z": "09bd1492e672c578",
-        "name": "",
-        "label": "PositionerMisalignment",
-        "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 14,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3994,19 +3070,19 @@
         "animate": false,
         "className": "",
         "x": 1230,
-        "y": 2620,
+        "y": 2680,
         "wires": [
             [
-                "a97f4b3a2c636e71"
+                "b5131145738ed1b6"
             ]
         ]
     },
     {
-        "id": "a97f4b3a2c636e71",
+        "id": "b5131145738ed1b6",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-11/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI11-HighCapTemp/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -4014,20 +3090,168 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1630,
-        "y": 2620,
+        "broker": "e61649106aaedaf2",
+        "x": 1680,
+        "y": 2680,
         "wires": []
     },
     {
-        "id": "af120f36eb73da96",
-        "type": "ui_switch",
-        "z": "09bd1492e672c578",
+        "id": "3dca0711c75ec648",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "label": "QBandRxSignalStrength",
+        "topic": "YAKU001/read/45MR-1601-0@DI12-SmokeAlarm/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 2760,
+        "wires": [
+            [
+                "3fc8f50e6264d927",
+                "4ad3e6f2caf79bc3"
+            ]
+        ]
+    },
+    {
+        "id": "4ad3e6f2caf79bc3",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 2840,
+        "wires": []
+    },
+    {
+        "id": "3fc8f50e6264d927",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SmokeAlarm",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 930,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "2cb6a208183616f5",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI13-HighHumidit/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 2880,
+        "wires": [
+            [
+                "f098b7fca5b6746f",
+                "f1303337e8afb27b"
+            ]
+        ]
+    },
+    {
+        "id": "f1303337e8afb27b",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 2960,
+        "wires": []
+    },
+    {
+        "id": "f098b7fca5b6746f",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "HighHumidity",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 930,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "6d03cf7a9765fdfa",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "SmokeAlarm",
         "tooltip": "",
-        "group": "6e8bb50b1eb3ac3a",
-        "order": 5,
+        "group": "aebba40b657022dc",
+        "order": 14,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -4045,20 +3269,20 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1310,
-        "y": 2940,
+        "x": 1210,
+        "y": 2760,
         "wires": [
             [
-                "02ed2818a7d8c905"
+                "8ca10f666095c2b0"
             ]
         ]
     },
     {
-        "id": "02ed2818a7d8c905",
+        "id": "8ca10f666095c2b0",
         "type": "mqtt out",
-        "z": "09bd1492e672c578",
+        "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "ioThinx_4510/read/45MR-1601-0@DI-13/diStatus",
+        "topic": "YAKU001/read/45MR-1601-0@DI12-SmokeAlarm/diStatus",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -4066,9 +3290,1129 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "b1fc7dce134037c7",
-        "x": 1710,
-        "y": 2940,
+        "broker": "e61649106aaedaf2",
+        "x": 1680,
+        "y": 2760,
         "wires": []
+    },
+    {
+        "id": "9bfc07fe0d5b6fd9",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "HighHumidity",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1210,
+        "y": 2900,
+        "wires": [
+            [
+                "030af681008f6c32"
+            ]
+        ]
+    },
+    {
+        "id": "030af681008f6c32",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI13-HighHumidit/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1670,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "309092c64299bc96",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI14-AirCon/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 3020,
+        "wires": [
+            [
+                "3d6fc4727842a239",
+                "c704906abc90ef64"
+            ]
+        ]
+    },
+    {
+        "id": "c704906abc90ef64",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "3d6fc4727842a239",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "AirConditioner",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 940,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "dcb41a41dde143a3",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "AirConditioner",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1220,
+        "y": 3080,
+        "wires": [
+            [
+                "2711150a686246e6"
+            ]
+        ]
+    },
+    {
+        "id": "2711150a686246e6",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI14-AirCon/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1660,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "808bbd9f4f72436a",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI15-FanTray/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 3140,
+        "wires": [
+            [
+                "06d2a1ac133511a3",
+                "e7f23fd16863ebdb"
+            ]
+        ]
+    },
+    {
+        "id": "e7f23fd16863ebdb",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3220,
+        "wires": []
+    },
+    {
+        "id": "06d2a1ac133511a3",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "FanTray",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 920,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "1b8be605bb10519f",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "FanTray",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1200,
+        "y": 3200,
+        "wires": [
+            [
+                "680aaf8cefd07b15"
+            ]
+        ]
+    },
+    {
+        "id": "680aaf8cefd07b15",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-0@DI15-FanTray/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1660,
+        "y": 3200,
+        "wires": []
+    },
+    {
+        "id": "5a53b674846fbedf",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-1@DI00-PostnrMisalign/diStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 3260,
+        "wires": [
+            [
+                "72911a6a6af799cb",
+                "153be13b04c42049"
+            ]
+        ]
+    },
+    {
+        "id": "153be13b04c42049",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3340,
+        "wires": []
+    },
+    {
+        "id": "72911a6a6af799cb",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PositionerMisalignMent",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 970,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "7fe5e7b069c9c474",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "PositionerMisalignment",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1250,
+        "y": 3320,
+        "wires": [
+            [
+                "dfe1e82f22889b93"
+            ]
+        ]
+    },
+    {
+        "id": "dfe1e82f22889b93",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-1601-1@DI00-PostnrMisalign/diStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1680,
+        "y": 3320,
+        "wires": []
+    },
+    {
+        "id": "90500684937dc490",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI0-QBandRSSI/aiValueRaw",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 3400,
+        "wires": [
+            [
+                "5409a553896a936f",
+                "372599f2ec3749dd"
+            ]
+        ]
+    },
+    {
+        "id": "372599f2ec3749dd",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3480,
+        "wires": []
+    },
+    {
+        "id": "5409a553896a936f",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "QBandRSSIValue",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 950,
+        "y": 3420,
+        "wires": []
+    },
+    {
+        "id": "80a131933b4dcf23",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "QBandRSSIValue",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1230,
+        "y": 3460,
+        "wires": [
+            [
+                "5632bbe798637fb4"
+            ]
+        ]
+    },
+    {
+        "id": "5632bbe798637fb4",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI0-QBandRSSI/aiValueRaw",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1680,
+        "y": 3460,
+        "wires": []
+    },
+    {
+        "id": "dc9bb11fa6e62dd7",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI1-NodeBWBandPw/aiValueRaw",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 3540,
+        "wires": [
+            [
+                "5dd5b281ac3028ba",
+                "1e253b3bc1e481c3"
+            ]
+        ]
+    },
+    {
+        "id": "1e253b3bc1e481c3",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3620,
+        "wires": []
+    },
+    {
+        "id": "5dd5b281ac3028ba",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "NodeBWideBandPower",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 970,
+        "y": 3560,
+        "wires": []
+    },
+    {
+        "id": "f789c174b90417a7",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "NodeBWidebandPower",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1250,
+        "y": 3600,
+        "wires": [
+            [
+                "e877cc96fbb30b68"
+            ]
+        ]
+    },
+    {
+        "id": "e877cc96fbb30b68",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI1-NodeBWBandPw/aiValueRaw",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1700,
+        "y": 3600,
+        "wires": []
+    },
+    {
+        "id": "ce9fa13739b991d5",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI2-PostMisalign/aiValueRaw",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 3660,
+        "wires": [
+            [
+                "774bdef50fa942d9",
+                "875cac924fdd4134"
+            ]
+        ]
+    },
+    {
+        "id": "875cac924fdd4134",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3740,
+        "wires": []
+    },
+    {
+        "id": "774bdef50fa942d9",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PositionerMisAlignment",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 970,
+        "y": 3680,
+        "wires": []
+    },
+    {
+        "id": "698b4fc85aaf8409",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "PositionerMisalignment",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1250,
+        "y": 3720,
+        "wires": [
+            [
+                "27ad3b79c3baf192"
+            ]
+        ]
+    },
+    {
+        "id": "27ad3b79c3baf192",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-3800-01@AI2-PostMisalign/aiValueRaw",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1690,
+        "y": 3720,
+        "wires": []
+    },
+    {
+        "id": "4c1a71202459ac8f",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-6810-0@AI3-SiteTemp/aiValueRaw",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1670,
+        "y": 3840,
+        "wires": []
+    },
+    {
+        "id": "fcd18bad73560ab8",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "SiteTemperature",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1220,
+        "y": 3840,
+        "wires": [
+            [
+                "4c1a71202459ac8f"
+            ]
+        ]
+    },
+    {
+        "id": "5933c45662d7d01f",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SiteTemperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 940,
+        "y": 3800,
+        "wires": []
+    },
+    {
+        "id": "cc79fcba79674e6a",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-6810-0@AI3-SiteTemp/aiValueRaw",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 3780,
+        "wires": [
+            [
+                "5933c45662d7d01f",
+                "95e1d65262f09977"
+            ]
+        ]
+    },
+    {
+        "id": "95e1d65262f09977",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 3860,
+        "wires": []
+    },
+    {
+        "id": "cfc0cde84433b150",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/write/45MR-2404-0@SiteFWReboot/relayStatus",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1270,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "48b9367980d0e7ed",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SiteFWReboot",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 800,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "79be6d79ea8658fd",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/write/45MR-2404-0@SiteFWReboot/relayStatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 1060,
+        "wires": [
+            [
+                "48b9367980d0e7ed"
+            ]
+        ]
+    },
+    {
+        "id": "8496c2625533f3b2",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 11,
+        "group": "25e17717e6e6c6b1",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Off",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "On",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 590,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "ded0b6f0dfceef19",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "25e17717e6e6c6b1",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SiteFWReboot",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 480,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "224d46efd1359231",
+        "type": "change",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "On",
+                "fromt": "str",
+                "to": "{\"value\":1}",
+                "tot": "json"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "Off",
+                "fromt": "str",
+                "to": "{\"value\":0}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 960,
+        "wires": [
+            [
+                "cfc0cde84433b150"
+            ]
+        ]
+    },
+    {
+        "id": "a6f40c82ae988235",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "SiteFWReboot",
+        "tooltip": "",
+        "group": "25e17717e6e6c6b1",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "On",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 100,
+        "y": 960,
+        "wires": [
+            [
+                "ded0b6f0dfceef19",
+                "224d46efd1359231",
+                "8496c2625533f3b2"
+            ]
+        ]
     }
 ]
