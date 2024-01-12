@@ -94,7 +94,7 @@
     
     <messageEventParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
       <subscriptionTopics>
-        <topic>+/read/+/#</topic>
+        <topic>+/read/+/diStatus</topic> <!-- e.g. YAKU001/read/45MR-1601-0@DI00-GSMains/diStatus -->
       </subscriptionTopics>
       
       <ueiRoot>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput</ueiRoot>
