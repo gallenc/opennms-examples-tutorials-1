@@ -226,7 +226,7 @@
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/BayDoorStat-BayDoorStat/1</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI09-BayDoorStat/1</uei>
       <event-label>Security Alarm: Ground Cabin BayDoor Open</event-label>
       <logmsg dest="logndisplay">Security Alarm: Ground Cabin %nodelabel% BayDoor Open</logmsg>
       <descr>Security Alarm: Ground Cabin %nodelabel% BayDoor Open&lt;BR&gt;mqtt plugin received message from topic %parm[message-topic]&lt;BR&gt; all message
