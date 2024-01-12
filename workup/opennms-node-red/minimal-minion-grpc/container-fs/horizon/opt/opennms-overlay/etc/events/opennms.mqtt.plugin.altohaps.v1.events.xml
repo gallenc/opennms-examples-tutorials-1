@@ -76,7 +76,7 @@
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_off/1</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_Off/1</uei>
       <event-label>Payload Alarm: Ground Cabin QBand Power Amp Failed </event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% QBand Power Amp Failed </logmsg>
       <descr>Payload Alarm: Ground Cabin %nodelabel% QBand Power Amp Failed &lt;BR&gt;mqtt plugin received message from topic %parm[message-topic]&lt;BR&gt; all
@@ -88,7 +88,7 @@
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_off/0</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_Off/0</uei>
       <event-label>Payload Alarm: Ground Cabin QBand Power Amp Failed </event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% QBand Power Amp Failed </logmsg>
       <descr>Payload Alarm: Ground Cabin %nodelabel% QBand Power Amp Failed &lt;BR&gt;mqtt plugin received message from topic %parm[message-topic]&lt;BR&gt; all
@@ -97,11 +97,11 @@
       <alarm-data
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_off/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_Off/1:%dpname%:%nodeid%:%parm[message-topic]%"
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOverLimit/1</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOvrL/1</uei>
       <event-label>Payload Alarm: Ground Cabin Qband Radio Frequency Over Limit</event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% Qband Radio Frequency Over Limit</logmsg>
       <descr>Payload Alarm: Ground Cabin %nodelabel% Qband Radio Frequency Over Limit&lt;BR&gt;mqtt plugin received message from topic
@@ -113,7 +113,7 @@
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOverLimit/0</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOvrL/0</uei>
       <event-label>Payload Alarm: Ground Cabin Qband Radio Frequency Over Limit</event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% Qband Radio Frequency Over Limit</logmsg>
       <descr>Payload Alarm: Ground Cabin %nodelabel% Qband Radio Frequency Over Limit&lt;BR&gt;mqtt plugin received message from topic
@@ -122,7 +122,7 @@
       <alarm-data
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOverLimit/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOvrL/1:%dpname%:%nodeid%:%parm[message-topic]%"
          auto-clean="false"/>
    </event>
    <event>
@@ -338,7 +338,7 @@
          auto-clean="false"/>
    </event>
    <event>
-      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI13-HighHumidity/0</uei>
+      <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI13-HighHumidit/0</uei>
       <event-label>Payload Alarm: Ground Cabin High Humidity</event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% High Humidity</logmsg>
       <descr>Payload Alarm: Ground Cabin %nodelabel% High Humidity&lt;BR&gt;mqtt plugin received message from topic %parm[message-topic]&lt;BR&gt; all message
