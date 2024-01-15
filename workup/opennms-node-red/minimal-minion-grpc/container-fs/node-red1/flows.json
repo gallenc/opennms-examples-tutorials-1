@@ -32,7 +32,7 @@
             "ea452e02385dc759"
         ],
         "x": 14,
-        "y": 3939,
+        "y": 4299,
         "w": 312,
         "h": 82
     },
@@ -53,7 +53,7 @@
             "d0490217fe2aac06"
         ],
         "x": -6,
-        "y": 4099,
+        "y": 4459,
         "w": 312,
         "h": 82
     },
@@ -1943,7 +1943,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 4060,
+        "y": 4420,
         "wires": [
             [
                 "1f371d2f8ed7ddbb"
@@ -1968,7 +1968,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 540,
-        "y": 4060,
+        "y": 4420,
         "wires": []
     },
     {
@@ -1991,7 +1991,7 @@
         "className": "",
         "topicType": "msg",
         "x": 170,
-        "y": 3980,
+        "y": 4340,
         "wires": [
             [
                 "6044f16b8d90d60f"
@@ -2013,7 +2013,7 @@
         "expiry": "",
         "broker": "3b9703bed74b1a00",
         "x": 460,
-        "y": 3980,
+        "y": 4340,
         "wires": []
     },
     {
@@ -2030,7 +2030,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 4240,
+        "y": 4600,
         "wires": [
             [
                 "22aba05833032e40"
@@ -2055,7 +2055,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 550,
-        "y": 4240,
+        "y": 4600,
         "wires": []
     },
     {
@@ -2073,7 +2073,7 @@
         "expiry": "",
         "broker": "3b9703bed74b1a00",
         "x": 540,
-        "y": 4140,
+        "y": 4500,
         "wires": []
     },
     {
@@ -2096,7 +2096,7 @@
         "className": "",
         "topicType": "msg",
         "x": 150,
-        "y": 4140,
+        "y": 4500,
         "wires": [
             [
                 "39f652023fbc215f"
@@ -2117,7 +2117,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 4320,
+        "y": 4680,
         "wires": [
             [
                 "b2a2235eb9add4f5",
@@ -2143,7 +2143,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 530,
-        "y": 4320,
+        "y": 4680,
         "wires": []
     },
     {
@@ -2174,7 +2174,7 @@
         "showGlow": true,
         "name": "",
         "x": 510,
-        "y": 4380,
+        "y": 4740,
         "wires": []
     },
     {
@@ -3730,7 +3730,7 @@
         "type": "mqtt in",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI0-QBandRSSI/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI0-QBandRSSI/aiValueRaw",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "e61649106aaedaf2",
@@ -3838,7 +3838,7 @@
         "type": "mqtt out",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI0-QBandRSSI/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI0-QBandRSSI/aiValueRaw",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3856,7 +3856,7 @@
         "type": "mqtt in",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI1-NodeBWBandPw/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI1-NodeBWBandPw/aiValueRaw",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "e61649106aaedaf2",
@@ -3864,7 +3864,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 240,
+        "x": 230,
         "y": 3540,
         "wires": [
             [
@@ -3964,7 +3964,7 @@
         "type": "mqtt out",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI1-NodeBWBandPw/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI1-NodeBWBandPw/aiValueRaw",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -3982,7 +3982,7 @@
         "type": "mqtt in",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI2-PostMisalign/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI2-PostMisalign/aiValueRaw",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "e61649106aaedaf2",
@@ -4090,7 +4090,7 @@
         "type": "mqtt out",
         "z": "3b4c253f9e2ac7aa",
         "name": "",
-        "topic": "YAKU001/read/45MR-3800-01@AI2-PostMisalign/aiValueRaw",
+        "topic": "YAKU001/read/45MR-3800-0@AI2-PostMisalign/aiValueRaw",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -4099,7 +4099,7 @@
         "correl": "",
         "expiry": "",
         "broker": "e61649106aaedaf2",
-        "x": 1690,
+        "x": 1680,
         "y": 3720,
         "wires": []
     },
@@ -4412,6 +4412,132 @@
                 "ded0b6f0dfceef19",
                 "224d46efd1359231",
                 "8496c2625533f3b2"
+            ]
+        ]
+    },
+    {
+        "id": "2fb730fee971571d",
+        "type": "mqtt out",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e61649106aaedaf2",
+        "x": 1670,
+        "y": 4020,
+        "wires": []
+    },
+    {
+        "id": "35b6e30136bc5351",
+        "type": "ui_switch",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "label": "CabinetTemperature",
+        "tooltip": "",
+        "group": "aebba40b657022dc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"value\":1}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"value\":0}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1240,
+        "y": 4020,
+        "wires": [
+            [
+                "2fb730fee971571d"
+            ]
+        ]
+    },
+    {
+        "id": "ce38dabf53a647d3",
+        "type": "ui_text",
+        "z": "3b4c253f9e2ac7aa",
+        "group": "cc4a1a717a1b5d90",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "CabinetTemperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 960,
+        "y": 3980,
+        "wires": []
+    },
+    {
+        "id": "669d3b9309e6e277",
+        "type": "ui_led",
+        "z": "3b4c253f9e2ac7aa",
+        "order": 7,
+        "group": "c90c090c62675a65",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"value\": 1}",
+                "valueType": "json"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"value\": 0}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 550,
+        "y": 4040,
+        "wires": []
+    },
+    {
+        "id": "3769906f97c707e8",
+        "type": "mqtt in",
+        "z": "3b4c253f9e2ac7aa",
+        "name": "",
+        "topic": "YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e61649106aaedaf2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 3960,
+        "wires": [
+            [
+                "ce38dabf53a647d3",
+                "669d3b9309e6e277"
             ]
         ]
     }
