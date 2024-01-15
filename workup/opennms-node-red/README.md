@@ -130,17 +130,26 @@ sudo firewall-cmd --reload
 ```
 # grafana
 
-grafana should be installed with opennms grafan plugin also installed. 
-
+In the docker-compose example, grafana should be installed with opennms grafan plugin also already installed. 
+To login use
+```
 http://localhost:3000
-
 username: admin
-
 Password: mypass
+```
 
-The openNMS Grfana plugin is already installed but you will need to configure the OpenNMS Entities datasource to see alarms and the OpenNMS performance datasource to see performance data.
+The openNMS Grafana plugin is already installed but you will need to configure the OpenNMS Entities datasource to see alarms and the OpenNMS performance datasource to see performance data.
+
+![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin1.png "Figure OpenNMSGrafanaPlugin1.png")
 
 
+![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin2.png "Figure OpenNMSGrafanaPlugin2.png")
+
+
+![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin3.png "Figure OpenNMSGrafanaPlugin3.png")
+
+
+![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin4.png "Figure OpenNMSGrafanaPlugin4.png")
 
 
 
