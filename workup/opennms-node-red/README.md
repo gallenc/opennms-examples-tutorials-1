@@ -128,3 +128,19 @@ sudo firewall-cmd --zone=public --permanent --add-port=8081/tcp
 sudo firewall-cmd --zone=public --permanent --add-port=161/tcp
 sudo firewall-cmd --reload
 ```
+# grafana
+
+grafana should be installed with opennms grafan plugin also installed. 
+
+http://localhost:3000
+
+username: admin
+
+Password: mypass
+
+The openNMS Grfana plugin is already installed but you will need to configure the OpenNMS Entities datasource to see alarms and the OpenNMS performance datasource to see performance data.
+
+
+
+
+
