@@ -139,6 +139,7 @@ Password: mypass
 ```
 
 The openNMS Grafana plugin is already installed but you will need to configure the OpenNMS Entities datasource to see alarms and the OpenNMS performance datasource to see performance data.
+The following images show screenshots of how to set up the display.
 
 ![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin1.png "Figure OpenNMSGrafanaPlugin1.png")
 
@@ -151,5 +152,7 @@ The openNMS Grafana plugin is already installed but you will need to configure t
 
 ![alt text](../opennms-node-red/images/OpenNMSGrafanaPlugin4.png "Figure OpenNMSGrafanaPlugin4.png")
 
+
+![alt text](../opennms-node-red/images/OpenNMS-alarms-dash.png "Figure OpenNMS-alarms-dash.png")
 
 
