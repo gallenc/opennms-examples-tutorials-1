@@ -9,6 +9,7 @@
       </security>
    </global>
    <!-- added mqtt events -->
+   <event-file>events/opennms.mqtt.plugin.altohaps.v1.events.xml</event-file>
    <event-file>events/opennms.mqtt.plugin.events.xml</event-file>
    
    <event-file>events/opennms.snmp.trap.translator.events.xml</event-file>
