@@ -61,7 +61,7 @@ public class SyslogAlternativeServerLog4JTest {
 
 		SyslogServerConfigIF config = new UDPSyslogServerConfig();
 
-		config.setUseStructuredData(true);
+		config.setUseStructuredData(false);
 		// config.setHost(InetAddress.getByName(null).getHostAddress());
 		config.setHost("0.0.0.0");
 		config.setPort(SYSLOG_PORT);
@@ -85,7 +85,7 @@ public class SyslogAlternativeServerLog4JTest {
 		UdpSyslogMessageSender messageSender = new UdpSyslogMessageSender();
 		messageSender.setDefaultMessageHostname("myhostname"); // some syslog cloud services may use this field to transmit a secret key
 		messageSender.setDefaultAppName("myapp");
-		messageSender.setDefaultFacility(Facility.USER);
+		messageSender.setDefaultFacility(Facility.LOCAL7);
 		messageSender.setDefaultSeverity(Severity.INFORMATIONAL);
 		messageSender.setSyslogServerHostname("127.0.0.1");
 		// syslog udp usually uses port 514 as per https://tools.ietf.org/html/rfc3164#page-5

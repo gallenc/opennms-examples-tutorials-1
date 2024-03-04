@@ -2,6 +2,7 @@ package org.opennms.test.application.syslog.cloudbees.test.copy;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,6 +24,11 @@ import org.graylog2.syslog4j.SyslogMessageIF;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.cloudbees.syslog.Facility;
+import com.cloudbees.syslog.MessageFormat;
+import com.cloudbees.syslog.Severity;
+import com.cloudbees.syslog.sender.UdpSyslogMessageSender;
 
 // http://www.syslog4j.org/docs/faq/faq.html
 // http://www.syslog4j.org/
@@ -62,57 +68,26 @@ public class SyslogServerTest {
 	}
 
 	@Test
-	public void test() throws ParseException {
-		SyslogIF syslog = Syslog.getInstance("udp");
-		syslog.getConfig().setHost("127.0.0.1");
-		syslog.getConfig().setPort(SYSLOG_PORT);
+	public void test() throws ParseException, IOException {
+		// Initialise sender
+		UdpSyslogMessageSender messageSender = new UdpSyslogMessageSender();
+		messageSender.setDefaultMessageHostname("myhostname"); // some syslog cloud services may use this field to
+																// transmit a secret key
+		// Feb 28 16:36:19 rea282-olt-1 notfmgrd[6213]: [1][1][A][6213] [23] nm_handle_events.c.412: Id:5044, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:ont-eth-down, Category:PON Cause:This alarm is set when the ont reports no signal present on an enabled ethernet interface., Details:NULL, Xpath:/config/system/ont[ont-id='178004']/interface/ont-ethernet[port='g1'] Address:/interfaces/interface[name='178004/g1'], Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL
 		
-		syslog.getConfig().setFacility(SyslogConstants.FACILITY_SYSLOG);
-		
-
-		
-		int facility=SyslogConstants.FACILITY_SYSLOG;
-		int level=SyslogConstants.LEVEL_DEBUG;
-		String localname="localname";
-		boolean useLocalname=true;
-		
-		//Date dateTime = new Date();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.ENGLISH );
-		Date dateTime = df.parse("2021/01/01 16:01:23");
-		System.out.println("date translated: " + df.format(dateTime));
-		
-		//syslog.getMessageProcessor().createSyslogHeader(facility, level, localname, useLocalname, dateTime);
-		syslog.critical("not structuredCritical Log Message sent");
-		syslog.log(SyslogConstants.LEVEL_ALERT, "not Structured alert message sent", dateTime);
-		
-		syslog.getConfig().setUseStructuredData(true);
-		//syslog.getStructuredMessageProcessor().createSyslogHeader(facility, level, localname, useLocalname, dateTime);
-		
-		syslog.critical("Structured Critical Log Message sent");
-		syslog.alert("Structured Alert Log Message sent");
-
-		syslog.log(SyslogConstants.LEVEL_ALERT, "Structured alert message sent", dateTime);
-		String messageId = "messageid1000";
-		String procId = "procid2000";
-		Map<String, Map<String, String>> structuredData = new HashMap<String, Map<String, String>>();
-
-		Map<String, String> m = new HashMap<String, String>() {
-			private static final long serialVersionUID = 1L;
-			{
-				put("RC", "T1");
-				put("AC", "T1");
-			}
-		};
-
-		structuredData.put("data1", m);
-		String message = "big new message";
+		messageSender.setDefaultAppName("myapp");
+		messageSender.setDefaultFacility(Facility.LOCAL7);
+		messageSender.setDefaultSeverity(Severity.CRITICAL);
+		messageSender.setSyslogServerHostname("127.0.0.1");
+		// syslog udp usually uses port 514 as per
+		// https://tools.ietf.org/html/rfc3164#page-5
+		messageSender.setSyslogServerPort(SYSLOG_PORT);
+		messageSender.setMessageFormat(MessageFormat.RFC_3164); // optional, default is RFC 3164
 		
 
-		SyslogMessageIF syslogMessage = new StructuredSyslogMessage(messageId, procId, structuredData, message);
-		System.out.println("syslogmessage: "+syslogMessage.toString());
 
-		syslog.log(SyslogConstants.LEVEL_ALERT, syslogMessage,dateTime);
-		syslog.critical( syslogMessage);
+		// send a Syslog message
+		messageSender.sendMessage("This is a test message");
 
 		try {
 			Thread.sleep(5000);
@@ -120,8 +95,7 @@ public class SyslogServerTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// more relevant for TCP
-		syslog.shutdown();
+
 
 	}
 
