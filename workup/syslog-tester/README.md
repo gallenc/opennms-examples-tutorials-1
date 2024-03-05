@@ -2,6 +2,10 @@
 
 see https://regex101.com/
 
+Syslog examples: 
+
+https://www.calix.com/content/dam/calix/mycalix-misc/lib/iae/axos/21x/mmtg/index.htm?toc9782322.htm?106614.htm
+
 ```
 This example from https://www.calix.com/content/dam/calix/mycalix-misc/lib/iae/axos/21x/mmtg/index.htm?toc.htm?95527.htm
 AXOS R21.x Monitoring, Maintenance, and Troubleshooting Guide
@@ -22,6 +26,11 @@ find node name
 (?<=:[0-9]{2}\s)(.*)(?=\snotfmgrd)
 
 Group 1 Hikari 
+
+find shelfId  slotId activeState
+
+
+
 
 find id
 Id:(.*?),
@@ -62,10 +71,13 @@ Group1 /config/shelf[shelf-id='1']/slot[slot-id='1']/interface/ethernet[port='x2
 find address
 \sAddress:(.*?),
 Group1 /interfaces/interface[name='1/1/x2']
+```
+
+## full regex example
 
 Full regex - this will match whether or not here is a PRI
 
-(?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)(?=\snotfmgrd)\s(.*?)\sId:(.*?),\sSyslog-Severity:([0-9]+),\sPerceived-Severity:(.*?),\sName:(.*?),\sCategory:(.*?)\sCause:(.*?),\sDetails:(.*?),\sXpath:(.*?)\sAddress:(.*?),\s(.*)
+(?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)(?=\snotfmgrd)\s(?:.*?)\s\[(.*?)\]\[(.*?)\]\[(.*?)\]\[(.*?)\]\s\[(.*?)\]\sId:(.*?),\sSyslog-Severity:([0-9]+),\sPerceived-Severity:(.*?),\sName:(.*?),\sCategory:(.*?)\sCause:(.*?),\sDetails:(.*?),\sXpath:(.*?)\sAddress:(.*?),\s(.*)
 
 ```
 | tag | group | value | notes |
@@ -77,14 +89,18 @@ Full regex - this will match whether or not here is a PRI
 | day | Group 4 |  12  | (matched for date of 1 character or 2 characters i.e. Feb 1 or Feb 20)|
 | timestamp | Group 5 |  11:12:08 | |
 | nodename | Group 6 |  Hikari | |
-| slot| Group 7  | ```notfmgrd[5345]: [1][1][A][5345] [23]``` | |
-| Id | Group 8  | 1201 | |
-| syslogSeverity | Group 9  | 3 | |
-| perceivedSeverity | Group 10 |  Major | |
-| name | Group 11  | loss-of-signal | |
-| category | Group 12  | PORT | |
-| cause | Group 13 |  This alarm is set when there is no signal present on an enabled ethernet interface | |
-| details | Group 14  | Interface operationally down | |
-| xpath | Group 15  | /config/shelf[shelf-id='1']/slot[slot-id='1']/interface/ethernet[port='x2'] | |
-| address | Group 16  | /interfaces/interface[name='1/1/x2'] | |
-| additional | Group 17  | Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL | |
+| shelfId | Group 7  | 1 | |
+| slotId | Group 8  | 1 | |
+| activeOrStandby | Group 9  | A | |
+| processId | Group 10  | 5345 | |
+| logFacility | Group 11  | 23 |  log facility (LOG_LOCAL7) |
+| Id | Group 12  | 1201 | |
+| syslogSeverity | Group 13  | 3 | |
+| perceivedSeverity | Group 14 |  Major | |
+| name | Group 15  | loss-of-signal | |
+| category | Group 16  | PORT | |
+| cause | Group 17 |  This alarm is set when there is no signal present on an enabled ethernet interface | |
+| details | Group 18  | Interface operationally down | |
+| xpath | Group 19  | /config/shelf[shelf-id='1']/slot[slot-id='1']/interface/ethernet[port='x2'] | |
+| address | Group 20  | /interfaces/interface[name='1/1/x2'] | |
+| additional | Group 21  | Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL | |
