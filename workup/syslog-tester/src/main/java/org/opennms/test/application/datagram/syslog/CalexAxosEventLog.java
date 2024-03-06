@@ -4,28 +4,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CalexAxosEventLog {
-	String rawMatch = null;
-	String pri = null;
-	String priValue = null;
-	String month = null;
-	String day = null;
-	String timestampStr = null;
-	String nodename = null;
-	String shelfId = null;
-	String slotId = null;
-	String activeOrStandby = null;
-	String processId = null;
-	String logFacility = null;
-	String id = null;
-	String syslogSeverity = null;
-	String perceivedSeverity = null;
-	String logName = null;
-	String logCategory = null;
-	String logCause = null;
-	String details = null;
-	String xpath = null;
-	String address = null;
-	String additionalInfo = null;
+	private String rawMatch = null;
+	private String pri = null;
+	private String priValue = null;
+	private String month = null;
+	private String day = null;
+	private String timestampStr = null;
+	private String nodename = null;
+	private String shelfId = null;
+	private String slotId = null;
+	private String activeOrStandby = null;
+	private String processId = null;
+	private String logFacility = null;
+	private String event = null;
+	private String id = null;
+	private String syslogSeverity = null;
+	private String perceivedSeverity = null;
+	private String logName = null;
+	private String logCategory = null;
+	private String logCause = null;
+	private String details = null;
+	private String xpath = null;
+	private String address = null;
+	private String additionalInfo = null;
 
 
 	public String getRawMatch() {
@@ -120,6 +121,14 @@ public class CalexAxosEventLog {
 		this.logFacility = logFacility;
 	}
 
+	public String getEvent() {
+		return event;
+	}
+
+	public void setEvent(String event) {
+		this.event = event;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -210,9 +219,9 @@ public class CalexAxosEventLog {
 
 		//https://www.calix.com/content/dam/calix/mycalix-misc/lib/iae/axos/21x/mmtg/index.htm?toc9782322.htm?106614.htm
 
-		// (?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)(?=\snotfmgrd)\s(?:.*?)\s\[(.*?)\]\[(.*?)\]\[(.*?)\]\[(.*?)\]\s\[(.*?)\]\sId:(.*?),\sSyslog-Severity:([0-9]+),\sPerceived-Severity:(.*?),\sName:(.*?),\sCategory:(.*?)\sCause:(.*?),\sDetails:(.*?),\sXpath:(.*?)\sAddress:(.*?),\s(.*)
+		// ((?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)(?=\snotfmgrd)\s(?:.*?)\s\[(.*?)\]\[(.*?)\]\[(.*?)\]\[(.*?)\]\s\[(.*?)\]\s(.*?)Id:(.*?),\sSyslog-Severity:([0-9]+),\sPerceived-Severity:(.*?),\sName:(.*?),\sCategory:(.*?)\sCause:(.*?),\sDetails:(.*?),\sXpath:(.*?)\sAddress:(.*?),\s(.*)
 
-		String pattern = "(?s)(<(.*?)>|)(\\D{3})\\s(\\d|\\d{2})\\s(.{8})\\s(.*?)(?=\\snotfmgrd)\\s(?:.*?)\\s\\[(.*?)\\]\\[(.*?)\\]\\[(.*?)\\]\\[(.*?)\\]\\s\\[(.*?)\\]\\sId:(.*?),\\sSyslog-Severity:([0-9]+),\\sPerceived-Severity:(.*?),\\sName:(.*?),\\sCategory:(.*?)\\sCause:(.*?),\\sDetails:(.*?),\\sXpath:(.*?)\\sAddress:(.*?),\\s(.*)";
+		String pattern = "(?s)(<(.*?)>|)(\\D{3})\\s(\\d|\\d{2})\\s(.{8})\\s(.*?)(?=\\snotfmgrd)\\s(?:.*?)\\s\\[(.*?)\\]\\[(.*?)\\]\\[(.*?)\\]\\[(.*?)\\]\\s\\[(.*?)\\]\\s(.*?)Id:(.*?),\\sSyslog-Severity:([0-9]+),\\sPerceived-Severity:(.*?),\\sName:(.*?),\\sCategory:(.*?)\\sCause:(.*?),\\sDetails:(.*?),\\sXpath:(.*?)\\sAddress:(.*?),\\s(.*)";
 
 		// Create a Pattern object
 		Pattern r = Pattern.compile(pattern);
@@ -231,18 +240,19 @@ public class CalexAxosEventLog {
 			shelfId = m.group(7);
 			slotId = m.group(8);
 			activeOrStandby = m.group(9);
-			 processId = m.group(10);
+			processId = m.group(10);
 			logFacility = m.group(11);
-			id = m.group(12);
-			syslogSeverity = m.group(13);
-			perceivedSeverity = m.group(14);
-			logName = m.group(15);
-			logCategory = m.group(16);
-			logCause = m.group(17);
-			details = m.group(18);
-			xpath = m.group(19);
-			address = m.group(20);
-			additionalInfo = m.group(21);
+			event= m.group(12);
+			id = m.group(13);
+			syslogSeverity = m.group(14);
+			perceivedSeverity = m.group(15);
+			logName = m.group(16);
+			logCategory = m.group(17);
+			logCause = m.group(18);
+			details = m.group(19);
+			xpath = m.group(20);
+			address = m.group(21);
+			additionalInfo = m.group(22);
 
 			return true;
 		} else {
@@ -269,7 +279,7 @@ public class CalexAxosEventLog {
 				   int priValueNo = (facility * 8) + severity;
 				   priValue = Integer.toString(priValueNo);
 				} catch (Exception ex){
-					priValue="<000>"; // if unable to create a pri
+					priValue="000"; // if unable to create a pri
 				}
 			}
 			sb.append("<"+priValue+">");
@@ -284,7 +294,12 @@ public class CalexAxosEventLog {
 		sb.append("["+activeOrStandby+"]");
 		sb.append("["+processId+"]");
 		sb.append(" ["+logFacility+"]");
-		sb.append(" Id:"+id+",");
+		if (event!=null && ! event.isEmpty()) {
+		   sb.append(" "+event);
+		   sb.append("Id:"+id+",");
+		} else {
+		   sb.append(" Id:"+id+",");
+		}
 		sb.append(" Syslog-Severity:"+syslogSeverity+",");
 		sb.append(" Perceived-Severity:"+perceivedSeverity+",");
 		sb.append(" Name:"+logName+",");
@@ -316,6 +331,7 @@ public class CalexAxosEventLog {
 				+ ",\n    activeOrStandby="+activeOrStandby
 				+ ",\n    processId="+processId
 				+ ",\n    logFacility="+logFacility
+				+ ",\n    event=" + event 
 				+ ",\n    id=" + id 
 				+ ",\n    syslogSeverity=" + syslogSeverity 
 				+ ",\n    perceivedSeverity="+ perceivedSeverity 
