@@ -14,7 +14,7 @@ public class ParseEventsFileTest {
    public void test() {
       Scanner scanner = null;
       try {
-         scanner = new Scanner(new File("./src/test/resources/sampleLogs2.csv"));
+         scanner = new Scanner(new File("./src/test/resources/sampleLogs1.csv"));
          int logCount=0;
          int calexLogSuccess=0;
          int otherLogFullSuccess=0;
