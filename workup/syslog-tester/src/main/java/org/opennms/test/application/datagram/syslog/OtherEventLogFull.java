@@ -221,7 +221,7 @@ public class OtherEventLogFull {
 		
 		 //Feb 28 16:35:13 LT1-blk1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:ALCLFCA45C31,ENTITY_TYPE:rssi-onu,alarm-type-id:onu-upstream-rx-power-exceed-threshold,event-time:2024-02-28T16:35:13+00:00,perceived-severity:minor,alarm-text:low-alarm < onu-upstream-rx-power(-31.5 dBm) < low-warning, OLT xFP operational limits exceeded"
 
-		 // NOTE THIS DOESNT WORK WITH PERCEIVED SEVERITY minor
+		 // NOTE THIS DOESNT WORK WITH PERCEIVED SEVERITY minor or cleared
 	    if(withPri) {
 	         if(priValue==null) {
 	            try {

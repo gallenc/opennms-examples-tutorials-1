@@ -10,7 +10,7 @@ The splice points are represented using un-managed nodes in OpenNMS but the acti
 
 The provisioning requisition allows nodes to be defined with their parent nodes and this gives rise to the topology tree. 
 
-![Alt text](../minimal-minion-kafka-simple/images/gpontopologyMap.png)
+![Alt text](../minimal-minion-kafka/images/gpontopologyMap.png)
 
 OpenNMS can use this configuration to suppress down stream outages when a parent has an outage but in this case we do not want to suppress alarms but help users see the relationship between nodes which have alarms in a passive optical network which could not be discovered using LLDP.
 
@@ -77,5 +77,9 @@ Accept Application/xml
 
 Example events are provided in the rester file.
 
+## reloading using send event pl
 
+```
+docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/importer/reloadImport -p 'url http://pris:8000/requisitions/gpon1' 
+```
 
