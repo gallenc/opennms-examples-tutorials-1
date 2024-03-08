@@ -5,9 +5,11 @@
           - if set it will be used as default timezone if no timezone is given
           - if not set the system time zone will be used
     -->
+    
+    <!-- note new suspect set true so we can parse the logs for new devices -->
     <configuration
             syslog-port="10514"
-            new-suspect-on-message="true"
+            new-suspect-on-message="false"
             parser="org.opennms.netmgt.syslogd.RadixTreeSyslogParser"
             forwarding-regexp="^.*\s(19|20)\d\d([-/.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])(\s+)(\S+)(\s)(\S.+)"
             matching-group-host="6"

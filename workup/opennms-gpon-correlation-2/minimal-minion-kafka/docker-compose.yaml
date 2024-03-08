@@ -99,6 +99,7 @@ services:
       - ./container-fs/horizon/opt/opennms/deploy:/opt/opennms/deploy
       - ./container-fs/horizon/opt/opennms-overlay:/opt/opennms-overlay
       - ./container-fs/horizon/etc/conf.d/confd.toml:/etc/confd/confd.toml
+      - ./container-fs/horizon/hosts:/etc/hosts  # temp remove
     command: ["-s"]
     ports:
       - "8101:8101/tcp"   # karaf ssh

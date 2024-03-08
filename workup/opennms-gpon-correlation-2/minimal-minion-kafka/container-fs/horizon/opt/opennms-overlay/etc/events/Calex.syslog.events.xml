@@ -1,3 +1,22 @@
 <events xmlns="http://xmlns.opennms.org/xsd/eventconf">
+
+  <!-- dummy event - not parsed -->
+  <event>
+      <uei>uei.opennms.org/Calex</uei>
+      <event-label>OpenNMS-defined node event: syslogdMessage (kernel/Emergency)</event-label>
+      <descr>&lt;p>The interface %interface% generated a Syslog Message.&lt;br>
+                        Node ID: %nodeid%&lt;br>
+                        Host: %nodelabel%&lt;br>
+                        Interface: %interface% &lt;br>
+                        Message: %parm[syslogmessage]% &lt;br>
+                        Process: %parm[process]% &lt;br>
+                        PID: %parm[processid]%
+            &lt;/p></descr>
+      <logmsg dest="logndisplay">
+                        &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
+                        Message: %parm[syslogmessage]% &lt;br>
+                 </logmsg>
+      <severity>Critical</severity>
+   </event>
    
 </events>
