@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Syslog message match definitions for OpenSSH -->
+<syslogd-configuration-group>
+    <ueiList>
+        
+    </ueiList>
+</syslogd-configuration-group>

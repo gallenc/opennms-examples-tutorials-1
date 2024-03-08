@@ -101,9 +101,10 @@ services:
       - ./container-fs/horizon/etc/conf.d/confd.toml:/etc/confd/confd.toml
     command: ["-s"]
     ports:
-      - "8101:8101/tcp"
-      - "8980:8980/tcp"
-      - "10162:1162/udp"
+      - "8101:8101/tcp"   # karaf ssh
+      - "8980:8980/tcp"   # web ui
+      - "10162:1162/udp"  # snmp trap
+      - "10514:10514/udp" # syslog
     healthcheck:
       test: [ "CMD", "curl", "-f", "-I", "http://localhost:8980/opennms/login.jsp" ]
       interval: 1m
@@ -132,9 +133,9 @@ services:
       timeout: 20s
       retries: 3
     ports:
-      - "8201:8201/tcp"
-      - "1162:1162/udp"
-      - "1514:1514/udp"
+      - "8201:8201/tcp" # karaf ssh terminal
+      - "1162:1162/udp" # snmp trap
+      - "1514:1514/udp" # syslog
     networks:
       frontend:
         ipv4_address: 172.20.0.50

@@ -15,7 +15,7 @@ public class SendCalexSyslogOpenNMSTest {
 	
 	public static final int SYSLOG_SERVER_PORT=4445;
 	
-	public static final int SYSLOG_OPENNMS_PORT=10162;
+	public static final int SYSLOG_OPENNMS_PORT=10514;
 	
    public static final boolean USE_SIMPLE_LOG_SERVER=false;
 
