@@ -225,7 +225,9 @@ public class OtherEventLogFull {
 	    if(withPri) {
 	         if(priValue==null) {
 	            try {
-	               int severity = SyslogSeverity.fromLabel(perceivedSeverity).numericalCode();;
+	               
+	               SyslogSeverity syslogSeverity = SyslogSeverityToItuPercievedSeverityMapper.mapItuPerceivedSeverity(perceivedSeverity);
+	               int severity = syslogSeverity.numericalCode();;
 	               int facility = SyslogFacility.USER.numericalCode();
 	               int priValueNo = (facility * 8) + severity;
 	               priValue = Integer.toString(priValueNo);
