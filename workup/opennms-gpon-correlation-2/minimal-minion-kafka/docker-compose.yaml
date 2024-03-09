@@ -18,7 +18,7 @@ volumes:
 
 services:
   database:
-    image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-15}
+    image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-14}
     container_name: database
     hostname: database
     environment:
@@ -38,6 +38,22 @@ services:
     networks:
       frontend:
         ipv4_address: 172.20.0.10
+        
+# see https://github.com/Jasoncheung94/youtube-projects-code/tree/main/postgres_phppgadmin
+# note needs postgresql 14 doesnt work with 15
+  phppgadmin:
+    container_name: phppgadmin
+    image: ${DOCKER_REGISTRY:-docker.io}/neimheadh/phppgadmin:${PHP_PG_ADMIN_VERSION:-7.13.0}
+    ports:
+      - "8081:80" 
+    environment:
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=postgres
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.15
 
   kafka:
     image: ${DOCKER_REGISTRY:-docker.io}/confluentinc/cp-kafka:${KAFKA_VERSION:-latest}

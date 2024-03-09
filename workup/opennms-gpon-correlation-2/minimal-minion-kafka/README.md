@@ -47,7 +47,7 @@ If you manually edited the requisition, in the OpenNMS gui it will look like the
 An example xml version of the requisition which is imported is provieded here [gpon1.xml(../minimal-minion-kafka-simple/images/gpon1.xml)
 
 This is generated from the following excel spreadsheet by pris
-![Alt text](../minimal-minion-kafka-simple/images/gpon1-xls.png)
+![Alt text](../minimal-minion-kafka/images/gpon1-xls.png)
 
 An event can be sent to OpenNMS to request that it imports a requisition from an external URL.
 
