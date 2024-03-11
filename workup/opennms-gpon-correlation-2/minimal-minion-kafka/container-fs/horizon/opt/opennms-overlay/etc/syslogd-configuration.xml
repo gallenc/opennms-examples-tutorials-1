@@ -16,6 +16,7 @@
             matching-group-message="8"
             discard-uei="DISCARD-MATCHING-MESSAGES"
             timezone=""
+            includeRawSyslogmessage="true"
             />
 
     <!--
@@ -47,6 +48,8 @@
         anchor your regular expression matches with ^ and $, like in the examples below.  Failure to do so can
         cause extreme slowdowns, especially with large amounts of <ueiMatch> tags.
     -->
+    
+    <import-file>syslog/Calex.syslog.xml</import-file>
 
     <import-file>syslog/ApacheHTTPD.syslog.xml</import-file>
     <import-file>syslog/LinuxKernel.syslog.xml</import-file>

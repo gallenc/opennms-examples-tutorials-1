@@ -8,8 +8,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage] &lt;br>
+                &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -25,8 +26,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -42,8 +44,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -59,8 +62,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -76,8 +80,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -93,8 +98,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -110,8 +116,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -127,8 +134,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -144,8 +152,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -161,8 +170,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -178,8 +188,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -195,8 +206,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -212,8 +224,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -229,8 +242,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -246,8 +260,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -263,8 +278,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -280,8 +296,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -297,8 +314,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -314,8 +332,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -331,8 +350,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -348,8 +368,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -365,8 +386,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -382,8 +404,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -399,8 +422,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -416,8 +440,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -433,8 +458,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -450,8 +476,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -467,8 +494,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -484,8 +512,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -501,8 +530,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -518,8 +548,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -535,8 +566,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -552,8 +584,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -569,8 +602,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -586,8 +620,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -603,8 +638,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -620,8 +656,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -637,8 +674,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -654,8 +692,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -671,8 +710,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -688,8 +728,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -705,8 +746,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -722,8 +764,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -739,8 +782,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -756,8 +800,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -773,8 +818,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -790,8 +836,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -807,8 +854,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -824,8 +872,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -841,8 +890,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -858,8 +908,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -875,8 +926,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -892,8 +944,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -909,8 +962,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -926,8 +980,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -943,8 +998,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -960,8 +1016,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -977,8 +1034,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -994,8 +1052,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1011,8 +1070,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1028,8 +1088,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1045,8 +1106,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1062,8 +1124,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1079,8 +1142,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1096,8 +1160,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1113,8 +1178,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1130,8 +1196,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1147,8 +1214,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1164,8 +1232,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1181,8 +1250,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1198,8 +1268,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1215,8 +1286,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1232,8 +1304,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1249,8 +1322,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1266,8 +1340,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1283,8 +1358,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1300,8 +1376,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1317,8 +1394,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1334,8 +1412,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1351,8 +1430,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1368,8 +1448,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1385,8 +1466,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1402,8 +1484,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1419,8 +1502,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1436,8 +1520,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1453,8 +1538,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1470,8 +1556,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1487,8 +1574,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1504,8 +1592,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1521,8 +1610,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1538,8 +1628,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1555,8 +1646,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1572,8 +1664,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1589,8 +1682,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1606,8 +1700,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1623,8 +1718,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1640,8 +1736,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1657,8 +1754,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1674,8 +1772,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1691,8 +1790,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1708,8 +1808,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1725,8 +1826,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1742,8 +1844,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1759,8 +1862,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1776,8 +1880,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1793,8 +1898,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1810,8 +1916,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1827,8 +1934,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1844,8 +1952,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1861,8 +1970,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1878,8 +1988,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1895,8 +2006,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1912,8 +2024,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1929,8 +2042,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1946,8 +2060,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1963,8 +2078,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1980,8 +2096,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -1997,8 +2114,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2014,8 +2132,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2031,8 +2150,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2048,8 +2168,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2065,8 +2186,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2082,8 +2204,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2099,8 +2222,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2116,8 +2240,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2133,8 +2258,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2150,8 +2276,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2167,8 +2294,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2184,8 +2312,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2201,8 +2330,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2218,8 +2348,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2235,8 +2366,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2252,8 +2384,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2269,8 +2402,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2286,8 +2420,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2303,8 +2438,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2320,8 +2456,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2337,8 +2474,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2354,8 +2492,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2371,8 +2510,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2388,8 +2528,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2405,8 +2546,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2422,8 +2564,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2439,8 +2582,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2456,8 +2600,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2473,8 +2618,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2490,8 +2636,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2507,8 +2654,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2524,8 +2672,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2541,8 +2690,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2558,8 +2708,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2575,8 +2726,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2592,8 +2744,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2609,8 +2762,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2626,8 +2780,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2643,8 +2798,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2660,8 +2816,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2677,8 +2834,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2694,8 +2852,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2711,8 +2870,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2728,8 +2888,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2745,8 +2906,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2762,8 +2924,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2779,8 +2942,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2796,8 +2960,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2813,8 +2978,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2830,8 +2996,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2847,8 +3014,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2864,8 +3032,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2881,8 +3050,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2898,8 +3068,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2915,8 +3086,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2932,8 +3104,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2949,8 +3122,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2966,8 +3140,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -2983,8 +3158,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3000,8 +3176,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3017,8 +3194,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3034,8 +3212,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3051,8 +3230,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3068,8 +3248,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3085,8 +3266,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3102,8 +3284,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3119,8 +3302,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3136,8 +3320,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>
@@ -3153,8 +3338,9 @@
                         Interface: %interface% &lt;br>
                         Message: %parm[syslogmessage]% &lt;br>
                         Process: %parm[process]% &lt;br>
-                        PID: %parm[processid]%
-			&lt;/p></descr>
+                        PID: %parm[processid]% &lt;br>
+                        Raw Syslog Message: %parm[rawSyslogmessage]
+                        &lt;/p></descr>
       <logmsg dest="logndisplay">
                         &lt;p>An OpenNMS Event has been received as a Syslog Message &lt;/p>
                         Message: %parm[syslogmessage]% &lt;br>

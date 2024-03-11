@@ -3,5 +3,11 @@
 <syslogd-configuration-group>
     <ueiList>
         
+        <ueiMatch>
+            <process-match expression="^notfmgrd$" />
+            <match type="regex" expression="^.*" />
+            <uei>uei.opennms.org/Calex</uei>
+<!--             <parameter-assignment matching-group="1" parameter-name="documentRoot" /> -->
+        </ueiMatch>
     </ueiList>
 </syslogd-configuration-group>

@@ -40,7 +40,7 @@ services:
         ipv4_address: 172.20.0.10
         
 # see https://github.com/Jasoncheung94/youtube-projects-code/tree/main/postgres_phppgadmin
-# note needs postgresql 14 doesnt work with 15
+# note current latest 7.13.0 needs postgresql 14 as doesn't work with 15
   phppgadmin:
     container_name: phppgadmin
     image: ${DOCKER_REGISTRY:-docker.io}/neimheadh/phppgadmin:${PHP_PG_ADMIN_VERSION:-7.13.0}
