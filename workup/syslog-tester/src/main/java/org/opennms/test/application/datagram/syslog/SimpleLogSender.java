@@ -29,7 +29,9 @@ public class SimpleLogSender {
         try {
             buf = msg.getBytes();
             packet = new DatagramPacket(buf, buf.length, address, port);
-            System.out.println("sending packet "+packet.toString());
+            String message = new String(packet.getData(), 0, packet.getLength());
+            System.out.println("sending packet "+packet+" message "+message);
+            
             socket.send(packet);
         } catch (IOException e) {
             e.printStackTrace();

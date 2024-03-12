@@ -91,7 +91,7 @@ public class ParseEventsFileTest {
 
                // get mapping between lte and ont from serial number
                String details = calexAxosEventLog.getDetails();
-               String pattern = "(?s)SerialNo=(.*?),";
+               String pattern = "(?s)SerialNo=(.*?)(,|$)";
                Pattern r = Pattern.compile(pattern);
                Matcher m = r.matcher(details);
                if (m.find()) {
@@ -110,7 +110,7 @@ public class ParseEventsFileTest {
                   calexLogSuccess++;
                   if (SEND_EVENT_TO_OPENNMS) {
                      String receivedLogEntry = calexAxosEventLog.toLogEntry(true);
-                     System.out.println("sending log: " + receivedLogEntry);
+                     //System.out.println("sending log: " + receivedLogEntry);
                      client.sendMessage(receivedLogEntry);
                   }
 
@@ -119,15 +119,15 @@ public class ParseEventsFileTest {
                }
 
             } else {
-               // try OtherEventLogFull parser
-               OtherEventLogFull otherEventLogFull = new OtherEventLogFull();
-               parsed = otherEventLogFull.parseLogEntry(logEntry);
+               // try NokiaEventLogFull parser
+               NokiaEventLogFull nokiaEventLogFull = new NokiaEventLogFull();
+               parsed = nokiaEventLogFull.parseLogEntry(logEntry);
                if (parsed) {
-                  nodeName = otherEventLogFull.getNodename();
+                  nodeName = nokiaEventLogFull.getNodename();
                   
                   // get mapping between lte and ont from serial number
-                  String alarmText = otherEventLogFull.getAlarmText();
-                  String pattern = "(?s)Serial-Number=(.*?),";
+                  String alarmText = nokiaEventLogFull.getAlarmText();
+                  String pattern = "(?s)Serial-Number=(.*?)(,|$)";
                   Pattern r = Pattern.compile(pattern);
                   Matcher m = r.matcher(alarmText);
                   if (m.find()) {
@@ -135,7 +135,7 @@ public class ParseEventsFileTest {
                      oltLteMapping.put(serialNo, nodeName);
                   }
 
-                  String parsedLog = otherEventLogFull.toLogEntry(false);
+                  String parsedLog = nokiaEventLogFull.toLogEntry(false);
                   //
                   boolean match = logEntry.equals(parsedLog);
                   if (!match) {
@@ -144,25 +144,25 @@ public class ParseEventsFileTest {
                      System.out.println("   " + parsedLog);
                   } else {
                      otherLogFullSuccess++;
-                     //                     System.out.println("OtherEventLog match:");
+                     //                     System.out.println("NokiaEventLog match:");
                      //                     System.out.println("   "+logEntry);
                      if (SEND_EVENT_TO_OPENNMS) {
-                        String receivedLogEntry = otherEventLogFull.toLogEntry(true);
-                        System.out.println("sending log: " + receivedLogEntry);
+                        String receivedLogEntry = nokiaEventLogFull.toLogEntry(true);
+                        //System.out.println("sending log: " + receivedLogEntry);
                         client.sendMessage(receivedLogEntry);
                      }
                   }
                } else {
                   // try OtherEventLogPartial parser
-                  OtherEventLogPartial otherEventLogPartial = new OtherEventLogPartial();
-                  parsed = otherEventLogPartial.parseLogEntry(logEntry);
+                  NokiaEventLogPartial nokiaEventLogPartial = new NokiaEventLogPartial();
+                  parsed = nokiaEventLogPartial.parseLogEntry(logEntry);
                   if (parsed) {
 
-                     nodeName = otherEventLogPartial.getNodename();
+                     nodeName = nokiaEventLogPartial.getNodename();
                      
                      // get mapping between lte and ont from serial number
-                     String alarmText = otherEventLogPartial.getAlarmText();
-                     String pattern = "(?s)Serial-Number=(.*?),";
+                     String alarmText = nokiaEventLogPartial.getAlarmText();
+                     String pattern = "(?s)Serial-Number=(.*?)(,|$)";
                      Pattern r = Pattern.compile(pattern);
                      Matcher m = r.matcher(alarmText);
                      if (m.find()) {
@@ -170,7 +170,7 @@ public class ParseEventsFileTest {
                         oltLteMapping.put(serialNo, nodeName);
                      }
 
-                     String parsedLog = otherEventLogPartial.toLogEntry(false);
+                     String parsedLog = nokiaEventLogPartial.toLogEntry(false);
                      //
                      boolean match = logEntry.equals(parsedLog);
                      if (!match) {
@@ -182,8 +182,8 @@ public class ParseEventsFileTest {
                         //                        System.out.println("OtherEventLogPartial match:");
                         //                        System.out.println("   "+logEntry);
                         if (SEND_EVENT_TO_OPENNMS) {
-                           String receivedLogEntry = otherEventLogPartial.toLogEntry(true);
-                           System.out.println("sending log: " + receivedLogEntry);
+                           String receivedLogEntry = nokiaEventLogPartial.toLogEntry(true);
+                           //System.out.println("sending log: " + receivedLogEntry);
                            client.sendMessage(receivedLogEntry);
                         }
                      }

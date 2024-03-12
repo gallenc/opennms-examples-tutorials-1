@@ -3,7 +3,7 @@ package org.opennms.test.application.datagram.syslog;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class OtherEventLogPartial {
+public class NokiaEventLogFull {
 
 	private String rawMatch = null;
 	private String pri = null;
@@ -16,14 +16,18 @@ public class OtherEventLogPartial {
 	private String appName = null;
 	private String appVersion = null;
 	private String moduleName = null;
-
+	private String entityName = null;
+	private String entityType = null;
+	private String alarmTypeId = null;
+	private String eventTime = null;
+	private String perceivedSeverity = null;
 	private String alarmText = null;
 	
 
 	
 	public boolean parseLogEntry(String logEntry) {
-		// (?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)\s(.*?)APP_NAME:(.*?),APP_VERSION:(.*?),MODULE_NAME:(.*?),(.*)
-		String pattern = "(?s)(<(.*?)>|)(\\D{3})\\s(\\d|\\d{2})\\s(.{8})\\s(.*?)\\s(.*?)APP_NAME:(.*?),APP_VERSION:(.*?),MODULE_NAME:(.*?),(.*)";
+		// (?s)(<(.*?)>|)(\D{3})\s(\d|\d{2})\s(.{8})\s(.*?)\s(.*?)APP_NAME:(.*?),APP_VERSION:(.*?),MODULE_NAME:(.*?),ENTITY_NAME:(.*?),ENTITY_TYPE:(.*?),alarm-type-id:(.*?),event-time:(.*?),perceived-severity:(.*?),alarm-text:(.*)
+		String pattern = "(?s)(<(.*?)>|)(\\D{3})\\s(\\d|\\d{2})\\s(.{8})\\s(.*?)\\s(.*?)APP_NAME:(.*?),APP_VERSION:(.*?),MODULE_NAME:(.*?),ENTITY_NAME:(.*?),ENTITY_TYPE:(.*?),alarm-type-id:(.*?),event-time:(.*?),perceived-severity:(.*?),alarm-text:(.*)";
 
 		// Create a Pattern object
 		Pattern r = Pattern.compile(pattern);
@@ -43,7 +47,12 @@ public class OtherEventLogPartial {
 		   appName = m.group(8);
 		   appVersion = m.group(9);
 		   moduleName = m.group(10);
-		   alarmText = m.group(11);
+		   entityName = m.group(11);
+		   entityType = m.group(12);
+		   alarmTypeId = m.group(13);
+		   eventTime = m.group(14);
+		   perceivedSeverity = m.group(15);
+		   alarmText = m.group(16);
 			
 			return true;
 		} else {
@@ -143,6 +152,46 @@ public class OtherEventLogPartial {
       this.moduleName = moduleName;
    }
 
+   public String getEntityName() {
+      return entityName;
+   }
+
+   public void setEntityName(String entityName) {
+      this.entityName = entityName;
+   }
+
+   public String getEntityType() {
+      return entityType;
+   }
+
+   public void setEntityType(String entityType) {
+      this.entityType = entityType;
+   }
+
+   public String getAlarmTypeId() {
+      return alarmTypeId;
+   }
+
+   public void setAlarmTypeId(String alarmTypeId) {
+      this.alarmTypeId = alarmTypeId;
+   }
+
+   public String getEventTime() {
+      return eventTime;
+   }
+
+   public void setEventTime(String eventTime) {
+      this.eventTime = eventTime;
+   }
+
+   public String getPerceivedSeverity() {
+      return perceivedSeverity;
+   }
+
+   public void setPerceivedSeverity(String perceivedSeverity) {
+      this.perceivedSeverity = perceivedSeverity;
+   }
+
    public String getAlarmText() {
       return alarmText;
    }
@@ -172,6 +221,23 @@ public class OtherEventLogPartial {
 		
 		 //Feb 28 16:35:13 LT1-blk1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:ALCLFCA45C31,ENTITY_TYPE:rssi-onu,alarm-type-id:onu-upstream-rx-power-exceed-threshold,event-time:2024-02-28T16:35:13+00:00,perceived-severity:minor,alarm-text:low-alarm < onu-upstream-rx-power(-31.5 dBm) < low-warning, OLT xFP operational limits exceeded"
 
+		 // NOTE THIS DOESNT WORK WITH PERCEIVED SEVERITY minor or cleared
+	    if(withPri) {
+	         if(priValue==null) {
+	            try {
+	               
+	               SyslogSeverity syslogSeverity = SyslogSeverityToItuPercievedSeverityMapper.mapItuPerceivedSeverity(perceivedSeverity);
+	               int severity = syslogSeverity.numericalCode();;
+	               int facility = SyslogFacility.USER.numericalCode();
+	               int priValueNo = (facility * 8) + severity;
+	               priValue = Integer.toString(priValueNo);
+	            } catch (Exception ex){
+	               ex.printStackTrace();
+	               priValue="000"; // if unable to create a pri
+	            }
+	         }
+	         sb.append("<"+priValue+">");
+	      }
 	      sb.append(month+" ");
 	      sb.append(day+" "); 
 	      sb.append(timestampStr+" ");
@@ -180,7 +246,12 @@ public class OtherEventLogPartial {
 	      sb.append("APP_NAME:"+appName+",");
 	      sb.append("APP_VERSION:"+appVersion+",");
 	      sb.append("MODULE_NAME:"+moduleName+",");
-	      sb.append(alarmText);
+	      sb.append("ENTITY_NAME:"+entityName+",");
+	      sb.append("ENTITY_TYPE:"+entityType+",");
+	      sb.append("alarm-type-id:"+alarmTypeId+",");
+	      sb.append("event-time:"+eventTime+",");
+	      sb.append("perceived-severity:"+perceivedSeverity+",");
+	      sb.append("alarm-text:"+alarmText);
 		
 		return sb.toString();
 		
@@ -200,6 +271,11 @@ public class OtherEventLogPartial {
                + ",\n    appName=" + appName 
                + ",\n    appVersion=" + appVersion 
                + ",\n    moduleName=" + moduleName 
+               + ",\n    entityName=" + entityName 
+               + ",\n    entityType=" + entityType 
+               + ",\n    alarmTypeId=" + alarmTypeId 
+               + ",\n    eventTime=" + eventTime
+               + ",\n    perceivedSeverity=" + perceivedSeverity 
                + ",\n    alarmText=" + alarmText + "]";
    }
 	

@@ -136,6 +136,47 @@
         </mapping>
       </mappings>
     </event-translation-spec>
+    
+    <!-- ******************************************* -->
+    <!-- Translations for Calex ONT Devices          -->
+    <!-- ******************************************* -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Emergency</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Alert</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Critical</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Error</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Warning</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Notice</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Informational</uei> -->
+<!--         <uei>uei.opennms.org/Calex/Axos/local7/Debug</uei> -->
+        
+    <event-translation-spec uei="uei.opennms.org/Calex/Axos/local7/Error" >
+      <mappings>
+        <mapping>
+          <assignment name="uei" type="field" >
+            <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+          </assignment>
+          <assignment name="nodeid" type="field" >
+            <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?" >
+              <value type="parameter" name="Details" matches="(?s)SerialNo=(.*?)(,|$)" result="${1}" />
+            </value>
+          </assignment>
+        </mapping>
+      </mappings>
+    </event-translation-spec>
+    <event-translation-spec uei="uei.opennms.org/Calex/Axos/local7/Informational" >
+      <mappings>
+        <mapping>
+          <assignment name="uei" type="field" >
+            <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Clear" />
+          </assignment>
+          <assignment name="nodeid" type="field" >
+            <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?" >
+              <value type="parameter" name="Details" matches="(?s)SerialNo=(.*?)(,|$)" result="${1}" />
+            </value>
+          </assignment>
+        </mapping>
+      </mappings>
+    </event-translation-spec>
 
   </translation>
 
