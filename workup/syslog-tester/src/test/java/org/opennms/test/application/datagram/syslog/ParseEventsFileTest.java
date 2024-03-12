@@ -2,8 +2,6 @@ package org.opennms.test.application.datagram.syslog;
 
 import static org.junit.Assert.*;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.SortedMap;
 import java.util.TreeMap;

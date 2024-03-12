@@ -9,7 +9,7 @@
       </security>
    </global>
    
-   <event-file>events/Calex.syslog.events.xml</event-file>
+   <event-file>events/Calex-Axos.syslog.events.xml</event-file>
    
    <event-file>events/opennms.snmp.trap.translator.events.xml</event-file>
    <event-file>events/opennms.ackd.events.xml</event-file>
