@@ -2,6 +2,8 @@ package org.opennms.test.application.datagram.syslog;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -53,7 +55,7 @@ public class ParseEventsFileTest {
       SortedMap<String, String> hostMap = new TreeMap<>();
 
       // lteSerialNo, lteHostname
-      SortedMap<String, String> oltLteMapping = new TreeMap<>();
+      SortedMap<String, List<String>> oltLteMapping = new TreeMap<>();
 
       IncrimentingIpAddress ipAddress = new IncrimentingIpAddress("172.20.0.150");
       try {
@@ -90,13 +92,28 @@ public class ParseEventsFileTest {
                nodeName = calexAxosEventLog.getNodename();
 
                // get mapping between lte and ont from serial number
+               List<String> values = new ArrayList<>();
+               values.add(nodeName);
+
                String details = calexAxosEventLog.getDetails();
-               String pattern = "(?s)SerialNo=(.*?)(,|$)";
-               Pattern r = Pattern.compile(pattern);
-               Matcher m = r.matcher(details);
-               if (m.find()) {
-                  String serialNo = m.group(1);
-                  oltLteMapping.put(serialNo, nodeName);
+               String serialNoPattern = "(?s)SerialNo=(.*?)(,|$)";
+               Pattern serialNoRegex = Pattern.compile(serialNoPattern);
+               Matcher serialNoMatcher = serialNoRegex.matcher(details);
+               String serialNo="";
+               if (serialNoMatcher.find()) {
+                  serialNo = serialNoMatcher.group(1);
+               }
+               values.add(serialNo);
+
+               // ont-id='378104']/
+               String xpath = calexAxosEventLog.getXpath();
+               String xPathPattern = "(?s)ont-id='(.*?)']";
+               Pattern xPathRegex = Pattern.compile(xPathPattern);
+               Matcher xPathMatcher = xPathRegex.matcher(xpath);
+               String ontId = null;
+               if (xPathMatcher.find()) {
+                  ontId = xPathMatcher.group(1);
+                  oltLteMapping.put(ontId, values);
                }
 
                String parsedLog = calexAxosEventLog.toLogEntry(false);
@@ -124,16 +141,25 @@ public class ParseEventsFileTest {
                parsed = nokiaEventLogFull.parseLogEntry(logEntry);
                if (parsed) {
                   nodeName = nokiaEventLogFull.getNodename();
-                  
+
+                  List<String> values = new ArrayList<>();
+                  values.add(nodeName);
+
+                  // ENTITY_NAME:600935  (same as oltid)
+                  String entityName = nokiaEventLogFull.getEntityName();
+                  values.add(entityName);
+
                   // get mapping between lte and ont from serial number
                   String alarmText = nokiaEventLogFull.getAlarmText();
-                  String pattern = "(?s)Serial-Number=(.*?)(,|$)";
-                  Pattern r = Pattern.compile(pattern);
-                  Matcher m = r.matcher(alarmText);
-                  if (m.find()) {
-                     String serialNo = m.group(1);
-                     oltLteMapping.put(serialNo, nodeName);
+                  String serialNoPattern = "(?s)Serial-Number=(.*?)(,|$)";
+                  Pattern serialNoRegex = Pattern.compile(serialNoPattern);
+                  Matcher serialNoMatcher = serialNoRegex.matcher(alarmText);
+                  String serialNo ="";
+                  if (serialNoMatcher.find()) {
+                     serialNo = serialNoMatcher.group(1);
                   }
+                  values.add(serialNo);
+                  oltLteMapping.put(entityName, values);
 
                   String parsedLog = nokiaEventLogFull.toLogEntry(false);
                   //
@@ -159,16 +185,23 @@ public class ParseEventsFileTest {
                   if (parsed) {
 
                      nodeName = nokiaEventLogPartial.getNodename();
-                     
+
+                     // List<String> values = new ArrayList<>();
+                     // values.add(nodeName);
+
+                     // no entity name in nokiaEventLogPartial
+                     //  String entityName = null;
+                     //  values.add(entityName);
+
                      // get mapping between lte and ont from serial number
-                     String alarmText = nokiaEventLogPartial.getAlarmText();
-                     String pattern = "(?s)Serial-Number=(.*?)(,|$)";
-                     Pattern r = Pattern.compile(pattern);
-                     Matcher m = r.matcher(alarmText);
-                     if (m.find()) {
-                        String serialNo = m.group(1);
-                        oltLteMapping.put(serialNo, nodeName);
-                     }
+                     // String alarmText = nokiaEventLogPartial.getAlarmText();
+                     // String serialNoPattern = "(?s)Serial-Number=(.*?)(,|$)";
+                     // Pattern serialNoRegex = Pattern.compile(serialNoPattern);
+                     // Matcher serialNoMatcher = serialNoRegex.matcher(alarmText);
+                     // if (serialNoMatcher.find()) {
+                     //    String serialNo = serialNoMatcher.group(1);
+                     //    oltLteMapping.put(serialNo, values);
+                     // }
 
                      String parsedLog = nokiaEventLogPartial.toLogEntry(false);
                      //
@@ -216,7 +249,11 @@ public class ParseEventsFileTest {
 
          // print out lte ont mapping
          for (String lteSerialNo : oltLteMapping.keySet()) {
-            lteMappingFileWriter.println(lteSerialNo + "," + oltLteMapping.get(lteSerialNo));
+            String values = lteSerialNo;
+            for (String value : oltLteMapping.get(lteSerialNo)) {
+               values = values + "," + value;
+            }
+            lteMappingFileWriter.println(values);
          }
 
       } catch (
