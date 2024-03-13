@@ -45,7 +45,7 @@ services:
     container_name: phppgadmin
     image: ${DOCKER_REGISTRY:-docker.io}/neimheadh/phppgadmin:${PHP_PG_ADMIN_VERSION:-7.13.0}
     ports:
-      - "8081:80" 
+      - "8082:80" 
     environment:
       - POSTGRES_HOST=database
       - POSTGRES_PORT=5432
