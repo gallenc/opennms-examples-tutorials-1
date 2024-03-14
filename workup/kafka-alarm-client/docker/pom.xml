@@ -108,6 +108,7 @@
 			<artifactId>kafka-web</artifactId>
 			<version>${project.version}</version>
 			<classifier>exec</classifier>
+			<type>war</type>
 		</dependency>
 
 

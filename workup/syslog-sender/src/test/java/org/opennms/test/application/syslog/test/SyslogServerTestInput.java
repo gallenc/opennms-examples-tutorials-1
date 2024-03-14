@@ -31,7 +31,7 @@ import org.junit.Test;
 // http://www.syslog4j.org/docs/javadoc/
 // using https://github.com/graylog-labs/syslog4j-graylog2 as newer
 
-public class SyslogServerLog4JTest {
+public class SyslogServerTestInput {
 	
 	Logger SYSLOG_BSD_LOGGER = LogManager.getLogger("BSD");
 	Logger SYSLOG_RFC5424_LOGGER = LogManager.getLogger("RFC5424");
@@ -70,14 +70,12 @@ public class SyslogServerLog4JTest {
 	@Test
 	public void test() throws ParseException {
 	
-	//	SYSLOG_BSD_LOGGER.error("message 1 to syslog");
+		SYSLOG_BSD_LOGGER.error("message 1 to syslog");
 		
-	//	SYSLOG_RFC5424_LOGGER.error("message 2 to syslog");
-		
-
+		SYSLOG_RFC5424_LOGGER.error("message 2 to syslog");
 
 		try {
-			Thread.sleep(250000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
