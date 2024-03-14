@@ -1,6 +1,6 @@
 # Gpon Correlation Examples
 
-THIS VERSION USES <PRI> IN LOGS
+THIS VERSION HAS NO <PRI> IN LOGS
 
 This simple proof of concept shows how OpenNMS parent child relationships can be used to represent a gpon network with passive splices and end points.
 
