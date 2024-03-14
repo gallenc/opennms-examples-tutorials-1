@@ -177,7 +177,7 @@ services:
       frontend:
         ipv4_address: 172.20.0.35
         
-# kafka client
+# kafka client # wait for hrizon to allow kafka to start
   kafka-client:
     image: opennms:kafka-client
     profiles: ["kafka-client"]
@@ -185,6 +185,7 @@ services:
     hostname: kafka-client
     depends_on:
       - kafka
+      - horizon
     volumes:
       - ./container-fs/kafka-client/kafkaclient.properties:/tmp/kafkaclient.properties
     #ports:
@@ -201,6 +202,7 @@ services:
     hostname: kafka-web
     depends_on:
       - kafka
+      - horizon
     volumes:
       - ./container-fs/kafka-client/kafkaclient.properties:/tmp/kafkaclient.properties
     ports:
