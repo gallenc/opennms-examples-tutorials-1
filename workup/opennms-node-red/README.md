@@ -130,7 +130,7 @@ sudo firewall-cmd --reload
 ```
 # grafana
 
-In the docker-compose example, grafana should be installed with opennms grafan plugin also already installed. 
+In the docker compose example, grafana should be installed with opennms grafan plugin also already installed. 
 To login use
 ```
 http://localhost:3000

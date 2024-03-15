@@ -1,6 +1,6 @@
 # Setting up a develop server in Azure
 
-The simplest way to set up a hosted application in Azure is to set up a small virtual machine with an interface exposed to the internet. More complex containerised applications can be deployed if the server has docker and docker-compose installed. 
+The simplest way to set up a hosted application in Azure is to set up a small virtual machine with an interface exposed to the internet. More complex containerised applications can be deployed if the server has docker and docker compose installed. 
 
 These are the steps I have taken to set up a simple server reachable at opennms1.uksouth.cloudapp.azure.com
 

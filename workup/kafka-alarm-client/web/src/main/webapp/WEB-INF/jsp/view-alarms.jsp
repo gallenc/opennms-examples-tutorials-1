@@ -11,8 +11,8 @@ table, th, td {
 </style>
 </head>
 <body>
-	<p>number of alarms = ${alarmsSize}</p>
-	<p>Alarm list</p>
+	<p>Number of alarms = ${alarmsSize}</p>
+	<p>Alarm List</p>
 	<table>
 		<thead>
 			<tr>
@@ -25,6 +25,7 @@ table, th, td {
 				<td>Ip Address</td>
 				<td>Node Label</td>
 				<td>Uei</td>
+				<td>Last Event</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,7 +40,28 @@ table, th, td {
 					<td>${entry.value.ipAddress}</td>
 					<td>${entry.value.nodeCriteria.nodeLabel}</td>
 					<td>${entry.value.uei}</td>
-					<!-- <td>${entry.value}</td>  -->
+					<td>
+						<table>
+							<c:if test="${not empty entry.value.lastEvent}">
+								<tr>
+									<td>last event id</td>
+									<td>${entry.value.lastEvent.id}</td>
+								</tr>
+								<tr>
+									<td>last event time</td>
+									<td>${entry.value.lastEvent.time}</td>
+								</tr>
+								<c:forEach var="parameter"
+									items="${entry.value.lastEvent.parameterList}">
+									<tr>
+										<td>parameter</td>
+										<td>${parameter}</td>
+									</tr>
+								</c:forEach>
+
+							</c:if>
+						</table>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -20,7 +20,7 @@ the .env file sets the version of OpenNMS to use - currently 29.0.6
 ## To run OpenMMS
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 eventually you should see the OpenNMS UI at http://localhost:8980
@@ -31,18 +31,18 @@ you should also see the kafka ui at http://localhost:8080/
 PS - to end the tests use
 
 ```
-docker-compose down
+docker compose down
 ```
 and to also clear the database volumes
 
 ```
-docker-compose down -v
+docker compose down -v
 ```
 
 you can reach inside the opennms container using
 
 ```
-docker-compose exec horizon bash
+docker compose exec horizon bash
 ```
 
 # To run kafka-client and kafka-web
@@ -58,14 +58,14 @@ Both containers expect the kafka broker address to be injected to
 If you have built the containers, use the following command with profile to activate or deactivate them in docker-compose
 
 ```
-docker-compose  --profile kafka-client  up -d
+docker compose  --profile kafka-client  up -d
 
-docker-compose  --profile kafka-client down
+docker compose  --profile kafka-client down
 ```
 you can see any messages received by the kafka-client using
 
 ```
-docker-compose  logs -f kafka-client
+docker compose  logs -f kafka-client
 ```
 
 You should also be able to see the state of an alarms ktable on the kafka-web client at
@@ -81,17 +81,17 @@ http://[::1]:8081
 Based on https://docs.opennms.com/horizon/29/operation/kafka-producer/kafka-producer.html
 (see also https://rmoff.net/2018/08/02/kafka-listeners-explained/)
 
-Please note that the kafka broker in docker-compose is running on port 29092  not 9092 as described in the docs.
+Please note that the kafka broker in docker compose is running on port 29092  not 9092 as described in the docs.
 
 You need to get access to the OpenNMS Karaf shell. 
 There is an SSH client installed on the minion image but not the horizon image - so we ssh into the horizon opennms from the minion
 
-note that docker-compose sets up the service names broker, horizon, database as dns names so ssh etc can reference these
+note that docker compose sets up the service names broker, horizon, database as dns names so ssh etc can reference these
 
 To manually set up the alarm forwarder following the documentation
 
 ```
-docker-compose exec minion bash
+docker compose exec minion bash
 ssh -p 8101 admin@horizon
 
 (ssh -p 8101  -o UserKnownHostsFile=/dev/null  admin@localhost can be used from the docker host while avoiding host signature checking)
@@ -113,7 +113,7 @@ create the file org.opennms.features.kafka.producer.client.cfg and add contents
 bootstrap.servers = broker:29092
 ```
 
-This file is put in the docker-compose project
+This file is put in the docker compose project
 
 ```
 container-fs\horizon\opt\opennms-overlay\etc\org.opennms.features.kafka.producer.client.cfg 

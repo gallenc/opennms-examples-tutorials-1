@@ -19,10 +19,10 @@ This will work with a simple docker instlalation or with docker desktop on windo
 
 ## running
 
-The simplest way to run the example is to run the full docker-compose script with the kafka-client profile  
+The simplest way to run the example is to run the full docker compose script with the kafka-client profile  
 
 ```
-docker-compose  --profile kafka-client up -d
+docker compose  --profile kafka-client up -d
 ```
 OpenNMS should appear at
 http://[::1]:8980
@@ -37,7 +37,7 @@ http://localhost:8081
 A simple log client which shows all of the messages will be visable if you use
 
 ```
-docker-compose  --profile kafka-client logs -f kafka-client
+docker compose  --profile kafka-client logs -f kafka-client
 ```
 
 

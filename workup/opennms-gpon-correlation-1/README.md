@@ -1,5 +1,6 @@
 # Gpon Correlation Examples
-deprecieted 
+
+THIS VERION IS SIMPLY ILLUSTRATING DOWNSRTEAM NODES - NO SYSLOGS
 
 These examples use PRIS to load configuration and netsnmp or frr to simulate devices
 
