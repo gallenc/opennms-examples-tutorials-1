@@ -21,6 +21,8 @@ import org.junit.Test;
 public class ParseEventsFileTest {
 
    public boolean SEND_EVENT_TO_OPENNMS = true;
+   
+   public boolean USE_SYSLOG_PRI=false;
 
    private SimpleLogSender client;
 
@@ -116,7 +118,7 @@ public class ParseEventsFileTest {
                   oltLteMapping.put(ontId, values);
                }
 
-               String parsedLog = calexAxosEventLog.toLogEntry(false);
+               String parsedLog = calexAxosEventLog.toLogEntry(USE_SYSLOG_PRI);
                //
                boolean match = logEntry.equals(parsedLog);
                if (!match) {
@@ -126,7 +128,7 @@ public class ParseEventsFileTest {
                } else {
                   calexLogSuccess++;
                   if (SEND_EVENT_TO_OPENNMS) {
-                     String receivedLogEntry = calexAxosEventLog.toLogEntry(true);
+                     String receivedLogEntry = calexAxosEventLog.toLogEntry(USE_SYSLOG_PRI);
                      //System.out.println("sending log: " + receivedLogEntry);
                      client.sendMessage(receivedLogEntry);
                   }
@@ -161,7 +163,7 @@ public class ParseEventsFileTest {
                   values.add(serialNo);
                   oltLteMapping.put(entityName, values);
 
-                  String parsedLog = nokiaEventLogFull.toLogEntry(false);
+                  String parsedLog = nokiaEventLogFull.toLogEntry(USE_SYSLOG_PRI);
                   //
                   boolean match = logEntry.equals(parsedLog);
                   if (!match) {
@@ -173,7 +175,7 @@ public class ParseEventsFileTest {
                      //                     System.out.println("NokiaEventLog match:");
                      //                     System.out.println("   "+logEntry);
                      if (SEND_EVENT_TO_OPENNMS) {
-                        String receivedLogEntry = nokiaEventLogFull.toLogEntry(true);
+                        String receivedLogEntry = nokiaEventLogFull.toLogEntry(USE_SYSLOG_PRI);
                         //System.out.println("sending log: " + receivedLogEntry);
                         client.sendMessage(receivedLogEntry);
                      }
@@ -203,7 +205,7 @@ public class ParseEventsFileTest {
                      //    oltLteMapping.put(serialNo, values);
                      // }
 
-                     String parsedLog = nokiaEventLogPartial.toLogEntry(false);
+                     String parsedLog = nokiaEventLogPartial.toLogEntry(USE_SYSLOG_PRI);
                      //
                      boolean match = logEntry.equals(parsedLog);
                      if (!match) {
@@ -215,7 +217,7 @@ public class ParseEventsFileTest {
                         //                        System.out.println("OtherEventLogPartial match:");
                         //                        System.out.println("   "+logEntry);
                         if (SEND_EVENT_TO_OPENNMS) {
-                           String receivedLogEntry = nokiaEventLogPartial.toLogEntry(true);
+                           String receivedLogEntry = nokiaEventLogPartial.toLogEntry(USE_SYSLOG_PRI); // no PRI
                            //System.out.println("sending log: " + receivedLogEntry);
                            client.sendMessage(receivedLogEntry);
                         }

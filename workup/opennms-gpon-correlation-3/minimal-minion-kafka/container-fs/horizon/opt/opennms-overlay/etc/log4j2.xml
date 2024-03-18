@@ -164,6 +164,11 @@
     <logger name="org.apache.kafka" additivity="false" level="INFO">
       <appender-ref ref="RoutingAppender" />
     </logger>
+    
+    <logger name="org.opennms.netmgt.syslogd" additivity="false" level="TRACE">
+      <appender-ref ref="RoutingAppender" />
+    </logger>
+    
 
     <!-- Allow any message to pass through the root logger -->
     <root level="DEBUG">

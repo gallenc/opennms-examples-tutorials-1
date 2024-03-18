@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SendCalexSyslogTranslatorOpenNMSTest {
+public class SendNokiaSyslogTranslatorOpenNMSTest {
    private SimpleLogSender client;
    
    public boolean USE_SYSLOG_PRI=false;
@@ -40,9 +40,9 @@ public class SendCalexSyslogTranslatorOpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "<187>Feb 28 16:35:08 mk901-olt-3 notfmgrd[6215]: [1][1][A][6215] [23] Id:5029, Syslog-Severity:3, Perceived-Severity:MINOR, Name:ont-dying-gasp, Category:PON Cause:ONT is out of service due to loss of power event detected by the ONT., Details:SerialNo=D83F0D, Xpath:/config/system/ont[ont-id='7586'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+      String logEntry = "Feb 28 16:35:13 LT1-blk1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:ALCLFCA45C31,ENTITY_TYPE:rssi-onu,alarm-type-id:onu-upstream-rx-power-exceed-threshold,event-time:2024-02-28T16:35:13+00:00,perceived-severity:minor,alarm-text:low-alarm < onu-upstream-rx-power(-31.5 dBm) < low-warning, OLT xFP operational limits exceeded";
 
-      CalexAxosEventLog eventParser = new CalexAxosEventLog();
+      NokiaEventLogFull eventParser = new NokiaEventLogFull();
 
       boolean match = eventParser.parseLogEntry(logEntry);
       assertTrue(match);
