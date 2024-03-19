@@ -36,6 +36,8 @@
          AdditionalInfo:
          %parm[AdditionalInfo]% &lt;br>
          &lt;br>
+         &lt;a href=&quot;event/detail.jsp?id=%parm[originalEventId]%&quot;>Original Event ID %parm[originalEventId]%&lt;/a>&lt;br>
+         &lt;br>
          Message: %parm[syslogmessage]% &lt;br>
          &lt;br>
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
@@ -82,6 +84,8 @@
          Address: %parm[Address]% &lt;br>
          AdditionalInfo:
          %parm[AdditionalInfo]% &lt;br>
+         &lt;br>
+         &lt;a href=&quot;event/detail.jsp?id=%parm[originalEventId]%&quot;>Original Event ID %parm[originalEventId]%&lt;/a>&lt;br>
          &lt;br>
          Message: %parm[syslogmessage]% &lt;br>
          &lt;br>

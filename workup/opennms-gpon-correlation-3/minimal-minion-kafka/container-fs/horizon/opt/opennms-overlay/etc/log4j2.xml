@@ -191,7 +191,7 @@
         <KeyValuePair key="access-point-monitor" value="WARN" />
         <KeyValuePair key="ackd"                 value="WARN" />
         <KeyValuePair key="actiond"              value="WARN" />
-        <KeyValuePair key="alarmd"               value="WARN" />
+        <KeyValuePair key="alarmd"               value="DEBUG" />
         <KeyValuePair key="asterisk-gateway"     value="WARN" />
         <KeyValuePair key="archiver"             value="WARN" />
         <KeyValuePair key="bsmd"                 value="WARN" />
