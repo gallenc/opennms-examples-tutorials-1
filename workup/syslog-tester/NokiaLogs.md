@@ -1,8 +1,8 @@
-# Other Logs
+# Nokia Logs
 
 see https://regex101.com/
 
-This matches logs in the events file - not confirming to CALEX format unknown
+This matches logs in the events file - not confirming to CALEX format (probably nokia)
 ```
 Feb 28 16:35:13 LT1-blk1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:ALCLFCA45C31,ENTITY_TYPE:rssi-onu,alarm-type-id:onu-upstream-rx-power-exceed-threshold,event-time:2024-02-28T16:35:13+00:00,perceived-severity:minor,alarm-text:low-alarm < onu-upstream-rx-power(-31.5 dBm) < low-warning, OLT xFP operational limits exceeded
 ```
