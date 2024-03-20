@@ -134,10 +134,10 @@
     <logger name="org.gwtwidgets" additivity="false" level="INFO">
       <appender-ref ref="RoutingAppender"/>
     </logger>
-    <logger name="org.hibernate" additivity="false" level="INFO">
+    <logger name="org.hibernate" additivity="false" level="DEBUG">
       <appender-ref ref="RoutingAppender"/>
     </logger>
-    <logger name="org.hibernate.sql" additivity="false" level="INFO">
+    <logger name="org.hibernate.sql" additivity="false" level="DEBUG">
       <appender-ref ref="RoutingAppender"/>
     </logger>
     <logger name="org.hibernate.cfg.annotations.EntityBinder" additivity="false" level="WARN">
