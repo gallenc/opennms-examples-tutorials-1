@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SendCalexSyslogOpenNMSTest {
+public class SendCalexSyslogRAISEOpenNMSTest {
    private SimpleLogSender client;
 
    public static final int SYSLOG_SERVER_PORT = 4445;
@@ -18,6 +18,8 @@ public class SendCalexSyslogOpenNMSTest {
    public static final int SYSLOG_OPENNMS_PORT = 10514;
 
    public static final boolean USE_SIMPLE_LOG_SERVER = false;
+   
+   public boolean USE_SYSLOG_PRI=false;
 
    @Before
    public void setup() throws IOException {
@@ -38,7 +40,7 @@ public class SendCalexSyslogOpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "<187>Feb 12 11:12:08 Hikari notfmgrd[5345]: [1][1][A][5345] [23] Id:1201, Syslog-Severity:3, Perceived-Severity:Major, Name:loss-of-signal, Category:PORT Cause:This alarm is set when there is no signal present on an enabled ethernet interface, Details:Interface operationally down, Xpath:/config/shelf[shelf-id='1']/slot[slot-id='1']/interface/ethernet[port='x2'] Address:/interfaces/interface[name='1/1/x2'], Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL";
+      String logEntry = "Feb 28 16:36:00 glo204-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:3, Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='212064'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
 
       CalexAxosEventLog eventParser = new CalexAxosEventLog();
 
@@ -48,7 +50,7 @@ public class SendCalexSyslogOpenNMSTest {
       System.out.println("Event Parser values parsed from log: " + eventParser.toString());
 
       // test that the class outputs the same log as parsed
-      String receivedLogEntry = eventParser.toLogEntry(true);
+      String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
 
       System.out.println("Event parser toLogEntry: " + receivedLogEntry);
 

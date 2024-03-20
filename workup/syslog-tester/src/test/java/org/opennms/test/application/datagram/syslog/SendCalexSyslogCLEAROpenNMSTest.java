@@ -1,0 +1,81 @@
+package org.opennms.test.application.datagram.syslog;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class SendCalexSyslogCLEAROpenNMSTest {
+   private SimpleLogSender client;
+
+   public static final int SYSLOG_SERVER_PORT = 4445;
+
+   public static final int SYSLOG_OPENNMS_PORT = 10514;
+
+   public static final boolean USE_SIMPLE_LOG_SERVER = false;
+   
+   public boolean USE_SYSLOG_PRI=false;
+
+   @Before
+   public void setup() throws IOException {
+      String host = "localhost";
+
+      int port;
+
+      if (USE_SIMPLE_LOG_SERVER) {
+         port = SYSLOG_SERVER_PORT;
+         new SimpleLogServer(port).start();
+      } else {
+         port = SYSLOG_OPENNMS_PORT;
+      }
+
+      client = new SimpleLogSender(host, port);
+   }
+
+   @Test
+   public void sendMessageTest() {
+
+      String logEntry = "Feb 28 16:36:50 glo204-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] nm_handle_events.c.412: Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='212064'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+
+      CalexAxosEventLog eventParser = new CalexAxosEventLog();
+
+      boolean match = eventParser.parseLogEntry(logEntry);
+      assertTrue(match);
+
+      System.out.println("Event Parser values parsed from log: " + eventParser.toString());
+
+      // test that the class outputs the same log as parsed
+      String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
+
+      System.out.println("Event parser toLogEntry: " + receivedLogEntry);
+
+      client.sendMessage(receivedLogEntry);
+
+      try {
+         Thread.sleep(5000);
+      } catch (InterruptedException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+
+   }
+
+   @After
+   public void tearDown() {
+      if (USE_SIMPLE_LOG_SERVER) {
+         stopEchoServer();
+      }
+
+      client.close();
+   }
+
+   private void stopEchoServer() {
+      client.sendMessage("SHUTDOWN");
+   }
+
+}
