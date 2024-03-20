@@ -2,7 +2,7 @@
    <scan-interval>0</scan-interval>
    <detectors/>
    <policies>
-      <policy name="dont-manage" class="org.opennms.netmgt.provision.persist.policies.MatchingIpInterfacePolicy">
+      <policy name="dont-manage-dummy-ip" class="org.opennms.netmgt.provision.persist.policies.MatchingIpInterfacePolicy">
          <parameter key="action" value="UNMANAGE"/>
          <parameter key="matchBehavior" value="ALL_PARAMETERS"/>
          <parameter key="ipAddress" value="254.0.0.1"/>

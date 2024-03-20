@@ -174,9 +174,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Critical" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -198,9 +198,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Critical" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -222,9 +222,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Major" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -246,9 +246,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Minor" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -270,9 +270,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Warning" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -294,9 +294,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Indeterminate" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -318,9 +318,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Cleared" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
@@ -342,9 +342,9 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Indeterminate" />
                </assignment>
-<!--                <assignment name="interface" type="field"> -->
-<!--                   <value type="constant" result="254.0.0.1" /> -->
-<!--                </assignment> -->
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
                <assignment name="nodeid" type="field">
                   <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
