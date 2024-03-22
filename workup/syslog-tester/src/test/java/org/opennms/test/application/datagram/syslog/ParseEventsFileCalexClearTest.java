@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -13,6 +14,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,13 +24,15 @@ import org.junit.Test;
 
 public class ParseEventsFileCalexClearTest {
 
-   public boolean SEND_EVENT_TO_OPENNMS = true;
-   
-   public boolean USE_SYSLOG_PRI=false;
+   public static final boolean SEND_EVENT_TO_OPENNMS = true;
 
-   private SimpleLogSender client;
+   public static final boolean USE_SYSLOG_PRI = false;
 
    public static final int SYSLOG_OPENNMS_PORT = 10514;
+
+   public static final boolean CHANGE_LOG_TIME_TO_TODAY = true;
+
+   private SimpleLogSender client;
 
    @Before
    public void setup() throws IOException {
@@ -101,7 +107,7 @@ public class ParseEventsFileCalexClearTest {
                String serialNoPattern = "(?s)SerialNo=(.*?)(,|$)";
                Pattern serialNoRegex = Pattern.compile(serialNoPattern);
                Matcher serialNoMatcher = serialNoRegex.matcher(details);
-               String serialNo="";
+               String serialNo = "";
                if (serialNoMatcher.find()) {
                   serialNo = serialNoMatcher.group(1);
                }
@@ -128,6 +134,23 @@ public class ParseEventsFileCalexClearTest {
                } else {
                   calexLogSuccess++;
                   if (SEND_EVENT_TO_OPENNMS) {
+                     if (CHANGE_LOG_TIME_TO_TODAY) {
+                        // change the date time to be in same time as local time
+                        System.out.println("Parsed date time (from example log) : " + calexAxosEventLog.getDay() + " " + calexAxosEventLog.getMonth() + " "
+                                 + calexAxosEventLog.getTimestampStr());
+
+                        LocalDate today = LocalDate.now();
+                        Month month = today.getMonth();
+                        String mon = month.getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+                        int day = today.getDayOfMonth();
+
+                        calexAxosEventLog.setMonth(mon);
+                        calexAxosEventLog.setDay(Integer.toString(day));
+
+                        System.out.println("Log with revised date time : " + calexAxosEventLog.getDay() + " " + calexAxosEventLog.getMonth() + " "
+                                 + calexAxosEventLog.getTimestampStr());
+                     }
+
                      String receivedLogEntry = calexAxosEventLog.toLogEntry(USE_SYSLOG_PRI);
                      //System.out.println("sending log: " + receivedLogEntry);
                      client.sendMessage(receivedLogEntry);
@@ -156,7 +179,7 @@ public class ParseEventsFileCalexClearTest {
                   String serialNoPattern = "(?s)Serial-Number=(.*?)(,|$)";
                   Pattern serialNoRegex = Pattern.compile(serialNoPattern);
                   Matcher serialNoMatcher = serialNoRegex.matcher(alarmText);
-                  String serialNo ="";
+                  String serialNo = "";
                   if (serialNoMatcher.find()) {
                      serialNo = serialNoMatcher.group(1);
                   }
@@ -172,6 +195,23 @@ public class ParseEventsFileCalexClearTest {
                      System.out.println("   " + parsedLog);
                   } else {
                      otherLogFullSuccess++;
+                     if (CHANGE_LOG_TIME_TO_TODAY) {
+                        // change the date time to be in same time as local time
+                        System.out.println("Parsed date time (from example log) : " + nokiaEventLogFull.getDay() + " " + nokiaEventLogFull.getMonth() + " "
+                                 + nokiaEventLogFull.getTimestampStr());
+
+                        LocalDate today = LocalDate.now();
+                        Month month = today.getMonth();
+                        String mon = month.getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+                        int day = today.getDayOfMonth();
+
+                        nokiaEventLogFull.setMonth(mon);
+                        nokiaEventLogFull.setDay(Integer.toString(day));
+
+                        System.out.println("Log with revised date time : " + nokiaEventLogFull.getDay() + " " + nokiaEventLogFull.getMonth() + " "
+                                 + nokiaEventLogFull.getTimestampStr());
+                     }
+
                      //                     System.out.println("NokiaEventLog match:");
                      //                     System.out.println("   "+logEntry);
                      if (SEND_EVENT_TO_OPENNMS) {
@@ -214,6 +254,22 @@ public class ParseEventsFileCalexClearTest {
                         System.out.println("   " + parsedLog);
                      } else {
                         otherLogPartialSuccess++;
+                        if (CHANGE_LOG_TIME_TO_TODAY) {
+                           // change the date time to be in same time as local time
+                           System.out.println("Parsed date time (from example log) : " + nokiaEventLogPartial.getDay() + " " + nokiaEventLogPartial.getMonth()
+                                    + " " + nokiaEventLogPartial.getTimestampStr());
+
+                           LocalDate today = LocalDate.now();
+                           Month month = today.getMonth();
+                           String mon = month.getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+                           int day = today.getDayOfMonth();
+
+                           nokiaEventLogPartial.setMonth(mon);
+                           nokiaEventLogPartial.setDay(Integer.toString(day));
+
+                           System.out.println("Log with revised date time : " + nokiaEventLogPartial.getDay() + " " + nokiaEventLogPartial.getMonth() + " "
+                                    + nokiaEventLogPartial.getTimestampStr());
+                        }
                         //                        System.out.println("OtherEventLogPartial match:");
                         //                        System.out.println("   "+logEntry);
                         if (SEND_EVENT_TO_OPENNMS) {

@@ -5,6 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -18,8 +22,10 @@ public class SendCalexSyslogCLEAROpenNMSTest {
    public static final int SYSLOG_OPENNMS_PORT = 10514;
 
    public static final boolean USE_SIMPLE_LOG_SERVER = false;
-   
-   public boolean USE_SYSLOG_PRI=false;
+
+   public static final boolean CHANGE_LOG_TIME_TO_TODAY = true;
+
+   public static final boolean USE_SYSLOG_PRI = false;
 
    @Before
    public void setup() throws IOException {
@@ -49,7 +55,21 @@ public class SendCalexSyslogCLEAROpenNMSTest {
 
       System.out.println("Event Parser values parsed from log: " + eventParser.toString());
 
-      // test that the class outputs the same log as parsed
+      if (CHANGE_LOG_TIME_TO_TODAY) {
+         // change the date time to be in same time as local time
+         System.out.println("Parsed date time (from example log) : " + eventParser.getDay() + " " + eventParser.getMonth() + " " + eventParser.getTimestampStr());
+
+         LocalDate today = LocalDate.now();
+         Month month = today.getMonth();
+         String mon = month.getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+         int day = today.getDayOfMonth();
+
+         eventParser.setMonth(mon);
+         eventParser.setDay(Integer.toString(day));
+
+         System.out.println("Log with revised date time : " + eventParser.getDay() + " " + eventParser.getMonth() + " " + eventParser.getTimestampStr());
+      }
+
       String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
 
       System.out.println("Event parser toLogEntry: " + receivedLogEntry);
