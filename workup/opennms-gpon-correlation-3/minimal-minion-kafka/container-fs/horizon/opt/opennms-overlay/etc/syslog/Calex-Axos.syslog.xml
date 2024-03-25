@@ -3,7 +3,7 @@
 <syslogd-configuration-group>
    <ueiList>
 
-      <!-- note that these matches depend on syslog severity -->
+      <!-- note that these matches depend on syslog severity obtined from syslogd-grok-patterns.txt -->
       <ueiMatch>
 
          <process-match expression="^notfmgrd$" />

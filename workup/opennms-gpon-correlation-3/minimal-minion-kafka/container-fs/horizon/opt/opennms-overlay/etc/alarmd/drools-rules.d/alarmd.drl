@@ -87,9 +87,9 @@ rule "cleanUp"
     $alarm : OnmsAlarm(severity.isLessThanOrEqual(OnmsSeverity.NORMAL) &&
                        alarmAckTime == null &&
                        (TTicketState == null || TTicketState == TroubleTicketState.CLOSED || TTicketState == TroubleTicketState.CANCELLED))
-    // not( OnmsAlarm( this == $alarm ) over window:time( 5m ) )
+    not( OnmsAlarm( this == $alarm ) over window:time( 5m ) )
     // CHANGE fast delete cleared alarms
-    not( OnmsAlarm( this == $alarm ) over window:time( 10s ) )
+    //not( OnmsAlarm( this == $alarm ) over window:time( 10s ) )
   then
     alarmService.deleteAlarm($alarm);
 end
