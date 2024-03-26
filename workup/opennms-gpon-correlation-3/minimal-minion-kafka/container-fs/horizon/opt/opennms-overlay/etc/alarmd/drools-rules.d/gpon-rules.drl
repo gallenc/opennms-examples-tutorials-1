@@ -32,8 +32,10 @@ import java.util.Date;
 import org.kie.api.time.SessionClock;
 import org.opennms.netmgt.model.OnmsAlarm;
 import org.opennms.netmgt.model.OnmsSeverity;
+
 import org.opennms.netmgt.model.TroubleTicketState;
 import org.opennms.netmgt.model.OnmsNode;
+import org.opennms.netmgt.model.OnmsAssetRecord;
 
 import org.opennms.netmgt.model.events.EventBuilder;
 import org.opennms.netmgt.xml.event.AlarmData;
@@ -46,6 +48,8 @@ import java.util.Map.Entry;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 global org.opennms.netmgt.alarmd.drools.AlarmService alarmService;
 
@@ -63,7 +67,8 @@ rule "find gpon ONT node alarm"
     // get ONT alarm
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE,
                        lastEvent != null,
-                       node != null
+                       node != null,
+                       "ONT".equals(getNode().getAssetRecord().getDisplayCategory())
                       )
 
 // ,
@@ -72,19 +77,93 @@ rule "find gpon ONT node alarm"
 
   then
   
-  
     Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
     
     // debugging messages - note change to alarmService.debug in production
-    alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
-    alarmService.warn("**** found alarm.node.categories {} ", $alarm.getNode().getCategories() );
+    alarmService.warn("**** found alarm details {} for alarm {}", getAlarmDetails($alarm), $alarm );
+    
+    OnmsNode node = $alarm.getNode();
+    OnmsNode parent = node.getParent();
+    if (parent !=null){
+        Integer parentId = parent.getId();
+        String uei = "oennms.unknown";
+        String msg = "parent event from ONT";
+        sendSimpleEvent(alarmService, parentId, uei, OnmsSeverity.WARNING, msg);
+    }
+
+   // alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
+    
+  //  alarmService.warn("**** found alarm.node.asset displaycategory {} ", $alarm.getNode().getAssetRecord().getDisplayCategory() );
+
+    // categories not available since lazy initialisation
+    // alarmService.warn("**** found alarm.node.categories {} ", $alarm.getNode().getCategories() );
     
 
     
 end
 
 
+function String getAlarmDetails(OnmsAlarm alarm){
 
+   String msg="";
+
+   String nodeLabel = null;
+   String foreignId = null;
+   String foreignSource = null;
+
+   String displayCategory = null;
+   String managedObjectType = null;
+   String managedObjectInstance = null;
+   
+   String parentNodeLabel = null;
+   String parentForeignId = null;
+   String parentForeignSource = null;
+   Integer parentId = null;
+   
+   try {
+      OnmsNode node = alarm.getNode();
+      if (node!=null) {
+         nodeLabel = node.getLabel();
+         foreignId = node.getForeignId();
+         foreignSource = node.getForeignSource();
+      
+         OnmsAssetRecord assetRecord = node.getAssetRecord();
+         if (assetRecord!=null){
+            displayCategory = assetRecord.getDisplayCategory();
+            managedObjectType = assetRecord.getManagedObjectType();
+            managedObjectInstance = assetRecord.getManagedObjectInstance();
+         }
+      
+         OnmsNode parent = node.getParent();
+         if (parent !=null){
+                 parentId = parent.getId();
+                 
+       // can only get the parent id because not in session and lazy initialise
+      //         parentNodeLabel = parent.getLabel();
+      //         parentForeignId = parent.getForeignId();
+      //         parentForeignSource = parent.getForeignSource();
+         }
+      }
+
+   }  catch ( Exception ex) {
+      StringWriter sw = new StringWriter();
+      ex.printStackTrace(new PrintWriter(sw));
+      msg = msg+ "error getAlarmDetails\n" + sw.toString()+"\n"; 
+   }
+
+
+  msg = msg+ "alarm node details: "+
+      " nodeLabel ="+ nodeLabel +
+      " foreignId ="+ foreignId +
+      " foreignSource ="+ foreignSource +
+      " displayCategory ="+ displayCategory +
+      " managedObjectType ="+ managedObjectType +
+      " managedObjectInstance ="+  managedObjectInstance +
+      " parentId ="+ parentId;
+      
+  return msg;
+
+}
 
 
 
@@ -109,6 +188,18 @@ function boolean findEventParameter(AlarmService alarmService, String name, List
         }
     }
     return false;
+}
+
+/* sends simple event to event bus */
+function void sendSimpleEvent(AlarmService alarmService, Integer nodeId, String uei, OnmsSeverity severity, String msg) {
+        EventBuilder builder = new EventBuilder(uei, "drools");
+        AlarmData data = new AlarmData();
+        builder.setNodeid(nodeId);
+        builder.setLogDest("logndisplay");
+        builder.setLogMessage(msg);
+        builder.setSeverity(severity.getLabel());
+        alarmService.warn("alarm service sending new simple event: {}", builder.getEvent());
+        alarmService.sendEvent(builder.getEvent());
 }
 
 /* creates and sends a situation update event with the severity of the alarm raising the event */
