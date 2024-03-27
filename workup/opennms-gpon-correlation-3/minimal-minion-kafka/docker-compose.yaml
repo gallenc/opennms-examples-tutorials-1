@@ -15,6 +15,7 @@ volumes:
   data-postgres: {}
   data-opennms: {}
   data-opennms-cfg: {}
+  data-grafana: {}
 
 services:
   database:
@@ -54,6 +55,35 @@ services:
     networks:
       frontend:
         ipv4_address: 172.20.0.15
+        
+  grafana:
+    image: ${DOCKER_REGISTRY:-docker.io}/grafana/grafana:${GRAFANA_VERSION:-latest}
+    container_name: grafana
+    hostname: grafana
+    environment:
+      TZ: ${TIMEZONE:-America/New_York}
+      GF_SECURITY_ADMIN_PASSWORD: mypass
+      GF_INSTALL_PLUGINS: opennms-opennms-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
+      GF_SERVER_HTTP_PORT: 3000
+      GF_SERVER_PROTOCOL: http
+# use if running behind nginx
+#      GF_SERVER_DOMAIN: localhost:80
+#      GF_SERVER_ROOT_URL: http://localhost:80/grafana/
+#      GF_SERVER_SERVER_FROM_SUB_PATH: true
+    volumes:
+      - data-grafana:/var/lib/grafana
+      - ./container-fs/grafana/provisioning:/etc/grafana/provisioning/
+      - ./container-fs/grafana/conf/conf.ini:/conf/conf.ini
+    ports:
+      - "3000:3000/tcp"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 100M
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.18
 
   kafka:
     image: ${DOCKER_REGISTRY:-docker.io}/confluentinc/cp-kafka:${KAFKA_VERSION:-latest}
