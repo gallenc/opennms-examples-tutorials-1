@@ -59,50 +59,115 @@ declare org.opennms.netmgt.model.OnmsAlarm
 end
 
 
-rule "find gpon ONT node alarm"
+rule "create parent situations for ONT alarms"
   when
     $sessionClock : SessionClock()
 
-    
     // get ONT alarm
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE,
                        lastEvent != null,
                        node != null,
-                       "ONT".equals(getNode().getAssetRecord().getDisplayCategory())
+                       node.parent !=null,
+                       "ONT".equals(getNode().getAssetRecord().getDisplayCategory()),
+                       $alarmEventParameters : eventParameters
+                       //,
+                       //eval ( ($logName = (String) findEventParameter(alarmService, "LogName", $alarmEventParameters)) !=null )
                       )
+// ($logName:findEventParameter(alarmService, "LogName", $alarmEventParameters)) !=null;
+   // $logName : String("test") // findEventParameter(alarmService, "LogName", $alarm.eventParameters)
 
-// ,
-//node.assetRecord != null,
-//node.assetRecord.displayCategory == "ONT"
+    // get any situations for parent nodeId where the LogName parameter matches the LogName for this situation
+    // there can be only one uncleared situation per LogName per parent node
+    $situations : LinkedList() from collect ( OnmsAlarm( $situationEventParameters : eventParameters,
+                   isSituation() == true, 
+                   severity != OnmsSeverity.CLEARED,
+                   nodeId ==  $alarm.getNode().getParent().getId(),
+                   //matchEventParameter(alarmService, "LogName", "test" , $situationEventParameters)
+                   matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $situationEventParameters)
+                  ) )
 
   then
   
     Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
     
+    String $logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
+    
     // debugging messages - note change to alarmService.debug in production
-    alarmService.warn("**** found alarm details {} for alarm {}", getAlarmDetails($alarm), $alarm );
     
-    OnmsNode node = $alarm.getNode();
-    OnmsNode parent = node.getParent();
-    if (parent !=null){
-        Integer parentId = parent.getId();
-        String uei = "oennms.unknown";
-        String msg = "parent event from ONT";
-        sendSimpleEvent(alarmService, parentId, uei, OnmsSeverity.WARNING, msg);
-    }
-
-   // alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
+    alarmService.warn("**** found alarm details {} for alarm {} logName {}", getAlarmDetails($alarm), $alarm, $logName );
     
-  //  alarmService.warn("**** found alarm.node.asset displaycategory {} ", $alarm.getNode().getAssetRecord().getDisplayCategory() );
 
+    // TODO REMOVE
+    //OnmsNode node = $alarm.getNode();
+    //OnmsNode parent = node.getParent();
+    //if (parent !=null){
+    //    Integer parentId = parent.getId();
+    //    String uei = "oennms.unknown";
+    //    String msg = "parent event from ONT";
+    //    sendSimpleEvent(alarmService, parentId, uei, OnmsSeverity.WARNING, msg);
+    //}
+    // alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
+    //  alarmService.warn("**** found alarm.node.asset displaycategory {} ", $alarm.getNode().getAssetRecord().getDisplayCategory() );
     // categories not available since lazy initialisation
     // alarmService.warn("**** found alarm.node.categories {} ", $alarm.getNode().getCategories() );
+    //alarmService.warn("group mapping situation rule: matched alarm {}", $alarm);
     
+   // alarmService.warn("group mapping situation rule: ueiGroups size {}", $ueiGroups.size() );
+   // for (Object entry: $ueiGroups){
+   //     Entry e = (Entry) entry;
+   //     alarmService.warn("   group mapping situation rule: ueiGroups entry {}", entry);
+   // }
+    
+    alarmService.warn("group mapping situation rule: existing situations size {}", $situations.size() );
+    for (Object onmsAlarmObject: $situations){
+        OnmsAlarm situation = (OnmsAlarm) onmsAlarmObject;
+        alarmService.warn("  group mapping situation rule: existing situation {}", situation);
+    }
+    
+    // end of debugging messages
+    
+    // get the group which this alarm's uei is in
+    //String ueiGroup = "groupNotSet";
+    
+    
+    // get any existing alarm reduction keys from any current matching situation
+    // this allows us to re-inject the other matching alarms in the update event
+    // assumes only one matching situation from rule
+    Set<String> alarmReductionKeys= new HashSet<String>();
+    
+    String msg = "related alarms: ";
+    
+    if (! $situations.isEmpty()) {
+       OnmsAlarm matchedSituation = (OnmsAlarm) $situations.get(0);
+       if(matchedSituation !=null){
+           Set<OnmsAlarm> relatedAlarms = matchedSituation.getRelatedAlarms();
+           if (relatedAlarms!=null) {
+              for(OnmsAlarm related : relatedAlarms){
+                  alarmService.warn("  group mapping situation rule: adding reduction key from related alarm {}", related);
+                  alarmReductionKeys.add(related.getReductionKey());
+                  msg = msg +" "+ related.getId() +" "+ related.getSeverity().toString() +" |";
+              }
+           }
+       }
+    }
+    
+    // add reduction key from new alarm
+    String alarmReductionKey = $alarm.getReductionKey();
+       
+    // dont send event if this alarm is already present in a situation (circular updates)
+    // send event to update or create situation if this alarm is not in a situation
+    // the situation is created with the severity one greater than in the creating alarm
+    if(! alarmReductionKeys.contains(alarmReductionKey)) {
+       alarmReductionKeys.add(alarmReductionKey);
+       Integer nodeId=$alarm.getNodeId();
+       msg = msg +" "+ $alarm.getId()+" "+ $alarm.getSeverity().toString()+" |";
+       sendUdateSituationEvent(alarmService, nodeId, $logName, alarmReductionKeys, $alarm.getSeverity(), msg);
+    }
 
     
 end
 
-
+/* Used for debugging messages. Provides a toString() of the  node details and parent nodeId for a given alarm */
 function String getAlarmDetails(OnmsAlarm alarm){
 
    String msg="";
@@ -136,12 +201,8 @@ function String getAlarmDetails(OnmsAlarm alarm){
       
          OnmsNode parent = node.getParent();
          if (parent !=null){
-                 parentId = parent.getId();
-                 
-       // can only get the parent id because not in session and lazy initialise
-      //         parentNodeLabel = parent.getLabel();
-      //         parentForeignId = parent.getForeignId();
-      //         parentForeignSource = parent.getForeignSource();
+            parentId = parent.getId();
+            // we can only get the parent id because we are not in a hibernate session and lazy initialise of parent.getLabel() etc.
          }
       }
 
@@ -151,8 +212,7 @@ function String getAlarmDetails(OnmsAlarm alarm){
       msg = msg+ "error getAlarmDetails\n" + sw.toString()+"\n"; 
    }
 
-
-  msg = msg+ "alarm node details: "+
+   msg = msg+ "alarm node details: "+
       " nodeLabel ="+ nodeLabel +
       " foreignId ="+ foreignId +
       " foreignSource ="+ foreignSource +
@@ -162,50 +222,47 @@ function String getAlarmDetails(OnmsAlarm alarm){
       " parentId ="+ parentId;
       
   return msg;
-
 }
 
 
+/* searchs eventParameters list and returns value matching the name key. Returns null if not found or if inputs are null */
+function String findEventParameter(AlarmService alarmService, String name, List eventParameters) {
+    String value = null;
 
-
-
-/* searchs eventParameters list and returns true if name key with value is found. returns false if inputs are null */
-function boolean findEventParameter(AlarmService alarmService, String name, List ueiGroupsList, List eventParameters) {
-    
-    if( name == null || eventParameters==null || ueiGroupsList==null || ueiGroupsList.isEmpty()) return false;
-        
-    // get first named parameter value for group (there should only be one)
-    Entry e = (Entry) ueiGroupsList.get(0);
-    String value = (String) e.getValue();
-    
-    alarmService.warn("group mapping situation rule: findEventParameter name "+name+" value "+value+" eventParameters "+ eventParameters );
-
-    for (Object paramObj : eventParameters) {
-        OnmsEventParameter param = (OnmsEventParameter) paramObj;
-        alarmService.warn("new alarm rule findEventParameter name "+param.getName()+" value "+param.getValue() );
-        if (name.equals(param.getName()) &&  value.equals( param.getValue()) ) {
-         return true;
-        }
+    if( name == null || eventParameters==null || eventParameters.isEmpty() ) {
+       value = null;
+    } else {
+       for (Object paramObj : eventParameters) {
+          OnmsEventParameter param = (OnmsEventParameter) paramObj;
+          alarmService.warn(" findEventParameter name searching "+param.getName()+" value "+param.getValue() );
+          if (name.equals(param.getName())) {
+            value = param.getValue();
+            break;
+          }
+       }
     }
-    return false;
+    alarmService.warn("findEventParameter result name "+name+" found value "+value+" eventParameters "+ eventParameters );
+    return value;
 }
 
-/* sends simple event to event bus */
-function void sendSimpleEvent(AlarmService alarmService, Integer nodeId, String uei, OnmsSeverity severity, String msg) {
-        EventBuilder builder = new EventBuilder(uei, "drools");
-        AlarmData data = new AlarmData();
-        builder.setNodeid(nodeId);
-        builder.setLogDest("logndisplay");
-        builder.setLogMessage(msg);
-        builder.setSeverity(severity.getLabel());
-        alarmService.warn("alarm service sending new simple event: {}", builder.getEvent());
-        alarmService.sendEvent(builder.getEvent());
+/* searchs eventParameters list and returns true if name key with matching value is found. returns false if inputs are null */
+function boolean matchEventParameter(AlarmService alarmService, String name, String value, List eventParameters) {
+    boolean found = false;
+    if( name == null || value==null || eventParameters==null || eventParameters.isEmpty() ) {
+      found =false ;
+    } else {
+       String foundValue = findEventParameter(alarmService, name, eventParameters);
+       found = value.equals(foundValue);
+    }
+    alarmService.warn("matchEventParameter found="+found+" name "+name+" value "+value+" eventParameters "+ eventParameters );
+    return found;
 }
+
 
 /* creates and sends a situation update event with the severity of the alarm raising the event */
 /* see code in isRelatedReductionKeyWithContent(Parm param) in AlarmPersisterImpl to see how alarms are tagged as situations */
 /* if any param with name beginning 'related-reductionKey' exists this is used to match the related alarm reduction keys and mark this alarm as a situation. */
-function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId, String ueiGroup, Set alarmReductionKeys, OnmsSeverity currentSeverity, String msg) {
+function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId, String logName, Set alarmReductionKeys, OnmsSeverity currentSeverity, String msg) {
         EventBuilder builder = new EventBuilder("uei.opennms.org/alarms/drools/situation", "drools");
         AlarmData data = new AlarmData();
         //data.setAlarmType(1); 
@@ -235,10 +292,24 @@ function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId,
             // For now, suffix the parameter name with the value.
             builder.addParam("related-reductionKey-" + redux.hashCode(), redux);
         }
-        builder.addParam("situationDescr","drools situation ueiGroup: "+ueiGroup+" "+msg);
-        builder.addParam("situationLogMsg","drools situation ueiGroup: "+ueiGroup+" "+msg);
+        builder.addParam("situationDescr","drools situation logName: "+logName+" "+msg);
+        builder.addParam("situationLogMsg","drools situation logName: "+logName+" "+msg);
         
-        builder.addParam("situationGroup", ueiGroup);
+        builder.addParam("logName", logName);
         alarmService.warn("alarm service sending update situation event: {}", builder.getEvent());
         alarmService.sendEvent(builder.getEvent());
 }
+
+
+/* sends a simple event to the event bus */
+function void sendSimpleEvent(AlarmService alarmService, Integer nodeId, String uei, OnmsSeverity severity, String msg) {
+        EventBuilder builder = new EventBuilder(uei, "drools");
+        AlarmData data = new AlarmData();
+        builder.setNodeid(nodeId);
+        builder.setLogDest("logndisplay");
+        builder.setLogMessage(msg);
+        builder.setSeverity(severity.getLabel());
+        alarmService.warn("alarm service sending new simple event: {}", builder.getEvent());
+        alarmService.sendEvent(builder.getEvent());
+}
+

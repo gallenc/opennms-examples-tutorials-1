@@ -46,7 +46,7 @@ public class SendCalexSyslogCLEAROpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "Feb 28 16:36:50 glo204-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] nm_handle_events.c.412: Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='212064'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+      String logEntry = "Feb 28 00:36:50 glo204-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] nm_handle_events.c.412: Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='212064'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
 
       CalexAxosEventLog eventParser = new CalexAxosEventLog();
 

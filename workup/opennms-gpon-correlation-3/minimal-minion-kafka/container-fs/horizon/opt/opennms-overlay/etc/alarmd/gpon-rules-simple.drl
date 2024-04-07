@@ -1,0 +1,244 @@
+/*******************************************************************************
+ * This file is part of OpenNMS(R).
+ *
+ * Copyright (C) 2019 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2019 The OpenNMS Group, Inc.
+ *
+ * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ *
+ * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * OpenNMS(R) is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with OpenNMS(R).  If not, see:
+ *      http://www.gnu.org/licenses/
+ *
+ * For more information contact:
+ *     OpenNMS(R) Licensing <license@opennms.org>
+ *     http://www.opennms.org/
+ *     http://www.opennms.com/
+ *******************************************************************************/
+
+package org.opennms.netmgt.alarmd.drools;
+
+import java.util.Date;
+import org.kie.api.time.SessionClock;
+import org.opennms.netmgt.model.OnmsAlarm;
+import org.opennms.netmgt.model.OnmsSeverity;
+
+import org.opennms.netmgt.model.TroubleTicketState;
+import org.opennms.netmgt.model.OnmsNode;
+import org.opennms.netmgt.model.OnmsAssetRecord;
+
+import org.opennms.netmgt.model.events.EventBuilder;
+import org.opennms.netmgt.xml.event.AlarmData;
+import org.opennms.netmgt.alarmd.drools.AlarmService;
+import org.opennms.netmgt.model.OnmsEventParameter;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+global org.opennms.netmgt.alarmd.drools.AlarmService alarmService;
+
+declare org.opennms.netmgt.model.OnmsAlarm
+    @role(event)
+    @timestamp(lastUpdateTime)
+end
+
+
+rule "find gpon ONT node alarm"
+  when
+    $sessionClock : SessionClock()
+
+    
+    // get ONT alarm
+    $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE,
+                       lastEvent != null,
+                       node != null,
+                       "ONT".equals(getNode().getAssetRecord().getDisplayCategory())
+                      )
+
+// ,
+//node.assetRecord != null,
+//node.assetRecord.displayCategory == "ONT"
+
+  then
+  
+    Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
+    
+    // debugging messages - note change to alarmService.debug in production
+    alarmService.warn("**** found alarm details {} for alarm {}", getAlarmDetails($alarm), $alarm );
+    
+    OnmsNode node = $alarm.getNode();
+    OnmsNode parent = node.getParent();
+    if (parent !=null){
+        Integer parentId = parent.getId();
+        String uei = "oennms.unknown";
+        String msg = "parent event from ONT";
+        sendSimpleEvent(alarmService, parentId, uei, OnmsSeverity.WARNING, msg);
+    }
+
+   // alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
+    
+  //  alarmService.warn("**** found alarm.node.asset displaycategory {} ", $alarm.getNode().getAssetRecord().getDisplayCategory() );
+
+    // categories not available since lazy initialisation
+    // alarmService.warn("**** found alarm.node.categories {} ", $alarm.getNode().getCategories() );
+    
+
+    
+end
+
+
+function String getAlarmDetails(OnmsAlarm alarm){
+
+   String msg="";
+
+   String nodeLabel = null;
+   String foreignId = null;
+   String foreignSource = null;
+
+   String displayCategory = null;
+   String managedObjectType = null;
+   String managedObjectInstance = null;
+   
+   String parentNodeLabel = null;
+   String parentForeignId = null;
+   String parentForeignSource = null;
+   Integer parentId = null;
+   
+   try {
+      OnmsNode node = alarm.getNode();
+      if (node!=null) {
+         nodeLabel = node.getLabel();
+         foreignId = node.getForeignId();
+         foreignSource = node.getForeignSource();
+      
+         OnmsAssetRecord assetRecord = node.getAssetRecord();
+         if (assetRecord!=null){
+            displayCategory = assetRecord.getDisplayCategory();
+            managedObjectType = assetRecord.getManagedObjectType();
+            managedObjectInstance = assetRecord.getManagedObjectInstance();
+         }
+      
+         OnmsNode parent = node.getParent();
+         if (parent !=null){
+                 parentId = parent.getId();
+                 
+       // can only get the parent id because not in session and lazy initialise
+      //         parentNodeLabel = parent.getLabel();
+      //         parentForeignId = parent.getForeignId();
+      //         parentForeignSource = parent.getForeignSource();
+         }
+      }
+
+   }  catch ( Exception ex) {
+      StringWriter sw = new StringWriter();
+      ex.printStackTrace(new PrintWriter(sw));
+      msg = msg+ "error getAlarmDetails\n" + sw.toString()+"\n"; 
+   }
+
+
+  msg = msg+ "alarm node details: "+
+      " nodeLabel ="+ nodeLabel +
+      " foreignId ="+ foreignId +
+      " foreignSource ="+ foreignSource +
+      " displayCategory ="+ displayCategory +
+      " managedObjectType ="+ managedObjectType +
+      " managedObjectInstance ="+  managedObjectInstance +
+      " parentId ="+ parentId;
+      
+  return msg;
+
+}
+
+
+
+
+
+/* searchs eventParameters list and returns true if name key with value is found. returns false if inputs are null */
+function boolean findEventParameter(AlarmService alarmService, String name, List ueiGroupsList, List eventParameters) {
+    
+    if( name == null || eventParameters==null || ueiGroupsList==null || ueiGroupsList.isEmpty()) return false;
+        
+    // get first named parameter value for group (there should only be one)
+    Entry e = (Entry) ueiGroupsList.get(0);
+    String value = (String) e.getValue();
+    
+    alarmService.warn("group mapping situation rule: findEventParameter name "+name+" value "+value+" eventParameters "+ eventParameters );
+
+    for (Object paramObj : eventParameters) {
+        OnmsEventParameter param = (OnmsEventParameter) paramObj;
+        alarmService.warn("new alarm rule findEventParameter name "+param.getName()+" value "+param.getValue() );
+        if (name.equals(param.getName()) &&  value.equals( param.getValue()) ) {
+         return true;
+        }
+    }
+    return false;
+}
+
+/* sends simple event to event bus */
+function void sendSimpleEvent(AlarmService alarmService, Integer nodeId, String uei, OnmsSeverity severity, String msg) {
+        EventBuilder builder = new EventBuilder(uei, "drools");
+        AlarmData data = new AlarmData();
+        builder.setNodeid(nodeId);
+        builder.setLogDest("logndisplay");
+        builder.setLogMessage(msg);
+        builder.setSeverity(severity.getLabel());
+        alarmService.warn("alarm service sending new simple event: {}", builder.getEvent());
+        alarmService.sendEvent(builder.getEvent());
+}
+
+/* creates and sends a situation update event with the severity of the alarm raising the event */
+/* see code in isRelatedReductionKeyWithContent(Parm param) in AlarmPersisterImpl to see how alarms are tagged as situations */
+/* if any param with name beginning 'related-reductionKey' exists this is used to match the related alarm reduction keys and mark this alarm as a situation. */
+function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId, String ueiGroup, Set alarmReductionKeys, OnmsSeverity currentSeverity, String msg) {
+        EventBuilder builder = new EventBuilder("uei.opennms.org/alarms/drools/situation", "drools");
+        AlarmData data = new AlarmData();
+        //data.setAlarmType(1); 
+        // data.setReductionKey(reductionKey);
+        //builder.setAlarmData(data);
+        
+        // set initial severity of drools situation one greater than alarm severity to avoid double events because of situation severity accumulation rules
+        if(currentSeverity !=null) {
+              // not sure how indeterminate will be handled in alarmd situations but there shouldnt be any - just set cleared
+              if(OnmsSeverity.INDETERMINATE == currentSeverity ){
+                 builder.setSeverity(OnmsSeverity.CLEARED.getLabel());
+              } else if(OnmsSeverity.CLEARED == currentSeverity ){
+                 builder.setSeverity(OnmsSeverity.CLEARED.getLabel());
+              } else {
+                 int currentSeverityInt = currentSeverity.getId();
+                 int newSeverity = (currentSeverityInt >= OnmsSeverity.CRITICAL.getId()) ? OnmsSeverity.CRITICAL.getId() : currentSeverityInt + 1;
+                 builder.setSeverity(OnmsSeverity.get(newSeverity).getLabel());
+              }
+        }
+        
+        builder.setNodeid(nodeId);
+        builder.setLogDest("logndisplay");
+        builder.setLogMessage("updating situation");
+        for (Object reduxObj : alarmReductionKeys) {
+             String redux = (String) reduxObj;
+            // TOOD revisit when event_parameters table supports multiple params with the same name (NMS-10214)
+            // For now, suffix the parameter name with the value.
+            builder.addParam("related-reductionKey-" + redux.hashCode(), redux);
+        }
+        builder.addParam("situationDescr","drools situation ueiGroup: "+ueiGroup+" "+msg);
+        builder.addParam("situationLogMsg","drools situation ueiGroup: "+ueiGroup+" "+msg);
+        
+        builder.addParam("situationGroup", ueiGroup);
+        alarmService.warn("alarm service sending update situation event: {}", builder.getEvent());
+        alarmService.sendEvent(builder.getEvent());
+}
