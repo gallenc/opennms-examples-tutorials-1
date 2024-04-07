@@ -159,70 +159,13 @@ rule "create parent situations for ONT alarms"
     // the situation is created with the severity one greater than in the creating alarm
     if(! alarmReductionKeys.contains(alarmReductionKey)) {
        alarmReductionKeys.add(alarmReductionKey);
-       Integer nodeId=$alarm.getNodeId();
+       Integer nodeId=$alarm.getNode().getParent().getId();
        msg = msg +" "+ $alarm.getId()+" "+ $alarm.getSeverity().toString()+" |";
        sendUdateSituationEvent(alarmService, nodeId, $logName, alarmReductionKeys, $alarm.getSeverity(), msg);
     }
 
     
 end
-
-/* Used for debugging messages. Provides a toString() of the  node details and parent nodeId for a given alarm */
-function String getAlarmDetails(OnmsAlarm alarm){
-
-   String msg="";
-
-   String nodeLabel = null;
-   String foreignId = null;
-   String foreignSource = null;
-
-   String displayCategory = null;
-   String managedObjectType = null;
-   String managedObjectInstance = null;
-   
-   String parentNodeLabel = null;
-   String parentForeignId = null;
-   String parentForeignSource = null;
-   Integer parentId = null;
-   
-   try {
-      OnmsNode node = alarm.getNode();
-      if (node!=null) {
-         nodeLabel = node.getLabel();
-         foreignId = node.getForeignId();
-         foreignSource = node.getForeignSource();
-      
-         OnmsAssetRecord assetRecord = node.getAssetRecord();
-         if (assetRecord!=null){
-            displayCategory = assetRecord.getDisplayCategory();
-            managedObjectType = assetRecord.getManagedObjectType();
-            managedObjectInstance = assetRecord.getManagedObjectInstance();
-         }
-      
-         OnmsNode parent = node.getParent();
-         if (parent !=null){
-            parentId = parent.getId();
-            // we can only get the parent id because we are not in a hibernate session and lazy initialise of parent.getLabel() etc.
-         }
-      }
-
-   }  catch ( Exception ex) {
-      StringWriter sw = new StringWriter();
-      ex.printStackTrace(new PrintWriter(sw));
-      msg = msg+ "error getAlarmDetails\n" + sw.toString()+"\n"; 
-   }
-
-   msg = msg+ "alarm node details: "+
-      " nodeLabel ="+ nodeLabel +
-      " foreignId ="+ foreignId +
-      " foreignSource ="+ foreignSource +
-      " displayCategory ="+ displayCategory +
-      " managedObjectType ="+ managedObjectType +
-      " managedObjectInstance ="+  managedObjectInstance +
-      " parentId ="+ parentId;
-      
-  return msg;
-}
 
 
 /* searchs eventParameters list and returns value matching the name key. Returns null if not found or if inputs are null */
@@ -312,4 +255,63 @@ function void sendSimpleEvent(AlarmService alarmService, Integer nodeId, String 
         alarmService.warn("alarm service sending new simple event: {}", builder.getEvent());
         alarmService.sendEvent(builder.getEvent());
 }
+
+
+/* Used for debugging messages. Provides a toString() of the  node details and parent nodeId for a given alarm */
+function String getAlarmDetails(OnmsAlarm alarm){
+
+   String msg="";
+
+   String nodeLabel = null;
+   String foreignId = null;
+   String foreignSource = null;
+
+   String displayCategory = null;
+   String managedObjectType = null;
+   String managedObjectInstance = null;
+   
+   String parentNodeLabel = null;
+   String parentForeignId = null;
+   String parentForeignSource = null;
+   Integer parentId = null;
+   
+   try {
+      OnmsNode node = alarm.getNode();
+      if (node!=null) {
+         nodeLabel = node.getLabel();
+         foreignId = node.getForeignId();
+         foreignSource = node.getForeignSource();
+      
+         OnmsAssetRecord assetRecord = node.getAssetRecord();
+         if (assetRecord!=null){
+            displayCategory = assetRecord.getDisplayCategory();
+            managedObjectType = assetRecord.getManagedObjectType();
+            managedObjectInstance = assetRecord.getManagedObjectInstance();
+         }
+      
+         OnmsNode parent = node.getParent();
+         if (parent !=null){
+            parentId = parent.getId();
+            // we can only get the parent id because we are not in a hibernate session and lazy initialise of parent.getLabel() etc.
+         }
+      }
+
+   }  catch ( Exception ex) {
+      StringWriter sw = new StringWriter();
+      ex.printStackTrace(new PrintWriter(sw));
+      msg = msg+ "error getAlarmDetails\n" + sw.toString()+"\n"; 
+   }
+
+   msg = msg+ "alarm node details: "+
+      " nodeLabel ="+ nodeLabel +
+      " foreignId ="+ foreignId +
+      " foreignSource ="+ foreignSource +
+      " displayCategory ="+ displayCategory +
+      " managedObjectType ="+ managedObjectType +
+      " managedObjectInstance ="+  managedObjectInstance +
+      " parentId ="+ parentId;
+      
+  return msg;
+}
+
 
