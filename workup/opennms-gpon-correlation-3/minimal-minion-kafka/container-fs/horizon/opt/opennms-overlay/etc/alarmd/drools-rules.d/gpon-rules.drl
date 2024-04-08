@@ -82,13 +82,13 @@ rule "create parent situations for ONT alarms"
                   ) )
 
   then
-  
+ 
     Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
     
     String $logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
     
     // debugging messages - note change to alarmService.debug in production
-    alarmService.warn("**** found alarm details {} for alarm {} logName {}", getAlarmDetails($alarm), $alarm, $logName );
+    alarmService.warn("**** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, $logName );
     
     alarmService.warn("group mapping situation rule: existing situations size {}", $situations.size() );
     for (Object onmsAlarmObject: $situations){
@@ -192,7 +192,7 @@ function boolean matchSituationParameter(AlarmService alarmService, List eventPa
     String value = null;
     String name = null;
     
-    if( name == null || value==null || eventParameters==null || eventParameters.isEmpty() ) {
+    if( eventParameters==null || eventParameters.isEmpty() ) {
       found =false ;
     } else {
       for (Object paramObj : eventParameters) {
@@ -201,6 +201,7 @@ function boolean matchSituationParameter(AlarmService alarmService, List eventPa
           if (param.getName().startsWith("related-reductionKey-")) {
             value = param.getValue();
             name = param.getName();
+            found = true;
             break;
           }
        }
@@ -243,10 +244,10 @@ function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId,
             // For now, suffix the parameter name with the value.
             builder.addParam("related-reductionKey-" + redux.hashCode(), redux);
         }
-        builder.addParam("situationDescr","drools situation logName: "+logName+" "+msg);
-        builder.addParam("situationLogMsg","drools situation logName: "+logName+" "+msg);
+        builder.addParam("situationDescr","drools situation LogName: "+logName+" "+msg);
+        builder.addParam("situationLogMsg","drools situation LogName: "+logName+" "+msg);
         
-        builder.addParam("logName", logName);
+        builder.addParam("LogName", logName);
         alarmService.warn("alarm service sending update situation event: {}", builder.getEvent());
         alarmService.sendEvent(builder.getEvent());
 }
