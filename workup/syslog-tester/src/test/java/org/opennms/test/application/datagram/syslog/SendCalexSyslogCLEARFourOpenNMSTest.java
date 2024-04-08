@@ -30,6 +30,7 @@ public class SendCalexSyslogCLEARFourOpenNMSTest {
 
    public static final boolean USE_SYSLOG_PRI = false;
    
+   // olts tied to lec191-olt-1_SECONDARY
    List<String> ontids = Arrays.asList("61180","124010","130749","397513");
 
    @Before
@@ -74,12 +75,18 @@ public class SendCalexSyslogCLEARFourOpenNMSTest {
 
          System.out.println("Log with revised date time : " + eventParser.getDay() + " " + eventParser.getMonth() + " " + eventParser.getTimestampStr());
       }
+      
+      // send events for different ONT IDs
+      for (String ontid: ontids) {
+         
+         eventParser.setXpath("/config/system/ont[ont-id='"+ontid + "']");
+         String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
 
-      String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
+         System.out.println("Sending ont-id="+ontid+ " Event parser toLogEntry: " + receivedLogEntry);
 
-      System.out.println("Event parser toLogEntry: " + receivedLogEntry);
-
-      client.sendMessage(receivedLogEntry);
+         client.sendMessage(receivedLogEntry);
+         
+      }
 
       try {
          Thread.sleep(5000);

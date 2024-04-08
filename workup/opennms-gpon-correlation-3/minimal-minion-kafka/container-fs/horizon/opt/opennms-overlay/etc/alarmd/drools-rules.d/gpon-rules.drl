@@ -136,6 +136,22 @@ rule "create parent situations for ONT alarms"
     
 end
 
+rule "clear uncleared situations"
+  when
+    $sessionClock : SessionClock()
+
+    // get old situation alarm which has not been cleared
+    $alarm : OnmsAlarm(isSituation() == false, 
+                       severity != OnmsSeverity.CLEARED,
+                       $alarmEventParameters : eventParameters,
+                       matchSituationParameter(alarmService, $alarmEventParameters)
+                      )
+                      
+   then
+       alarmService.warn(" clear uncleared situations rule clearing alarm id  "+$alarm.getId());
+       alarmService.clearAlarm($alarm, new Date());
+end
+
 
 /* searchs eventParameters list and returns value matching the name key. Returns null if not found or if inputs are null */
 function String findEventParameter(AlarmService alarmService, String name, List eventParameters) {
@@ -167,6 +183,29 @@ function boolean matchEventParameter(AlarmService alarmService, String name, Str
        found = value.equals(foundValue);
     }
     alarmService.warn("matchEventParameter found="+found+" name "+name+" value "+value+" eventParameters "+ eventParameters );
+    return found;
+}
+
+/* searchs eventParameters list and returns true if any name key related-reductionKey-* is found. returns false if inputs are null */
+function boolean matchSituationParameter(AlarmService alarmService, List eventParameters) {
+    boolean found = false;
+    String value = null;
+    String name = null;
+    
+    if( name == null || value==null || eventParameters==null || eventParameters.isEmpty() ) {
+      found =false ;
+    } else {
+      for (Object paramObj : eventParameters) {
+          OnmsEventParameter param = (OnmsEventParameter) paramObj;
+          alarmService.warn(" matchSituationParameter name searching "+param.getName()+" value "+param.getValue() );
+          if (param.getName().startsWith("related-reductionKey-")) {
+            value = param.getValue();
+            name = param.getName();
+            break;
+          }
+       }
+    }
+    alarmService.warn("matchSituationParameter found="+found+" name "+name+" value "+value+" eventParameters "+ eventParameters );
     return found;
 }
 
