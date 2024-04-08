@@ -70,11 +70,7 @@ rule "create parent situations for ONT alarms"
                        node.parent !=null,
                        "ONT".equals(getNode().getAssetRecord().getDisplayCategory()),
                        $alarmEventParameters : eventParameters
-                       //,
-                       //eval ( ($logName = (String) findEventParameter(alarmService, "LogName", $alarmEventParameters)) !=null )
                       )
-// ($logName:findEventParameter(alarmService, "LogName", $alarmEventParameters)) !=null;
-   // $logName : String("test") // findEventParameter(alarmService, "LogName", $alarm.eventParameters)
 
     // get any situations for parent nodeId where the LogName parameter matches the LogName for this situation
     // there can be only one uncleared situation per LogName per parent node
@@ -82,7 +78,6 @@ rule "create parent situations for ONT alarms"
                    isSituation() == true, 
                    severity != OnmsSeverity.CLEARED,
                    nodeId ==  $alarm.getNode().getParent().getId(),
-                   //matchEventParameter(alarmService, "LogName", "test" , $situationEventParameters)
                    matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $situationEventParameters)
                   ) )
 
@@ -93,30 +88,7 @@ rule "create parent situations for ONT alarms"
     String $logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
     
     // debugging messages - note change to alarmService.debug in production
-    
     alarmService.warn("**** found alarm details {} for alarm {} logName {}", getAlarmDetails($alarm), $alarm, $logName );
-    
-
-    // TODO REMOVE
-    //OnmsNode node = $alarm.getNode();
-    //OnmsNode parent = node.getParent();
-    //if (parent !=null){
-    //    Integer parentId = parent.getId();
-    //    String uei = "oennms.unknown";
-    //    String msg = "parent event from ONT";
-    //    sendSimpleEvent(alarmService, parentId, uei, OnmsSeverity.WARNING, msg);
-    //}
-    // alarmService.warn("**** found alarm.node.asset {} ", $alarm.getNode().getAssetRecord() );
-    //  alarmService.warn("**** found alarm.node.asset displaycategory {} ", $alarm.getNode().getAssetRecord().getDisplayCategory() );
-    // categories not available since lazy initialisation
-    // alarmService.warn("**** found alarm.node.categories {} ", $alarm.getNode().getCategories() );
-    //alarmService.warn("group mapping situation rule: matched alarm {}", $alarm);
-    
-   // alarmService.warn("group mapping situation rule: ueiGroups size {}", $ueiGroups.size() );
-   // for (Object entry: $ueiGroups){
-   //     Entry e = (Entry) entry;
-   //     alarmService.warn("   group mapping situation rule: ueiGroups entry {}", entry);
-   // }
     
     alarmService.warn("group mapping situation rule: existing situations size {}", $situations.size() );
     for (Object onmsAlarmObject: $situations){
@@ -125,10 +97,7 @@ rule "create parent situations for ONT alarms"
     }
     
     // end of debugging messages
-    
-    // get the group which this alarm's uei is in
-    //String ueiGroup = "groupNotSet";
-    
+  
     
     // get any existing alarm reduction keys from any current matching situation
     // this allows us to re-inject the other matching alarms in the update event
