@@ -60,15 +60,19 @@ end
 
 
 rule "create parent situations for ONT alarms"
+  no-loop true
+  
   when
     $sessionClock : SessionClock()
 
-    // get ONT alarm
+
+    // get alarm with correct category
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE,
                        lastEvent != null,
                        node != null,
                        node.parent !=null,
-                       "ONT".equals(getNode().getAssetRecord().getDisplayCategory()),
+                       node.getAssetRecord().getDisplayCategory() in ("ONT"),
+                       // "ONT".equals(getNode().getAssetRecord().getDisplayCategory()),
                        $alarmEventParameters : eventParameters
                       )
 
@@ -136,6 +140,7 @@ rule "create parent situations for ONT alarms"
     
 end
 
+// doesnt look like this is needed
 //rule "clear uncleared situations"
 //  when
 //    $sessionClock : SessionClock()
