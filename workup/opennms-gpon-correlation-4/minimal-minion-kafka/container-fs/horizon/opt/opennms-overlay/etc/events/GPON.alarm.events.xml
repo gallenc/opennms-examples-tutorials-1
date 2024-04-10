@@ -41,7 +41,9 @@
          Message: %parm[syslogmessage]% &lt;br>
          &lt;br>
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
-         &lt;/p></descr>
+         &lt;/p>
+         &lt;p>The event included the following parameters:&lt;/p> &lt;p>%parm[all]%&lt;/p>
+         </descr>
       <logmsg dest="logndisplay">
          &lt;p>GPON Fibre Alarm: Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
@@ -93,7 +95,9 @@
          Message: %parm[syslogmessage]% &lt;br>
          &lt;br>
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
-         &lt;/p></descr>
+         &lt;/p>
+         &lt;p>The event included the following parameters:&lt;/p> &lt;p>%parm[all]%&lt;/p>
+         </descr>
       <logmsg dest="logndisplay">
          &lt;p>GPON Fibre Alarm: Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>

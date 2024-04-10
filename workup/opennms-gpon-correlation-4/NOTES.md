@@ -4,14 +4,46 @@
 
 ideally we would create  new event from an existing event but the the EventTranslatorConfigFactory.java sets the  event source to the event translator - so we cannot write reentrant code to create events after the first translaton
 
-findong nodes parenting ont
+-- finding nodes from asset number
 -- SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064';
 
--- SELECT n.nodeparentid FROM node n where n.nodeid = 838;
+-- finding parent id of node
+-- SELECT n.nodeparentid FROM node n WHERE n.nodeid = 838;
 
--- SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' and a.displaycategory='ONT');
+secondary node
 
- SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064') );
+-- get node id of secondary node from asset number
+-- SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT');
+
+-- get node label of secondary node from asset number
+-- SELECT n.nodelabel FROM node n WHERE n.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT') );
+
+ counts the child nodes of secondary node node
+ --SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT') );
+ 
+counts same child alarms of secondary node in prepared statement 
+SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' and a.assetnumber = '212064' ) );
+
+
+primary node
+
+-- get node label of primary node from asset number
+SELECT n.nodelabel FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064') ) );
+
+-- get node id of primary node from asset number
+ SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064') );
+ 
+ counts the child nodes of primary node
+ --SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) );
+
+counts the same alarms in child nodes of primary node
+SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE '%:high-laser-bias'  AND al.nodeid IN ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) );
+
+or in prepared statement counts the same alarms in child nodes of primary node
+SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN 
+( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) );
+
+
  
 ### reloading translator configuration 
 ```

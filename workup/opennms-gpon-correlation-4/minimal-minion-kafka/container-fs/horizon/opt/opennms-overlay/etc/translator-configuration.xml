@@ -270,7 +270,18 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = ? )">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = ? )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="sameChildAlarms" type="parameter">
+                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?) AND al.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' and a.assetnumber =?) );">
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="numberOfChildren" type="parameter">
+                     <value type="sql" result="SELECT COUNT(*) FROM node n where n.nodeparentid IN (SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -290,7 +301,18 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result=" SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="sameChildAlarms" type="parameter">
+                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?)  AND al.nodeid IN ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ) )">
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="numberOfChildren" type="parameter">
+                     <value type="sql" result="SELECT COUNT(*) FROM node n where n.nodeparentid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -385,7 +407,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? )">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? )">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -405,7 +427,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result=" SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
