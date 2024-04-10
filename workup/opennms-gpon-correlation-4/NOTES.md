@@ -1,5 +1,46 @@
 # notes
 
+## event translator
+
+ideally we would create  new event from an existing event but the the EventTranslatorConfigFactory.java sets the  event source to the event translator - so we cannot write reentrant code to create events after the first translaton
+
+findong nodes parenting ont
+-- SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064';
+
+-- SELECT n.nodeparentid FROM node n where n.nodeid = 838;
+
+-- SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' and a.displaycategory='ONT');
+
+ SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064') );
+ 
+### reloading translator configuration 
+```
+cd minimal-minion-activemq
+docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/translator-configuration.xml horizon:/usr/share/opennms/etc/
+
+## send an event to reload the daemon
+docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/reloadDaemonConfig -p 'daemonName Translator' 
+```
+
+NOTE BUG - RELOAD CONFIGURATION CAUSES DATABASE DISCONNECT FOR EVENT TRANSLATOR - JUST RESTART
+```
+2024-04-10 08:41:15,500 WARN  [event-translator-Thread] o.o.n.e.EventIpcManagerDefaultImpl: run: an unexpected error occured during ListenerThread event-translator
+java.lang.NullPointerException: Cannot invoke "javax.sql.DataSource.getConnection()" because "this.m_db" is null
+        at org.opennms.core.utils.JDBCTemplate.doExecute(JDBCTemplate.java:89) ~[org.opennms.core.lib-32.0.5.jar:?]
+        at org.opennms.core.utils.JDBCTemplate.execute(JDBCTemplate.java:68) ~[org.opennms.core.lib-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory$SqlValueSpec$Query.execute(EventTranslatorConfigFactory.java:627) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory$SqlValueSpec.matches(EventTranslatorConfigFactory.java:603) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory$AssignmentSpec.matches(EventTranslatorConfigFactory.java:456) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory$TranslationMapping.translate(EventTranslatorConfigFactory.java:370) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory$TranslationSpec.translate(EventTranslatorConfigFactory.java:319) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.config.EventTranslatorConfigFactory.translateEvent(EventTranslatorConfigFactory.java:287) ~[opennms-config-32.0.5.jar:?]
+        at org.opennms.netmgt.translator.EventTranslator.onEvent(EventTranslator.java:157) ~[opennms-services-32.0.5.jar:?]
+        at org.opennms.netmgt.eventd.EventIpcManagerDefaultImpl$EventListenerExecutor$2.run(EventIpcManagerDefaultImpl.java:189) [org.opennms.features.events.daemon-32.0.5.jar:?]
+        at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) [?:?]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+        at org.opennms.core.concurrent.LogPreservingThreadFactory$2.run(LogPreservingThreadFactory.java:106) [opennms-util-32.0.5.jar:?]
+```
 
 ## reloading eventd configuration for syslog events
 

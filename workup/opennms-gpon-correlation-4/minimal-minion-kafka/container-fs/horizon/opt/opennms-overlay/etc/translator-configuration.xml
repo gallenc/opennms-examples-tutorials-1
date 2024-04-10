@@ -258,6 +258,46 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+            <!-- mapping for SECONDARY_NODE (parent of ONT)-->
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Warning" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = ? )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+            <!-- mapping for PRIMARY_NODE (parent of SECONDARY_NODE) -->
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Warning" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result=" SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
          </mappings>
       </event-translation-spec>
 
@@ -282,6 +322,8 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+
+            
          </mappings>
       </event-translation-spec>
 
@@ -330,6 +372,48 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+
+            <!-- mapping for SECONDARY_NODE (parent of ONT)-->
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Clear" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Cleared" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+            <!-- mapping for PRIMARY_NODE (parent of SECONDARY_NODE) -->
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Clear" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Cleared" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result=" SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+
          </mappings>
       </event-translation-spec>
       
@@ -338,55 +422,6 @@
             <mapping>
                <assignment name="uei" type="field">
                   <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
-               </assignment>
-               <assignment name="severity" type="field">
-                  <value type="constant" result="Indeterminate" />
-               </assignment>
-                <assignment name="interface" type="field"> 
-                   <value type="constant" result="254.0.0.1" />
-                </assignment>
-               <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
-                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
-                  </value>
-               </assignment>
-               <assignment name="originalEventId" type="parameter">
-                  <value type="field" name="dbid" matches=".*" result="${0}" />
-               </assignment>
-            </mapping>
-         </mappings>
-      </event-translation-spec>
-      
-      <!-- gpon splitter alarm events -->
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Debugxxx">
-         <mappings>
-            <mapping>
-               <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/cponSplitter/Alarm/Raise" />
-               </assignment>
-               <assignment name="severity" type="field">
-                  <value type="constant" result="Indeterminate" />
-               </assignment>
-                <assignment name="interface" type="field"> 
-                   <value type="constant" result="254.0.0.1" />
-                </assignment>
-               <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
-                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
-                  </value>
-               </assignment>
-               <assignment name="originalEventId" type="parameter">
-                  <value type="field" name="dbid" matches=".*" result="${0}" />
-               </assignment>
-            </mapping>
-         </mappings>
-      </event-translation-spec>
-
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Debugxxy">
-         <mappings>
-            <mapping>
-               <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/cponSplitter/Alarm/Clear" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Indeterminate" />
