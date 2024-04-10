@@ -1,7 +1,5 @@
 # notes
 
-THIS VERSION CONTANSE A WORKING DROOLS SITUATION EXAMPLE TO PROPOGATE ALARMS UP A TREE
-
 
 ## reloading eventd configuration for syslog events
 
