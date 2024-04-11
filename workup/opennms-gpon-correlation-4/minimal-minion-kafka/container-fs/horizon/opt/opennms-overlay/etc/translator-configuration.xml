@@ -285,7 +285,7 @@
                </assignment>
                <assignment name="sameChildAlarms" type="parameter">
                      <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ), 
-                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query))),
+                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query)))
                      SELECT alarmCount FROM  alarm_count_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                      <value type="parameter" name="LogName" matches=".*" result="${0}" />
