@@ -258,6 +258,8 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+            
+            <!-- *** SAME BLOCK IN ALL ALARM RAISE TRANSLATION SPECS *** -->
             <!-- mapping for SECONDARY_NODE (parent of ONT)-->
             <mapping>
                <assignment name="uei" type="field">
@@ -276,18 +278,23 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = ? )">
+                  <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) )
+                     SELECT parentId FROM ont_parent_id_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
                <assignment name="sameChildAlarms" type="parameter">
-                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )">
-                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+                     <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ), 
+                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query))),
+                     SELECT alarmCount FROM  alarm_count_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="numberOfChildren" type="parameter">
-                     <value type="sql" result="SELECT COUNT(*) FROM node n where n.nodeparentid IN (SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                     <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ), 
+                     child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query) )
+                     SELECT childCount  FROM  child_count_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -295,6 +302,7 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+            
             <!-- mapping for PRIMARY_NODE (parent of SECONDARY_NODE) -->
             <mapping>
                <assignment name="uei" type="field">
@@ -313,18 +321,23 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                  <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )
+                  SELECT parentId FROM ont_parent_id_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
-               <assignment name="sameChildAlarms" type="parameter"><!-- TODO INCORRECT QUERY - MATCH TO WITH QUERY ABOVE -->
-                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?)  AND al.nodeid IN ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ) )">
-                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+               <assignment name="sameChildAlarms" type="parameter">
+                   <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) ), 
+                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>5 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query)))
+                     SELECT alarmCount FROM  alarm_count_query ">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="numberOfChildren" type="parameter">
-                     <value type="sql" result="SELECT COUNT(*) FROM node n where n.nodeparentid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )">
+                     <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) ), 
+                     child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query) )
+                     SELECT childCount  FROM  child_count_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -332,6 +345,8 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+            <!-- *** END OF SAME BLOCK IN ALL ALARM RAISE TRANSLATION SPECS *** -->
+                        
          </mappings>
       </event-translation-spec>
 
@@ -385,6 +400,7 @@
          </mappings>
       </event-translation-spec>
       
+      <!-- THIS IS THE CLEAR MAPPING FOR CALEX ALARMS -->
       <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Informational">
          <mappings>
             <mapping>
@@ -407,6 +423,7 @@
                </assignment>
             </mapping>
 
+            <!-- THIS CLEAR MAPPING BLOCK IS NOT REPEATED -->
             <!-- mapping for SECONDARY_NODE (parent of ONT)-->
             <mapping>
                <assignment name="uei" type="field">
@@ -419,7 +436,8 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? )">
+                  <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) )
+                     SELECT parentId FROM ont_parent_id_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -439,7 +457,8 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) )">
+                  <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )
+                  SELECT parentId FROM ont_parent_id_query">
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
@@ -447,6 +466,7 @@
                   <value type="field" name="dbid" matches=".*" result="${0}" />
                </assignment>
             </mapping>
+            <!-- THIS CLEAR MAPPING BLOCK IS NOT REPEATED -->
 
          </mappings>
       </event-translation-spec>
