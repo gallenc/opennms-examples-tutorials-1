@@ -4,14 +4,16 @@
 
 ideally we would create  new event from an existing event but the the EventTranslatorConfigFactory.java sets the  event source to the event translator - so we cannot write reentrant code to create events after the first translaton
 
+```
 -- finding nodes from asset number
 -- SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064';
 
 -- finding parent id of node
 -- SELECT n.nodeparentid FROM node n WHERE n.nodeid = 838;
+```
 
-secondary node
-
+### secondary node
+```
 -- get node id of secondary node from asset number
 -- SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT');
 
@@ -19,14 +21,14 @@ secondary node
 -- SELECT n.nodelabel FROM node n WHERE n.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT') );
 
  counts the child nodes of secondary node node
- --SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.assetnumber = '212064' AND a.displaycategory='ONT') );
+ --SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064' ) );
  
 counts same child alarms of secondary node in prepared statement 
 SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' and a.assetnumber = '212064' ) );
+```
 
-
-primary node
-
+### primary node
+```
 -- get node label of primary node from asset number
 SELECT n.nodelabel FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber = '212064') ) );
 
@@ -42,6 +44,45 @@ SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE '%:high-laser-bias'  A
 or in prepared statement counts the same alarms in child nodes of primary node
 SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN 
 ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) );
+```
+
+### primary node Examples with WITH clauses
+
+```
+--primary node get child alarms count
+--WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN (SELECT parentId FROM ont_parent_id_query);
+
+--same as
+--SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) );
+
+-- primary node get child node count
+WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query);
+
+--same as
+--SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) );
+```
+
+### secondary node Examples with WITH clauses
+```
+-- secondary node get child alarms count
+WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT( '%:','high-laser-bias')  AND al.nodeid IN (SELECT parentId FROM ont_parent_id_query);
+
+-- secondary node get child node count
+WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ) SELECT COUNT(*) FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query);
+
+```
+full SECONDARY node severity query
+
+```
+WITH 
+ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber ='61180' ) ), 
+
+alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>4 AND al.reductionkey LIKE CONCAT( '%:','high-laser-bias') AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query))),
+
+child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query) )
+
+SELECT  childCount, alarmCount, (CASE WHEN alarmCount >= childCount THEN 'Major' ELSE 'Warning' END ) FROM  child_count_query,alarm_count_query;
+```
 
 
  

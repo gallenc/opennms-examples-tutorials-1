@@ -264,7 +264,13 @@
                   <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
-                  <value type="constant" result="Warning" />
+                     <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ), 
+                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query))),
+                     child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query) )
+                     SELECT (CASE WHEN alarmCount >= childCount THEN 'Major' ELSE 'Warning' END ) FROM  child_count_query,alarm_count_query">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+                  </value>
                </assignment>
                 <assignment name="interface" type="field"> 
                    <value type="constant" result="254.0.0.1" />
@@ -275,7 +281,7 @@
                   </value>
                </assignment>
                <assignment name="sameChildAlarms" type="parameter">
-                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?) AND al.nodeid IN (SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' and a.assetnumber =?) );">
+                     <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) )">
                      <value type="parameter" name="LogName" matches=".*" result="${0}" />
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
@@ -295,8 +301,14 @@
                   <value type="constant" result="uei.opennms.org/Translator/gponSplitter/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
-                  <value type="constant" result="Warning" />
-               </assignment>
+                     <value type="sql" result="WITH ont_parent_id_query AS (SELECT n.nodeparentid AS parentId FROM node n WHERE n.nodeid IN ( SELECT n.nodeparentid FROM node n WHERE n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =?) ) ), 
+                     alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>5 AND al.reductionkey LIKE CONCAT( '%:',?) AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query))),
+                     child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM ont_parent_id_query) )
+                     SELECT (CASE WHEN alarmCount >= childCount THEN 'Major' ELSE 'Warning' END ) FROM  child_count_query,alarm_count_query">
+                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+                     <value type="parameter" name="LogName" matches=".*" result="${0}" />
+                  </value>
+                </assignment>
                 <assignment name="interface" type="field"> 
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
@@ -305,7 +317,7 @@
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
                   </value>
                </assignment>
-               <assignment name="sameChildAlarms" type="parameter">
+               <assignment name="sameChildAlarms" type="parameter"><!-- TODO INCORRECT QUERY - MATCH TO WITH QUERY ABOVE -->
                      <value type="sql" result="SELECT COUNT(*) FROM alarms al WHERE al.reductionkey LIKE CONCAT('%:',?)  AND al.nodeid IN ( SELECT n.nodeid FROM node n WHERE n.nodeparentid IN ( SELECT n.nodeparentid FROM node n where n.nodeid IN ( SELECT a.nodeid FROM assets a WHERE a.displaycategory='ONT' AND a.assetnumber =? ) ) )">
                      <value type="parameter" name="LogName" matches=".*" result="${0}" />
                      <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
