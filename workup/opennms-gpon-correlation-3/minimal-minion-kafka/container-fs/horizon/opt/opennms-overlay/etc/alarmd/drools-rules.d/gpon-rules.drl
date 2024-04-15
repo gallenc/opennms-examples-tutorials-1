@@ -67,7 +67,7 @@ rule "create parent situations for alarms rule"
 
 
     // get alarm with correct category
-    $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE,
+    $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
                        lastEvent != null,
                        node != null,
                        node.parent !=null,
@@ -78,7 +78,8 @@ rule "create parent situations for alarms rule"
     // get any situations for parent nodeId where the LogName parameter matches the LogName for this situation
     // there can be only one uncleared situation per LogName per parent node
     $situations : LinkedList() from collect ( OnmsAlarm( $situationEventParameters : eventParameters,
-                   isSituation() == true, 
+                   // isSituation() == true, // problem because can be not a situation but still with event paramaters
+                   matchSituationParameter(alarmService, $situationEventParameters),
                    severity != OnmsSeverity.CLEARED,
                    nodeId ==  $alarm.getNode().getParent().getId(),
                    matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $situationEventParameters)                   
@@ -155,7 +156,6 @@ rule "create parent situations for alarms rule"
     
 end
 
-// doesnt look like this is needed
 //rule "clear uncleared situations"
 //  when
 //    $sessionClock : SessionClock()
@@ -168,7 +168,7 @@ end
 //                      )
                       
 //   then
-//       alarmService.warn(" clear uncleared situations rule clearing alarm id  "+$alarm.getId());
+//       alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
 //       alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
 //end
 

@@ -12,6 +12,7 @@
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[LogName]%" alarm-type="1" auto-clean="false">
          <update-field field-name="descr" update-on-reduction="true" />
          <update-field field-name="logmsg" update-on-reduction="true" />
+         <update-field field-name="severity" update-on-reduction="true" />
       </alarm-data>
    </event>
 </events>
