@@ -47,6 +47,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -68,6 +69,7 @@ rule "create parent situations for alarms rule"
 
     // get alarm with correct category
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
+                       $alarm.isAcknowledged() == false,
                        lastEvent != null,
                        node != null,
                        node.parent !=null,
@@ -89,10 +91,11 @@ rule "create parent situations for alarms rule"
  
     Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
     
-    String $logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
+    String logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
+    
     
     // debugging messages - note change to alarmService.debug in production
-    alarmService.warn("**** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, $logName );
+    alarmService.warn("**** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, logName);
     
     alarmService.warn("create parent situations for alarms rule: existing situations size {}", $situations.size() );
     for (Object onmsAlarmObject: $situations){
@@ -106,14 +109,20 @@ rule "create parent situations for alarms rule"
     // get any existing alarm reduction keys from any current matching situation
     // this allows us to re-inject the other matching alarms in the update event
     // assumes only one matching situation from rule
-    Set<String> alarmReductionKeys= new HashSet<String>();
+    Set<String> alarmReductionKeys= new LinkedHashSet<String>();
     
     String msg = "related alarms: ";
     boolean allChildrenAlarm = false;
     
+    String lastEventMsg = null;
+    OnmsAlarm matchedSituation=null;
+    
     if (! $situations.isEmpty()) {
-       OnmsAlarm matchedSituation = (OnmsAlarm) $situations.get(0);
+       matchedSituation = (OnmsAlarm) $situations.get(0);
        if(matchedSituation !=null){
+           lastEventMsg = findEventParameter(alarmService, "lastEventMsg", matchedSituation.getEventParameters());
+           alarmService.unacknowledgeAlarm(matchedSituation, now);
+           
            Set<OnmsAlarm> relatedAlarms = matchedSituation.getRelatedAlarms();
            if (relatedAlarms!=null) {
               for(OnmsAlarm related : relatedAlarms){
@@ -143,19 +152,41 @@ rule "create parent situations for alarms rule"
     // add reduction key from new alarm
     String alarmReductionKey = $alarm.getReductionKey();
        
+
+
+           //    if(! alarmReductionKeys.contains(alarmReductionKey) && ( ($alarm.getLastAutomationTime() == null ) || $alarm.getLastEventTime().getTime() > $alarm.getLastAutomationTime().getTime() ) ) {
+           //       // use to update lastAutomationTime - stops the clock from working !!
+           //       alarmService.setSeverity($alarm, $alarm.getSeverity(), now);
+
+
+
     // dont send event if this alarm is already present in a situation (circular updates)
     // send event to update or create situation if this alarm is not in a situation
     // the situation is created with the severity one greater than the alarm severity
     if(! alarmReductionKeys.contains(alarmReductionKey)) {
-       alarmReductionKeys.add(alarmReductionKey);
-       Integer nodeId=$alarm.getNode().getParent().getId();
        msg = msg +" "+ $alarm.getId()+" "+ $alarm.getSeverity().toString()+" |";
-       sendUdateSituationEvent(alarmService, nodeId, $logName, alarmReductionKeys, $alarm.getSeverity(), msg);
+       if (! msg.equals(lastEventMsg)){
+          alarmService.warn("sending event because dont match msg '{}' lastEventMsg '{}' ",msg, lastEventMsg );
+          
+          alarmReductionKeys.add(alarmReductionKey);
+          Integer nodeId=$alarm.getNode().getParent().getId();
+          alarmService.acknowledgeAlarm($alarm, now);
+          sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, $alarm.getSeverity(), msg, now);
+          try {
+              if (matchedSituation != null ) update (matchedSituation);
+          } catch (Exception ex ) {
+              alarmService.warn("exception updating matchedSituation: {}  "+exceptionStackTraceToString(ex) , matchedSituation );
+          
+          }
+          //update($alarm);
+       }
+       
     }
 
-    
+
 end
 
+// doesn't look like this is needed
 //rule "clear uncleared situations"
 //  when
 //    $sessionClock : SessionClock()
@@ -182,7 +213,7 @@ function String findEventParameter(AlarmService alarmService, String name, List 
     } else {
        for (Object paramObj : eventParameters) {
           OnmsEventParameter param = (OnmsEventParameter) paramObj;
-          alarmService.warn(" findEventParameter searching name "+param.getName()+" value "+param.getValue() );
+          // alarmService.warn(" findEventParameter searching name "+param.getName()+" value "+param.getValue() );
           if (name.equals(param.getName())) {
             value = param.getValue();
             break;
@@ -217,7 +248,7 @@ function boolean matchSituationParameter(AlarmService alarmService, List eventPa
     } else {
       for (Object paramObj : eventParameters) {
           OnmsEventParameter param = (OnmsEventParameter) paramObj;
-          alarmService.warn(" matchSituationParameter name searching "+param.getName()+" value "+param.getValue() );
+          //alarmService.warn(" matchSituationParameter name searching "+param.getName()+" value "+param.getValue() );
           if (param.getName().startsWith("related-reductionKey-")) {
             value = param.getValue();
             name = param.getName();
@@ -234,8 +265,8 @@ function boolean matchSituationParameter(AlarmService alarmService, List eventPa
 /* creates and sends a situation update event with the severity of the alarm raising the event */
 /* see code in isRelatedReductionKeyWithContent(Parm param) in AlarmPersisterImpl to see how alarms are tagged as situations */
 /* if any param with name beginning 'related-reductionKey' exists this is used to match the related alarm reduction keys and mark this alarm as a situation. */
-function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId, String logName, Set alarmReductionKeys, OnmsSeverity currentSeverity, String msg) {
-        EventBuilder builder = new EventBuilder("uei.opennms.org/alarms/drools/situation", "drools");
+function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId, String logName, Set alarmReductionKeys, OnmsSeverity currentSeverity, String msg, Date date) {
+        EventBuilder builder = new EventBuilder("uei.opennms.org/alarms/drools/situation", "drools", date);
         AlarmData data = new AlarmData();
         //data.setAlarmType(1); 
         // data.setReductionKey(reductionKey);
@@ -264,6 +295,7 @@ function void sendUdateSituationEvent(AlarmService alarmService, Integer nodeId,
             // For now, suffix the parameter name with the value.
             builder.addParam("related-reductionKey-" + redux.hashCode(), redux);
         }
+        builder.addParam("lastEventMsg", msg);
         builder.addParam("situationDescr","drools situation LogName: "+logName+" "+msg);
         builder.addParam("situationLogMsg","drools situation LogName: "+logName+" "+msg);
         
