@@ -18,6 +18,71 @@
   <!-- subscriptionTopics defines which topic messages will be passed to this parser. -->
   <!-- many messageDataParsers can be defined but only one per topic although events can also be driven off the same topic) -->
   <messageDataParsers>
+      <messageDataParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
+        <subscriptionTopics>
+           <topic>+/read/45MR-6810-0@TC-01-CabTemp/#</topic> <!--  e.g.  YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw or YAKU001/read/45MR-3800-0@AI00-QBandRSSI/aiValueRaw -->
+        </subscriptionTopics>
+ 
+         <xml-groups>
+           <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
+             <ns2:xml-object name="CabTemp" type="GAUGE" xpath="@value" />
+           </ns2:xml-group>
+         </xml-groups>
+      
+         <!-- xmlRRD us set up exactly as it is for xml data collection. step (in seconds ) is the interval expected between data received from the same node -->
+         <xmlRrd step="2">
+           <ns2:rra>RRA:AVERAGE:0.5:1:604800</ns2:rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+         </xmlRrd>
+      </messageDataParser>
+      <messageDataParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
+        <subscriptionTopics>
+           <topic>+/read/45MR-6810-0@TC-00-SiteTemp/#</topic> <!--  e.g.  YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw or YAKU001/read/45MR-3800-0@AI00-QBandRSSI/aiValueRaw -->
+        </subscriptionTopics>
+ 
+         <xml-groups>
+           <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
+             <ns2:xml-object name="SiteTemp" type="GAUGE" xpath="@value" />
+           </ns2:xml-group>
+         </xml-groups>
+      
+         <!-- xmlRRD us set up exactly as it is for xml data collection. step (in seconds ) is the interval expected between data received from the same node -->
+         <xmlRrd step="2">
+           <ns2:rra>RRA:AVERAGE:0.5:1:604800</ns2:rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+         </xmlRrd>
+      </messageDataParser>
+      <messageDataParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
+        <subscriptionTopics>
+           <topic>+/read/45MR-3800-0@AI01-NodeBWBandP/#</topic> <!--  e.g.  YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw or YAKU001/read/45MR-3800-0@AI00-QBandRSSI/aiValueRaw -->
+        </subscriptionTopics>
+ 
+         <xml-groups>
+           <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
+             <ns2:xml-object name="NodeBWBandP" type="GAUGE" xpath="@value" />
+           </ns2:xml-group>
+         </xml-groups>
+      
+         <!-- xmlRRD us set up exactly as it is for xml data collection. step (in seconds ) is the interval expected between data received from the same node -->
+         <xmlRrd step="2">
+           <ns2:rra>RRA:AVERAGE:0.5:1:604800</ns2:rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+         </xmlRrd>
+      </messageDataParser>
+      <messageDataParser foreignSource="mqtt" payloadType="JSON" compression="UNCOMPRESSED">
+        <subscriptionTopics>
+           <topic>+/read/45MR-3800-0@AI00-QBandRSSI/#</topic> <!--  e.g.  YAKU001/read/45MR-6810-0@AI4-CabTemp/aiValueRaw or YAKU001/read/45MR-3800-0@AI00-QBandRSSI/aiValueRaw -->
+        </subscriptionTopics>
+ 
+         <xml-groups>
+           <ns2:xml-group name="outstation" resource-type="outstation" resource-xpath="/" key-xpath="$topicLevels[1]" >
+             <ns2:xml-object name="QBandRSSI" type="GAUGE" xpath="@value" />
+           </ns2:xml-group>
+         </xml-groups>
+      
+         <!-- xmlRRD us set up exactly as it is for xml data collection. step (in seconds ) is the interval expected between data received from the same node -->
+         <xmlRrd step="2">
+           <ns2:rra>RRA:AVERAGE:0.5:1:604800</ns2:rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+         </xmlRrd>
+      </messageDataParser>
+      
     <!-- payloadType determines how the payload is parsed; JSON, XML, PROTOBUF ot TEXT. Note only JSON is supported in present release -->
     <!-- foreignSource defines the foreign source to be used when referencing or creating a new node -->
     <!-- compression determines the processing of compressed messages GZIP, UNCOMPRESSED, AUTOMATIC_GZIP -->
