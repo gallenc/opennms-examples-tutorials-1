@@ -67,7 +67,7 @@ node-red http://localhost:1880
 
 node-red dashboard http://localhost:1880/ui/
 
-hivemq-mqtt-web-client http://localhost:8081
+hivemq-mqtt-web-client http://localhost:8083
 
 When using the web-client
 
