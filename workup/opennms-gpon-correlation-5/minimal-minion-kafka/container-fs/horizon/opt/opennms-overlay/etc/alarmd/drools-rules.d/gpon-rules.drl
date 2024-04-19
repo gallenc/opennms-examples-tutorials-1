@@ -79,7 +79,7 @@ rule "parent situation rule"
                       )
                       
     // get related alarms with correct category
-    $relatedAlarms : LinkedList() from collect ( OnmsAlarm( $relatedEventParameters : eventParameters,
+    $relatedAlarms : LinkedList(size >= 4 ) from collect ( OnmsAlarm( $relatedEventParameters : eventParameters,
                    //isSituation() == false, // problem because can be not a situation but still with event paramaters
                    //! matchSituationParameter(alarmService, $situationEventParameters),
                    severity != OnmsSeverity.CLEARED,
@@ -128,8 +128,7 @@ rule "parent situation rule"
     Set<String> alarmReductionKeys= new LinkedHashSet<String>();
     
     String msg = "related alarms: ";
-    for(Object obj : $relatedAlarms){
-         OnmsAlarm related = (OnmsAlarm) obj;
+    for(OnmsAlarm related : $relatedAlarms){
          if(related.getSeverity() != OnmsSeverity.CLEARED ) {
              alarmService.warn("parent situation rule: adding reduction key from related alarm {}", related);
              alarmReductionKeys.add(related.getReductionKey());
@@ -153,8 +152,7 @@ rule "parent situation rule"
 //                  alarmService.warn("parent situation rule: cant parse asset HDD1 "+exceptionStackTraceToString(ex));
 //              }
 
-    Integer nodeId=$alarm.getNode().getParent().getId();
-    
+
     sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.CRITICAL, msg, now);
 
 
