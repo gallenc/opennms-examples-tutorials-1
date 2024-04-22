@@ -46,4 +46,7 @@ to view results
 
 
 select * from events where eventuei LIKE 'uei.opennms.org/internal/importer%'
+
+
+select * from events where eventuei LIKE 'uei.opennms.org/Translator/gpon/childCountUpdated%'
 ```
