@@ -161,14 +161,14 @@ rule "parent situation rule"
     
     if (! $relatedAlarms.isEmpty()) {
         int nodeId = $alarm.getNode().getParent().getId();
-        sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.CRITICAL, msg, now);
+        sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.NORMAL, msg, now);
     }
 
 
 
 end
 
-// doesn't look like this is needed
+// this is needed because situations can become simple alarms rather than clearning when associated alarms are cleared (needs investigated)
 rule "clear uncleared situations"
   when
     $sessionClock : SessionClock()
