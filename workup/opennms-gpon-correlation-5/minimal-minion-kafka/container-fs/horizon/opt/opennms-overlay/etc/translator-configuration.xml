@@ -357,54 +357,26 @@
          </mappings>
       </event-translation-spec>
       
-      <!-- gpon splitter alarm events -->
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Debugxxx">
+      <!-- gpon splitter child count is updated following import successful -->
+      <event-translation-spec uei="uei.opennms.org/internal/importer/importSuccessful">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/cponSplitter/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/gpon/childCountUpdated" />
                </assignment>
                <assignment name="severity" type="field">
-                  <value type="constant" result="Indeterminate" />
+                  <value type="constant" result="Normal" />
                </assignment>
-                <assignment name="interface" type="field"> 
-                   <value type="constant" result="254.0.0.1" />
-                </assignment>
-               <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
-                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
+               <assignment name="assetsUpdated" type="parameter">
+                  <value type="sql" result="WITH updateAssetChildCounts AS ( UPDATE assets a SET hdd1= ( SELECT COUNT(*) FROM node pn WHERE pn.nodeparentid = n.nodeid ) FROM node n WHERE a.nodeid=n.nodeid RETURNING 1)
+                         SELECT COUNT(*) FROM updateAssetChildCounts">
                   </value>
                </assignment>
-               <assignment name="originalEventId" type="parameter">
-                  <value type="field" name="dbid" matches=".*" result="${0}" />
-               </assignment>
+
             </mapping>
          </mappings>
       </event-translation-spec>
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Debugxxy">
-         <mappings>
-            <mapping>
-               <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/cponSplitter/Alarm/Clear" />
-               </assignment>
-               <assignment name="severity" type="field">
-                  <value type="constant" result="Indeterminate" />
-               </assignment>
-                <assignment name="interface" type="field"> 
-                   <value type="constant" result="254.0.0.1" />
-                </assignment>
-               <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
-                     <value type="parameter" name="Xpath" matches="(.*?)ont-id='(.*?)'(.*?)" result="${2}" />
-                  </value>
-               </assignment>
-               <assignment name="originalEventId" type="parameter">
-                  <value type="field" name="dbid" matches=".*" result="${0}" />
-               </assignment>
-            </mapping>
-         </mappings>
-      </event-translation-spec>
 
    </translation>
 
