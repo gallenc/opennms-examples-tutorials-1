@@ -85,7 +85,8 @@ rule "cleanUp"
   when
     $sessionClock : SessionClock()
     $alarm : OnmsAlarm(severity.isLessThanOrEqual(OnmsSeverity.NORMAL) &&
-                       alarmAckTime == null &&
+    //                   alarmAckTime == null &&
+    // change so acknowledged alarms are deleted if cleared
                        (TTicketState == null || TTicketState == TroubleTicketState.CLOSED || TTicketState == TroubleTicketState.CANCELLED))
     //not( OnmsAlarm( this == $alarm ) over window:time( 5m ) )
     // CHANGE fast delete cleared alarms

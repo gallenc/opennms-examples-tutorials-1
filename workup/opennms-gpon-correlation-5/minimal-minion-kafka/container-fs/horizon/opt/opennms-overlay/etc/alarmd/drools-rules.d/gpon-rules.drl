@@ -70,7 +70,7 @@ rule "parent situation rule"
 
     // get alarm with correct category
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
-                       //$alarm.isAcknowledged() == false,
+                       $alarm.isAcknowledged() == false,
                        lastEvent != null,
                        node != null,
                        node.parent !=null,
@@ -78,12 +78,14 @@ rule "parent situation rule"
                        $alarmEventParameters : eventParameters
                       )
                       
-    // get related alarms with correct category
-    $relatedAlarms : LinkedList(size >= 4 ) from collect ( OnmsAlarm( $relatedEventParameters : eventParameters,
-                   //isSituation() == false, // problem because can be not a situation but still with event paramaters
-                   //! matchSituationParameter(alarmService, $situationEventParameters),
-                   severity != OnmsSeverity.CLEARED,
-                   nodeId ==  $alarm.getNode().getParent().getId(),
+    // get related alarms with correct category LinkedList(size >= 4 )
+    $relatedAlarms : LinkedList() from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
+                   severity != OnmsSeverity.CLEARED, 
+                   node != null,
+                   node.parent !=null,
+                   node.getParent().getId() == $alarm.getNode().getParent().getId(),
+                   lastEvent != null,
+                   $relatedEventParameters : eventParameters,
                    matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $relatedEventParameters)                   
                   ) )
 
@@ -107,6 +109,7 @@ rule "parent situation rule"
     
     // debugging messages - note change to alarmService.debug in production
     alarmService.warn("parent situation rule: **** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, logName);
+    alarmService.warn("parent situation rule: $alarm.getNode().getParent().getId():"+$alarm.getNode().getParent().getId());
     
     alarmService.warn("parent situation rule: relatedAlarms size {}", $relatedAlarms.size() );
     for (Object onmsAlarmObject: $relatedAlarms){
@@ -120,6 +123,7 @@ rule "parent situation rule"
     }
     
     // end of debugging messages
+    
   
     
     // get any existing alarm reduction keys from any current matching situation
@@ -128,13 +132,14 @@ rule "parent situation rule"
     Set<String> alarmReductionKeys= new LinkedHashSet<String>();
     
     String msg = "related alarms: ";
-    for(OnmsAlarm related : $relatedAlarms){
-         if(related.getSeverity() != OnmsSeverity.CLEARED ) {
-             alarmService.warn("parent situation rule: adding reduction key from related alarm {}", related);
-             alarmReductionKeys.add(related.getReductionKey());
-             msg = msg +" "+ related.getId() +" "+ related.getSeverity().toString() +" |";
+    for(Object onmsAlarmObject : $relatedAlarms){
+         OnmsAlarm relatedAlarm = (OnmsAlarm) onmsAlarmObject;
+         if(relatedAlarm.getSeverity() != OnmsSeverity.CLEARED ) {
+             alarmService.warn("parent situation rule: adding reduction key from relatedAlarm {}", relatedAlarm);
+             alarmReductionKeys.add(relatedAlarm.getReductionKey());
+             msg = msg +" "+ relatedAlarm.getId() +" "+ relatedAlarm.getSeverity().toString() +" |";
          } else {
-             alarmService.warn("parent situation rule: not adding reduction key from cleared related alarm {}", related);
+             alarmService.warn("parent situation rule: not adding reduction key from cleared relatedAlarm {}", relatedAlarm);
          }
     }
     
@@ -152,29 +157,33 @@ rule "parent situation rule"
 //                  alarmService.warn("parent situation rule: cant parse asset HDD1 "+exceptionStackTraceToString(ex));
 //              }
 
-
-    sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.CRITICAL, msg, now);
+    alarmService.acknowledgeAlarm($alarm, now);
+    
+    if (! $relatedAlarms.isEmpty()) {
+        int nodeId = $alarm.getNode().getParent().getId();
+        sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.CRITICAL, msg, now);
+    }
 
 
 
 end
 
 // doesn't look like this is needed
-//rule "clear uncleared situations"
-//  when
-//    $sessionClock : SessionClock()
+rule "clear uncleared situations"
+  when
+    $sessionClock : SessionClock()
 
     // get old situation alarm which has not been cleared
-//    $alarm : OnmsAlarm(isSituation() == false, 
-//                       severity != OnmsSeverity.CLEARED,
-//                       $alarmEventParameters : eventParameters,
-//                       matchSituationParameter(alarmService, $alarmEventParameters)
-//                      )
+    $alarm : OnmsAlarm(isSituation() == false, 
+                       severity != OnmsSeverity.CLEARED,
+                       $alarmEventParameters : eventParameters,
+                       matchSituationParameter(alarmService, $alarmEventParameters)
+                      )
                       
-//   then
-//       alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
-//       alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
-//end
+   then
+       alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
+       alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
+end
 
 
 /* searchs eventParameters list and returns value matching the name key. Returns null if not found or if inputs are null */
