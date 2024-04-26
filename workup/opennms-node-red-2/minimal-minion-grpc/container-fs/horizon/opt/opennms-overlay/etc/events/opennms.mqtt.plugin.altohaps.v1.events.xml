@@ -425,7 +425,7 @@
          clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI00-CabTempHigh/0:%dpname%:%nodeid%:%parm[message-topic]%"
          auto-clean="false"/>
    </event>
-<event>
+   <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI01-RearDoor1/0</uei>
       <event-label>Payload Alarm: Ground Cabin RearDoor1 Open</event-label>
       <logmsg dest="logndisplay">Payload Alarm: Ground Cabin %nodelabel% RearDoor1 Open</logmsg>
@@ -592,6 +592,12 @@
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="1"
          auto-clean="true"/>
+      <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
+            <rrd step="2" >
+                <rra>RRA:AVERAGE:0.5:1:604800</rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+            </rrd>
+            <collection name="value" rename="QBandRSSI" type="gauge"/>
+      </collectionGroup>
    </event>
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/1</uei>
