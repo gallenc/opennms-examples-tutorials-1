@@ -102,6 +102,22 @@ services:
     networks:
       frontend:
         ipv4_address: 172.20.0.10
+        
+# see https://github.com/Jasoncheung94/youtube-projects-code/tree/main/postgres_phppgadmin
+# note current latest 7.13.0 needs postgresql 14 as doesn't work with 15
+  phppgadmin:
+    container_name: phppgadmin
+    image: ${DOCKER_REGISTRY:-docker.io}/neimheadh/phppgadmin:${PHP_PG_ADMIN_VERSION:-7.13.0}
+    ports:
+      - "8082:80" 
+    environment:
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=postgres
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.15
 
   horizon:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${HORIZON_OCI:-horizon}:${ONMS_VERSION:-bleeding}

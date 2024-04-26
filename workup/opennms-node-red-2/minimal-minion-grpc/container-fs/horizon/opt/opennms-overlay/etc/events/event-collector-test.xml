@@ -22,7 +22,9 @@
         <uei>uei.opennms.org/traps/test/regex</uei>
         <event-label>test: varbind with regex</event-label>
         <descr>Testing varbind with regex</descr>
-        <logmsg dest="donotpersist"></logmsg>
+<!--         <logmsg dest="donotpersist"></logmsg> -->
+        <logmsg dest="logndisplay">Event Data Collection Test Event 1 - should be do not persist</logmsg>
+        <descr>Event Data Collection Test Event 1 - should be do not persist&lt;BR&gt;message parameters: %parm[all]% </descr>
         <collectionGroup name="nodeGroup" resourceType="nodeSnmp">
             <rrd step="60" heartBeat="120">
                 <rra>RRA:AVERAGE:0.5:1:8928</rra>
@@ -59,7 +61,9 @@
         <uei>uei.opennms.org/traps/test/varbind</uei>
         <event-label>test: full varbind</event-label>
         <descr>Testing full varbind.</descr>
-        <logmsg dest="donotpersist"></logmsg>
+<!--         <logmsg dest="donotpersist"></logmsg> -->
+        <logmsg dest="logndisplay">Event Data Collection Test Event 2 - should be do not persist</logmsg>
+        <descr>Event Data Collection Test Event 2 - should be do not persist&lt;BR&gt;message parameters: %parm[all]% </descr>
         <collectionGroup name="interfaceGroup" resourceType="interfaceSnmp">
             <rrd step="60" heartBeat="120">
                 <rra>RRA:AVERAGE:0.5:1:8928</rra>

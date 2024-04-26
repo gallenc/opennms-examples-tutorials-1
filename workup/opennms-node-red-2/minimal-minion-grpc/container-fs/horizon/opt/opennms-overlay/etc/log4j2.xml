@@ -182,6 +182,10 @@
     <logger name="com.zaxxer.hikari.pool.ProxyConnection" additivity="false" level="ERROR">
      <appender-ref ref="RoutingAppender"/>
     </logger>
+    
+    <logger name="org.opennms.netmgt.collection.EventMetricsCollector" additivity="false" level="DEBUG">
+     <appender-ref ref="RoutingAppender"/>
+    </logger>
 
 
     <!-- Allow any message to pass through the root logger -->
@@ -212,7 +216,7 @@
         <KeyValuePair key="collectd"             value="DEBUG" />
         <KeyValuePair key="correlator"           value="WARN" />
         <KeyValuePair key="discovery"            value="WARN" />
-        <KeyValuePair key="eventd"               value="WARN" />
+        <KeyValuePair key="eventd"               value="DEBUG" />
         <KeyValuePair key="event-translator"     value="WARN" />
         <KeyValuePair key="icmp"                 value="WARN" />
         <KeyValuePair key="ipc"                  value="WARN" />
