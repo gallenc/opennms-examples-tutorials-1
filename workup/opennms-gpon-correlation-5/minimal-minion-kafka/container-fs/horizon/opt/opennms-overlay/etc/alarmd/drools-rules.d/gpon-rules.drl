@@ -61,7 +61,7 @@ end
 
 
 rule "parent situation rule"
-  no-loop true
+  //no-loop true
   
   when
     $sessionClock : SessionClock()
@@ -70,6 +70,7 @@ rule "parent situation rule"
 
     // get alarm with correct category
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
+                       severity != OnmsSeverity.CLEARED, 
                        $alarm.isAcknowledged() == false,
                        lastEvent != null,
                        node != null,
