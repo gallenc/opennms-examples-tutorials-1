@@ -1,3 +1,4 @@
+<!-- pair with etc/examples/snmp-graph.properties.d/event-collection.properties -->
 <events xmlns="http://xmlns.opennms.org/xsd/eventconf">
     <event>
         <mask>
@@ -73,4 +74,3 @@
         <severity>Normal</severity>
     </event>
 </events>
-

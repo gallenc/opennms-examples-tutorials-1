@@ -129,6 +129,8 @@ services:
       - database
     environment:
       TZ: ${TIMEZONE:-America/New_York}
+      # JAVA_OPTS matches default in container plus enable debugger
+      JAVA_OPTS: -Xmx1024m -XX:MaxMetaspaceSize=512m -agentlib:jdwp=transport=dt_socket,server=y,address=*:8001,suspend=n
     volumes:
       - data-opennms:/opennms-data
       - data-opennms-cfg:/opt/opennms/etc
@@ -137,9 +139,11 @@ services:
       - ./container-fs/horizon/etc/conf.d/confd.toml:/etc/confd/confd.toml
     command: ["-s"]
     ports:
-      - "8101:8101/tcp"
-      - "8980:8980/tcp"
-      - "10162:1162/udp"
+      - "8101:8101/tcp"   # karaf ssh
+      - "8980:8980/tcp"   # web ui
+      - "10162:1162/udp"  # snmp trap
+      - "10514:10514/udp" # syslog
+      - "8001:8001" # JPDA debugging port
     healthcheck:
       test: [ "CMD", "curl", "-f", "-I", "http://localhost:8980/opennms/login.jsp" ]
       interval: 1m

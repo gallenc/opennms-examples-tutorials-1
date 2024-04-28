@@ -24,16 +24,16 @@ note
 https://pages.cs.wisc.edu/~horwitz/jdb/jdb.html  JDB Quick Reference Guide
 
 ```
-jdb -attach localhost:8000
+jdb -attach localhost:8001
 (for un*x/linux) or
 
-jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8000
+jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8001
 (for Windows). A successful connection is indicated by
 
 Set uncaught java.lang.Throwable
 Set deferred uncaught java.lang.Throwable
 Initializing jdb ...
-The error java.io.IOException: shmemBase_attach failed: The system cannot find the file specified will occur if you are on Windows and try to use jdb -attach localhost:8000; this will try to use shmem by default instead of sockets. 
+The error java.io.IOException: shmemBase_attach failed: The system cannot find the file specified will occur if you are on Windows and try to use jdb -attach localhost:8001; this will try to use shmem by default instead of sockets. 
 ```
 
 to get into opennms karaf

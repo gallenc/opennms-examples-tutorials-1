@@ -12,7 +12,7 @@
    <event-file>events/opennms.mqtt.plugin.altohaps.v1.events.xml</event-file>
    <event-file>events/opennms.mqtt.plugin.events.xml</event-file>
    
-   <event-file>events/event-collector-test.xml</event-file>
+   <event-file>events/collection.events.xml</event-file>
    
    <event-file>events/opennms.snmp.trap.translator.events.xml</event-file>
    <event-file>events/opennms.ackd.events.xml</event-file>
