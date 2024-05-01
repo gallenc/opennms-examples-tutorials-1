@@ -581,6 +581,7 @@
    <!-- ***************  -->
    
    <!-- QBandRSSI -->
+   <!-- data collection event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI00-QBandRSSI</uei>
       <event-label>Payload Value: Ground Cabin Q-BandRSSI value</event-label>
@@ -599,6 +600,7 @@
             <collection name="value" rename="QBandRSSI" type="gauge"/>
       </collectionGroup>
    </event>
+   <!-- alarm threshold raise event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/1</uei>
       <event-label>Payload Alarm: Ground Cabin Q-BandRSSI above safe threshold</event-label>
@@ -611,6 +613,7 @@
          alarm-type="1"
          auto-clean="false"/>
    </event>
+   <!-- alarm threshold clear event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/0</uei>
       <event-label>Payload Alarm: Ground Cabin Q-BandRSSI above safe threshold</event-label>
@@ -626,6 +629,7 @@
    </event>
    
    <!-- NodeBWBandP -->
+   <!-- data collection event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI01-NodeBWBandP</uei>
       <event-label>Payload Value: Ground Cabin Customer node Band Power</event-label>
@@ -637,7 +641,14 @@
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="1"
          auto-clean="true"/>
+      <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
+            <rrd step="2" >
+                <rra>RRA:AVERAGE:0.5:1:604800</rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+            </rrd>
+            <collection name="value" rename="NodeBWBandP" type="gauge"/>
+      </collectionGroup>
    </event>
+   <!-- alarm threshold raise event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/1</uei>
       <event-label>Payload Alarm: Ground Cabin Customer node Band Power - outside normal limits consult Node B operator</event-label>
@@ -650,6 +661,7 @@
          alarm-type="1"
          auto-clean="false"/>
    </event>
+   <!-- alarm threshold clear event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/0</uei>
       <event-label>Payload Alarm: Ground Cabin Customer node Band Power - outside normal limits consult Node B operator</event-label>
@@ -665,6 +677,7 @@
    </event>
    
    <!-- PostMisalig TODO CHANGE TO POSITION NO POSITION MISALIGN VALUE-->
+   <!-- data collection event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI02-PostMisalig</uei>
       <event-label>Payload Measurement: Ground Cabin SBAND Antenna Positioner Alignment</event-label>
@@ -676,7 +689,14 @@
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="1"
          auto-clean="true"/>
+      <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
+            <rrd step="2" >
+                <rra>RRA:AVERAGE:0.5:1:604800</rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+            </rrd>
+            <collection name="value" rename="PostMisalig" type="gauge"/>
+      </collectionGroup>
    </event>
+   <!-- alarm threshold raise event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/1</uei>
       <event-label>Payload Alarm: Ground Cabin SBAND Antenna Positioner Misalignment</event-label>
@@ -689,6 +709,7 @@
          alarm-type="1"
          auto-clean="false"/>
    </event>
+   <!-- alarm threshold clear event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/0</uei>
       <event-label>Payload Alarm: Ground Cabin SBAND Antenna Positioner Misalignment</event-label>
@@ -704,6 +725,7 @@
    </event>
    
    <!-- SiteTemp -->
+   <!-- data collection event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-00-SiteTemp</uei>
       <event-label>Environmental Measurement: Ground Station Site Temperature</event-label>
@@ -715,7 +737,14 @@
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="1"
          auto-clean="true"/>
+      <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
+            <rrd step="2" >
+                <rra>RRA:AVERAGE:0.5:1:604800</rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+            </rrd>
+            <collection name="value" rename="SiteTemp" type="gauge"/>
+      </collectionGroup>
    </event>
+   <!-- alarm threshold raise event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/1</uei>
       <event-label>Environmental Alarm: Ground Station Site Temperature above safe levels</event-label>
@@ -728,6 +757,7 @@
          alarm-type="1"
          auto-clean="false"/>
    </event>
+   <!-- alarm threshold clear event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/0</uei>
       <event-label>Environmental Alarm: Ground Station Site Temperature above safe levels</event-label>
@@ -743,6 +773,7 @@
    </event>
    
    <!-- CabTemp -->
+   <!-- data collection event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-01-CabTemp</uei>
       <event-label>Environmental Measurement: Ground Station Cabinet Temperature</event-label>
@@ -754,7 +785,14 @@
          reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
          alarm-type="1"
          auto-clean="true"/>
+      <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
+            <rrd step="2" >
+                <rra>RRA:AVERAGE:0.5:1:604800</rra> <!-- 60*60*24*14 /2 2 weeks at 2 seconds -->
+            </rrd>
+            <collection name="value" rename="CabTemp" type="gauge"/>
+      </collectionGroup>
    </event>
+   <!-- alarm threshold raise event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/1</uei>
       <event-label>Environmental Alarm: Ground Station Cabinet Temperature above safe levels</event-label>
@@ -767,6 +805,7 @@
          alarm-type="1"
          auto-clean="false"/>
    </event>
+   <!-- alarm threshold clear event -->
    <event>
       <uei>uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/0</uei>
       <event-label>Environmental Alarm: Ground Station Cabinet Temperature above safe levels</event-label>
