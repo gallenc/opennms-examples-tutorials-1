@@ -1,4 +1,7 @@
 <thresholding-config xmlns="http://xmlns.opennms.org/xsd/config/thresholding">
+   <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
+      <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/0" filterOperator="OR" ds-name="QBandRSSI"/>
+   </group>
    <group name="mib2" rrdRepository="/opt/opennms/share/rrd/snmp/">
       <threshold description="Trigger an alert if one or more incoming packets on the whole node were not received due to an error for one measurement interval" type="high" ds-type="node" value="1.0" rearm="0.0" trigger="1" filterOperator="OR" ds-name="tcpInErrors"/>
       <expression description="Trigger an alert if one or more incoming or outgoing packets on an interface were not transmitted due to error for two consecutive measurement intervals" type="high" ds-type="if" value="1.0" rearm="0.0" trigger="2" ds-label="ifName" filterOperator="OR" expression="ifInErrors + ifOutErrors"/>
