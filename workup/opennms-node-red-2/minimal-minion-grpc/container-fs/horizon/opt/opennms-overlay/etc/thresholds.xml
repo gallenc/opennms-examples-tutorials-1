@@ -1,18 +1,10 @@
 <thresholding-config xmlns="http://xmlns.opennms.org/xsd/config/thresholding">
    <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
       <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI00-QBandRSSI/0" filterOperator="OR" ds-name="QBandRSSI"/>
-   </group>
-   <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
-      <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/0" filterOperator="OR" ds-name="NodeBWBandP"/>
-   </group>
-   <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
-      <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/0" filterOperator="OR" ds-name="PostMisalig"/>
-   </group>
-   <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
-      <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/0" filterOperator="OR" ds-name="SiteTemp"/>
-   </group>
-   <group name="mqtt-events" rrdRepository="/opt/opennms/share/rrd/snmp/">
-      <threshold description="QBandRSSI threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/0" filterOperator="OR" ds-name="CabTemp"/>
+      <threshold description="NodeBWBandP threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI01-NodeBWBandP/0" filterOperator="OR" ds-name="NodeBWBandP"/>
+      <threshold description="PostMisalig threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-3800-0@AI02-PostMisalig/0" filterOperator="OR" ds-name="PostMisalig"/>
+      <threshold description="SiteTemp threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-00-SiteTemp/0" filterOperator="OR" ds-name="SiteTemp"/>
+      <threshold description="CabTemp threshold" type="high" ds-type="if" value="3" rearm="2.5" trigger="1" triggeredUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/1" rearmedUEI="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInputThreshold/45MR-6810-0@TC-01-CabTemp/0" filterOperator="OR" ds-name="CabTemp"/>
    </group>
    <group name="mib2" rrdRepository="/opt/opennms/share/rrd/snmp/">
       <threshold description="Trigger an alert if one or more incoming packets on the whole node were not received due to an error for one measurement interval" type="high" ds-type="node" value="1.0" rearm="0.0" trigger="1" filterOperator="OR" ds-name="tcpInErrors"/>
