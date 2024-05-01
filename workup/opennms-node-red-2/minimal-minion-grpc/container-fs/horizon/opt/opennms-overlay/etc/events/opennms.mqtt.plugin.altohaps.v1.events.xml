@@ -8,7 +8,7 @@
          message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -20,9 +20,9 @@
          message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI00-GSMains/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI00-GSMains/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -33,7 +33,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Minor</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -45,9 +45,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI01-UPS/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI01-UPS/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -58,7 +58,7 @@
          all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -70,9 +70,9 @@
          all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI02-QBandPSU/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI02-QBandPSU/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -83,7 +83,7 @@
          message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -95,9 +95,9 @@
          message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_Off/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI03-QBandPA_Off/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -108,7 +108,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -120,9 +120,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOvrL/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI04-QBandRFOvrL/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -133,7 +133,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -145,9 +145,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI05-QBandOverCu/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI05-QBandOverCu/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -158,7 +158,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -170,9 +170,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI08-QBandOverTm/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI08-QBandOverTm/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -183,7 +183,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -195,9 +195,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI06-PosCtrlFail/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI06-PosCtrlFail/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -208,7 +208,7 @@
          all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -220,9 +220,9 @@
          all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI07-VSWHigh/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI07-VSWHigh/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -233,7 +233,7 @@
          parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -245,9 +245,9 @@
          parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI09-BayDoorStat/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI09-BayDoorStat/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -258,7 +258,7 @@
          message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -270,9 +270,9 @@
          message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI10-AntennaPSU/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI10-AntennaPSU/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -283,7 +283,7 @@
          message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -295,9 +295,9 @@
          message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI11-SmokeAlarm/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI11-SmokeAlarm/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -308,7 +308,7 @@
          parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -320,9 +320,9 @@
          parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI12-HighHumidit/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI12-HighHumidit/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -333,7 +333,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -345,9 +345,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI13-AirCon/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI13-AirCon/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -358,7 +358,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -370,9 +370,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI14-FanTray/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI14-FanTray/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -383,7 +383,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -395,9 +395,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI15-PosMisalign/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-0@DI15-PosMisalign/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -408,7 +408,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -420,9 +420,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI00-CabTempHigh/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI00-CabTempHigh/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -433,7 +433,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -445,9 +445,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI00-RearDoor1/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI00-RearDoor1/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -458,7 +458,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -470,9 +470,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI02-RearDoor2/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI02-RearDoor2/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -483,7 +483,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -495,9 +495,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI03-RearDoor3/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI03-RearDoor3/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -508,7 +508,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -520,9 +520,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI04-FrontDoor1/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI04-FrontDoor1/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -533,7 +533,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -545,9 +545,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI05-FrontDoor2/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI05-FrontDoor2/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    <event>
@@ -558,7 +558,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -570,9 +570,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI06-FrontDoor3/0:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/DigitalInput/45MR-1601-1@DI06-FrontDoor3/0:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
@@ -590,7 +590,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Normal</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="true"/>
       <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
@@ -609,7 +609,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -622,9 +622,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI00-QBandRSSI/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI00-QBandRSSI/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
@@ -638,7 +638,7 @@
          message from topic %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Normal</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="true"/>
       <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
@@ -657,7 +657,7 @@
          message from topic %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -670,9 +670,9 @@
          message from topic %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI01-NodeBWBandP/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI01-NodeBWBandP/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
@@ -686,7 +686,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Normal</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="true"/>
       <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
@@ -705,7 +705,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Major</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -718,9 +718,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI02-PostMisalig/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-3800-0@AI02-PostMisalig/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
@@ -734,7 +734,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Normal</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="true"/>
       <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
@@ -753,7 +753,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -766,9 +766,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-00-SiteTemp/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-00-SiteTemp/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
@@ -782,7 +782,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Normal</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="true"/>
       <collectionGroup name="altohapsGroup" resourceType="interfaceSnmp">
@@ -801,7 +801,7 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Warning</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="1"
          auto-clean="false"/>
    </event>
@@ -814,9 +814,9 @@
          %parm[message-topic]%&lt;BR&gt; all message parameters: %parm[all]% </descr>
       <severity>Cleared</severity>
       <alarm-data
-         reduction-key="%uei%:%dpname%:%nodeid%:%parm[message-topic]%"
+         reduction-key="%uei%:%dpname%:%nodeid%"
          alarm-type="2"
-         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-01-CabTemp/1:%dpname%:%nodeid%:%parm[message-topic]%"
+         clear-key="uei.opennms.org/mqttplugin/altohaps/v1/read/AnalogueInput/45MR-6810-0@TC-01-CabTemp/1:%dpname%:%nodeid%"
          auto-clean="false"/>
    </event>
    
