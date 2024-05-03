@@ -25,14 +25,14 @@
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
-/* EXAMPLE this rule definition only creates a situation for accumulated alarms - does not use ack */
+/* EXAMPLE this rule definition only creates a situation for accumulated alarms  */
+/* uses ack to differentiate processed alarms*/
 package org.opennms.netmgt.alarmd.drools;
 
 import java.util.Date;
 import org.kie.api.time.SessionClock;
 import org.opennms.netmgt.model.OnmsAlarm;
 import org.opennms.netmgt.model.OnmsSeverity;
-import org.opennms.netmgt.model.AlarmAssociation;
 
 import org.opennms.netmgt.model.TroubleTicketState;
 import org.opennms.netmgt.model.OnmsNode;
@@ -67,20 +67,18 @@ rule "parent situation rule"
   when
     $sessionClock : SessionClock()
 
+              
+
     // get alarm with correct category
     $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
                        severity != OnmsSeverity.CLEARED, 
-                       // $alarm.isAcknowledged() == false,
-                       // $alarm.isPartOfSituation() == false,
+                       $alarm.isAcknowledged() == false,
                        lastEvent != null,
                        node != null,
                        node.parent !=null,
                        node.getAssetRecord().getDisplayCategory() in ("ONT", "SECONDARY_NODE"),
                        $alarmEventParameters : eventParameters
                       )
-                      
-    // if there is an association where $alarm is a relatedAlarm then the $alarm is part of a situation // TODO match situation type
-    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(relatedAlarm.getId() == $alarm.getId() ) )
                       
     // get related alarms with correct category LinkedList(size >= 4 )
     $relatedAlarms : LinkedList() from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
@@ -92,9 +90,6 @@ rule "parent situation rule"
                    $relatedEventParameters : eventParameters,
                    matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $relatedEventParameters)                   
                   ) )
-                  
-    // get max severity of related alarms
-    $maxSeverity : OnmsSeverity(isGreaterThan(OnmsSeverity.NORMAL)) from accumulate( OnmsAlarm( $severity : severity ) from $relatedAlarms, maxSeverity( $severity ) )
 
 
     // get any situations for parent nodeId where the LogName parameter matches the LogName for this situation
@@ -118,19 +113,11 @@ rule "parent situation rule"
     alarmService.warn("parent situation rule: **** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, logName);
     alarmService.warn("parent situation rule: $alarm.getNode().getParent().getId():"+$alarm.getNode().getParent().getId());
     
-    alarmService.warn("parent situation rule: relatedAlarms size {}  maxSeverity {}", $relatedAlarms.size(), $maxSeverity.getLabel() );
+    alarmService.warn("parent situation rule: relatedAlarms size {}", $relatedAlarms.size() );
     for (Object onmsAlarmObject: $relatedAlarms){
         OnmsAlarm relatedAlarm = (OnmsAlarm) onmsAlarmObject;
         alarmService.warn("parent situation rule: existing relatedAlarm {}", relatedAlarm);
     }
-    
-    alarmService.warn("parent situation rule: associations size {}", $associations.size() );
-    for (Object onmsAssociationObject: $associations){
-        AlarmAssociation association = (AlarmAssociation) onmsAssociationObject;
-        alarmService.warn("parent situation rule: association {}", association);
-    }
-    
-    
     alarmService.warn("parent situation rule: existing situations size {}", $situations.size() );
     for (Object onmsAlarmObject: $situations){
         OnmsAlarm situation = (OnmsAlarm) onmsAlarmObject;
@@ -172,14 +159,14 @@ rule "parent situation rule"
 //                  alarmService.warn("parent situation rule: cant parse asset HDD1 "+exceptionStackTraceToString(ex));
 //              }
 
-    //alarmService.acknowledgeAlarm($alarm, now);
+    alarmService.acknowledgeAlarm($alarm, now);
     
-    if (! alarmReductionKeys.isEmpty()) {
+    if (! $relatedAlarms.isEmpty()) {
         int nodeId = $alarm.getNode().getParent().getId();
-        sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, $maxSeverity , msg, now);
+        sendUdateSituationEvent(alarmService, nodeId, logName, alarmReductionKeys, OnmsSeverity.NORMAL, msg, now);
     }
 
-    alarmService.warn("parent situation rule: ********************** end of rule");
+
 
 end
 
@@ -189,14 +176,11 @@ rule "clear uncleared situations"
     $sessionClock : SessionClock()
 
     // get old situation alarm which has not been cleared
-    $alarm : OnmsAlarm( // isSituation() == false, 
+    $alarm : OnmsAlarm(isSituation() == false, 
                        severity != OnmsSeverity.CLEARED,
                        $alarmEventParameters : eventParameters,
                        matchSituationParameter(alarmService, $alarmEventParameters)
                       )
-                      
-     // check not a situation
-    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(situationAlarm.getId() == $alarm.getId() ) )
                       
    then
        alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
