@@ -195,7 +195,7 @@ rule "clear uncleared situations"
                        matchSituationParameter(alarmService, $alarmEventParameters)
                       )
                       
-     // check not a situation
+    // check not a situation
     $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(situationAlarm.getId() == $alarm.getId() ) )
                       
    then
