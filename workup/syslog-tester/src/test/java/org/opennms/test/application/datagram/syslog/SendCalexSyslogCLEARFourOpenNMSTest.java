@@ -32,7 +32,7 @@ public class SendCalexSyslogCLEARFourOpenNMSTest {
    
    // olts tied to lec191-olt-1_SECONDARY
    List<String> ontids = Arrays.asList("61180","124010","130749","397513");
-   //List<String> ontids = Arrays.asList("61180","124010");
+   // List<String> ontids = Arrays.asList("61180","124010");
    
 
    @Before

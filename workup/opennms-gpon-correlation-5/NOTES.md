@@ -49,4 +49,11 @@ select * from events where eventuei LIKE 'uei.opennms.org/internal/importer%'
 
 
 select * from events where eventuei LIKE 'uei.opennms.org/Translator/gpon/childCountUpdated%'
+
+
+TO preload sibling count of nodes
+-- WITH updateAssetSiblingCounts AS ( UPDATE assets a SET hdd3= ( SELECT COUNT(*) FROM node pn WHERE pn.nodeparentid = n.nodeparentid ) FROM node n WHERE a.nodeid=n.nodeid RETURNING 1)          SELECT COUNT(*) FROM updateAssetSiblingCounts
+
+TO VIEW 
+-- SELECT node.nodeid, assets.assetNumber, assets.hdd1,assets.hdd2,assets.hdd3, nodeparentid FROM assets JOIN node ON assets.nodeid=node.nodeid ORDER BY nodeparentid;
 ```

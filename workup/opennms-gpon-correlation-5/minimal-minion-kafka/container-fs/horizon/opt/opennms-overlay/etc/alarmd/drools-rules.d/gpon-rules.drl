@@ -79,20 +79,26 @@ rule "parent situation rule"
                        $alarmEventParameters : eventParameters
                       )
                       
+                      
     // if there is an association where $alarm is a relatedAlarm then the $alarm is part of a situation 
     $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(relatedAlarm.getId() == $alarm.getId(),
                        matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , situationAlarm.getEventParameters())
                     ) )
+                    
+    //$childNodes : Integer() from new Integer ( parseIntStr($alarm.getNode().getParent().getAssetRecord().getHdd1() ) )
                       
     // get related alarms with correct category LinkedList(size >= 4 )
-    $relatedAlarms : LinkedList() from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
-                   severity != OnmsSeverity.CLEARED, 
-                   node != null,
-                   node.parent !=null,
-                   node.getParent().getId() == $alarm.getNode().getParent().getId(),
-                   lastEvent != null,
-                   $relatedEventParameters : eventParameters,
-                   matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $relatedEventParameters)                   
+    // hdd3==siblingCount
+   // $relatedAlarms : LinkedList( size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
+    $relatedAlarms : LinkedList( ) 
+                   from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
+                       severity != OnmsSeverity.CLEARED, 
+                       node != null,
+                       node.parent !=null,
+                       node.getParent().getId() == $alarm.getNode().getParent().getId(),
+                       lastEvent != null,
+                       $relatedEventParameters : eventParameters,
+                       matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $relatedEventParameters)                   
                   ) )
                   
     // get max severity of related alarms
@@ -119,6 +125,7 @@ rule "parent situation rule"
     // debugging messages - note change to alarmService.debug in production
     alarmService.warn("parent situation rule: **** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, logName);
     alarmService.warn("parent situation rule: $alarm.getNode().getParent().getId():"+$alarm.getNode().getParent().getId());
+    //alarmService.warn("parent situation rule: $alarm.getNode().getAssetRecord().getHdd3():"+$alarm.getNode().getAssetRecord().getHdd3());
     
     alarmService.warn("parent situation rule: relatedAlarms size {}  maxSeverity {}", $relatedAlarms.size(), $maxSeverity.getLabel() );
     for (Object onmsAlarmObject: $relatedAlarms){
@@ -187,6 +194,7 @@ end
 
 // this is needed because situations can become simple alarms rather than clearning when associated alarms are cleared (needs investigated)
 rule "clear uncleared situations"
+  salience 10  // run first
   when
     $sessionClock : SessionClock()
 
@@ -205,6 +213,30 @@ rule "clear uncleared situations"
        alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
 end
 
+/* parses an integer from a string or returns null */
+function Integer parseIntStr(AlarmService alarmService, String integerStr){
+    if (integerStr == null || integerStr.isBlank()) return null;
+    try{
+       return Integer.parseInt(integerStr);
+    } catch (Exception ex){
+        alarmService.warn("cant parse integer "+integerStr);
+    }
+    return null;
+}
+
+    // todo update severity
+//              String childrenStr = matchedSituation.getNode().getAssetRecord().getHdd1();
+//              if (childrenStr !=null && ! childrenStr.isBlank() ) try {
+//                  Integer childrenNo= Integer.parseInt( childrenStr);
+//                  allChildrenAlarm = ( relatedAlarms.size() >= childrenNo );
+//                  if (allChildrenAlarm && matchedSituation.getSeverity() != OnmsSeverity.CRITICAL ) {
+                      // alarmService.warn("parent situation rule: all nodes in alarm - escalated severity of matchedSituation "+ matchedSituation.getId() );
+                      // TODO alarmService.setSeverity(matchedSituation, OnmsSeverity.CRITICAL, now);
+//                      msg= "All Children alarms: "+msg;
+//                  }
+//              } catch (Exception ex) {
+//                  alarmService.warn("parent situation rule: cant parse asset HDD1 "+exceptionStackTraceToString(ex));
+//              }
 
 /* searchs eventParameters list and returns value matching the name key. Returns null if not found or if inputs are null */
 function String findEventParameter(AlarmService alarmService, String name, List eventParameters) {

@@ -367,9 +367,14 @@
                <assignment name="severity" type="field">
                   <value type="constant" result="Normal" />
                </assignment>
-               <assignment name="assetsUpdated" type="parameter">
+               <assignment name="childCountUpdatedAssets" type="parameter">
                   <value type="sql" result="WITH updateAssetChildCounts AS ( UPDATE assets a SET hdd1= ( SELECT COUNT(*) FROM node pn WHERE pn.nodeparentid = n.nodeid ) FROM node n WHERE a.nodeid=n.nodeid RETURNING 1)
                          SELECT COUNT(*) FROM updateAssetChildCounts">
+                  </value>
+               </assignment>
+               <assignment name="siblingCountUpdatedAssets" type="parameter">
+                  <value type="sql" result="WITH updateAssetSiblingCounts AS ( UPDATE assets a SET hdd3= ( SELECT COUNT(*) FROM node pn WHERE pn.nodeparentid = n.nodeparentid ) FROM node n WHERE a.nodeid=n.nodeid RETURNING 1)
+                         SELECT COUNT(*) FROM updateAssetSiblingCounts">
                   </value>
                </assignment>
 
