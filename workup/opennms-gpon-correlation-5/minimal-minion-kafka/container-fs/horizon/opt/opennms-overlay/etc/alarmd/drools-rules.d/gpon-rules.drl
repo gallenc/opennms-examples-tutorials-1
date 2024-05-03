@@ -79,8 +79,10 @@ rule "parent situation rule"
                        $alarmEventParameters : eventParameters
                       )
                       
-    // if there is an association where $alarm is a relatedAlarm then the $alarm is part of a situation // TODO match situation type
-    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(relatedAlarm.getId() == $alarm.getId() ) )
+    // if there is an association where $alarm is a relatedAlarm then the $alarm is part of a situation 
+    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(relatedAlarm.getId() == $alarm.getId(),
+                       matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , situationAlarm.getEventParameters())
+                    ) )
                       
     // get related alarms with correct category LinkedList(size >= 4 )
     $relatedAlarms : LinkedList() from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
