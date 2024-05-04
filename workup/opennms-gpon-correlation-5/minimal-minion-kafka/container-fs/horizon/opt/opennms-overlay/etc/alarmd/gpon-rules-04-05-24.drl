@@ -61,9 +61,6 @@ declare org.opennms.netmgt.model.OnmsAlarm
 end
 
 
-/** ******************** */
-/* Parent Situation Rule */
-/** ******************** */
 rule "parent situation rule"
   //no-loop true
   
@@ -92,7 +89,8 @@ rule "parent situation rule"
                       
     // get related alarms with correct category LinkedList(size >= 4 )
     // hdd3==siblingCount
-   $relatedAlarms : LinkedList(size !=0 && size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
+   // $relatedAlarms : LinkedList( size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
+    $relatedAlarms : LinkedList( ) 
                    from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
                        severity != OnmsSeverity.CLEARED, 
                        node != null,
@@ -191,129 +189,6 @@ rule "parent situation rule"
     }
 
     alarmService.warn("parent situation rule: ********************** end of rule");
-
-end
-
-/** ************************** */
-/* Parent Situation Clear Rule */
-/** ************************** */
-rule "parent situation clear rule"
-  //no-loop true
-  
-  when
-    $sessionClock : SessionClock()
-
-    // get alarm with correct category
-    $alarm : OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE,
-                       severity == OnmsSeverity.CLEARED, 
-                       // $alarm.isAcknowledged() == false,
-                       // $alarm.isPartOfSituation() == false,
-                       lastEvent != null,
-                       node != null,
-                       node.parent !=null,
-                       node.getAssetRecord().getDisplayCategory() in ("ONT", "SECONDARY_NODE"),
-                       $alarmEventParameters : eventParameters
-                      )
-                      
-                      
-    // if there is an association where $alarm is a relatedAlarm then the $alarm is part of a situation 
-    $associations: LinkedList( size > 0 ) from collect ( AlarmAssociation(relatedAlarm.getId() == $alarm.getId(),
-                       matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , situationAlarm.getEventParameters())
-                    ) )
-                    
-    //$childNodes : Integer() from new Integer ( parseIntStr($alarm.getNode().getParent().getAssetRecord().getHdd1() ) )
-                      
-    // get related alarms with correct category LinkedList(size >= 4 )
-    // hdd3==siblingCount
-   // $relatedAlarms : LinkedList( size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
-    $relatedAlarms : LinkedList(size == 0 || size < $alarm.getNode().getAssetRecord().getHdd3() ) 
-                   from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
-                       severity != OnmsSeverity.CLEARED, 
-                       node != null,
-                       node.parent !=null,
-                       node.getParent().getId() == $alarm.getNode().getParent().getId(),
-                       lastEvent != null,
-                       $relatedEventParameters : eventParameters,
-                       matchEventParameter(alarmService, "LogName", findEventParameter(alarmService, "LogName", $alarmEventParameters) , $relatedEventParameters)                   
-                  ) )
-                  
-    // get max severity of related alarms
-    $maxSeverity : OnmsSeverity() from accumulate( OnmsAlarm( $severity : severity ) from $relatedAlarms, maxSeverity( $severity ) )
-
-
-  then
- 
-    Date now = new Date(drools.getWorkingMemory().getSessionClock().getCurrentTime());
-    
-    String logName = findEventParameter(alarmService, "LogName", $alarmEventParameters);
-    
-    
-    // debugging messages - note change to alarmService.debug in production
-    alarmService.warn("parent situation cleared rule: **** found alarm details {} for alarm {} LogName {}", getAlarmDetails($alarm), $alarm, logName);
-    alarmService.warn("parent situation cleared rule: $alarm.getNode().getParent().getId():"+$alarm.getNode().getParent().getId());
-    //alarmService.warn("parent situation cleared rule: $alarm.getNode().getAssetRecord().getHdd3():"+$alarm.getNode().getAssetRecord().getHdd3());
-    
-    alarmService.warn("parent situation cleared rule: relatedAlarms size {}  maxSeverity {}", $relatedAlarms.size(), $maxSeverity.getLabel() );
-    for (Object onmsAlarmObject: $relatedAlarms){
-        OnmsAlarm relatedAlarm = (OnmsAlarm) onmsAlarmObject;
-        alarmService.warn("parent situation cleared rule: existing relatedAlarm {}", relatedAlarm);
-    }
-    
-    alarmService.warn("parent situation cleared rule: associations size {}", $associations.size() );
-    for (Object onmsAssociationObject: $associations){
-        AlarmAssociation association = (AlarmAssociation) onmsAssociationObject;
-        alarmService.warn("parent situation cleared rule: association {}", association);
-    }
-    
-    
-    // end of debugging messages
-    
-  
-    
-    // get any existing alarm reduction keys from any current matching situation
-    // this allows us to re-inject the other matching alarms in the update event
-    // assumes only one matching situation from rule
-//    Set<String> alarmReductionKeys= new LinkedHashSet<String>();
-    
-//    String msg = "related alarms: ";
-//    for(Object onmsAlarmObject : $relatedAlarms){
-//         OnmsAlarm relatedAlarm = (OnmsAlarm) onmsAlarmObject;
-//         if(relatedAlarm.getSeverity() != OnmsSeverity.CLEARED ) {
-//             alarmService.warn("parent situation cleared rule: adding reduction key from relatedAlarm {}", relatedAlarm);
-//             alarmReductionKeys.add(relatedAlarm.getReductionKey());
-//             msg = msg +" "+ relatedAlarm.getId() +" "+ relatedAlarm.getSeverity().toString() +" |";
-//         } else {
-//             alarmService.warn("parent situation cleared rule: not adding reduction key from cleared relatedAlarm {}", relatedAlarm);
-//         }
-//    }
-    
-    // todo update severity
-//              String childrenStr = matchedSituation.getNode().getAssetRecord().getHdd1();
-//              if (childrenStr !=null && ! childrenStr.isBlank() ) try {
-//                  Integer childrenNo= Integer.parseInt( childrenStr);
-//                  allChildrenAlarm = ( relatedAlarms.size() >= childrenNo );
-//                  if (allChildrenAlarm && matchedSituation.getSeverity() != OnmsSeverity.CRITICAL ) {
-                      // alarmService.warn("parent situation cleared rule: all nodes in alarm - escalated severity of matchedSituation "+ matchedSituation.getId() );
-                      // TODO alarmService.setSeverity(matchedSituation, OnmsSeverity.CRITICAL, now);
-//                      msg= "All Children alarms: "+msg;
-//                  }
-//              } catch (Exception ex) {
-//                  alarmService.warn("parent situation cleared rule: cant parse asset HDD1 "+exceptionStackTraceToString(ex));
-//              }
-
-    //alarmService.acknowledgeAlarm($alarm, now);
-    
-    alarmService.warn("parent situation cleared rule: ********************** clearing situation for "+$alarm);
-    
-    AlarmAssociation association = (AlarmAssociation)  $associations.get(0);
-   
-    OnmsAlarm situation = (OnmsAlarm) association.getSituationAlarm();
-    
-    alarmService.warn("parent situation cleared rule: ********************** clearing situation "+ situation);
-    
-    alarmService.clearAlarm(situation, now);
-
-    alarmService.warn("parent situation cleared rule: ********************** end of rule");
 
 end
 
