@@ -7,9 +7,11 @@ import org.junit.Test;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.text.SimpleDateFormat;
 
 import java.time.format.TextStyle;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import static org.junit.Assert.assertEquals;
@@ -26,6 +28,8 @@ public class SendCalexSyslogRAISEFourOpenNMSTest {
    public static final boolean USE_SIMPLE_LOG_SERVER = false;
 
    public static final boolean CHANGE_LOG_TIME_TO_TODAY = true;
+   
+   public static final boolean GENERATE_TIMESTAMP = true;
 
    public static final boolean USE_SYSLOG_PRI = false;
    
@@ -78,7 +82,18 @@ public class SendCalexSyslogRAISEFourOpenNMSTest {
       }
       
       // send events for different ONT IDs
+
+      SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+      int timeBetweenEvents = 1000; // 1000 ms 1s
+      long startTime = new Date().getTime() - timeBetweenEvents * ontids.size();
+      
+      long delta=0;
       for (String ontid: ontids) {
+         if (GENERATE_TIMESTAMP) {
+            Date date = new Date(startTime+delta);
+            eventParser.setTimestampStr(df.format(date));
+            delta = delta+timeBetweenEvents;
+         }
          
          eventParser.setXpath("/config/system/ont[ont-id='"+ontid + "']");
          String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);

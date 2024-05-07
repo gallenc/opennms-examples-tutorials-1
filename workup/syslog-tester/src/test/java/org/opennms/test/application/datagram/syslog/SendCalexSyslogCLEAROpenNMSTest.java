@@ -7,6 +7,9 @@ import org.junit.Test;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.time.format.TextStyle;
 import java.util.Locale;
 
@@ -24,6 +27,8 @@ public class SendCalexSyslogCLEAROpenNMSTest {
    public static final boolean USE_SIMPLE_LOG_SERVER = false;
 
    public static final boolean CHANGE_LOG_TIME_TO_TODAY = true;
+
+   public static final boolean GENERATE_TIMESTAMP = true;
 
    public static final boolean USE_SYSLOG_PRI = false;
 
@@ -73,6 +78,12 @@ public class SendCalexSyslogCLEAROpenNMSTest {
       String receivedLogEntry = eventParser.toLogEntry(USE_SYSLOG_PRI);
 
       System.out.println("Event parser toLogEntry: " + receivedLogEntry);
+
+      if (GENERATE_TIMESTAMP) {
+         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+         Date date = new Date();
+         eventParser.setTimestampStr(df.format(date));
+      }
 
       client.sendMessage(receivedLogEntry);
 

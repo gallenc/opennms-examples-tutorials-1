@@ -92,7 +92,7 @@ rule "parent situation rule"
                       
     // get related alarms with correct category LinkedList(size >= 4 )
     // hdd3==siblingCount
-   $relatedAlarms : LinkedList(size !=0 && size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
+   $relatedAlarms : LinkedList(size > 0 && size >= $alarm.getNode().getAssetRecord().getHdd3() ) 
                    from collect ( OnmsAlarm(alarmType == OnmsAlarm.PROBLEM_TYPE || alarmType == OnmsAlarm.PROBLEM_WITHOUT_RESOLUTION_TYPE, 
                        severity != OnmsSeverity.CLEARED, 
                        node != null,
@@ -198,6 +198,7 @@ end
 /* Parent Situation Clear Rule */
 /** ************************** */
 rule "parent situation clear rule"
+  salience 150 // run before cosmicClear rule
   //no-loop true
   
   when
@@ -238,7 +239,7 @@ rule "parent situation clear rule"
                   ) )
                   
     // get max severity of related alarms
-    $maxSeverity : OnmsSeverity() from accumulate( OnmsAlarm( $severity : severity ) from $relatedAlarms, maxSeverity( $severity ) )
+    //$maxSeverity : OnmsSeverity() from accumulate( OnmsAlarm( $severity : severity ) from $relatedAlarms, maxSeverity( $severity ) )
 
 
   then
@@ -253,7 +254,7 @@ rule "parent situation clear rule"
     alarmService.warn("parent situation cleared rule: $alarm.getNode().getParent().getId():"+$alarm.getNode().getParent().getId());
     //alarmService.warn("parent situation cleared rule: $alarm.getNode().getAssetRecord().getHdd3():"+$alarm.getNode().getAssetRecord().getHdd3());
     
-    alarmService.warn("parent situation cleared rule: relatedAlarms size {}  maxSeverity {}", $relatedAlarms.size(), $maxSeverity.getLabel() );
+    alarmService.warn("parent situation cleared rule: relatedAlarms size {}", $relatedAlarms.size() );
     for (Object onmsAlarmObject: $relatedAlarms){
         OnmsAlarm relatedAlarm = (OnmsAlarm) onmsAlarmObject;
         alarmService.warn("parent situation cleared rule: existing relatedAlarm {}", relatedAlarm);
@@ -303,40 +304,40 @@ rule "parent situation clear rule"
 
     //alarmService.acknowledgeAlarm($alarm, now);
     
-    alarmService.warn("parent situation cleared rule: ********************** clearing situation for "+$alarm);
+    alarmService.warn("parent situation cleared rule: ********************** deleting situation for "+$alarm);
     
     AlarmAssociation association = (AlarmAssociation)  $associations.get(0);
    
     OnmsAlarm situation = (OnmsAlarm) association.getSituationAlarm();
     
-    alarmService.warn("parent situation cleared rule: ********************** clearing situation "+ situation);
+    alarmService.warn("parent situation cleared rule: ********************** deleting situation "+ situation);
     
-    alarmService.clearAlarm(situation, now);
+    alarmService.deleteAlarm(situation); // note delete because clear causes problems
 
     alarmService.warn("parent situation cleared rule: ********************** end of rule");
 
 end
 
 // this is needed because situations can become simple alarms rather than clearning when associated alarms are cleared (needs investigated)
-rule "clear uncleared situations"
-  salience 10  // run first
-  when
-    $sessionClock : SessionClock()
+//rule "clear uncleared situations"
+//  salience 10  // run first
+//  when
+//    $sessionClock : SessionClock()
 
     // get old situation alarm which has not been cleared
-    $alarm : OnmsAlarm( // isSituation() == false, 
-                       severity != OnmsSeverity.CLEARED,
-                       $alarmEventParameters : eventParameters,
-                       matchSituationParameter(alarmService, $alarmEventParameters)
-                      )
+//    $alarm : OnmsAlarm( // isSituation() == false, 
+//                       severity != OnmsSeverity.CLEARED,
+//                       $alarmEventParameters : eventParameters,
+//                       matchSituationParameter(alarmService, $alarmEventParameters)
+//                      )
                       
     // check not a situation
-    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(situationAlarm.getId() == $alarm.getId() ) )
+//    $associations: LinkedList( size == 0 ) from collect ( AlarmAssociation(situationAlarm.getId() == $alarm.getId() ) )
                       
-   then
-       alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
-       alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
-end
+//   then
+//       alarmService.warn("clear uncleared situations rule clearing alarm id  "+$alarm.getId());
+//       alarmService.clearAlarm($alarm, new Date($sessionClock.getCurrentTime()));
+//end
 
 /* parses an integer from a string or returns null */
 function Integer parseIntStr(AlarmService alarmService, String integerStr){
