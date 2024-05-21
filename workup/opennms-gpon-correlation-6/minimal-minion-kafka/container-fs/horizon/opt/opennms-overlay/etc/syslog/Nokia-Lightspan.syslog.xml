@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Syslog message match definitions for Nokia-Lightspan -->
+<syslogd-configuration-group>
+   <ueiList>
+
+      <!-- note that these matches depend on nokia syslog parsing in syslogd-grok-patterns.txt -->
+      <ueiMatch>
+
+         <match type="regex" expression="APP_NAME:(.*?),APP_VERSION:(.*?),MODULE_NAME:(.*?),ENTITY_NAME:(.*?),ENTITY_TYPE:(.*?),alarm-type-id:(.*?),event-time:(.*?),perceived-severity:(.*?),alarm-text:(.*)" />
+         <parameter-assignment matching-group="1" parameter-name="APP_NAME"/>
+         <parameter-assignment matching-group="2" parameter-name="APP_VERSION"/>
+         <parameter-assignment matching-group="3" parameter-name="MODULE_NAME"/>
+         <parameter-assignment matching-group="4" parameter-name="ENTITY_NAME"/>
+         <parameter-assignment matching-group="5" parameter-name="ENTITY_TYPE"/>
+         <parameter-assignment matching-group="6" parameter-name="alarm-type-id"/>
+         <parameter-assignment matching-group="7" parameter-name="event-time"/>
+         <parameter-assignment matching-group="8" parameter-name="perceived-severity"/>
+         <parameter-assignment matching-group="9" parameter-name="alarm-text"/>
+         
+         <uei>uei.opennms.org/Nokia/Lightspan/Syslog</uei>
+      </ueiMatch>
+ 
+   </ueiList>
+</syslogd-configuration-group>

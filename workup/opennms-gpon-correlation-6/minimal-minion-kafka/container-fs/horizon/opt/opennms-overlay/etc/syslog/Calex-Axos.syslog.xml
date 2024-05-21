@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<!-- Syslog message match definitions for OpenSSH -->
+<!-- Syslog message match definitions for Calex-Axos -->
 <syslogd-configuration-group>
    <ueiList>
 
-      <!-- note that these matches depend on syslog severity obtined from syslogd-grok-patterns.txt -->
+      <!-- note that these matches depend on syslog severity obtained from syslogd-grok-patterns.txt -->
       <ueiMatch>
 
          <process-match expression="^notfmgrd$" />

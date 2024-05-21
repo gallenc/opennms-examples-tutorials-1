@@ -50,6 +50,7 @@
     -->
     
     <import-file>syslog/Calex-Axos.syslog.xml</import-file>
+    <import-file>syslog/Nokia-Lightspan.syslog.xml</import-file>
 
     <import-file>syslog/ApacheHTTPD.syslog.xml</import-file>
     <import-file>syslog/LinuxKernel.syslog.xml</import-file>
