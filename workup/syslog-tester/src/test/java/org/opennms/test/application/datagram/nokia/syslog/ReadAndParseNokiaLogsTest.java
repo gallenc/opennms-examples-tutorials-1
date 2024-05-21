@@ -1,4 +1,4 @@
-package org.opennms.test.application.datagram.syslog;
+package org.opennms.test.application.datagram.nokia.syslog;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.NokiaEventLogFull;
+import org.opennms.test.application.datagram.syslog.NokiaEventLogPartial;
 
-public class ReadAndParseOtherLogsTest {
+public class ReadAndParseNokiaLogsTest {
 	
 	@Test
 	public void test1() {
