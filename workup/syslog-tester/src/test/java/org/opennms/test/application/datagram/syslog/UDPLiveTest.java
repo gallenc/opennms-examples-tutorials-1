@@ -3,6 +3,7 @@ package org.opennms.test.application.datagram.syslog;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.SimpleLogSender;
 
 import java.io.IOException;
 

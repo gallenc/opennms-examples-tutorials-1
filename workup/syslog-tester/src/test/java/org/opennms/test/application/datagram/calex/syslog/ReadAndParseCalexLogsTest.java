@@ -1,4 +1,4 @@
-package org.opennms.test.application.datagram.syslog;
+package org.opennms.test.application.datagram.calex.syslog;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.CalexAxosEventLog;
 
 public class ReadAndParseCalexLogsTest {
 	

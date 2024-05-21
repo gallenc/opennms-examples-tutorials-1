@@ -1,4 +1,4 @@
-package org.opennms.test.application.datagram.syslog;
+package org.opennms.test.application.datagram.calex.syslog;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +21,11 @@ import java.time.format.TextStyle;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.CalexAxosEventLog;
+import org.opennms.test.application.datagram.syslog.IncrimentingIpAddress;
+import org.opennms.test.application.datagram.syslog.NokiaEventLogFull;
+import org.opennms.test.application.datagram.syslog.NokiaEventLogPartial;
+import org.opennms.test.application.datagram.syslog.SimpleLogSender;
 
 public class ParseEventsFileCalexRaiseTestSMALL {
 

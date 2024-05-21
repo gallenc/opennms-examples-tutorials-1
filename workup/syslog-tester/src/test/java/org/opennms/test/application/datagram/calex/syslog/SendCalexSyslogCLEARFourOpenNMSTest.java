@@ -1,24 +1,28 @@
-package org.opennms.test.application.datagram.syslog;
+package org.opennms.test.application.datagram.calex.syslog;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.CalexAxosEventLog;
+import org.opennms.test.application.datagram.syslog.SimpleLogSender;
+import org.opennms.test.application.datagram.syslog.SimpleLogServer;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
-import java.text.SimpleDateFormat;
 
 import java.time.format.TextStyle;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SendCalexSyslogRAISEFourOpenNMSTest {
+public class SendCalexSyslogCLEARFourOpenNMSTest {
    private SimpleLogSender client;
 
    public static final int SYSLOG_SERVER_PORT = 4445;
@@ -37,6 +41,7 @@ public class SendCalexSyslogRAISEFourOpenNMSTest {
    List<String> ontids = Arrays.asList("61180","124010","130749","397513");
    //List<String> ontids = Arrays.asList("61180","124010","130749");
    //List<String> ontids = Arrays.asList("61180","124010");
+   
 
    @Before
    public void setup() throws IOException {
@@ -57,7 +62,7 @@ public class SendCalexSyslogRAISEFourOpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:3, Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+      String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
 
       CalexAxosEventLog eventParser = new CalexAxosEventLog();
 
@@ -82,7 +87,6 @@ public class SendCalexSyslogRAISEFourOpenNMSTest {
       }
       
       // send events for different ONT IDs
-
       SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
       int timeBetweenEvents = 1000; // 1000 ms 1s
       long startTime = new Date().getTime() - timeBetweenEvents * ontids.size();

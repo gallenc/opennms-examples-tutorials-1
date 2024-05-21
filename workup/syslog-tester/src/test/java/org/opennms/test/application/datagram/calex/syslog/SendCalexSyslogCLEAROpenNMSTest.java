@@ -1,8 +1,11 @@
-package org.opennms.test.application.datagram.syslog;
+package org.opennms.test.application.datagram.calex.syslog;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.opennms.test.application.datagram.syslog.CalexAxosEventLog;
+import org.opennms.test.application.datagram.syslog.SimpleLogSender;
+import org.opennms.test.application.datagram.syslog.SimpleLogServer;
 
 import java.io.IOException;
 import java.time.LocalDate;
