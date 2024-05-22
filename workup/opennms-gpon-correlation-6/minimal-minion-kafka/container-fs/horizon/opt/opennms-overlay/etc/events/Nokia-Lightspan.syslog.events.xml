@@ -3,9 +3,9 @@
 
 
    <event>
-      <uei>uei.opennms.org/Nokia/Lightspan/Syslog</uei>
-      <event-label>Nokia/Lightspan Syslog Event</event-label>
-      <descr>&lt;p>Nokia/Lightspan Syslog Event Type: %parm[alarm-type-id]%&lt;br>
+      <uei>uei.opennms.org/Nokia/Lightspan/Syslog/alarm</uei>
+      <event-label>Nokia/Lightspan Syslog Alarm Event</event-label>
+      <descr>&lt;p>Nokia/Lightspan Syslog Alarm Event Type: %parm[alarm-type-id]% alarm-text %parm[alarm-text]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -16,7 +16,6 @@
          Service (facility): %service% &lt;br>
          &lt;br>
          
-         APP_NAME: %parm[APP_NAME]% &lt;br>
          APP_VERSION: %parm[APP_VERSION]% &lt;br>
          MODULE_NAME: %parm[MODULE_NAME]% &lt;br>
          ENTITY_NAME: %parm[ENTITY_NAME]% &lt;br>
@@ -32,9 +31,38 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Nokia/Lightspan Syslog Event Type: %parm[alarm-type-id]%&lt;/p>
+         &lt;p>Nokia/Lightspan Syslog Alarm Event Type: %parm[alarm-type-id]% alarm-text %parm[alarm-text]%&lt;/p>
       </logmsg>
       <severity>Warning</severity>
+   </event>
+   
+      <event>
+      <uei>uei.opennms.org/Nokia/Lightspan/Syslog</uei>
+      <event-label>Nokia/Lightspan Syslog Event</event-label>
+      <descr>&lt;p>Nokia/Lightspan Syslog Event MODULE_NAME: %parm[MODULE_NAME]%&lt;br>
+         Node ID: %nodeid%&lt;br>
+         Host: %nodelabel%&lt;br>
+         Interface: %interface% &lt;br>
+         Process: %parm[process]% &lt;br>
+         PID: %parm[processid]% &lt;br>
+         Severity: %severity% &lt;br>
+         Process: %process% &lt;br>
+         Service (facility): %service% &lt;br>
+         &lt;br>
+         
+         APP_VERSION: %parm[APP_VERSION]% &lt;br>
+         MODULE_NAME: %parm[MODULE_NAME]% &lt;br>
+         alarm-text %parm[alarm-text]% &lt;br>
+
+         &lt;br>
+         Message: %parm[syslogmessage]% &lt;br>
+         &lt;br>
+         Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
+         &lt;/p></descr>
+      <logmsg dest="logndisplay">
+         &lt;p>Nokia/Lightspan Syslog Event MODULE_NAME: %parm[MODULE_NAME]%&lt;/p>
+      </logmsg>
+      <severity>Normal</severity>
    </event>
  
 
