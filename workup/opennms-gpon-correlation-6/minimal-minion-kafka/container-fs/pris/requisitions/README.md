@@ -34,3 +34,13 @@ to reload eventd use
 docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/reloadDaemonConfig -p 'daemonName alarmd'
 
 ```
+
+
+# gpon3
+Adding extra Nokia nodes for nokia logs into mix.
+To load use:
+
+```
+ docker compose  --profile kafka-client exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/importer/reloadImport -p 'url http://pris:8000/requisitions/gpon3'
+
+```

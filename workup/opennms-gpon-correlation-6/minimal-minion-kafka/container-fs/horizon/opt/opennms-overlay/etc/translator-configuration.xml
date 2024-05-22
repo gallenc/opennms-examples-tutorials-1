@@ -144,6 +144,155 @@
       </event-translation-spec>
 
       <!-- ******************************************* -->
+      <!-- Translations for Nokia ONT Devices          -->
+      <!-- ******************************************* -->
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/critical">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Critical" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/major">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Major" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/minor">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Minor" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+      
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/warning">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Warning" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/cleared">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Clear" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Cleared" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+
+      <event-translation-spec uei="uei.opennms.org/Nokia/Lightspan/ont-olt/Syslog/alarm/indeterminate">
+         <mappings>
+            <mapping>
+               <assignment name="uei" type="field">
+                  <value type="constant" result="uei.opennms.org/Translator/Nokia/Lightspan/ONT/Alarm/Raise" />
+               </assignment>
+               <assignment name="severity" type="field">
+                  <value type="constant" result="Indeterminate" />
+               </assignment>
+                <assignment name="interface" type="field"> 
+                   <value type="constant" result="254.0.0.1" />
+                </assignment>
+               <assignment name="nodeid" type="field">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                     <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
+                  </value>
+               </assignment>
+               <assignment name="originalEventId" type="parameter">
+                  <value type="field" name="dbid" matches=".*" result="${0}" />
+               </assignment>
+            </mapping>
+         </mappings>
+      </event-translation-spec>
+      
+
+
+      <!-- ******************************************* -->
       <!-- Translations for Calex ONT Devices -->
       <!-- ******************************************* -->
       <!-- Allowed severities see mapping in https://www.rfc-editor.org/rfc/rfc5674.html Alarms in Syslog -->
@@ -357,7 +506,9 @@
          </mappings>
       </event-translation-spec>
       
+      <!-- **************************************************************** -->
       <!-- gpon splitter child count is updated following import successful -->
+      <!-- **************************************************************** -->      
       <event-translation-spec uei="uei.opennms.org/internal/importer/importSuccessful">
          <mappings>
             <mapping>

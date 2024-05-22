@@ -12,6 +12,7 @@
    <event-file>events/Calex-Axos.syslog.events.xml</event-file>
    <event-file>events/Calex-Axos.alarm.events.xml</event-file>
    <event-file>events/Nokia-Lightspan.syslog.events.xml</event-file>
+   <event-file>events/Nokia-Lightspan.alarm.events.xml</event-file>
    
    <event-file>events/opennms.alarm.drools.situation.events.xml</event-file>
    <event-file>events/opennms.translator.gpon.events.xml</event-file>
