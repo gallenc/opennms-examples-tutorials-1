@@ -8,7 +8,7 @@
 
          <process-match expression="^alarm_logic_app$" />
          
-         <match type="regex" expression="APP_VERSION:(.*?),MODULE_NAME:(.*?),ENTITY_NAME:(.*?),ENTITY_TYPE:(.*?),alarm-type-id:(.*?),event-time:(.*?),perceived-severity:(.*?),alarm-text:(.*)" />
+         <match type="regex" expression="APP_VERSION:(.*?),MODULE_NAME:(.*?),ENTITY_NAME:(.*?),ENTITY_TYPE:(.*?),alarm-type-id:(.*?),event-time:(.*?),perceived-severity:(.*?),alarm-text:((?:.*?)Serial-Number=(.*?),(?:.*)CT-Name=(.*))" />
 
          <parameter-assignment matching-group="1" parameter-name="APP_VERSION"/>
          <parameter-assignment matching-group="2" parameter-name="MODULE_NAME"/>
@@ -18,10 +18,13 @@
          <parameter-assignment matching-group="6" parameter-name="event-time"/>
          <parameter-assignment matching-group="7" parameter-name="perceived-severity"/>
          <parameter-assignment matching-group="8" parameter-name="alarm-text"/>
+         <parameter-assignment matching-group="9" parameter-name="Serial-Number"/>
+         <parameter-assignment matching-group="10" parameter-name="CT-Name"/>
          
          <uei>uei.opennms.org/Nokia/Lightspan/Syslog/alarm</uei>
       </ueiMatch>
  
+      <!-- match for all generic events which are not alarms -->
        <ueiMatch>
 
          <match type="regex" expression="APP_VERSION:(.*?),MODULE_NAME:(.*?),(.*)" />
