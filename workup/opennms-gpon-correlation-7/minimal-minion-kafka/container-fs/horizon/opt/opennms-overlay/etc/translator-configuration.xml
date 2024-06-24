@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<event-translator-configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://xmlns.opennms.org/xsd/translator-configuration http://www.opennms.org/xsd/config/translator-configuration.xsd ">
-
+<event-translator-configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.opennms.org/xsd/translator-configuration http://www.opennms.org/xsd/config/translator-configuration.xsd ">
    <!-- Improved LinkDown/LinkUp events. Uses translator to add DB information to link status traps events -->
    <translation>
       <event-translation-spec uei="uei.opennms.org/generic/traps/SNMP_Link_Down">
@@ -11,22 +9,19 @@
                   <value type="constant" result="uei.opennms.org/translator/traps/SNMP_Link_Down" />
                </assignment>
                <assignment name="ifDescr" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="ifName" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="ifAlias" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfAlias FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfAlias FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
@@ -46,22 +41,19 @@
                   <value type="constant" result="uei.opennms.org/translator/traps/SNMP_Link_Up" />
                </assignment>
                <assignment name="ifDescr" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfDescr FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="ifName" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfName FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
                </assignment>
                <assignment name="ifAlias" type="parameter" default="Unknown">
-                  <value type="sql"
-                     result="SELECT snmp.snmpIfAlias FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
+                  <value type="sql" result="SELECT snmp.snmpIfAlias FROM snmpInterface snmp WHERE snmp.nodeid = ?::integer AND snmp.snmpifindex = ?::integer">
                      <value type="field" name="nodeid" matches=".*" result="${0}" />
                      <value type="parameter" name="~^\.1\.3\.6\.1\.2\.1\.2\.2\.1\.1\.([0-9]*)$" matches=".*" result="${0}" />
                   </value>
