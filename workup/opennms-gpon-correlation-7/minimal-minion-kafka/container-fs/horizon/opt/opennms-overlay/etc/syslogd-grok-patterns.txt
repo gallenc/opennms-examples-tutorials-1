@@ -2,7 +2,7 @@
 # Note: Ordering is important in this file. Patterns should be ordered from most specific to least specific. The first
 # pattern found to match will be the one used.
 
-# Match Calex
+# Match Calix
 #############
 # Feb 28 16:35:11 gla1209-olt-1 notfmgrd[6201]: [1][1][A][6201] [23] nm_handle_events.c.412: Id:8004, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:pppoe-session-termination, Category:GENERAL Cause:Session Terminated, Details:Server initiated session termination. Mac[a0:b5:3c:09:f5:7d], Xpath:/config/system/ont[ont-id='156458']/interface/ont-ethernet[port='g1']/vlan[vlan-id='3004']/c-vlan[c-vlan-id='901'] Address:/interfaces/interface[name='156458/g1']/vlan[vlan-id='3004']/c-vlan[c-vlan-id='901'], Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL
 
@@ -10,9 +10,9 @@
 # note setting arbitrary params is not supported yet %{STRING:paramCalexHeader} SyslogMessage.java 393
 
 # RFC 3164 with messageId, time (this matches messages without pri)
-# %{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
+#%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
 
-# Match calex with pri but use facilityPriority field not pri for message priority
+# Match calix with pri but use facilityPriority field not pri for message priority
 <%{STRING:ignore}>%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
 
 # Match Nokia
@@ -21,7 +21,10 @@
 # Feb 28 16:35:13 LT1-blk1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:ALCLFCA45C31,ENTITY_TYPE:rssi-onu,alarm-type-id:onu-upstream-rx-power-exceed-threshold,event-time:2024-02-28T16:35:13+00:00,perceived-severity:minor,alarm-text:low-alarm < onu-upstream-rx-power(-31.5 dBm) < low-warning, OLT xFP operational limits exceeded
 
 # RFC 3164 with time - no space month
-%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} - APP_NAME:%{NOSPACE:processName},%{STRING:message}
+#%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} - APP_NAME:%{NOSPACE:processName},%{STRING:message}
+
+# match nokia with pri
+<%{STRING:ignore}>%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} - APP_NAME:%{NOSPACE:processName},%{STRING:message}
 
 #############
 
