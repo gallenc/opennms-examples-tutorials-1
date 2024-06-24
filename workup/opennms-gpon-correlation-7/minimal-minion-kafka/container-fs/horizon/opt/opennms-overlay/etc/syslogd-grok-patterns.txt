@@ -9,8 +9,11 @@
 # note facilityPriority will have value without facility
 # note setting arbitrary params is not supported yet %{STRING:paramCalexHeader} SyslogMessage.java 393
 
-# RFC 3164 with messageId, time
-%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
+# RFC 3164 with messageId, time (this matches messages without pri)
+# %{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
+
+# Match calex with pri but use facilityPriority field not pri for message priority
+<%{STRING:ignore}>%{MONTH:month} %{INT:day} %{INT:hour}:%{INT:minute}:%{INT:second} %{HOSTNAMEORIP:hostname} %{NOSPACE:processName}[%{INT:processId}]: %{STRING:ignore}, Syslog-Severity:%{INT:facilityPriority}, %{STRING:message}
 
 # Match Nokia
 #############
