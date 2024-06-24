@@ -9,7 +9,7 @@ THIS VERSION CONTANSE A WORKING DROOLS SITUATION EXAMPLE TO PROPOGATE ALARMS UP 
 cd minimal-minion-activemq
 docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/eventconf.xml horizon:/usr/share/opennms/etc/
 
-docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/events/Calex-Axos.syslog.events.xml  horizon:/usr/share/opennms/etc/events/
+docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/events/Calix-Axos.syslog.events.xml  horizon:/usr/share/opennms/etc/events/
 
 ## send an event to reload the daemon
 docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/reloadDaemonConfig -p 'daemonName Eventd' 
@@ -24,7 +24,7 @@ docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/syslogd-grok-pa
 
 docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/syslogd-configuration.xml horizon:/usr/share/opennms/etc/
 
-docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/syslog/Calex-Axos.syslog.xml  horizon:/usr/share/opennms/etc/syslog/
+docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/syslog/Calix-Axos.syslog.xml  horizon:/usr/share/opennms/etc/syslog/
 
 
 ## send an event to reload the daemon

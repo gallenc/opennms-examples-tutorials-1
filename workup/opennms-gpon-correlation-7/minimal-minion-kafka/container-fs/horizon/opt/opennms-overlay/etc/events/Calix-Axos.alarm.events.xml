@@ -1,9 +1,9 @@
 <events xmlns="http://xmlns.opennms.org/xsd/eventconf">
 
    <event>
-      <uei>uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise</uei>
-      <event-label>Calex/Axos ONT Alarm</event-label>
-      <descr>&lt;p>Calex/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise</uei>
+      <event-label>Calix/Axos ONT Alarm</event-label>
+      <descr>&lt;p>Calix/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface:
@@ -43,16 +43,16 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Warning</severity>
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[LogName]%" alarm-type="1" auto-clean="false" />
    </event>
 
    <event>
-      <uei>uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Clear</uei>
-      <event-label>Calex/Axos ONT Alarm</event-label>
-      <descr>&lt;p>Calex/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Clear</uei>
+      <event-label>Calix/Axos ONT Alarm</event-label>
+      <descr>&lt;p>Calix/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface:
@@ -92,11 +92,11 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos ONT Alarm Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Cleared</severity>
       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%:%parm[LogName]%" alarm-type="2"
-         clear-key="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise:%dpname%:%nodeid%:%parm[LogName]%" auto-clean="false" />
+         clear-key="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise:%dpname%:%nodeid%:%parm[LogName]%" auto-clean="false" />
    </event>
 
 

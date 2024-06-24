@@ -1,9 +1,9 @@
 <events xmlns="http://xmlns.opennms.org/xsd/eventconf">
 
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Emergency</uei>
-      <event-label>Calex/Axos Syslog Event (Syslog/Emergency)</event-label>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Emergency</uei>
+      <event-label>Calix/Axos Syslog Event (Syslog/Emergency)</event-label>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -36,14 +36,14 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Critical</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Alert</uei>
-      <event-label>Calex/Axos Syslog Event (Syslog/Alert)</event-label>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Alert</uei>
+      <event-label>Calix/Axos Syslog Event (Syslog/Alert)</event-label>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -76,14 +76,14 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Major</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Critical</uei>
-      <event-label>Calex/Axos Syslog Event (Syslog/Critical)</event-label>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Critical</uei>
+      <event-label>Calix/Axos Syslog Event (Syslog/Critical)</event-label>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -116,14 +116,14 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Critical</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Error</uei>
-      <event-label>Calex/Axos Syslog Event (Syslog/Error)</event-label>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Error</uei>
+      <event-label>Calix/Axos Syslog Event (Syslog/Error)</event-label>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -156,14 +156,14 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Minor</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Warning</uei>
-      <event-label>Calex/Axos Syslog Event (Syslog/Warning)</event-label>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Warning</uei>
+      <event-label>Calix/Axos Syslog Event (Syslog/Warning)</event-label>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -196,13 +196,13 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Warning</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Notice</uei>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Notice</uei>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -235,13 +235,13 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Normal</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Informational</uei>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Informational</uei>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -274,13 +274,13 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Normal</severity>
    </event>
    <event>
-      <uei>uei.opennms.org/Calex/Axos/Syslog/Debug</uei>
-      <descr>&lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
+      <uei>uei.opennms.org/Calix/Axos/Syslog/Debug</uei>
+      <descr>&lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;br>
          Node ID: %nodeid%&lt;br>
          Host: %nodelabel%&lt;br>
          Interface: %interface% &lt;br>
@@ -313,7 +313,7 @@
          Raw Syslog Message: %parm[rawSyslogmessage]% &lt;br>
          &lt;/p></descr>
       <logmsg dest="logndisplay">
-         &lt;p>Calex/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
+         &lt;p>Calix/Axos Syslog Event Name: %parm[LogName]% Cause: %parm[LogCause]%&lt;/p>
       </logmsg>
       <severity>Normal</severity>
    </event>

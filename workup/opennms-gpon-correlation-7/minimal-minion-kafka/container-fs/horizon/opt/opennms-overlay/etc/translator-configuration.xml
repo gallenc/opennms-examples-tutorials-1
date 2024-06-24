@@ -293,17 +293,17 @@
 
 
       <!-- ******************************************* -->
-      <!-- Translations for Calex ONT Devices -->
+      <!-- Translations for Calix ONT Devices -->
       <!-- ******************************************* -->
       <!-- Allowed severities see mapping in https://www.rfc-editor.org/rfc/rfc5674.html Alarms in Syslog -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Emergency</uei> CRITICAL -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Alert</uei> CRITICAL -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Critical</uei> MAJOR -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Error</uei> MINOR -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Warning</uei> WARNING -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Notice</uei> INDETERNINATE -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Informational</uei> CLEARED -->
-      <!-- <uei>uei.opennms.org/Calex/Axos/Syslog/Debug</uei> INDETERNINATE -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Emergency</uei> CRITICAL -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Alert</uei> CRITICAL -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Critical</uei> MAJOR -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Error</uei> MINOR -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Warning</uei> WARNING -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Notice</uei> INDETERNINATE -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Informational</uei> CLEARED -->
+      <!-- <uei>uei.opennms.org/Calix/Axos/Syslog/Debug</uei> INDETERNINATE -->
 
       <!-- OpenNMS severities -->
       <!-- INDETERMINATE(1, "Indeterminate", "lightblue"), -->
@@ -314,11 +314,11 @@
       <!-- MAJOR(6, "Major", "orange"), -->
       <!-- CRITICAL(7, "Critical", "red"); -->
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Emergency">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Emergency">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Critical" />
@@ -338,11 +338,11 @@
          </mappings>
       </event-translation-spec>
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Alert">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Alert">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Critical" />
@@ -362,11 +362,11 @@
          </mappings>
       </event-translation-spec>
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Critical">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Critical">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Major" />
@@ -386,11 +386,11 @@
          </mappings>
       </event-translation-spec>
       
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Error">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Error">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Minor" />
@@ -410,11 +410,11 @@
          </mappings>
       </event-translation-spec>
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Warning">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Warning">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Warning" />
@@ -434,11 +434,11 @@
          </mappings>
       </event-translation-spec>
 
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Notice">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Notice">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Indeterminate" />
@@ -458,11 +458,11 @@
          </mappings>
       </event-translation-spec>
       
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Informational">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Informational">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Clear" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Clear" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Cleared" />
@@ -482,11 +482,11 @@
          </mappings>
       </event-translation-spec>
       
-      <event-translation-spec uei="uei.opennms.org/Calex/Axos/Syslog/Debug">
+      <event-translation-spec uei="uei.opennms.org/Calix/Axos/Syslog/Debug">
          <mappings>
             <mapping>
                <assignment name="uei" type="field">
-                  <value type="constant" result="uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise" />
+                  <value type="constant" result="uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise" />
                </assignment>
                <assignment name="severity" type="field">
                   <value type="constant" result="Indeterminate" />

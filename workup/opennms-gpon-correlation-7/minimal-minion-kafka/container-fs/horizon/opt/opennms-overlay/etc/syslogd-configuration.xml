@@ -49,7 +49,7 @@
         cause extreme slowdowns, especially with large amounts of <ueiMatch> tags.
     -->
     
-    <import-file>syslog/Calex-Axos.syslog.xml</import-file>
+    <import-file>syslog/Calix-Axos.syslog.xml</import-file>
     <import-file>syslog/Nokia-Lightspan.syslog.xml</import-file>
 
     <import-file>syslog/ApacheHTTPD.syslog.xml</import-file>

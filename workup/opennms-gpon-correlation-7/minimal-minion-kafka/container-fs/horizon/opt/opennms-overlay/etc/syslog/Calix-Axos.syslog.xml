@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Syslog message match definitions for Calex-Axos -->
+<!-- Syslog message match definitions for Calix-Axos -->
 <syslogd-configuration-group>
    <ueiList>
 
@@ -18,7 +18,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Emergency</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Emergency</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -34,7 +34,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Alert</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Alert</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -50,7 +50,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Critical</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Critical</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -66,7 +66,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Error</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Error</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -82,7 +82,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Warning</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Warning</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -98,7 +98,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Notice</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Notice</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -114,7 +114,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Informational</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Informational</uei>
       </ueiMatch>
       <ueiMatch>
          
@@ -130,7 +130,7 @@
          <parameter-assignment matching-group="7" parameter-name="Address"/>
          <parameter-assignment matching-group="8" parameter-name="AdditionalInfo"/>
          
-         <uei>uei.opennms.org/Calex/Axos/Syslog/Debug</uei>
+         <uei>uei.opennms.org/Calix/Axos/Syslog/Debug</uei>
       </ueiMatch>
 
    </ueiList>

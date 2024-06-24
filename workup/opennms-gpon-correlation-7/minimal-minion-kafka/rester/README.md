@@ -6,7 +6,7 @@ GET http://localhost:8980/opennms/rest/events/5317
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <event display="Y" log="Y" id="5317" severity="MINOR">
     <createTime>2024-03-20T06:40:29.910-04:00</createTime>
-    <description>&lt;p&gt;Calex/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.&lt;br&gt;
+    <description>&lt;p&gt;Calix/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.&lt;br&gt;
          Node ID: 317&lt;br&gt;
          Host: 212064&lt;br&gt;
          Interface:
@@ -47,7 +47,7 @@ GET http://localhost:8980/opennms/rest/events/5317
          &lt;/p&gt;</description>
     <host>horizon</host>
     <logMessage>
-         &lt;p&gt;Calex/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.&lt;/p&gt;
+         &lt;p&gt;Calix/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.&lt;/p&gt;
       </logMessage>
     <parameters>
         <parameter name="hostname" value="glo204-olt-1" type="string"/>
@@ -78,7 +78,7 @@ GET http://localhost:8980/opennms/rest/events/5317
     </parameters>
     <source>event-translator</source>
     <time>2024-02-28T16:36:00-05:00</time>
-    <uei>uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise</uei>
+    <uei>uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise</uei>
     <ipAddress>172.20.0.248</ipAddress>
     <nodeId>317</nodeId>
     <nodeLabel>212064</nodeLabel>
@@ -94,7 +94,7 @@ same event in json
     "id": 5317,
     "nodeId": 317,
     "nodeLabel": "212064",
-    "uei": "uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise",
+    "uei": "uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise",
     "time": 1709156160000,
     "host": "horizon",
     "source": "event-translator",
@@ -227,8 +227,8 @@ same event in json
         }
     ],
     "createTime": 1710931229910,
-    "description": "<p>Calex/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.<br>\n         Node ID: 317<br>\n         Host: 212064<br>\n         Interface:\n         172.20.0.248 <br>\n         Process: notfmgrd <br>\n         PID: 6203 <br>\n         Severity: Minor <br>\n         Process:  <br>\n         Service\n         (facility):  <br>\n         <br>\n\n         ShelfId:  <br>\n         SlotId:  <br>\n         ActiveOrStandby:  <br>\n         ProcessId:  <br>\n         LogFacility:  <br>\n         Event:  <br>\n         Id:  <br>\n         SyslogSeverity:\n          <br>\n         PerceivedSeverity: MINOR <br>\n         LogName: high-laser-bias <br>\n         LogCategory: PON\n         <br>\n         LogCause: High laser bias. <br>\n         Details: SerialNo=E7D3FA <br>\n         Xpath: /config/system/ont[ont-id=&#39;212064&#39;] <br>\n         Address: NULL <br>\n         AdditionalInfo:\n         Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL <br>\n         <br>\n         <a href=\"event/detail.jsp?id=5316\">Original Event ID 5316</a><br>\n         <br>\n         Message: Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id=&#39;212064&#39;] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL <br>\n         <br>\n         Raw Syslog Message:  <br>\n         </p>",
-    "logMessage": "\n         <p>Calex/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.</p>\n      ",
+    "description": "<p>Calix/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.<br>\n         Node ID: 317<br>\n         Host: 212064<br>\n         Interface:\n         172.20.0.248 <br>\n         Process: notfmgrd <br>\n         PID: 6203 <br>\n         Severity: Minor <br>\n         Process:  <br>\n         Service\n         (facility):  <br>\n         <br>\n\n         ShelfId:  <br>\n         SlotId:  <br>\n         ActiveOrStandby:  <br>\n         ProcessId:  <br>\n         LogFacility:  <br>\n         Event:  <br>\n         Id:  <br>\n         SyslogSeverity:\n          <br>\n         PerceivedSeverity: MINOR <br>\n         LogName: high-laser-bias <br>\n         LogCategory: PON\n         <br>\n         LogCause: High laser bias. <br>\n         Details: SerialNo=E7D3FA <br>\n         Xpath: /config/system/ont[ont-id=&#39;212064&#39;] <br>\n         Address: NULL <br>\n         AdditionalInfo:\n         Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL <br>\n         <br>\n         <a href=\"event/detail.jsp?id=5316\">Original Event ID 5316</a><br>\n         <br>\n         Message: Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id=&#39;212064&#39;] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL <br>\n         <br>\n         Raw Syslog Message:  <br>\n         </p>",
+    "logMessage": "\n         <p>Calix/Axos ONT Alarm Name: high-laser-bias Cause: High laser bias.</p>\n      ",
     "log": "Y",
     "display": "Y",
     "severity": "MINOR"
@@ -242,7 +242,7 @@ post event - note different format https://github.com/OpenNMS/opennms/blob/devel
 
 
 {
-    "uei": "uei.opennms.org/Translator/Calex/Axos/ONT/Alarm/Raise",
+    "uei": "uei.opennms.org/Translator/Calix/Axos/ONT/Alarm/Raise",
     "source": "event-translator",
     "host": "horizon",
     "severity": "MAJOR",

@@ -9,8 +9,8 @@
       </security>
    </global>
    
-   <event-file>events/Calex-Axos.syslog.events.xml</event-file>
-   <event-file>events/Calex-Axos.alarm.events.xml</event-file>
+   <event-file>events/Calix-Axos.syslog.events.xml</event-file>
+   <event-file>events/Calix-Axos.alarm.events.xml</event-file>
    <event-file>events/Nokia-Lightspan.syslog.events.xml</event-file>
    <event-file>events/Nokia-Lightspan.alarm.events.xml</event-file>
    

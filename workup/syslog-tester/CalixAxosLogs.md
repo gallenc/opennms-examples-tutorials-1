@@ -1,4 +1,4 @@
-# regex examples Calex Axos Events
+# regex examples Calix Axos Events
 
 see https://regex101.com/
 
