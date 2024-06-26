@@ -400,31 +400,53 @@
          <rra>RRA:MIN:0.5:288:366</rra>
       </rrd>
 
-      <service name="passive-node" interval="30000" user-defined="false" status="on">
+      <!-- for polling downstream alarms on passive secondary nodes -->
+      <service name="passive-secondary-node" interval="30000" user-defined="false" status="on">
          <parameter key="driver" value="org.postgresql.Driver" />
          <parameter key="user" value="opennms" />
          <parameter key="password" value="opennms" />
          <parameter key="url" value="jdbc:postgresql://database:5432/opennms" />
          <parameter key="query" value="WITH 
-         parent_id_query AS (SELECT n.nodeid AS parentId FROM node n where n.foreignsource='${node:foreign-source}' and n.foreignid='${node:foreign-id}' ), 
-         child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM parent_id_query) ),
-         alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al 
-              WHERE al.severity>3 
-              AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM parent_id_query)) 
-              AND al.reductionkey LIKE CONCAT( '%:','high-laser-bias') )
-         SELECT (CASE WHEN alarmCount>= childCount THEN 1 ELSE 0 END) AS serviceDown, childCount, alarmCount  FROM  child_count_query, alarm_count_query" />
+           parent_id_query AS (SELECT n.nodeid AS parentId FROM node n WHERE n.foreignsource='${node:foreign-source}' AND n.foreignid='${node:foreign-id}' ), 
+           child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM parent_id_query) ),
+           distinct_alarm_count_query AS (SELECT COUNT(*) AS distinctAlarmCount 
+              FROM ( SELECT DISTINCT al.nodeid  FROM alarms al INNER JOIN string_to_table('high-laser-bias,low-rx-opt-pwr-fe', ',') AS t(name) ON al.reductionkey LIKE CONCAT( '%:',name) 
+                     WHERE al.severity>3 
+                     AND al.nodeid IN (SELECT n.nodeid FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM parent_id_query)) ) AS tempTable )
+           SELECT (CASE WHEN childCount=0 THEN 0 WHEN distinctAlarmCount>= childCount THEN 1 ELSE 0 END) AS serviceDown, childCount, distinctAlarmCount  FROM  child_count_query, distinct_alarm_count_query" />
          <parameter key="column" value="serviceDown" />
          <parameter key="action" value="compare_int" />
          <parameter key="operator" value="&lt;" />
          <parameter key="operand" value="1" />
-         <parameter key="message" value="suspected fibre cut above passive node" />
+         <parameter key="message" value="suspected fibre cut above passive node ${node:foreign-source}:${node:foreign-id}" />
+      </service>
+      
+      <!-- for polling downstream alarms on passive primary nodes -->
+      <service name="passive-primary-node" interval="30000" user-defined="false" status="on">
+         <parameter key="driver" value="org.postgresql.Driver" />
+         <parameter key="user" value="opennms" />
+         <parameter key="password" value="opennms" />
+         <parameter key="url" value="jdbc:postgresql://database:5432/opennms" />
+         <parameter key="query" value="WITH 
+           parent_id_query AS (SELECT n.nodeid AS parentId FROM node n WHERE n.foreignsource='${node:foreign-source}' AND n.foreignid='${node:foreign-id}' ), 
+           child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM parent_id_query) ),
+           alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 
+               AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM parent_id_query)) 
+               AND al.eventuei ='uei.opennms.org/nodes/nodeDown' )
+           SELECT (CASE WHEN childCount=0 THEN 0 WHEN alarmCount>= childCount THEN 1 ELSE 0 END) AS serviceDown, childCount, alarmCount  FROM  child_count_query, alarm_count_query" />
+         <parameter key="column" value="serviceDown" />
+         <parameter key="action" value="compare_int" />
+         <parameter key="operator" value="&lt;" />
+         <parameter key="operand" value="1" />
+         <parameter key="message" value="suspected fibre cut above passive node ${node:foreign-source}:${node:foreign-id}" />
       </service>
 
       <!-- Query every 30secs always -->
       <downtime begin="0" interval="30000" /><!-- 30s -->
    </package>
 
-   <monitor service="passive-node" class-name="org.opennms.netmgt.poller.monitors.JDBCQueryMonitor" />
+   <monitor service="passive-primary-node" class-name="org.opennms.netmgt.poller.monitors.JDBCQueryMonitor" />
+   <monitor service="passive-secondary-node" class-name="org.opennms.netmgt.poller.monitors.JDBCQueryMonitor" />
 
    <monitor service="JMX-Cassandra" class-name="org.opennms.netmgt.poller.monitors.Jsr160Monitor" />
    <monitor service="JMX-Cassandra-Newts" class-name="org.opennms.netmgt.poller.monitors.Jsr160Monitor" />
