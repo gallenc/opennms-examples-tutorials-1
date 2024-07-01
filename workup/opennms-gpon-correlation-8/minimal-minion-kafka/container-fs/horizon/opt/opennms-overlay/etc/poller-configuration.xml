@@ -432,13 +432,17 @@
            child_count_query AS (SELECT COUNT(*) AS childCount FROM node n WHERE n.nodeparentid IN (SELECT parentId FROM parent_id_query) ),
            alarm_count_query AS (SELECT COUNT(*) AS alarmCount FROM alarms al WHERE al.severity>3 
                AND al.nodeid IN (SELECT n.nodeid FROM node n where n.nodeparentid IN (SELECT parentId FROM parent_id_query)) 
-               AND al.eventuei ='uei.opennms.org/nodes/nodeDown' )
+               AND al.eventuei ='uei.opennms.org/nodes/nodeLostService' )
            SELECT (CASE WHEN childCount=0 THEN 0 WHEN alarmCount>= childCount THEN 1 ELSE 0 END) AS serviceDown, childCount, alarmCount  FROM  child_count_query, alarm_count_query" />
          <parameter key="column" value="serviceDown" />
          <parameter key="action" value="compare_int" />
          <parameter key="operator" value="&lt;" />
          <parameter key="operand" value="1" />
          <parameter key="message" value="suspected fibre cut above passive node ${node:foreign-source}:${node:foreign-id}" />
+      </service>
+      
+      <!-- this simply defines an always up second service on all passive nodes so that we don't get a node down alarm  -->
+      <service name="passive-node-up-service" interval="30000" user-defined="false" status="on">
       </service>
 
       <!-- Query every 30secs always -->
@@ -447,6 +451,7 @@
 
    <monitor service="passive-primary-node" class-name="org.opennms.netmgt.poller.monitors.JDBCQueryMonitor" />
    <monitor service="passive-secondary-node" class-name="org.opennms.netmgt.poller.monitors.JDBCQueryMonitor" />
+   <monitor service="passive-node-up-service" class-name="org.opennms.netmgt.poller.monitors.PassiveServiceMonitor" />
 
    <monitor service="JMX-Cassandra" class-name="org.opennms.netmgt.poller.monitors.Jsr160Monitor" />
    <monitor service="JMX-Cassandra-Newts" class-name="org.opennms.netmgt.poller.monitors.Jsr160Monitor" />
