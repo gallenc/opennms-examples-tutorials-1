@@ -62,7 +62,9 @@ public class SendCalixSyslogCLEARFourOpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+      //String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+
+      String logEntry = "Mar 12 10:29:25 lec191-olt-1 notfmgrd[6212]: [1][1][A][6212] [23] Id:5031, Syslog-Severity:6, Perceived-Severity:CLEAR, Name:low-rx-opt-pwr-fe, Category:PON Cause:The ONT reports low received optical power from the OLT., Details:SerialNo=AE4BB3, Xpath:/config/system/ont[ont-id='130749'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
 
       CalexAxosEventLog eventParser = new CalexAxosEventLog();
 

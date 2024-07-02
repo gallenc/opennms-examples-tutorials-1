@@ -42,7 +42,10 @@ public class SendCalixSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
    //List<String> ontids = Arrays.asList("61180","124010","130749");
    //List<String> ontids = Arrays.asList("61180","124010");
 
-   List<String> causeNames = Arrays.asList("high-laser-bias", "low-rx-opt-pwr-fe");
+   // List<String> causeNames = Arrays.asList("high-laser-bias", "low-rx-opt-pwr-fe");
+   List<String> causeNames = Arrays.asList(
+            "ont-eth-down", "ont-dying-gasp", "ont-missing", "low-rx-opt-pwr-fe", "loss-of-pon", "lacp-fault-on-port",
+            "lag-group-down", "duplex-system-failure", "card-departed");
 
    @Before
    public void setup() throws IOException {
@@ -63,7 +66,9 @@ public class SendCalixSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
    @Test
    public void sendMessageTest() {
 
-      String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:3, Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+      // String logEntry = "Feb 28 00:36:00 lec191-olt-1 notfmgrd[6203]: [1][1][A][6203] [23] Id:5030, Syslog-Severity:3, Perceived-Severity:MINOR, Name:high-laser-bias, Category:PON Cause:High laser bias., Details:SerialNo=E7D3FA, Xpath:/config/system/ont[ont-id='61180'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
+
+      String logEntry = "Mar 12 10:29:25 lec191-olt-1 notfmgrd[6212]: [1][1][A][6212] [23] Id:5031, Syslog-Severity:3, Perceived-Severity:MINOR, Name:low-rx-opt-pwr-fe, Category:PON Cause:The ONT reports low received optical power from the OLT., Details:SerialNo=AE4BB3, Xpath:/config/system/ont[ont-id='130749'] Address:NULL, Primary-element:NULL, Value:NULL, Verb:NULL, Session:0, Login:NULL, IpAddress:NULL, SrcManager:NULL, Secondary-element:NULL";
 
       CalexAxosEventLog eventParser = new CalexAxosEventLog();
 
