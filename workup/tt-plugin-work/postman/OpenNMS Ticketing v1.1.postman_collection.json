@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "d9134a5c-ea25-42d2-a248-55a125793f95",
+		"name": "OpenNMS Ticketing v1.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1544403"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"classificationPath\": \"Event(\\\"Event/Support/Incident/Monitoring Incident\\\")\",\n\t\"description\": \"{{description}}\",\n\t\"longDescription\": \"{{longDescription}}\",\n\t\"customAttributes\": {\n\t\t\"Category\": \"{{categoryUpdated}}\",\n\t\t\"AlarmSource\": \"{{alarmSource}}\",\n\t\t\"AlarmId\": \"{{alarmId}}\"\n\t},\n\t\"resourceIds\": [\"{{resourceUID}}\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/create/event",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"create",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Close\",\n\t\"comment\": \"{{closeComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Cancel\",\n\t\"comment\": \"{{cancelComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resolve Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Resolve\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/get/event/extended/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"get",
+						"event",
+						"extended",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+					"username = pm.collectionVariables.get(\"username\");",
+					"password = pm.collectionVariables.get(\"password\");",
+					"",
+					"const postRequest = {",
+					"\turl: baseUrl + '/api/v1/auth/login',",
+					"\tmethod: 'POST',",
+					"\ttimeout: 0,",
+					"\theader: {",
+					"\t\t\"Content-Type\": \"application/json\"",
+					"\t},",
+					"\tbody: {",
+					"\t\tmode: 'raw',",
+					"\t\traw: JSON.stringify({",
+					"\t\t\tusername: username,",
+					"\t\t\tpassword: password",
+					"\t\t})",
+					"\t}",
+					"};",
+					"",
+					"pm.sendRequest(postRequest, function (err, response) {",
+					"\tconsole.log(response.json());",
+					"\taccess_token = response.json()['access_token'];",
+					"\tconsole.log(access_token);",
+					"\tpm.collectionVariables.set(\"access_token\", access_token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://demo-deck-apigtw.ni2.tech",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "APIOpenNMS",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "M9218b24594136a58417157e587a8eaf4!",
+			"type": "string"
+		},
+		{
+			"key": "description",
+			"value": "something happened",
+			"type": "string"
+		},
+		{
+			"key": "longDescription",
+			"value": "something happened a lot",
+			"type": "string"
+		},
+		{
+			"key": "categoryUpdated",
+			"value": "Network",
+			"type": "string"
+		},
+		{
+			"key": "resourceUID",
+			"value": "monaco_01",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": ""
+		},
+		{
+			"key": "eventId",
+			"value": "EVT-00012395",
+			"type": "string"
+		},
+		{
+			"key": "closeComment",
+			"value": "alarm good",
+			"type": "string"
+		},
+		{
+			"key": "cancelComment",
+			"value": "False alarm",
+			"type": "string"
+		},
+		{
+			"key": "resolveComment",
+			"value": "Resolved Comment",
+			"type": "string"
+		},
+		{
+			"key": "alarmId",
+			"value": "1234xyz",
+			"type": "string"
+		}
+	]
+}

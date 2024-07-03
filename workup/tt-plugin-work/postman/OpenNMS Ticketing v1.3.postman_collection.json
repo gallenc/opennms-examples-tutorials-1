@@ -1,0 +1,1265 @@
+{
+	"info": {
+		"_postman_id": "d9134a5c-ea25-42d2-a248-55a125793f95",
+		"name": "OpenNMS Ticketing v1.3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1544403"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"classificationPath\": \"Event(\\\"Event/Support/Incident/Monitoring Incident\\\")\",\n\t\"description\": \"{{description}}\",\n\t\"longDescription\": \"{{longDescription}}\",\n\t\"customAttributes\": {\n\t\t\"Category\": \"{{categoryUpdated}}\",\n\t\t\"AlarmSource\": \"{{alarmSource}}\",\n\t\t\"AlarmId\": \"{{alarmId}}\",\n\t\t\"AlarmSeverity\": \"{{alarmSeverity}}\",\n\t\t\"AlarmStatus\": \"{{alarmStatus}}\"\n\t},\n\t\"resourceIds\": [\"{{resourceUID}}\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/create/event",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"create",
+						"event"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classificationPath\": \"Event(\\\"Event/Support/Incident/Monitoring Incident\\\")\",\n\t\"description\": \"{{description}}\",\n\t\"longDescription\": \"{{longDescription}}\",\n\t\"customAttributes\": {\n\t\t\"Category\": \"{{categoryUpdated}}\",\n\t\t\"AlarmSource\": \"{{alarmSource}}\",\n\t\t\"AlarmId\": \"{{alarmId}}\"\n\t},\n\t\"resourceIds\": [\"{{resourceUID}}\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/create/event",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"create",
+								"event"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "87"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"57-Zh9uKq2mLpIEiPPH54Jwts0i0Ew\""
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:00:22 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\"universalId\":\"EVT-00012399\",\"url\":\"/api/v1/entity/event/get/event/base/EVT-00012399\"}"
+				}
+			]
+		},
+		{
+			"name": "Start Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Start\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Start Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Start\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"executeLifecycleAction",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:05:24 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "content-length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"{{description}}\",\n\t\"longDescription\": \"{{longDescription}}\",\n\t\"customAttributes\": {\n\t\t\"Category\": \"{{categoryUpdated}}\",\n\t\t\"AlarmSource\": \"{{alarmSource}}\",\n\t\t\"AlarmId\": \"{{alarmId}}\",\n\t\t\"AlarmSeverity\": \"{{alarmSeverity}}\",\n\t\t\"AlarmStatus\": \"{{alarmStatus}}\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/update/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"update",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"{{description}}\",\n\t\"longDescription\": \"{{longDescription}}\",\n\t\"customAttributes\": {\n\t\t\"Category\": \"{{categoryUpdated}}\",\n\t\t\"AlarmSource\": \"{{alarmSource}}\",\n\t\t\"AlarmId\": \"{{alarmId}}\",\n\t\t\"AlarmSeverity\": \"{{alarmSeverity}}\",\n\t\t\"AlarmStatus\": \"{{alarmStatus}}\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/update/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"update",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com strigo-preprod-eca.strigo.etiya.dev;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "8"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "Thu, 27 Jun 2024 08:12:40 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "content-length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Resolve Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Resolve\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Resolve Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Resolve\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"executeLifecycleAction",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:02:31 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "content-length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Resolve Trouble Ticket - ERROR ACTION_NOT_AVAILABLE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Resolve\",\n\t\"comment\": \"{{resolveComment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"executeLifecycleAction",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "230"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"e6-VGz/l7bxgrJQKSpd5WNVL2Stgj4\""
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:04:34 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\"statusCode\":500,\"code\":\"ACTION_NOT_AVAILABLE\",\"timestamp\":\"2024-05-15T14:04:34.078Z\",\"path\":\"/api/v1/entity/event/executeLifecycleAction/event/EVT-00012399\",\"description\":\"The given lifecycle action cannot be done on the Event\"}"
+				}
+			]
+		},
+		{
+			"name": "Close Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Close\",\n\t\"comment\": \"{{closeComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Close Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Close\",\n\t\"comment\": \"{{closeComment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"executeLifecycleAction",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:03:02 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "content-length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Cancel Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"Cancel\",\n\t\"comment\": \"{{cancelComment}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"executeLifecycleAction",
+						"event",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cancel Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Cancel\",\n\t\"comment\": \"{{cancelComment}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/executeLifecycleAction/event/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"executeLifecycleAction",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 15 May 2024 14:03:40 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						},
+						{
+							"key": "content-length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Trouble Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/entity/event/get/event/extended/{{eventId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"entity",
+						"event",
+						"get",
+						"event",
+						"extended",
+						"{{eventId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Trouble Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entity/event/get/event/extended/{{eventId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entity",
+								"event",
+								"get",
+								"event",
+								"extended",
+								"{{eventId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com;script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' blob: maps.googleapis.com https://unpkg.com/redoc@latest/bundles/redoc.standalone.js;style-src 'self' 'unsafe-inline' fonts.googleapis.com;img-src 'self' 'unsafe-inline' maps.gstatic.com maps.googleapis.com *.googleapis.com *.ggpht.com data: blob:;font-src 'self' fonts.gstatic.com data:;connect-src 'self' maps.googleapis.com strigo-preprod-eca.strigo.etiya.dev;frame-ancestors 'self';form-action 'self'"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "0"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "1470"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"5be-kC+6VYpwFWnJeDKuyQFPU41BLLQ\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 27 Jun 2024 08:12:53 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\"description\":\"something happened\",\"longDescription\":\"something happened a lot\",\"customAttributes\":{\"Description\":\"something happened\",\"CorrectedPendingTime\":0,\"Category\":\"Network\",\"ResponseAgreementStatus\":\"In Compliance\",\"Escalation\":false,\"Expedite\":false,\"Knowledge\":false,\"Name\":\"EVT-00000063\",\"CorrectedResponseTime\":0,\"AlarmSource\":\"OpenNMS1\",\"Identifier\":\"EVT-00000063\",\"Submitter\":\"OpenNMSAPI\",\"UnSqueezable\":false,\"UniversalId\":\"EVT-00000063\",\"Status\":\"Open\",\"AddedStartPendingTime\":0,\"AlarmId\":\"1234xyz\",\"PendingTime\":0,\"AlarmSeverity\":\"Minor\",\"RequestSysMode\":\"new\",\"Priority\":\"3-Moderate\",\"RequiresAttention\":false,\"ResolutionAgreementStatus\":\"In Compliance\",\"LongDescription\":\"something happened a lot\",\"LastModificationDate\":1719475960225,\"AlarmStatus\":\"OPEN\",\"AddedPendingTime\":0},\"category\":\"Event\",\"classifications\":[\"Event\",\"Event\",\"Support\",\"Incident\",\"Monitoring Incident\"],\"classificationPath\":\"Event(\\\"Event/Support/Incident/Monitoring Incident\\\")\",\"name\":\"EVT-00000063\",\"universalId\":\"EVT-00000063\",\"services\":[],\"resources\":[{\"customAttributes\":{\"Status\":\"In Service\",\"Identifier\":\"FUN-00000009\",\"LastModificationDate\":1719475885158,\"UniversalId\":\"SBAS_225\",\"Name\":\"SBAS EMS\"},\"category\":\"Function\",\"classifications\":[\"Function\",\"Function\",\"Network\",\"Generic Node\",\"EMS Node\"],\"classificationPath\":\"Function(\\\"Function/Network/Generic Node/EMS Node\\\")\",\"name\":\"SBAS EMS\",\"universalId\":\"SBAS_225\"}],\"parents\":[],\"origins\":[],\"documentations\":[]}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"baseUrl = pm.collectionVariables.get(\"baseUrl\");",
+					"username = pm.collectionVariables.get(\"username\");",
+					"password = pm.collectionVariables.get(\"password\");",
+					"",
+					"const postRequest = {",
+					"\turl: baseUrl + '/api/v1/auth/login',",
+					"\tmethod: 'POST',",
+					"\ttimeout: 0,",
+					"\theader: {",
+					"\t\t\"Content-Type\": \"application/json\"",
+					"\t},",
+					"\tbody: {",
+					"\t\tmode: 'raw',",
+					"\t\traw: JSON.stringify({",
+					"\t\t\tusername: username,",
+					"\t\t\tpassword: password",
+					"\t\t})",
+					"\t}",
+					"};",
+					"",
+					"pm.sendRequest(postRequest, function (err, response) {",
+					"\tconsole.log(response.json());",
+					"\taccess_token = response.json()['access_token'];",
+					"\tconsole.log(access_token);",
+					"\tpm.collectionVariables.set(\"access_token\", access_token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://demo-deck-apigtw.ni2.tech",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "APIOpenNMS",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "M9218b24594136a58417157e587a8eaf4!",
+			"type": "string"
+		},
+		{
+			"key": "description",
+			"value": "something happened",
+			"type": "string"
+		},
+		{
+			"key": "longDescription",
+			"value": "something happened a lot",
+			"type": "string"
+		},
+		{
+			"key": "categoryUpdated",
+			"value": "Network",
+			"type": "string"
+		},
+		{
+			"key": "resourceUID",
+			"value": "monaco_01",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": ""
+		},
+		{
+			"key": "eventId",
+			"value": "EVT-00012395",
+			"type": "string"
+		},
+		{
+			"key": "closeComment",
+			"value": "alarm good",
+			"type": "string"
+		},
+		{
+			"key": "cancelComment",
+			"value": "False alarm",
+			"type": "string"
+		},
+		{
+			"key": "resolveComment",
+			"value": "Resolved Comment",
+			"type": "string"
+		},
+		{
+			"key": "alarmId",
+			"value": "1234xyz",
+			"type": "string"
+		},
+		{
+			"key": "alarmStatus",
+			"value": "OPEN",
+			"type": "string"
+		},
+		{
+			"key": "alarmSeverity",
+			"value": "Critical",
+			"type": "string"
+		},
+		{
+			"key": "alarmSource",
+			"value": "OpenNMS1",
+			"type": "string"
+		}
+	]
+}

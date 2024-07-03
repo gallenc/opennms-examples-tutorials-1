@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>org.opennms.integration.ni2.ttapi</groupId>
+      <artifactId>ni2-tt-api</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>ni2-tt-api-core-shaded</artifactId>
+   <packaging>bundle</packaging>
+
+   <build>
+      <plugins>
+
+         <!-- <plugin> -->
+         <!-- <groupId>org.apache.maven.plugins</groupId> -->
+         <!-- <artifactId>maven-shade-plugin</artifactId> -->
+         <!-- <version>3.5.3</version> -->
+         <!-- <executions> -->
+         <!-- <execution> -->
+         <!-- <phase>process-sources</phase> -->
+         <!-- <goals> -->
+         <!-- <goal>shade</goal> -->
+         <!-- </goals> -->
+         <!-- </execution> -->
+         <!-- </executions> -->
+         <!-- <configuration> -->
+         <!-- <filters> -->
+         <!-- <filter> -->
+         <!-- <artifact>cglib:cglib</artifact> -->
+         <!-- <includes> -->
+         <!-- <include>*</include> -->
+         <!-- </includes> -->
+         <!-- </filter> -->
+         <!-- </filters> -->
+         <!-- </configuration> -->
+         <!-- </plugin> -->
+
+
+         <!-- <plugin> -->
+         <!-- <groupId>org.apache.maven.plugins</groupId> -->
+         <!-- <artifactId>maven-shade-plugin</artifactId> -->
+         <!-- <version>3.5.3</version> -->
+         <!-- <dependencies> -->
+         <!-- <dependency> -->
+         <!-- <groupId>com.hazelcast</groupId> -->
+         <!-- <artifactId>hazelcast-build-utils</artifactId> -->
+         <!-- <version>4.2.8</version> -->
+         <!-- </dependency> -->
+         <!-- </dependencies> -->
+         <!-- <executions> -->
+         <!-- <execution> -->
+         <!-- <phase>package</phase> -->
+         <!-- <goals> -->
+         <!-- <goal>shade</goal> -->
+         <!-- </goals> -->
+         <!-- <configuration> -->
+         <!-- <transformers> -->
+         <!-- <transformer implementation="com.hazelcast.buildutils.HazelcastManifestTransformer"> -->
+         <!-- <mainClass>...</mainClass> -->
+         <!-- the tag below is required due to a missing null-check it seems -->
+         <!-- <overrideInstructions></overrideInstructions> -->
+         <!-- </transformer> -->
+         <!-- </transformers> -->
+         <!-- </configuration> -->
+         <!-- </execution> -->
+         <!-- </executions> -->
+         <!-- </plugin> -->
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>src-dependencies</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>org.opennms.integration.ni2.ttapi</groupId>
+                           <artifactId>ni2-api-cxf-client</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                        <artifactItem>
+                           <groupId>org.opennms.integration.ni2.ttapi</groupId>
+                           <artifactId>ni2-tt-api-core</artifactId>
+                           <version>${project.version}</version>
+                           <type>jar</type>
+                        </artifactItem>
+                     </artifactItems>
+                     <!-- this generated code is replaced by class in this module -->
+                     <excludes>**/MANIFEST.MF</excludes>
+                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+               <instructions>
+                  <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                  <Bundle-Version>${project.version}</Bundle-Version>
+                  <Export-package>{local-packages}</Export-package>
+                  <Import-Package>
+                     org.apache.felix.service.command,
+                     javax.ws.rs;version="[2.0,3)",
+                     javax.ws.rs.core;version="[2.0,3)",
+                     *
+                  </Import-Package>
+               </instructions>
+            </configuration>
+         </plugin>
+
+      </plugins>
+   </build>
+
+
+   <dependencies>
+<!--       <dependency> -->
+<!--          <groupId>org.opennms.integration.ni2.ttapi</groupId> -->
+<!--          <artifactId>ni2-api-cxf-client</artifactId> -->
+<!--          <version>${project.version}</version> -->
+<!--          <scope>provided</scope> -->
+<!--       </dependency> -->
+
+<!--       <dependency> -->
+<!--          <groupId>org.opennms.integration.ni2.ttapi</groupId> -->
+<!--          <artifactId>ni2-tt-api-core</artifactId> -->
+<!--          <version>${project.version}</version> -->
+<!--          <scope>provided</scope> -->
+<!--       </dependency> -->
+
+   </dependencies>
+
+
+
+</project>
+
+

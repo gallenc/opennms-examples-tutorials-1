@@ -1,0 +1,8 @@
+<snmp-config xmlns="http://xmlns.opennms.org/xsd/config/snmp" version="v2c" read-community="public" timeout="1800" retry="1">
+   <definition write-community="private" read-community="monacofes">
+      <specific>172.20.0.103</specific>
+   </definition>
+   <definition write-community="private" read-community="adam">
+      <specific>172.20.0.105</specific>
+   </definition>
+</snmp-config>  

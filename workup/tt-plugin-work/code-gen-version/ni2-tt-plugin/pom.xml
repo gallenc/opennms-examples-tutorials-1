@@ -1,0 +1,340 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.opennms.integration.ni2.ttapi</groupId>
+   <artifactId>ni2-tt-plugin-parent</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <packaging>pom</packaging>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <java.version>11</java.version>
+      <maven.compiler.source>${java.version}</maven.compiler.source>
+      <maven.compiler.target>${java.version}</maven.compiler.target>
+      <swagger-core-version>1.5.22</swagger-core-version>
+      <!-- using OpenNMS version - generated 9.1 version doesn't support java 11 annotations -->
+      <jetty-version>9.4.53.v20231009</jetty-version>
+      <junit-version>4.13.2</junit-version>
+      <logback-version>1.4.14</logback-version>
+      <beanvalidation-version>2.0.2</beanvalidation-version>
+      <slf4jVersion>1.7.36</slf4jVersion>
+
+      <!-- feature dependencies - may need changed -->
+      <commons-lang3.version>3.12.0</commons-lang3.version>
+      <cxf-xjc.version>3.3.2</cxf-xjc.version>
+
+      <!-- <cxf-version>3.3.0</cxf-version> -->
+      <cxf-version>3.5.5</cxf-version>
+      <jackson-jaxrs-version>2.9.8</jackson-jaxrs-version>
+
+      <!-- <cxf-version>3.5.8</cxf-version> --> <!-- match opennms -->
+      <!-- <jackson-jaxrs-version>2.14.2</jackson-jaxrs-version> --> <!-- match opennms fails -->
+      <!-- <jackson-jaxrs-version>2.15.2</jackson-jaxrs-version> -->
+
+
+      <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
+      <swagger-ui-version>3.13.0</swagger-ui-version>
+
+      <karaf.version>4.2.6</karaf.version>
+      <karaf-maven-plugin.version>4.4.3</karaf-maven-plugin.version>
+
+      <!-- minimum OPA version this plugin supports (inclusive) -->
+      <!-- <opennms.api.version.min>0.2.1</opennms.api.version.min> -->
+      <opennms.api.version.min>1.6.0</opennms.api.version.min>
+      <!-- maximum OPA version this plugin supports (exclusive) -->
+      <opennms.api.version.max>2.0.0</opennms.api.version.max>
+   </properties>
+
+   <modules>
+      <module>ni2-api-spring</module>
+      <module>ni2-api-cxf</module>
+      <module>ni2-tt-api</module>
+      <module>minimal-minion-activemq</module>
+   </modules>
+
+   <build>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.felix</groupId>
+               <artifactId>maven-bundle-plugin</artifactId>
+               <version>5.1.9</version>
+               <configuration>
+                  <instructions>
+                     <Bundle-RequiredExecutionEnvironment>JavaSE-${java.version}</Bundle-RequiredExecutionEnvironment>
+                  </instructions>
+               </configuration>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.karaf.tooling</groupId>
+               <artifactId>karaf-maven-plugin</artifactId>
+               <version>${karaf-maven-plugin.version}</version>
+               <extensions>true</extensions>
+            </plugin>
+
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>build-helper-maven-plugin</artifactId>
+               <version>1.9.1</version>
+            </plugin>
+
+            <plugin>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>3.1.0</version>
+            </plugin>
+
+            <plugin>
+               <artifactId>maven-failsafe-plugin</artifactId>
+               <version>2.6</version>
+            </plugin>
+
+            <plugin>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.18</version>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <version>3.6.1</version>
+            </plugin>
+
+
+            <plugin>
+               <groupId>org.eclipse.jetty</groupId>
+               <artifactId>jetty-maven-plugin</artifactId>
+               <version>${jetty-version}</version>
+            </plugin>
+
+            <plugin>
+               <groupId>com.google.code.maven-replacer-plugin</groupId>
+               <artifactId>replacer</artifactId>
+               <version>1.5.3</version>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-source-plugin</artifactId>
+               <version>3.3.1</version>
+            </plugin>
+
+            <!-- this plugin just allows the project to load in eclipse without execution errors -->
+            <!-- The org.eclipse.m2e:lifecycle-mapping plugin doesn't exist actually. -->
+            <!-- It should be used from the <build><pluginManagement> section of your pom.xml. That way, it's not resolved by Maven but can be read by m2e. -->
+            <plugin>
+               <groupId>org.eclipse.m2e</groupId>
+               <artifactId>lifecycle-mapping</artifactId>
+               <version>1.0.0</version>
+               <configuration>
+                  <lifecycleMappingMetadata>
+                     <pluginExecutions>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.apache.maven.plugins</groupId>
+                              <artifactId>maven-dependency-plugin</artifactId>
+                              <versionRange>[0,)</versionRange>
+                              <goals>
+                                 <goal>unpack</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <!-- <execute /> -->
+                              <!-- ignore: tells m2eclipse to skip the execution. -->
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.codehaus.mojo</groupId>
+                              <artifactId>build-helper-maven-plugin</artifactId>
+                              <versionRange>[0,)</versionRange>
+                              <goals>
+                                 <goal>add-source</goal>
+                                 <goal>add-test-source</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <execute />
+                           </action>
+                        </pluginExecution>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.eclipse.jetty</groupId>
+                              <artifactId>jetty-maven-plugin</artifactId>
+                              <versionRange>[0,)</versionRange>
+                              <goals>
+                                 <goal>start</goal>
+                                 <goal>deploy-war</goal>
+                                 <goal>stop</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <!-- ignore: tells m2eclipse to skip the execution. -->
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                     </pluginExecutions>
+                  </lifecycleMappingMetadata>
+               </configuration>
+            </plugin>
+
+         </plugins>
+      </pluginManagement>
+
+   </build>
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jaxrs</artifactId>
+            <scope>compile</scope>
+            <version>${swagger-core-version}</version>
+            <!-- excluded validation-api:1.1.0.Final due to fact that it doesn't
+               support TYPE_USE,
+               for this project used jakarta.validation-api -->
+            <exclusions>
+               <exclusion>
+                  <groupId>javax.validation</groupId>
+                  <artifactId>validation-api</artifactId>
+               </exclusion>
+            </exclusions>
+         </dependency>
+         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+         </dependency>
+         <!-- Bean Validation API support -->
+         <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${beanvalidation-version}</version>
+            <scope>provided</scope>
+         </dependency>
+         <!-- CXF Client -->
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-client</artifactId>
+            <version>${cxf-version}</version>
+            <scope>test</scope>
+         </dependency>
+
+         <!-- CXF server -->
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description</artifactId>
+            <version>${cxf-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <!-- cxf swagger feature https://cxf.apache.org/docs/swagger2feature.html -->
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+            <version>${cxf-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-policy</artifactId>
+            <version>${cxf-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-wsdl</artifactId>
+            <version>${cxf-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson-jaxrs-version}</version>
+            <scope>compile</scope>
+         </dependency>
+         <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-jaxrs-version}</version>
+         </dependency>
+         <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta-annotation-version}</version>
+            <scope>provided</scope>
+         </dependency>
+         <!-- <dependency> -->
+         <!-- <groupId>joda-time</groupId> -->
+         <!-- <artifactId>joda-time</artifactId> -->
+         <!-- <version>2.10.13</version> -->
+         <!-- </dependency> -->
+
+         <!-- cxf open api feature https://cxf.apache.org/docs/openapifeature.html -->
+         <!-- <dependency> -->
+         <!-- <groupId>org.apache.cxf</groupId> -->
+         <!-- <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId> -->
+         <!-- <version>${cxf-version}</version> -->
+         <!-- </dependency> -->
+
+         <!-- cxf swagger feature https://cxf.apache.org/docs/swagger2feature.html -->
+
+         <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>${swagger-ui-version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.opennms.integration.api</groupId>
+            <artifactId>api</artifactId>
+            <version>${opennms.api.version.min}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.opennms.integration.api</groupId>
+            <artifactId>common</artifactId>
+            <version>${opennms.api.version.min}</version>
+         </dependency>
+         
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
+         </dependency>
+
+
+      </dependencies>
+   </dependencyManagement>
+
+   <repositories>
+      <repository>
+         <id>sonatype-snapshots</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+         <snapshots>
+            <enabled>true</enabled>
+         </snapshots>
+      </repository>
+   </repositories>
+
+
+</project>
+

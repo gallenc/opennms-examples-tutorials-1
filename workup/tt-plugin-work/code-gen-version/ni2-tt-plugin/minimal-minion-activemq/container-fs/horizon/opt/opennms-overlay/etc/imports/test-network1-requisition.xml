@@ -1,0 +1,94 @@
+<model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2024-01-24T06:05:50.261-05:00" foreign-source="test-network1-requisition" last-import="2024-01-24T06:06:54.550-05:00">
+   <node foreign-id="ni2_front" node-label="Ni2 Front">
+      <interface ip-addr="10.166.0.119" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="ni2_app" node-label="Ni2 Application">
+      <interface ip-addr="10.166.2.96" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="ni2_postgres_db" node-label="Ni2 PostgreSQL">
+      <interface ip-addr="10.166.5.180" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="database" node-label="database">
+      <interface ip-addr="172.20.0.10" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="Postgres"/>
+         <monitored-service service-name="PostgresSQL"/>
+      </interface>
+   </node>
+   <node foreign-id="horizon" node-label="horizon">
+      <interface ip-addr="172.20.0.15" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="grafana" node-label="grafana">
+      <interface ip-addr="172.20.0.20" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="minion_01" node-label="minion_01">
+      <interface ip-addr="172.20.0.25" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="docker-host-N000" node-label="docker-host-N000">
+      <interface ip-addr="172.20.0.1" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+   <node foreign-id="netsnmp_1_1" node-label="netsnmp_1_1">
+      <interface ip-addr="172.20.0.101" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="SNMP"/>
+      </interface>
+   </node>
+   <node foreign-id="monaco_01" node-label="monaco_01">
+      <interface ip-addr="172.20.0.103" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="SNMP"/>
+      </interface>
+   </node>
+   <node foreign-id="adam_01" node-label="adam_01">
+      <interface ip-addr="172.20.0.105" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="SNMP"/>
+      </interface>
+   </node>
+
+   <node location="minion1-location" foreign-id="netsnmp_2_1" node-label="netsnmp_2_1">
+      <interface descr="" ip-addr="172.20.2.101" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+
+   <node location="minion1-location" foreign-id="docker-host-N001" node-label="docker-host-N001">
+      <interface ip-addr="172.20.2.1" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+      </interface>
+   </node>
+
+   <node foreign-id="ni2_postgres_db" node-label="ni2_postgres_db">
+      <interface ip-addr="10.166.5.180" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="Postgres"/>
+      </interface>
+   </node>
+   <node foreign-id="ni2_app" node-label="ni2_app">
+      <interface ip-addr="10.166.2.96" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="HTTP-8080"/>
+      </interface>
+   </node>
+   <node foreign-id="ni2_front" node-label="ni2_front">
+      <interface ip-addr="10.166.0.119" status="1" snmp-primary="P">
+         <monitored-service service-name="ICMP"/>
+         <monitored-service service-name="HTTPS"/>
+      </interface>
+   </node>
+
+</model-import>

@@ -1,0 +1,8 @@
+# RENAME this file to test-properties.properties and change values
+# DO NOT check passwords into git
+
+ni2.tt.server.url=http://localhost:8080
+ni2.tt.server.username=username
+ni2.tt.server.password=password
+
+ni2.tt.opennms.instance=OpenNMS1

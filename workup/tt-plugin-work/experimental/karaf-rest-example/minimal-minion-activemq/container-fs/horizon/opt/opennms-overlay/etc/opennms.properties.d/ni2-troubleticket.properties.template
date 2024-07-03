@@ -1,0 +1,17 @@
+# RENAME this file to test-properties.properties and change values
+# DO NOT check passwords into git
+
+ni2.tt.server.url=http://localhost:8080
+ni2.tt.server.username=username
+ni2.tt.server.password=password
+
+ni2.tt.opennms.instance=OpenNMS1
+
+# see OpennMS documentation https://docs.opennms.com/horizon/33/operation/deep-dive/ticketing/introduction.html
+
+opennms.ticketer.plugin=org.opennms.netmgt.ticketd.OSGiBasedTicketerPlugin
+
+opennms.alarmTroubleTicketEnabled=true
+
+# note this gets the ReST version
+opennms.alarmTroubleTicketLinkTemplate=http://localhost:8080/api/v1/entity/event/get/event/extended/${id}

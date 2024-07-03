@@ -1,0 +1,38 @@
+package org.ni2.v01.spring.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+
+@Configuration
+public class SpringDocConfiguration {
+
+    @Bean(name = "org.ni2.v01.spring.config.SpringDocConfiguration.apiInfo")
+    OpenAPI apiInfo() {
+        return new OpenAPI()
+                .info(
+                        new Info()
+                                .title("Ni2 Deck API Gateway")
+                                .description("Ni2 Deck API Gateway Description")
+                                .contact(
+                                        new Contact()
+                                )
+                                .version("1.0.0")
+                )
+                .components(
+                        new Components()
+                                .addSecuritySchemes("bearer", new SecurityScheme()
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                                )
+                )
+        ;
+    }
+}
