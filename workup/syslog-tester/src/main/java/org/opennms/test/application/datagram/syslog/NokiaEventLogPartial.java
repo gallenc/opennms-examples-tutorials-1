@@ -188,7 +188,7 @@ public class NokiaEventLogPartial {
 
    @Override
    public String toString() {
-      return "OtherEventLog ["
+      return "NokiaEventLogPartial ["
                + "\n    rawMatch=" + rawMatch 
                + ",\n    pri=" + pri 
                + ",\n    priValue=" + priValue 
