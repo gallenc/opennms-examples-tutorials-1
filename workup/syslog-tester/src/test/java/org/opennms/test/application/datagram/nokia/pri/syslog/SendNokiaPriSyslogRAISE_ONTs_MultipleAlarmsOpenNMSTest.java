@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.opennms.test.application.datagram.syslog.NokiaEventLogFull;
-import org.opennms.test.application.datagram.syslog.NokiaEventLogPartial;
 
 import org.opennms.test.application.datagram.syslog.SimpleLogSender;
 import org.opennms.test.application.datagram.syslog.SimpleLogServer;
@@ -24,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SendNokiaPriSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
+public class SendNokiaPriSyslogRAISE_ONTs_MultipleAlarmsOpenNMSTest {
    private SimpleLogSender client;
 
    public static final int SYSLOG_SERVER_PORT = 4445;
@@ -50,16 +49,7 @@ public class SendNokiaPriSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
    public static final List<String> ONT_SERIAL_NUMBERS = Arrays.asList("ALCLFCA3FB0C");
 
 
-   // List<String> causeNames = Arrays.asList("high-laser-bias", "low-rx-opt-pwr-fe");
-//   public static final List<String> causeNames = Arrays.asList(
-//            "ont-eth-down", "ont-dying-gasp", "ont-missing", "low-rx-opt-pwr-fe", "loss-of-pon", "lacp-fault-on-port",
-//            "lag-group-down", "duplex-system-failure", "card-departed");
-
-   // CRITICAL RAISE MESSAGE TYPES NOKIA
-
-   //Mar 12 09:00:45 LT1-wel7-olt-101 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:637720/ENET_UNI_10GE,ENTITY_TYPE:onu/interface,alarm-type-id:lan-los,event-time:2024-03-12T09:00:45+00:00,perceived-severity:major,alarm-text:LAN-LOS (No carrier at the Ethernet UNI)
-
-   public static final String LAN_LOS = "Mar 12 09:00:45 LT1-wel7-olt-101 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:637720/ENET_UNI_10GE,ENTITY_TYPE:onu/interface,alarm-type-id:lan-los,event-time:2024-03-12T09:00:45+00:00,perceived-severity:major,alarm-text:LAN-LOS (No carrier at the Ethernet UNI)";
+   // ONT CRITICAL RAISE MESSAGE TYPES NOKIA
 
    // Mar 12 09:01:09 LT1-she503-olt-502 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:624406,ENTITY_TYPE:interface,alarm-type-id:onu-dying-gasp,event-time:2024-03-12T09:01:09+00:00,perceived-severity:major,alarm-text:Serial-Number=ALCLFCA46748, Reg-ID=, CT-Name=LT1.she503-olt-502_pon3_CTERM_XGS
 
@@ -69,11 +59,7 @@ public class SendNokiaPriSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
 
    public static final String ONU_LOSS_OF_PHY_LAYER = "Mar 12 09:00:25 LT1-blk1-olt-302 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:653751,ENTITY_TYPE:interface,alarm-type-id:onu-loss-of-phy-layer,event-time:2024-03-12T09:00:25+00:00,perceived-severity:major,alarm-text:Event=loss of PHY connectivity with ONU due to missing bursts (LOFi/LOSi or LOBi), Serial-Number=ALCLFCA4011B, Reg-ID=, CT-Name=LT1.blk1-olt-302_pon11_CTERM_XGS";
 
-   //Mar 12 08:44:18 LT1-roc1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:604219/ANI,ENTITY_TYPE:onu/interface,alarm-type-id:transceiver-link-rx-power,event-time:2024-03-12T08:44:18+00:00,perceived-severity:major,alarm-text:Low received optical power (Received downstream optical power below threshold)
-
-   public static final String TRANSCEIVER_LINK_RX_POWER = "Mar 12 08:44:18 LT1-roc1-olt-301 - APP_NAME:alarm_logic_app,APP_VERSION:2212.640,MODULE_NAME:alarm,ENTITY_NAME:604219/ANI,ENTITY_TYPE:onu/interface,alarm-type-id:transceiver-link-rx-power,event-time:2024-03-12T08:44:18+00:00,perceived-severity:major,alarm-text:Low received optical power (Received downstream optical power below threshold)";
-
-   public static final List<String> CAUSE_LOGS = Arrays.asList(LAN_LOS, ONU_DYING_GASP, ONU_LOSS_OF_PHY_LAYER, TRANSCEIVER_LINK_RX_POWER);
+   public static final List<String> CAUSE_LOGS = Arrays.asList(ONU_DYING_GASP, ONU_LOSS_OF_PHY_LAYER);
 
    @Before
    public void setup() throws IOException {
@@ -98,7 +84,7 @@ public class SendNokiaPriSyslogRAISEFourNodesMultipleAlarmsOpenNMSTest {
 
       SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
       int timeBetweenEvents = 1000; // 1000 ms 1s
-      long startTime = new Date().getTime() - timeBetweenEvents * ONT_SERIAL_NUMBERS.size();
+      long startTime = new Date().getTime() - timeBetweenEvents * ONT_SERIAL_NUMBERS.size() * CAUSE_LOGS.size();
 
       long delta = 0;
       
