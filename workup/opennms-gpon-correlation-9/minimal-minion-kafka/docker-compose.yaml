@@ -245,6 +245,25 @@ services:
     networks:
       frontend:
         ipv4_address: 172.20.0.6
+        
+ # simple log tester
+ # build the syslog-tester jar and place in logtester folder
+ # 
+  logtester:
+    image: openjdk:11
+    container_name: logtester
+    hostname: logtester
+    depends_on:
+      - kafka
+      - horizon
+    volumes:
+      - ./container-fs/logtester/syslog-tester-0.0.1-SNAPSHOT.jar:/tmp/syslog-tester-0.0.1-SNAPSHOT.jar
+    command: java -jar /tmp/syslog-tester-0.0.1-SNAPSHOT.jar server 514
+    ports:
+      - "11514:514/udp"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.7
 
         
  # first snmp container
