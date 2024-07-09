@@ -12,6 +12,7 @@ public class SimpleLogSender {
 
     private byte[] buf;
     private int port;
+       
 
     public SimpleLogSender(String host, int port) {
         try {
