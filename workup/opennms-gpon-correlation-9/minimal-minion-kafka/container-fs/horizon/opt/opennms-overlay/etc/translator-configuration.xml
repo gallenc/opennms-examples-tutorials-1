@@ -151,7 +151,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
@@ -175,7 +175,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
@@ -199,7 +199,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
@@ -223,7 +223,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
@@ -247,7 +247,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
@@ -271,7 +271,7 @@
                    <value type="constant" result="254.0.0.1" />
                 </assignment>
                <assignment name="nodeid" type="field">
-                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.assetnumber =?">
+                  <value type="sql" result="SELECT a.nodeid FROM assets a WHERE a.serialnumber =?">
                      <value type="parameter" name="Serial-Number" matches=".*" result="${0}" />
                   </value>
                </assignment>
