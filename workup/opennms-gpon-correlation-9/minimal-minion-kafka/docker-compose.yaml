@@ -129,7 +129,9 @@ services:
         ipv4_address: 172.20.0.25
 
   horizon:
-    image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${HORIZON_OCI:-horizon}:${ONMS_VERSION:-bleeding}
+    # image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${HORIZON_OCI:-horizon}:${ONMS_VERSION:-bleeding}
+    image: opennms/horizon:33.0.5-augmented
+    build: ./container-fs/horizon/
     container_name: horizon
     hostname: horizon
     sysctls:
@@ -212,7 +214,7 @@ services:
       frontend:
         ipv4_address: 172.20.0.35
         
-# kafka client # wait for hrizon to allow kafka to start
+# kafka client # wait for horizon to allow kafka to start
   kafka-client:
     image: opennms:kafka-client
     profiles: ["kafka-client"]

@@ -1,20 +1,6 @@
 # requisitions
 
-# gpon1 
-Derived from supplied logs.
-no splitters.
 
-```
- docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/importer/reloadImport -p 'url http://pris:8000/requisitions/gpon1'
-```
-
-
-# gpon2
-Adding splitters into the mix
-
-```
- docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/importer/reloadImport -p 'url http://pris:8000/requisitions/gpon2'
-```
 
 # copy drules rules and restart events
 

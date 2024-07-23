@@ -9,7 +9,7 @@
 
 [OtherLogs regex parsing](../main/OtherLogs.md)
 
-## to send or freceive stand alone logs
+## to send or receive stand alone logs
 
 build jar
 
