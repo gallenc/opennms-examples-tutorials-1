@@ -248,6 +248,30 @@ public class CalexAxosEventLog {
       }
    }
 
+   /**
+    * this sets perceived severity and also pri
+    * @param percievedSeverity
+    */
+   public void adjustPerceivedSeverity(String percievedSeverity) {
+      SyslogSeverity syslogSeverity = mapCalexSeverity(percievedSeverity);
+      this.setPerceivedSeverity(percievedSeverity);
+      this.setSyslogSeverity(Integer.toString(syslogSeverity.numericalCode()));
+      priValue = calculatePri();
+   }
+
+   
+   public String calculatePri() {
+      String priValue = null;
+      try {
+         int severity = Integer.parseInt(syslogSeverity);
+         int facility = Integer.parseInt(logFacility);
+         int priValueNo = (facility * 8) + severity;
+         priValue = Integer.toString(priValueNo);
+      } catch (Exception ex) {
+         priValue = "000"; // if unable to create a pri
+      }
+      return priValue;
+   }
 
    /**
     * parse a log entry from axos r21 logs
@@ -313,14 +337,7 @@ public class CalexAxosEventLog {
 
       if (withPri) {
          if (priValue == null) {
-            try {
-               int severity = Integer.parseInt(syslogSeverity);
-               int facility = Integer.parseInt(logFacility);
-               int priValueNo = (facility * 8) + severity;
-               priValue = Integer.toString(priValueNo);
-            } catch (Exception ex) {
-               priValue = "000"; // if unable to create a pri
-            }
+            priValue = calculatePri();
          }
          sb.append("<" + priValue + ">");
       }
