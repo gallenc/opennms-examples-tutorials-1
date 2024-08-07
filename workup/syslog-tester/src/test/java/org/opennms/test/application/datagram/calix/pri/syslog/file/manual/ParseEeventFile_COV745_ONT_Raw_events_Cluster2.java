@@ -12,7 +12,7 @@ public class ParseEeventFile_COV745_ONT_Raw_events_Cluster2 extends ParseEventsF
    @Before
    public void before() throws IOException{
       
-      super.setSourceLogFile("./src/test/resources/cov745_ONT_Raw_events_Cluster2.csv");
+      super.setSourceLogFile("./src/test/resources/syslogevents/cov745_ONT_Raw_events_Cluster2.csv");
 
       super.setSendEventToOpenNMS(true);
 

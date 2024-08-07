@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -37,6 +38,10 @@ public class EventListSender {
    public void sendEventFile(File eventFile) throws StreamReadException, DatabindException, IOException {
       LOG.debug("sending events from file:"+eventFile.getAbsolutePath());
       ObjectMapper objectMapper = new ObjectMapper();
+      
+      // if properties not mapped - ignore
+      objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+      
       EventList eventList = objectMapper.readValue( eventFile, EventList.class);
       sendEventList(eventList);
    }

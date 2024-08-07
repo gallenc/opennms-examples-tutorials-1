@@ -41,10 +41,10 @@ import java.util.List;
 
 public class EventList {
    
-   Integer count = null;
-   Integer totalCount = null;
-   Integer offset = null;
-   List<Event> event = new ArrayList<>();
+   private Integer count = null;
+   private Integer totalCount = null;
+   private Integer offset = null;
+   private List<Event> event = new ArrayList<>();
    
    public Integer getCount() {
       return count;

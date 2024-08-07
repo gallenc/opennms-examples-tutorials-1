@@ -85,7 +85,7 @@ public class ParseNokiaEventsFileTest {
          lteMappingFile.createNewFile();
          lteMappingFileWriter = new PrintWriter(lteMappingFile);
 
-         scanner = new Scanner(new File("./src/test/resources/sampleLogsExtra-2-5-24_Nokia.txt"));
+         scanner = new Scanner(new File("./src/test/resources/syslogevents/sampleLogsExtra-2-5-24_Nokia.txt"));
 
          int logCount = 0;
          int calexLogSuccess = 0;

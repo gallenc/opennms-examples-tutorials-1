@@ -84,7 +84,7 @@ public class ParseEventsFileCalexRaiseTestSMALL {
          lteMappingFile.createNewFile();
          lteMappingFileWriter = new PrintWriter(lteMappingFile);
 
-         scanner = new Scanner(new File("./src/test/resources/sampleLogs1_Calex_RAISE-SMALL.csv"));
+         scanner = new Scanner(new File("./src/test/resources/syslogevents/sampleLogs1_Calex_RAISE-SMALL.csv"));
 
          int logCount = 0;
          int calexLogSuccess = 0;

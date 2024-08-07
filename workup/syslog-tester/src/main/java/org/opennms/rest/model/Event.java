@@ -36,9 +36,10 @@ import java.util.List;
         },
 */
 
+
 public class Event {
 
-   String serviceType = null;
+   ServiceType serviceType = null;
    String ifIndex = null;
    Integer id = null;
    Integer nodeId = null;
@@ -56,10 +57,11 @@ public class Event {
    String host = null;
    String ipAddress = null;
    
-   public String getServiceType() {
+
+   public ServiceType getServiceType() {
       return serviceType;
    }
-   public void setServiceType(String serviceType) {
+   public void setServiceType(ServiceType serviceType) {
       this.serviceType = serviceType;
    }
    public String getIfIndex() {
@@ -168,8 +170,6 @@ public class Event {
                + ", parameters=" + parameters + ", createTime=" + createTime + ", description=" + description + ", logMessage=" + logMessage + ", log=" + log + ", display=" + display + ", severity="
                + severity + ", host=" + host + ", ipAddress=" + ipAddress + "]";
    }
-
-   
-   
+     
 
 }

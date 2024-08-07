@@ -83,7 +83,7 @@ public class ParseEventsFileTest {
          lteMappingFile.createNewFile();
          lteMappingFileWriter = new PrintWriter(lteMappingFile);
 
-         scanner = new Scanner(new File("./src/test/resources/sampleLogs1.csv"));
+         scanner = new Scanner(new File("./src/test/resources/syslogevents/sampleLogs1.csv"));
 
          int logCount = 0;
          int calexLogSuccess = 0;

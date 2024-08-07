@@ -49,7 +49,7 @@ public class ParseEventsFilePriTest {
    
    public static final boolean GENERATE_TIMESTAMP=true;
    
-   public static final String SOURCE_LOG_FILE="./src/test/resources/cov745_ONT_Raw_events_Cluster2.csv";
+   public static final String SOURCE_LOG_FILE="./src/test/resources/syslogevents/cov745_ONT_Raw_events_Cluster2.csv";
 
 
    private boolean sendEventToOpenNMS = SEND_EVENT_TO_OPENNMS;

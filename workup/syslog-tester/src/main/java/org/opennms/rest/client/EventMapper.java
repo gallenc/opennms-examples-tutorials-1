@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.opennms.rest.model.Parameter;
+import org.opennms.rest.model.ServiceType;
 import org.opennms.xmlns.xsd.event.Event;
 import org.opennms.xmlns.xsd.event.Parm;
 import org.opennms.xmlns.xsd.event.Parms;
@@ -22,7 +23,7 @@ public class EventMapper {
       String description = jsonEvent.getDescription();
       String severity = jsonEvent.getSeverity();
       
-      String serviceType = jsonEvent.getServiceType();
+      ServiceType serviceType = jsonEvent.getServiceType();
       String ifIndex = jsonEvent.getIfIndex();
       Integer nodeId = jsonEvent.getNodeId();
       String nodeLabel = jsonEvent.getNodeLabel();
@@ -45,6 +46,7 @@ public class EventMapper {
       xmlEvent.setSeverity((severity!=null) ? severity.toUpperCase() : null);
       xmlEvent.setHost(host);
       xmlEvent.setInterface(ipAddress);
+      xmlEvent.setService((serviceType!=null) ? serviceType.getName():null);
 
       if(parameters!=null) {
          xmlEvent.setParms(new Parms());
