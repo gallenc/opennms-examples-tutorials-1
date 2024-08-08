@@ -55,8 +55,7 @@ Thus the alarm management of each FEX region can be essentially stand alone from
 ## critical alarms and alarm parsing
 
 
-
-critical alarms which indicate a fibre break are any of
+critical alarms which indicate a fibre break are any of the following
 
 |CALEX | ont-eth-down,ont-dying-gasp,ont-missing,low-rx-opt-pwr-fe,loss-of-pon,lacp-fault-on-port,lag-group-down,duplex-system-failure,card-departed,lan-los|
 
@@ -65,9 +64,8 @@ critical alarms which indicate a fibre break are any of
 More detailed breakdown (Simon Mc Bride 28 Jun 2024, 15:59)
 
 |Error Condition|OLT alarm| PE Alarm|Notes|
-
 |-----|---|---|---|
-|Customer ONT Ethernet Port state change| ont-eth-down / lan-los | CFM defMACstatus |   |
+|Customer ONT Ethernet Port state change | ont-eth-down / lan-los | CFM defMACstatus |   |
 |Power loss at ONT |  ont-dying-gasp / ont departed / onu-dying-gasp | CFM defRemoteCCM    |
 |Fibre break beween ONT and OLT | ont-missing / onu-loss-of-phy-layer |CFM defRemoteCCM    Can be at any point between customer premisis and OLT including Primary or Secondary Node in which case multiple customers might be impacted |
 |Fibre break between Primary Node and OLT |   loss-of-pon | CFM defRemoteCCM    Might also receive this message if a PON only has a single customer and that customer experiences a fibre break |
@@ -81,6 +79,7 @@ More detailed breakdown (Simon Mc Bride 28 Jun 2024, 15:59)
 ## solution options
 
 
+![Alt text](../docs/images/syslogprocessing.drawio.png)
 
 
 

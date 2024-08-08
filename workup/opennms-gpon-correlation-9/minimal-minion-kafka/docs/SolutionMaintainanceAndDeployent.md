@@ -1,8 +1,3 @@
-# Syslog processing and rules
-
-![Alt text](../docs/images/syslogprocessing.drawio.png)
-
-
 # configuration development and testing environment
 
 ![Alt text](../docs/images/parsingAndRuleDevelopment.drawio.png)
