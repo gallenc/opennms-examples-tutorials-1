@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 
-public class EventListSenderCalexClearFourTest {
+public class EventListSenderCalixRaiseFourTest {
    
    String onmsRestUrl = "http://localhost:8980/opennms/rest/events";
    String username = "admin";
@@ -30,7 +30,7 @@ public class EventListSenderCalexClearFourTest {
       System.out.println("start of sendEventFileTest");
       EventListSender eventListSender = new EventListSender(onmsRestUrl,  username,  password, EventListSender.USE_DIFFERNCE);
       
-      File eventFile= new File("./src/test/resources/jsonevents/testEventONTClearFOUR1.json");
+      File eventFile= new File("./src/test/resources/jsonevents/testEventONTRaiseFOUR1.json");
       eventListSender.sendEventFile(eventFile);
       System.out.println("end of sendEventFileTest");
    }
