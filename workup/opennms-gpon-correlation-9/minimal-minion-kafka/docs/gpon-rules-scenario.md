@@ -62,7 +62,7 @@ critical alarms which indicate a fibre break are any of
 
 |NOKIA |onu-dying-gasp,onu-loss-of-phy-layer,transceiver-link-rx-power|
 
-More detailed breakdown
+More detailed breakdown (Simon Mc Bride 28 Jun 2024, 15:59)
 
 |Error Condition|OLT alarm| PE Alarm|Notes|
 
@@ -71,7 +71,7 @@ More detailed breakdown
 |Power loss at ONT |  ont-dying-gasp / ont departed / onu-dying-gasp | CFM defRemoteCCM    |
 |Fibre break beween ONT and OLT | ont-missing / onu-loss-of-phy-layer |CFM defRemoteCCM    Can be at any point between customer premisis and OLT including Primary or Secondary Node in which case multiple customers might be impacted |
 |Fibre break between Primary Node and OLT |   loss-of-pon | CFM defRemoteCCM    Might also receive this message if a PON only has a single customer and that customer experiences a fibre break |
-|Bent fibre between ONT and OLT | low-rx-opt-pwr-fe / low-rx-opt-pwr-ne / transceiver-link-rx-power |      Can be at any point between customer premises and OLT including Primary or Secondary Node in which case multiple customers might be impacted |
+|Bent fibre between ONT and OLT | low-rx-opt-pwr-fe / low-rx-opt-pwr-ne / transceiver-link-rx-power | Can be at any point between customer premises and OLT including Primary or Secondary Node in which case multiple customers might be impacted |
 |Failure of PON Optic  |  interface-module-failure |   CFM defRemoteCCM    |
 |Failure of OLT linecard |card-departed |  CFM defRemoteCCM    |
 |Failure of  single link in bundle interface between OLT and PE|  lacp-fault-on-port | n/a |
