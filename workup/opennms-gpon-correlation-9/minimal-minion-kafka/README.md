@@ -1,6 +1,8 @@
 
 # Representing gpon in OpenNMS
 
+See [more detailed documentation here](../minimal-minion-kafka/docs/README.md)
+
 ## introduction and use case
 
 This example comes from a use case inspired by GPON networks. 
