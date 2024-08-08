@@ -78,8 +78,48 @@ More detailed breakdown (Simon Mc Bride 28 Jun 2024, 15:59)
 
 ## solution options
 
+The figure below illustrates the event flow and correlation within OpenNMS.
 
 ![Alt text](../docs/images/syslogprocessing.drawio.png)
+
+1. inventory
+A correct inventory and network model is critical to any correlation. 
+OpenNMS can model tree networks using the parent node feature. 
+Within OpenNMS we represent ONTs, LTE's, PRIMARY NODES, SECODNARY NODES and connected PE routers.
+Each node is created with a link to it's parent node. 
+We also populate the asset table for each node with the serial number and asset number which are used as the key within LTE events to associate alarms with the correct OLT.
+
+![Alt text](../docs/images/gponHeirarchy.png)
+
+2. parsing events and syslogs
+
+Nokia and Calix GPON devices use Syslog to report alarms. 
+The format of the syslogs and content of messages from both devices differ significantly. 
+The first stage of the process is to correctly parse these messages into useful OpenNMS Events
+
+3. creating new alarms for ONTs
+
+The customer located ONT's do not generate any alarms directly but instead rely on problems being reported by their parent  OLT. 
+The event translator is used to parse the ONT identifiers from OLT events and do a database look up to find which Node in OpenNMS to associate the alarm with. 
+This process is performed in the event-translator.
+
+
+4. finding related alarms
+
+OpenNMS has the concept of a Situation which is an alarm that wraps other alarms and represents a collection of alarms around a network event.
+
+to discover a situation, we need to use the topology to relate alarms and discover whether all of the OLT's below a network splitter have critical alarms. If all of the ONT's have a critical alarm, then we know that there is probably a problem with the fibre above the splitter
+
+We have used the critical alarm list given above in the corelation. 
+If all of the ONT's below a SECONDARY NODE have any one of the critical alarms, we create a situation 
+
+
+We use database scanning using the JDBC service to run sql queries repeatedly to find these situations. 
+If a situation is found a service down alarm is created for the passive splitter
+
+We use Drools rules to create the situation from these service down events.
+the Drools rule looks for service down alarms on splitter and then looks for all alarms below the spliter to associate into a situation.
+
 
 
 
