@@ -116,7 +116,7 @@ The following image illustrates how situations are included in an alarm list.
 
 ![Alt text](../docs/images/situationsA.png)
 
-A Situation is illustrated below.
+The detail of situation 1365 is illustrated below.
 Note that a Situation is an alarm with associated alarms (which can also be situations).
 In this case all four ONT's below lec191-olt-secondary have low-rx-opt-pwf-fe alarms.
 
